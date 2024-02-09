@@ -20,7 +20,17 @@ option2 = st.selectbox(
     'In welke fase van het project zit je',
     ('Begin fase', 'Midden'))
 
+st.page_link("dashboard.py", label="Home", icon="🏠")
+st.page_link("pages/buitenkozijnen.py", label="Page 1", icon="1️⃣")
 
+
+# In[ ]:
+
+
+if option2 == 'Begin fase':
+    col1, col2 = st.columns(2)
+    st.markdown("**wat is de range van producten die in een productgroep geïmplementeerd kunnen worden?**")
+   
 
 
 # In[1]:
@@ -28,6 +38,7 @@ option2 = st.selectbox(
 
 if option2 == 'Begin fase':
     col1, col2 = st.columns(2)
+    st.markdown("**wat is de range van producten die in een productgroep geïmplementeerd kunnen worden?**")
     with col1:
         v_buitenkozijnen = st.slider('Buitenkozijnen, -ramen, -deuren en -puien',0, 100, (2, 10))
         v_lift = st.slider('Lift',0, 100, (2, 10))
