@@ -12,8 +12,6 @@ from menu import menu
 # In[ ]:
 
 
-st.markdown("Projecten Eigen Haard")
-
 if "project" not in st.session_state:
     st.session_state.project = None
     
@@ -22,10 +20,15 @@ st.session_state._project = st.session_state.project
 def set_project():
     # Callback function to save the role selection to Session State
     st.session_state.project = st.session_state._project
-    
-st.selectbox('Om wat voor soort project gaat het?',
-    [None, 'Nieuwbouw woningen', 'Renovatie'], key="_project", on_change=set_project)
 
+st.markdown("Projecten Eigen Haard")
+st.selectbox(
+    'Om wat voor soort project gaat het?',
+    [None, 'Nieuwbouw woningen', 'Renovatie'], 
+    key="_project", 
+    on_change=set_project, 
+)
+menu()
 
 # st.page_link("dashboard.py", label="Home")
 # st.page_link("pages/buitenkozijnen.py", label="Buitenkozijnen, -ramen, -deuren en -puien")
