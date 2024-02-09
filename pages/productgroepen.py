@@ -9,18 +9,24 @@ import pandas as pd
 from menu import menu_with_redirect
 
 
+# In[ ]:
+
+
+menu_with_redirect()
+tab1, tab2, tab3. tab4, tab5, tab6, tab7, tab8, tab9, tab10 = st.tabs(['B', 'c', 'd', 'de', 'e'. 'f', 'g', 'h', 'u', 'p'])
+
+
 # #### Balustrades en leuningen
 
 # In[ ]:
 
 
-menu_with_redirect()
+with tab1:
+    st.subheader("Balustrades en leuningen")
+    st.markdown("**wat is de range van producten die in een productgroep geïmplementeerd kunnen worden?**")
 
-st.subheader("Balustrades en leuningen")
-st.markdown("**wat is de range van producten die in een productgroep geïmplementeerd kunnen worden?**")
-
-v_balustrades = st.slider('vul max en min te implementeren producten in',0, 100, (2, 10), key=1)
-b_balustrades = st.number_input("vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key=2)
+    v_balustrades = st.slider('vul max en min te implementeren producten in',0, 100, (2, 10), key=1)
+    b_balustrades = st.number_input("vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key=2)
 
 
 # #### Beveiliging
@@ -28,8 +34,7 @@ b_balustrades = st.number_input("vul hoeveel producten er al geimplementeerd zij
 # In[ ]:
 
 
-menu_with_redirect()
-
+with tab2:
 st.subheader("Beveiliging")
 st.markdown("**wat is de range van producten die in een productgroep geïmplementeerd kunnen worden?**")
 
@@ -42,8 +47,7 @@ b_beveiliging = st.number_input("vul hoeveel producten er al geimplementeerd zij
 # In[ ]:
 
 
-menu_with_redirect()
-
+with tab3:
 st.subheader("Binnenkozijnen en deuren")
 st.markdown("**wat is de range van producten die in een productgroep geïmplementeerd kunnen worden?**")
 
@@ -56,8 +60,7 @@ b_binnenkozijnen = st.number_input("vul hoeveel producten er al geimplementeerd 
 # In[ ]:
 
 
-menu_with_redirect()
-
+with tab4:
 st.subheader("Binnenwandafwerkingen")
 st.markdown("**wat is de range van producten die in een productgroep geïmplementeerd kunnen worden?**")
 
@@ -70,8 +73,7 @@ b_binnenwandafwerkingen = st.number_input("vul hoeveel producten er al geimpleme
 # In[ ]:
 
 
-menu_with_redirect()
-
+with tab5:
 st.subheader("Binnenwanden")
 st.markdown("**wat is de range van producten die in een productgroep geïmplementeerd kunnen worden?**")
 
@@ -84,8 +86,7 @@ b_binnenwanden = st.number_input("vul hoeveel producten er al geimplementeerd zi
 # In[ ]:
 
 
-menu_with_redirect()
-
+with tab6:
 st.subheader("Buitenkozijnen, -ramen, -deuren en -puien")
 st.markdown("**wat is de range van producten die in een productgroep geïmplementeerd kunnen worden?**")
 
@@ -98,8 +99,7 @@ b_buitenkozijnen = st.number_input("vul hoeveel producten er al geimplementeerd 
 # In[ ]:
 
 
-menu_with_redirect()
-
+with tab7:
 st.subheader("Buitenwanden")
 st.markdown("**wat is de range van producten die in een productgroep geïmplementeerd kunnen worden?**")
 
@@ -112,8 +112,7 @@ b_buitenwanden = st.number_input("vul hoeveel producten er al geimplementeerd zi
 # In[ ]:
 
 
-menu_with_redirect()
-
+with tab8:
 st.subheader("Daken")
 st.markdown("**wat is de range van producten die in een productgroep geïmplementeerd kunnen worden?**")
 
@@ -126,7 +125,7 @@ b_daken = st.number_input("vul hoeveel producten er al geimplementeerd zijn in",
 # In[ ]:
 
 
-menu_with_redirect()
+with tab9:
 
 st.subheader("Elektrische installaties")
 st.markdown("**wat is de range van producten die in een productgroep geïmplementeerd kunnen worden?**")
@@ -140,7 +139,7 @@ b_elektra = st.number_input("vul hoeveel producten er al geimplementeerd zijn in
 # In[ ]:
 
 
-menu_with_redirect()
+with tab10:
 
 st.subheader("Vaste gebouwvoorzieningen")
 st.markdown("**wat is de range van producten die in een productgroep geïmplementeerd kunnen worden?**")
@@ -154,8 +153,6 @@ b_gebouwvoorzieningen = st.number_input("vul hoeveel producten er al geimplement
 # In[ ]:
 
 
-menu_with_redirect()
-
 st.subheader("Hoofddraagconstructie")
 st.markdown("**wat is de range van producten die in een productgroep geïmplementeerd kunnen worden?**")
 
@@ -167,8 +164,6 @@ b_hoofddraagconstructie = st.number_input("vul hoeveel producten er al geimpleme
 
 # In[ ]:
 
-
-menu_with_redirect()
 
 st.subheader("Na-isolatie binnen")
 st.markdown("**wat is de range van producten die in een productgroep geïmplementeerd kunnen worden?**")
@@ -182,8 +177,6 @@ b_isolatie = st.number_input("vul hoeveel producten er al geimplementeerd zijn i
 # In[ ]:
 
 
-menu_with_redirect()
-
 st.subheader("Keuken")
 st.markdown("**wat is de range van producten die in een productgroep geïmplementeerd kunnen worden?**")
 
@@ -195,8 +188,6 @@ b_keuken = st.number_input("vul hoeveel producten er al geimplementeerd zijn in"
 
 # In[ ]:
 
-
-menu_with_redirect()
 
 st.subheader("Lift")
 st.markdown("**wat is de range van producten die in een productgroep geïmplementeerd kunnen worden?**")
@@ -210,8 +201,6 @@ b_lift = st.number_input("vul hoeveel producten er al geimplementeerd zijn in", 
 # In[ ]:
 
 
-menu_with_redirect()
-
 st.subheader("Luchtbehandeling")
 st.markdown("**wat is de range van producten die in een productgroep geïmplementeerd kunnen worden?**")
 
@@ -223,8 +212,6 @@ b_luchtbehandeling = st.number_input("vul hoeveel producten er al geimplementeer
 
 # In[ ]:
 
-
-menu_with_redirect()
 
 st.subheader("Luiken en vensters")
 st.markdown("**wat is de range van producten die in een productgroep geïmplementeerd kunnen worden?**")
@@ -238,8 +225,6 @@ b_luiken = st.number_input("vul hoeveel producten er al geimplementeerd zijn in"
 # In[ ]:
 
 
-menu_with_redirect()
-
 st.subheader("Plafonds")
 st.markdown("**wat is de range van producten die in een productgroep geïmplementeerd kunnen worden?**")
 
@@ -251,8 +236,6 @@ b_plafonds = st.number_input("vul hoeveel producten er al geimplementeerd zijn i
 
 # In[ ]:
 
-
-menu_with_redirect()
 
 st.subheader("Riolering en HWA")
 st.markdown("**wat is de range van producten die in een productgroep geïmplementeerd kunnen worden?**")
@@ -266,8 +249,6 @@ b_riolering = st.number_input("vul hoeveel producten er al geimplementeerd zijn 
 # In[ ]:
 
 
-menu_with_redirect()
-
 st.subheader("Sanitair")
 st.markdown("**wat is de range van producten die in een productgroep geïmplementeerd kunnen worden?**")
 
@@ -279,8 +260,6 @@ b_sanitair = st.number_input("vul hoeveel producten er al geimplementeerd zijn i
 
 # In[ ]:
 
-
-menu_with_redirect()
 
 st.subheader("Terreininrichting")
 st.markdown("**wat is de range van producten die in een productgroep geïmplementeerd kunnen worden?**")
@@ -294,8 +273,6 @@ b_terreininrichting = st.number_input("vul hoeveel producten er al geimplementee
 # In[ ]:
 
 
-menu_with_redirect()
-
 st.subheader("Trappen en hellingen")
 st.markdown("**wat is de range van producten die in een productgroep geïmplementeerd kunnen worden?**")
 
@@ -307,8 +284,6 @@ b_trappen = st.number_input("vul hoeveel producten er al geimplementeerd zijn in
 
 # In[ ]:
 
-
-menu_with_redirect()
 
 st.subheader("Verwarming en koeling")
 st.markdown("**wat is de range van producten die in een productgroep geïmplementeerd kunnen worden?**")
@@ -322,8 +297,6 @@ b_koeling = st.number_input("vul hoeveel producten er al geimplementeerd zijn in
 # In[ ]:
 
 
-menu_with_redirect()
-
 st.subheader("Vloerafwerkingen")
 st.markdown("**wat is de range van producten die in een productgroep geïmplementeerd kunnen worden?**")
 
@@ -336,8 +309,6 @@ b_vloerafwerking = st.number_input("vul hoeveel producten er al geimplementeerd 
 # In[ ]:
 
 
-menu_with_redirect()
-
 st.subheader("Vloeren")
 st.markdown("**wat is de range van producten die in een productgroep geïmplementeerd kunnen worden?**")
 
@@ -349,8 +320,6 @@ b_vloeren = st.number_input("vul hoeveel producten er al geimplementeerd zijn in
 
 # In[ ]:
 
-
-menu_with_redirect()
 
 st.subheader("Warm- en koud water installaties")
 st.markdown("**wat is de range van producten die in een productgroep geïmplementeerd kunnen worden?**")
