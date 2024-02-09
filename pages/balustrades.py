@@ -12,12 +12,13 @@ menu_with_redirect()
 
 
 st.subheader("Balustrades en leuningen")
+
 st.markdown("**wat is de range van producten die in een productgroep geïmplementeerd kunnen worden?**")
-
-
 value = st.slider('vul max en min te implementeren producten in',0, 100, (2, 10))
+
+st.markdown("**hoeveel producten zijn er al geïmplementeerd in het project**")
 besparen = st.number_input("vul hoeveel producten er al geimplementeerd zijn in", min_value=0)
 
-
-st.page_link("pages/water.py", label="Warm- en koud water installaties")
+with st.container(border=True):
+    st.page_link("pages/water.py", label="Klik hier voor de volgende productgroep")
 
