@@ -8,14 +8,10 @@ import streamlit as st
 import pandas as pd
 from menu import menu_with_redirect
 
-
-# In[ ]:
-
-
 menu_with_redirect()
 
 
-st.subheader("Buitenkozijnen, -ramen, -deuren en -puien")
+st.subheader("Sanitair")
 st.markdown("**wat is de range van producten die in een productgroep geïmplementeerd kunnen worden?**")
 
 

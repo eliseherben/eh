@@ -15,7 +15,7 @@ from menu import menu_with_redirect
 menu_with_redirect()
 
 
-st.subheader("Buitenkozijnen, -ramen, -deuren en -puien")
+st.subheader("Lift")
 st.markdown("**wat is de range van producten die in een productgroep geïmplementeerd kunnen worden?**")
 
 
