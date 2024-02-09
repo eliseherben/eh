@@ -39,6 +39,9 @@ def authenticated_menu():
         st.sidebar.page_link("pages/water.py", label="Warm- en koud water installaties")
         st.sidebar.page_link("pages/elektra.py", label="Elektrische installaties")
         st.sidebar.page_link("pages/beveiliging.py", label="Beveiliging")
+        
+    if st.session_state.project == 'Renovatie':
+        st.sidebar.page_link("pages/productgroepen.py", label="Productgroepen")
 
         
 def unauthenticated_menu():
