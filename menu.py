@@ -15,6 +15,31 @@ def authenticated_menu():
     st.sidebar.page_link("dashboard.py", label="Introductie")
     if st.session_state.project == 'Nieuwbouw woningen':
         st.sidebar.page_link("pages/buitenkozijnen.py", label="Buitenkozijnen, -ramen, -deuren en -puien")
+        st.sidebar.page_link("pages/lift.py", label="Lift")
+        st.sidebar.page_link("pages/binnenkozijnen.py", label="Lift")
+        st.sidebar.page_link("pages/binnenwandafwerkingen.py", label="Lift")
+        st.sidebar.page_link("pages/vloerafwerkingen.py", label="Lift")
+        st.sidebar.page_link("pages/plafonds.py", label="Lift")
+        st.sidebar.page_link("pages/sanitair.py", label="Lift")
+        st.sidebar.page_link("pages/keuken.py", label="Lift")
+        st.sidebar.page_link("pages/buitenwanden.py", label="Lift")
+        st.sidebar.page_link("pages/vloeren.py", label="Lift")
+        st.sidebar.page_link("pages/daken.py", label="Lift")
+        st.sidebar.page_link("pages/hoofddraagconstructie.py", label="Lift")
+        st.sidebar.page_link("pages/isolate.py", label="Lift")
+        st.sidebar.page_link("pages/riolering.py", label="Lift")
+        st.sidebar.page_link("pages/terreininrichting.py", label="Lift")
+        st.sidebar.page_link("pages/verwarming.py", label="Lift")
+        st.sidebar.page_link("pages/luchtbehandeling.py", label="Lift")
+        st.sidebar.page_link("pages/gebouwvoorzieningen.py", label="Lift")
+        st.sidebar.page_link("pages/binnenwanden.py", label="Lift")
+        st.sidebar.page_link("pages/trappen.py", label="Lift")
+        st.sidebar.page_link("pages/luiken.py", label="Lift")
+        st.sidebar.page_link("pages/balustrades.py", label="Lift")
+        st.sidebar.page_link("pages/water.py", label="Lift")
+        st.sidebar.page_link("pages/elektra.py", label="Lift")
+        st.sidebar.page_link("pages/beveiliging.py", label="Lift")
+
         
 def unauthenticated_menu():
     # Show a navigation menu for unauthenticated users
