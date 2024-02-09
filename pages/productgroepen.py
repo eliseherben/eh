@@ -35,11 +35,11 @@ with tab1:
 
 
 with tab2:
-st.subheader("Beveiliging")
-st.markdown("**wat is de range van producten die in een productgroep geïmplementeerd kunnen worden?**")
+    st.subheader("Beveiliging")
+    st.markdown("**wat is de range van producten die in een productgroep geïmplementeerd kunnen worden?**")
 
-v_beveiliging = st.slider('vul max en min te implementeren producten in',0, 100, (2, 10), key=3)
-b_beveiliging = st.number_input("vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key=4)
+    v_beveiliging = st.slider('vul max en min te implementeren producten in',0, 100, (2, 10), key=3)
+    b_beveiliging = st.number_input("vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key=4)
 
 
 # #### Binnenkozijnen en deuren
@@ -48,11 +48,11 @@ b_beveiliging = st.number_input("vul hoeveel producten er al geimplementeerd zij
 
 
 with tab3:
-st.subheader("Binnenkozijnen en deuren")
-st.markdown("**wat is de range van producten die in een productgroep geïmplementeerd kunnen worden?**")
+    st.subheader("Binnenkozijnen en deuren")
+    st.markdown("**wat is de range van producten die in een productgroep geïmplementeerd kunnen worden?**")
 
-v_binnenkozijnen = st.slider('vul max en min te implementeren producten in',0, 100, (2, 10), key=5)
-b_binnenkozijnen = st.number_input("vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key=6)
+    v_binnenkozijnen = st.slider('vul max en min te implementeren producten in',0, 100, (2, 10), key=5)
+    b_binnenkozijnen = st.number_input("vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key=6)
 
 
 # #### Binnenwandafwerkingen
@@ -61,11 +61,11 @@ b_binnenkozijnen = st.number_input("vul hoeveel producten er al geimplementeerd 
 
 
 with tab4:
-st.subheader("Binnenwandafwerkingen")
-st.markdown("**wat is de range van producten die in een productgroep geïmplementeerd kunnen worden?**")
+    st.subheader("Binnenwandafwerkingen")
+    st.markdown("**wat is de range van producten die in een productgroep geïmplementeerd kunnen worden?**")
 
-v_binnenwandafwerkingen = st.slider('vul max en min te implementeren producten in',0, 100, (2, 10), key=7)
-b_binnenwandafwerkingen = st.number_input("vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key=8)
+    v_binnenwandafwerkingen = st.slider('vul max en min te implementeren producten in',0, 100, (2, 10), key=7)
+    b_binnenwandafwerkingen = st.number_input("vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key=8)
 
 
 # #### Binnenwanden
@@ -74,11 +74,11 @@ b_binnenwandafwerkingen = st.number_input("vul hoeveel producten er al geimpleme
 
 
 with tab5:
-st.subheader("Binnenwanden")
-st.markdown("**wat is de range van producten die in een productgroep geïmplementeerd kunnen worden?**")
+    st.subheader("Binnenwanden")
+    st.markdown("**wat is de range van producten die in een productgroep geïmplementeerd kunnen worden?**")
 
-v_binnenwanden = st.slider('vul max en min te implementeren producten in',0, 100, (2, 10), key=9)
-b_binnenwanden = st.number_input("vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key=10)
+    v_binnenwanden = st.slider('vul max en min te implementeren producten in',0, 100, (2, 10), key=9)
+    b_binnenwanden = st.number_input("vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key=10)
 
 
 # #### Buitenkozijnen, -ramen, -deuren en -puien
@@ -87,11 +87,11 @@ b_binnenwanden = st.number_input("vul hoeveel producten er al geimplementeerd zi
 
 
 with tab6:
-st.subheader("Buitenkozijnen, -ramen, -deuren en -puien")
-st.markdown("**wat is de range van producten die in een productgroep geïmplementeerd kunnen worden?**")
+    st.subheader("Buitenkozijnen, -ramen, -deuren en -puien")
+    st.markdown("**wat is de range van producten die in een productgroep geïmplementeerd kunnen worden?**")
 
-v_buitenkozijnen = st.slider('vul max en min te implementeren producten in',0, 100, (2, 10), key=11)
-b_buitenkozijnen = st.number_input("vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key=12)
+    v_buitenkozijnen = st.slider('vul max en min te implementeren producten in',0, 100, (2, 10), key=11)
+    b_buitenkozijnen = st.number_input("vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key=12)
 
 
 # #### Buitenwanden
@@ -100,11 +100,11 @@ b_buitenkozijnen = st.number_input("vul hoeveel producten er al geimplementeerd 
 
 
 with tab7:
-st.subheader("Buitenwanden")
-st.markdown("**wat is de range van producten die in een productgroep geïmplementeerd kunnen worden?**")
+    st.subheader("Buitenwanden")
+    st.markdown("**wat is de range van producten die in een productgroep geïmplementeerd kunnen worden?**")
 
-v_buitenwanden = st.slider('vul max en min te implementeren producten in',0, 100, (2, 10), key=13)
-b_buitenwanden = st.number_input("vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key=14)
+    v_buitenwanden = st.slider('vul max en min te implementeren producten in',0, 100, (2, 10), key=13)
+    b_buitenwanden = st.number_input("vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key=14)
 
 
 # #### Daken
@@ -113,11 +113,11 @@ b_buitenwanden = st.number_input("vul hoeveel producten er al geimplementeerd zi
 
 
 with tab8:
-st.subheader("Daken")
-st.markdown("**wat is de range van producten die in een productgroep geïmplementeerd kunnen worden?**")
+    st.subheader("Daken")
+    st.markdown("**wat is de range van producten die in een productgroep geïmplementeerd kunnen worden?**")
 
-v_daken = st.slider('vul max en min te implementeren producten in',0, 100, (2, 10), key=15)
-b_daken = st.number_input("vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key=16)
+    v_daken = st.slider('vul max en min te implementeren producten in',0, 100, (2, 10), key=15)
+    b_daken = st.number_input("vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key=16)
 
 
 # #### Elektrische installaties
@@ -126,12 +126,11 @@ b_daken = st.number_input("vul hoeveel producten er al geimplementeerd zijn in",
 
 
 with tab9:
+    st.subheader("Elektrische installaties")
+    st.markdown("**wat is de range van producten die in een productgroep geïmplementeerd kunnen worden?**")
 
-st.subheader("Elektrische installaties")
-st.markdown("**wat is de range van producten die in een productgroep geïmplementeerd kunnen worden?**")
-
-v_elektra = st.slider('vul max en min te implementeren producten in',0, 100, (2, 10), key=17)
-b_elektra = st.number_input("vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key=18)
+    v_elektra = st.slider('vul max en min te implementeren producten in',0, 100, (2, 10), key=17)
+    b_elektra = st.number_input("vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key=18)
 
 
 # #### Vaste gebouwvoorzieningen
@@ -140,12 +139,11 @@ b_elektra = st.number_input("vul hoeveel producten er al geimplementeerd zijn in
 
 
 with tab10:
+    st.subheader("Vaste gebouwvoorzieningen")
+    st.markdown("**wat is de range van producten die in een productgroep geïmplementeerd kunnen worden?**")
 
-st.subheader("Vaste gebouwvoorzieningen")
-st.markdown("**wat is de range van producten die in een productgroep geïmplementeerd kunnen worden?**")
-
-v_gebouwvoorzieningen = st.slider('vul max en min te implementeren producten in',0, 100, (2, 10), key=19)
-b_gebouwvoorzieningen = st.number_input("vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key=20)
+    v_gebouwvoorzieningen = st.slider('vul max en min te implementeren producten in',0, 100, (2, 10), key=19)
+    b_gebouwvoorzieningen = st.number_input("vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key=20)
 
 
 # #### Hoofddraagconstructie
