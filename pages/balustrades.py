@@ -19,3 +19,5 @@ value = st.slider('vul max en min te implementeren producten in',0, 100, (2, 10)
 besparen = st.number_input("vul hoeveel producten er al geimplementeerd zijn in", min_value=0)
 
 
+st.page_link("water.py", label="Warm- en koud water installaties")
+
