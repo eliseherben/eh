@@ -13,7 +13,7 @@ from menu import menu_with_redirect
 
 
 menu_with_redirect()
-tab1, tab2, tab3. tab4, tab5, tab6, tab7, tab8, tab9, tab10 = st.tabs(['B', 'c', 'd', 'de', 'e'. 'f', 'g', 'h', 'u', 'p'])
+tab1, tab2, tab3. tab4, tab5, tab6, tab7, tab8, tab9, tab10 = st.tabs(['B', 'c', 'd', 'de', 'e', 'f', 'g', 'h', 'u', 'p'])
 
 
 # #### Balustrades en leuningen
