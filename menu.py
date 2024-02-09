@@ -14,6 +14,7 @@ def authenticated_menu():
     # Show a navigation menu for authenticated users
     st.sidebar.page_link("dashboard.py", label="Introductie")
     if st.session_state.project == 'Nieuwbouw woningen':
+        st.sidebar.page_link("pages/onderdelen.py", label="Onderdelen")
         st.sidebar.page_link("pages/buitenkozijnen.py", label="Buitenkozijnen, -ramen, -deuren en -puien")
         st.sidebar.page_link("pages/lift.py", label="Lift")
         st.sidebar.page_link("pages/binnenkozijnen.py", label="Binnenkozijnen en deuren")
@@ -39,8 +40,10 @@ def authenticated_menu():
         st.sidebar.page_link("pages/water.py", label="Warm- en koud water installaties")
         st.sidebar.page_link("pages/elektra.py", label="Elektrische installaties")
         st.sidebar.page_link("pages/beveiliging.py", label="Beveiliging")
+
         
     if st.session_state.project == 'Renovatie':
+        st.sidebar.page_link("pages/onderdelen.py", label="Onderdelen")
         st.sidebar.page_link("pages/productgroepen.py", label="Productgroepen")
 
         
