@@ -423,6 +423,11 @@ with st.container(border=True):
 # In[ ]:
 
 
+def set_optimalisatie():
+    # Callback function to save the role selection to Session State
+    st.session_state.optimalisatie = st.session_state._optimalisatie
+
+
 st.button("Klik hier om de optimalisatie te starten", key="_optimalisatie", on_change=set_optimalisatie)
 
 
