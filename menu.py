@@ -17,6 +17,9 @@ def authenticated_menu():
 
     if st.session_state.project == 'Renovatie':
         st.sidebar.page_link("pages/productgroepen.py", label = "Productgroepen")
+        
+    if st.session_state.optimalisatie:
+        st.page_link("pages/optimalisatie.py", label = "Optimalisatie")
 
 def unauthenticated_menu():
     st.sidebar.page_link("dashboard.py", label = "Introductie")
