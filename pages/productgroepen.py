@@ -423,16 +423,7 @@ with st.container(border=True):
 # In[ ]:
 
 
-if "optimalisatie" not in st.session_state:
-    st.session_state.optimalisatie = None
-    
-st.session_state._optimalisatie = st.session_state.optimalisatie
-
-def set_optimalisatie():
-    # Callback function to save the role selection to Session State
-    st.session_state.optimalisatie = st.session_state._optimalisatie
-
-st.button("Klik hier om de optimalisatie te starten", key="_project", on_change=set_project)
+st.button("Klik hier om de optimalisatie te starten", key="_optimalisatie", on_change=set_optimalisatie)
 
 
 # In[ ]:
