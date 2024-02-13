@@ -26,6 +26,11 @@ if "optimalisatie" not in st.session_state:
     
 st.session_state._optimalisatie = st.session_state.optimalisatie
 
+if "budget" not in st.session_state:
+    st.session_state.budget = None
+
+st.session_state._budget = st.session_state.budget
+
 
 st.title("Projecten Eigen Haard")
 st.selectbox(
