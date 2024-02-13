@@ -81,7 +81,7 @@ pareto_front = pareto_simulated_annealing(objective_functions, initial_solution,
 st.markdown("## Pareto Front:")
 for solution in pareto_front:
     st.markdown("### Solution:")
-    st.write(solution)
+    st.markdown(solution)
     st.markdown("#### Objective Values:")
     st.write("- aanschafkosten:", f1(solution), "- onderhoudskosten:", f2(solution), "- mate van losmaakbaarheid:", f3(solution), "- woonbeleving:", f4(solution))
 
