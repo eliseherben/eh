@@ -14,7 +14,7 @@ menu_with_redirect()
 
 st.title("Optimalisatie")
 
-print(st.session_state.budget)
+st.markdown({st.session_state.budget})
 
 print("yes")
 
