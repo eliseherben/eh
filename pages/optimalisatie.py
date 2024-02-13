@@ -12,5 +12,7 @@ menu_with_redirect()
 # In[ ]:
 
 
-st.title("optimalisatie")
+st.title("Optimalisatie")
+
+print(st.session_state.budget)
 
