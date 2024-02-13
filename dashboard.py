@@ -21,7 +21,7 @@ def set_project():
     # Callback function to save the role selection to Session State
     st.session_state.project = st.session_state._project
 
-st.header("Projecten Eigen Haard")
+st.title("Projecten Eigen Haard")
 st.selectbox(
     'Om wat voor soort project gaat het?',
     ['Nieuwbouw woningen', 'Renovatie'], 
@@ -40,7 +40,7 @@ menu()
 
 
 if st.session_state.project is not None: 
-    st.markdown("**Budget**")
+    st.subheader("**Budget**")
     with st.container(border=True):
         st.markdown("Vul het budget in voor het huidige project.")
         budget = st.number_input("Vul het budget in", value=None, placeholder="Typ een bedrag")
@@ -51,7 +51,7 @@ if st.session_state.project is not None:
 
 
 if st.session_state.project is not None:
-    st.markdown("**Weging onderdelen**")
+    st.subheader("**Weging onderdelen**")
     with st.container(border=True):
         st.markdown("Hebben onderstaande onderdelen een zwaardere weging? De weging van de onderdelen staat standaard op 1. Als er onderdelen zijn die zwaarder wegen kunnen die hieronder aangepast worden.")
 
