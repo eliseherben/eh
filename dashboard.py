@@ -20,6 +20,16 @@ st.session_state._project = st.session_state.project
 def set_project():
     # Callback function to save the role selection to Session State
     st.session_state.project = st.session_state._project
+    
+if "optimalisatie" not in st.session_state:
+    st.session_state.optimalisatie = None
+    
+st.session_state._optimalisatie = st.session_state.optimalisatie
+
+def set_optimalisatie():
+    # Callback function to save the role selection to Session State
+    st.session_state.optimalisatie = st.session_state._optimalisatie
+
 
 st.title("Projecten Eigen Haard")
 st.selectbox(
