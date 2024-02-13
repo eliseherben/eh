@@ -82,7 +82,7 @@ st.markdown("## Pareto Front:")
 i = 0
 for solution in pareto_front:
     i = i + 1
-    st.markdown("### Oplossing", i)
+    st.markdown("### Oplossing" i)
     st.markdown(solution)
     st.markdown("#### Objective Values:")
     st.markdown("- aanschafkosten:", f1(solution))
