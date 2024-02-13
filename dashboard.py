@@ -39,44 +39,45 @@ menu()
 # In[ ]:
 
 
-if st.session_state.project is not None:    
-    st.markdown("**Budget**")
-    st.markdown("Vul het budget in voor het huidige project.")
-    budget = st.number_input("Vul het budget in", value=None, placeholder="Typ een bedrag")
+if st.session_state.project is not None:
+    container = st.container(border=True)
+    container.markdown("**Budget**")
+    container.markdown("Vul het budget in voor het huidige project.")
+    budget = container.number_input("Vul het budget in", value=None, placeholder="Typ een bedrag")
 
-    
 
 
 # In[ ]:
 
 
-if st.session_state.project is not None:    
-    st.markdown("**Weging onderdelen**")
-    st.markdown("Hebben onderstaande onderdelen een zwaardere weging? De weging van de onderdelen staat standaard op 1. Als er onderdelen zijn die zwaarder wegen kunnen die hieronder aangepast worden.")
+if st.session_state.project is not None:
+    with st.container(border=True):
+        st.markdown("**Weging onderdelen**")
+        st.markdown("Hebben onderstaande onderdelen een zwaardere weging? De weging van de onderdelen staat standaard op 1. Als er onderdelen zijn die zwaarder wegen kunnen die hieronder aangepast worden.")
 
-    st.markdown("**Aanschafprijs**")
-    aanschafprijs = st.number_input("Weging", min_value=1, key=1)
+        st.markdown("**Aanschafprijs**")
+        aanschafprijs = st.number_input("Weging", min_value=1, key=1)
 
-    st.markdown("**Onderhoudsprijs**")
-    onderhoudsprijs = st.number_input("Weging", min_value=1, key=2)
+        st.markdown("**Onderhoudsprijs**")
+        onderhoudsprijs = st.number_input("Weging", min_value=1, key=2)
 
-    st.markdown("**Mate van losmaakbaarheid**")
-    losmaakbaarheid = st.number_input("Weging", min_value=1, key=3)
+        st.markdown("**Mate van losmaakbaarheid**")
+        losmaakbaarheid = st.number_input("Weging", min_value=1, key=3)
 
-    st.markdown("**Toepassingsmogelijkheden**")
-    toepassingsmogelijkheden = st.number_input("Weging", min_value=1, key=4)
+        st.markdown("**Toepassingsmogelijkheden**")
+        toepassingsmogelijkheden = st.number_input("Weging", min_value=1, key=4)
 
-    st.markdown("**Woonbeleving**")
-    woonbeleving = st.number_input("Weging", min_value=1, key=5)
+        st.markdown("**Woonbeleving**")
+        woonbeleving = st.number_input("Weging", min_value=1, key=5)
 
-    st.markdown("**Milieubelasting**")
-    milieubelasting = st.number_input("Weging", min_value=1, key=6)
+        st.markdown("**Milieubelasting**")
+        milieubelasting = st.number_input("Weging", min_value=1, key=6)
 
-    st.markdown("**Flexibiliteit tbv toekomstbestendigheid en innovatie**")
-    flexibiliteit = st.number_input("Weging", min_value=1, key=7)
+        st.markdown("**Flexibiliteit tbv toekomstbestendigheid en innovatie**")
+        flexibiliteit = st.number_input("Weging", min_value=1, key=7)
 
-    st.markdown("**Mate van standaardisering**")
-    standaardisering = st.number_input("Weging", min_value=1, key=8)
+        st.markdown("**Mate van standaardisering**")
+        standaardisering = st.number_input("Weging", min_value=1, key=8)
 
 
 # In[ ]:
