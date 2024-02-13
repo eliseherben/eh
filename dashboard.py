@@ -40,6 +40,17 @@ menu()
 
 
 if st.session_state.project is not None:    
+    st.markdown("**Budget**")
+    st.markdown("Vul het budget in voor het huidige project.")
+    budget = st.number_input("Vul het budget in", value=None, placeholder="Typ een bedrag")
+
+    
+
+
+# In[ ]:
+
+
+if st.session_state.project is not None:    
     st.markdown("**Weging onderdelen**")
     st.markdown("Hebben onderstaande onderdelen een zwaardere weging? De weging van de onderdelen staat standaard op 1. Als er onderdelen zijn die zwaarder wegen kunnen die hieronder aangepast worden.")
 
@@ -66,17 +77,6 @@ if st.session_state.project is not None:
 
     st.markdown("**Mate van standaardisering**")
     standaardisering = st.number_input("Weging", min_value=1, key=8)
-
-
-# In[ ]:
-
-
-if st.session_state.project is not None:    
-    st.markdown("**Budget**")
-    st.markdown("Vul het budget in voor het huidige project. Dit bedrag moet afgerond zijn op hele getallen. ")
-    budget = st.number_input("Vul het budget in", value=None, placeholder="Typ een bedrag")
-
-    
 
 
 # In[ ]:
