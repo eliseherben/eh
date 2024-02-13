@@ -24,7 +24,7 @@ st.markdown("Hieronder zijn de verschillende productgroepen weergegeven. Bij elk
 
 # #### Balustrades en leuningen
 
-# In[1]:
+# In[ ]:
 
 
 with st.container(border=True):
@@ -416,4 +416,28 @@ with st.container(border=True):
     
     st.markdown("**Hoe veel producten zijn er al geïmplementeerd in het project?**")
     b_water = st.number_input("Vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key=50)
+
+
+# #### Optimalisatie
+
+# In[ ]:
+
+
+if "optimalisatie" not in st.session_state:
+    st.session_state.optimalisatie = None
+    
+st.session_state._optimalisatie = st.session_state.optimalisatie
+
+def set_optimalisatie():
+    # Callback function to save the role selection to Session State
+    st.session_state.optimalisatie = st.session_state._optimalisatie
+
+st.button("Klik hier om de optimalisatie te starten", key="_project", on_change=set_project)
+
+
+# In[ ]:
+
+
+with st.container(border = True):
+    st.page_link("pages/optimalisatie.py", label = "Klik hier om de optimalisatie te starten")
 
