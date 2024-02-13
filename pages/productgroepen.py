@@ -428,9 +428,6 @@ def set_optimalisatie():
     st.session_state.optimalisatie = st.session_state._optimalisatie
 
 
-st.button("Klik hier om de optimalisatie te starten", key="_optimalisatie", on_click=set_optimalisatie)
-
-
 # In[ ]:
 
 
