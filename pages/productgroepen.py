@@ -37,7 +37,7 @@ with st.container(border=True):
     st.subheader("Beveiliging")
     st.markdown("**Wat is de range van producten die in een productgroep geïmplementeerd kunnen worden?**")
 
-    v_beveiliging = st.slider('Vul max en min te implementeren producten in',0, 20, (0, 20, key=3)
+    v_beveiliging = st.slider('Vul max en min te implementeren producten in',0, 20, (0, 20), key=3)
     b_beveiliging = st.number_input("Vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key=4)
 
 
