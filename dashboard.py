@@ -39,11 +39,11 @@ menu()
 # In[ ]:
 
 
-if st.session_state.project is not None:
-    container = st.container(border=True)
-    container.markdown("**Budget**")
-    container.markdown("Vul het budget in voor het huidige project.")
-    budget = container.number_input("Vul het budget in", value=None, placeholder="Typ een bedrag")
+if st.session_state.project is not None: 
+    st.markdown("**Budget**")
+    with st.container(border=True):
+        st.markdown("Vul het budget in voor het huidige project.")
+        budget = st.number_input("Vul het budget in", value=None, placeholder="Typ een bedrag")
 
 
 
@@ -51,8 +51,8 @@ if st.session_state.project is not None:
 
 
 if st.session_state.project is not None:
+    st.markdown("**Weging onderdelen**")
     with st.container(border=True):
-        st.markdown("**Weging onderdelen**")
         st.markdown("Hebben onderstaande onderdelen een zwaardere weging? De weging van de onderdelen staat standaard op 1. Als er onderdelen zijn die zwaarder wegen kunnen die hieronder aangepast worden.")
 
         st.markdown("**Aanschafprijs**")
