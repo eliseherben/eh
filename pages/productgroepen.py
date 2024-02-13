@@ -15,6 +15,13 @@ from menu import menu_with_redirect
 menu_with_redirect()
 
 
+# In[ ]:
+
+
+st.title("Projecten Eigen Haard")
+st.markdown("Hieronder zijn de verschillende productgroepen weergegeven. Bij elke productgroep dient er aangegeven te worden hoeveel producten er binnen die productgroep geïmplementeerd kunenn worden en hoeveel er al geïmplementeerd zijn in het project. ")
+
+
 # #### Balustrades en leuningen
 
 # In[ ]:
