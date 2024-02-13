@@ -14,5 +14,5 @@ menu_with_redirect()
 
 st.title("Optimalisatie")
 
-print(st.session_state._budget)
+print(st.session_state.budget)
 
