@@ -31,9 +31,7 @@ if "budget" not in st.session_state:
 
 st.session_state._budget = st.session_state.budget
 
-def set_budget():
-    # Callback function to save the role selection to Session State
-    st.session_state.budget = st.session_state._budget
+
 
 st.title("Projecten Eigen Haard")
 st.selectbox(
@@ -52,6 +50,10 @@ menu()
 
 # In[ ]:
 
+
+def set_budget():
+    # Callback function to save the role selection to Session State
+    st.session_state.budget = st.session_state._budget
 
 if st.session_state.project is not None: 
     with st.container(border=True):
