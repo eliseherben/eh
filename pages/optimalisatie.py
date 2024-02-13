@@ -19,7 +19,7 @@ st.markdown({st.session_state.budget})
 print("yes")
 
 
-# In[ ]:
+# In[1]:
 
 
 import random
@@ -79,9 +79,21 @@ objective_functions = [f1, f2, f3, f4]
 pareto_front = pareto_simulated_annealing(objective_functions, initial_solution, max_iterations=1000, max_temperature=100, min_temperature=0.01, cooling_rate=0.95)
 
 st.markdown("## Pareto Front:")
+i = 0
 for solution in pareto_front:
-    st.markdown("### Solution:")
+    i = i + 1
+    st.markdown("### Oplossing", i)
     st.markdown(solution)
     st.markdown("#### Objective Values:")
-    st.write("- aanschafkosten:", f1(solution), "- onderhoudskosten:", f2(solution), "- mate van losmaakbaarheid:", f3(solution), "- woonbeleving:", f4(solution))
+    st.markdown("- aanschafkosten:", f1(solution))
+    st.markdown("- onderhoudskosten:", f2(solution))
+    st.markdown("- mate van losmaakbaarheid:", f3(solution))
+    st.markdown("- woonbeleving:", f4(solution))
+    
+
+
+# In[ ]:
+
+
+
 
