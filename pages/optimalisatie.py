@@ -16,3 +16,5 @@ st.title("Optimalisatie")
 
 print(st.session_state.budget)
 
+print("yes")
+
