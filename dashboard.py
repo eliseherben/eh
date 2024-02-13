@@ -21,10 +21,12 @@ def set_project():
     # Callback function to save the role selection to Session State
     st.session_state.project = st.session_state._project
 
-st.markdown("Projecten Eigen Haard")
+st.header("Projecten Eigen Haard")
 st.selectbox(
     'Om wat voor soort project gaat het?',
-    [None, 'Nieuwbouw woningen', 'Renovatie'], 
+    ['Nieuwbouw woningen', 'Renovatie'], 
+    index=None,
+    placeholder="Selecteer een soort project",
     key="_project", 
     on_change=set_project, 
 )
@@ -32,6 +34,38 @@ menu()
 
 # st.page_link("dashboard.py", label="Home")
 # st.page_link("pages/buitenkozijnen.py", label="Buitenkozijnen, -ramen, -deuren en -puien")
+
+
+# In[ ]:
+
+
+if st.session_state.project is not None:    
+    st.subheader("Weging onderdelen")
+    st.markdown("Hebben onderstaande onderdelen een zwaardere weging? de weging van de onderdelen staat standaard op 1. Als er onderdelen zijn die zwaarder wegen kunnen die hieronder aangepast worden.")
+
+    st.markdown("**Aanschafprijs**")
+    aanschafprijs = st.number_input("Weging", min_value=1, key=1)
+
+    st.markdown("**Onderhoudsprijs**")
+    onderhoudsprijs = st.number_input("Weging", min_value=1, key=2)
+
+    st.markdown("**Mate van losmaakbaarheid**")
+    losmaakbaarheid = st.number_input("Weging", min_value=1, key=3)
+
+    st.markdown("**Toepassingsmogelijkheden**")
+    toepassingsmogelijkheden = st.number_input("Weging", min_value=1, key=4)
+
+    st.markdown("**Woonbeleving**")
+    woonbeleving = st.number_input("Weging", min_value=1, key=5)
+
+    st.markdown("**Milieubelasting**")
+    milieubelasting = st.number_input("Weging", min_value=1, key=6)
+
+    st.markdown("**Flexibiliteit tbv toekomstbestendigheid en innovatie**")
+    flexibiliteit = st.number_input("Weging", min_value=1, key=7)
+
+    st.markdown("**Mate van standaardisering**")
+    standaardisering = st.number_input("Weging", min_value=1, key=8)
 
 
 # In[ ]:
