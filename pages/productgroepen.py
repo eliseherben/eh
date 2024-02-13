@@ -29,11 +29,11 @@ st.markdown("Hieronder zijn de verschillende productgroepen weergegeven. Bij elk
 
 with st.container(border=True):
     st.subheader("**Balustrades en leuningen**")
-    st.markdown("Wat is de range van producten die in een productgroep geïmplementeerd kunnen worden?")
+    st.markdown("**Wat is de range van producten die in een productgroep geïmplementeerd kunnen worden?**")
     st.markdown("Vul hieronder in hoeveel producten er in een productgroep geïmplementeerd kunnen worden. Hierbij kan er een maximum en minimum aangegeven worden.")
     v_balustrades = st.slider('Vul max en min te implementeren producten in',0, 20, (0, 20), key=1)
     
-    st.markdown("Hoe veel producten zijn er al geïmplementeerd in het project?")
+    st.markdown("**Hoe veel producten zijn er al geïmplementeerd in het project?**")
     b_balustrades = st.number_input("Vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key=2)
 
 
@@ -44,11 +44,11 @@ with st.container(border=True):
 
 with st.container(border=True):
     st.subheader("Beveiliging")
-    st.markdown("Wat is de range van producten die in een productgroep geïmplementeerd kunnen worden?")
+    st.markdown("**Wat is de range van producten die in een productgroep geïmplementeerd kunnen worden?**")
     st.markdown("Vul hieronder in hoeveel producten er in een productgroep geïmplementeerd kunnen worden. Hierbij kan er een maximum en minimum aangegeven worden.")
     v_beveiliging = st.slider('Vul max en min te implementeren producten in',0, 20, (0, 20), key=3)
     
-    st.markdown("Hoe veel producten zijn er al geïmplementeerd in het project?")
+    st.markdown("**Hoe veel producten zijn er al geïmplementeerd in het project?**")
     b_beveiliging = st.number_input("Vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key=4)
 
 
@@ -63,7 +63,7 @@ with st.container(border=True):
     st.markdown("Vul hieronder in hoeveel producten er in een productgroep geïmplementeerd kunnen worden. Hierbij kan er een maximum en minimum aangegeven worden.")
     v_binnenkozijnen = st.slider('Vul max en min te implementeren producten in',0, 20, (0, 20), key=5)
     
-    st.markdown("Hoe veel producten zijn er al geïmplementeerd in het project?")
+    st.markdown("**Hoe veel producten zijn er al geïmplementeerd in het project?**")
     b_binnenkozijnen = st.number_input("Vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key=6)
 
 
@@ -78,7 +78,7 @@ with st.container(border=True):
     st.markdown("Vul hieronder in hoeveel producten er in een productgroep geïmplementeerd kunnen worden. Hierbij kan er een maximum en minimum aangegeven worden.")
     v_binnenwandafwerkingen = st.slider('Vul max en min te implementeren producten in',0, 20, (0, 20), key=7)
     
-    st.markdown("Hoe veel producten zijn er al geïmplementeerd in het project?")
+    st.markdown("**Hoe veel producten zijn er al geïmplementeerd in het project?**")
     b_binnenwandafwerkingen = st.number_input("Vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key=8)
 
 
@@ -94,7 +94,7 @@ with st.container(border=True):
     st.markdown("Vul hieronder in hoeveel producten er in een productgroep geïmplementeerd kunnen worden. Hierbij kan er een maximum en minimum aangegeven worden.")
     v_binnenwanden = st.slider('Vul max en min te implementeren producten in',0, 20, (0, 20), key=9)
     
-    st.markdown("Hoe veel producten zijn er al geïmplementeerd in het project?")
+    st.markdown("**Hoe veel producten zijn er al geïmplementeerd in het project?**")
     b_binnenwanden = st.number_input("Vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key=10)
 
 
@@ -110,7 +110,7 @@ with st.container(border=True):
     st.markdown("Vul hieronder in hoeveel producten er in een productgroep geïmplementeerd kunnen worden. Hierbij kan er een maximum en minimum aangegeven worden.")
     v_buitenkozijnen = st.slider('Vul max en min te implementeren producten in',0, 20, (0, 20), key=11)
     
-    st.markdown("Hoe veel producten zijn er al geïmplementeerd in het project?")
+    st.markdown("**Hoe veel producten zijn er al geïmplementeerd in het project?**")
     b_buitenkozijnen = st.number_input("Vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key=12)
 
 
@@ -126,7 +126,7 @@ with st.container(border=True):
     st.markdown("Vul hieronder in hoeveel producten er in een productgroep geïmplementeerd kunnen worden. Hierbij kan er een maximum en minimum aangegeven worden.")
     v_buitenwanden = st.slider('Vul max en min te implementeren producten in',0, 20, (0, 20), key=13)
     
-    st.markdown("Hoe veel producten zijn er al geïmplementeerd in het project?")
+    st.markdown("**Hoe veel producten zijn er al geïmplementeerd in het project?**")
     b_buitenwanden = st.number_input("Vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key=14)
 
 
@@ -142,7 +142,7 @@ with st.container(border=True):
     st.markdown("Vul hieronder in hoeveel producten er in een productgroep geïmplementeerd kunnen worden. Hierbij kan er een maximum en minimum aangegeven worden.")
     v_daken = st.slider('Vul max en min te implementeren producten in',0, 20, (0, 20), key=15)
     
-    st.markdown("Hoe veel producten zijn er al geïmplementeerd in het project?")
+    st.markdown("**Hoe veel producten zijn er al geïmplementeerd in het project?**")
     b_daken = st.number_input("Vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key=16)
 
 
@@ -158,7 +158,7 @@ with st.container(border=True):
     st.markdown("Vul hieronder in hoeveel producten er in een productgroep geïmplementeerd kunnen worden. Hierbij kan er een maximum en minimum aangegeven worden.")
     v_elektra = st.slider('Vul max en min te implementeren producten in',0, 20, (0, 20), key=17)
     
-    st.markdown("Hoe veel producten zijn er al geïmplementeerd in het project?")
+    st.markdown("**Hoe veel producten zijn er al geïmplementeerd in het project?**")
     b_elektra = st.number_input("Vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key=18)
 
 
@@ -174,7 +174,7 @@ with st.container(border=True):
     st.markdown("Vul hieronder in hoeveel producten er in een productgroep geïmplementeerd kunnen worden. Hierbij kan er een maximum en minimum aangegeven worden.")
     v_gebouwvoorzieningen = st.slider('Vul max en min te implementeren producten in',0, 20, (0, 20), key=19)
     
-    st.markdown("Hoe veel producten zijn er al geïmplementeerd in het project?")
+    st.markdown("**Hoe veel producten zijn er al geïmplementeerd in het project?**")
     b_gebouwvoorzieningen = st.number_input("Vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key=20)
 
 
@@ -190,7 +190,7 @@ with st.container(border=True):
     st.markdown("Vul hieronder in hoeveel producten er in een productgroep geïmplementeerd kunnen worden. Hierbij kan er een maximum en minimum aangegeven worden.")
     v_hoofddraagconstructie = st.slider('Vul max en min te implementeren producten in',0, 20, (0, 20), key=21)
     
-    st.markdown("Hoe veel producten zijn er al geïmplementeerd in het project?")
+    st.markdown("**Hoe veel producten zijn er al geïmplementeerd in het project?**")
     b_hoofddraagconstructie = st.number_input("Vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key=22)
 
 
@@ -206,7 +206,7 @@ with st.container(border=True):
     st.markdown("Vul hieronder in hoeveel producten er in een productgroep geïmplementeerd kunnen worden. Hierbij kan er een maximum en minimum aangegeven worden.")
     v_isolatie = st.slider('Vul max en min te implementeren producten in',0, 20, (0, 20), key=23)
     
-    st.markdown("Hoe veel producten zijn er al geïmplementeerd in het project?")
+    st.markdown("**Hoe veel producten zijn er al geïmplementeerd in het project?**")
     b_isolatie = st.number_input("Vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key=24)
 
 
@@ -222,7 +222,7 @@ with st.container(border=True):
     st.markdown("Vul hieronder in hoeveel producten er in een productgroep geïmplementeerd kunnen worden. Hierbij kan er een maximum en minimum aangegeven worden.")
     v_keuken = st.slider('Vul max en min te implementeren producten in',0, 20, (0, 20), key=25)
     
-    st.markdown("Hoe veel producten zijn er al geïmplementeerd in het project?")
+    st.markdown("**Hoe veel producten zijn er al geïmplementeerd in het project?**")
     b_keuken = st.number_input("Vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key=26)
 
 
@@ -238,7 +238,7 @@ with st.container(border=True):
     st.markdown("Vul hieronder in hoeveel producten er in een productgroep geïmplementeerd kunnen worden. Hierbij kan er een maximum en minimum aangegeven worden.")
     v_lift = st.slider('Vul max en min te implementeren producten in',0, 20, (0, 20), key=27)
     
-    st.markdown("Hoe veel producten zijn er al geïmplementeerd in het project?")
+    st.markdown("**Hoe veel producten zijn er al geïmplementeerd in het project?**")
     b_lift = st.number_input("Vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key=28)
 
 
@@ -254,7 +254,7 @@ with st.container(border=True):
     st.markdown("Vul hieronder in hoeveel producten er in een productgroep geïmplementeerd kunnen worden. Hierbij kan er een maximum en minimum aangegeven worden.")
     v_luchtbehandeling = st.slider('Vul max en min te implementeren producten in',0, 20, (0, 20), key=29)
     
-    st.markdown("Hoe veel producten zijn er al geïmplementeerd in het project?")
+    st.markdown("**Hoe veel producten zijn er al geïmplementeerd in het project?**")
     b_luchtbehandeling = st.number_input("Vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key=30)
 
 
@@ -270,7 +270,7 @@ with st.container(border=True):
     st.markdown("Vul hieronder in hoeveel producten er in een productgroep geïmplementeerd kunnen worden. Hierbij kan er een maximum en minimum aangegeven worden.")
     v_luiken = st.slider('Vul max en min te implementeren producten in',0, 20, (0, 20), key=31)
     
-    st.markdown("Hoe veel producten zijn er al geïmplementeerd in het project?")
+    st.markdown("**Hoe veel producten zijn er al geïmplementeerd in het project?**")
     b_luiken = st.number_input("Vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key=32)
 
 
@@ -286,7 +286,7 @@ with st.container(border=True):
     st.markdown("Vul hieronder in hoeveel producten er in een productgroep geïmplementeerd kunnen worden. Hierbij kan er een maximum en minimum aangegeven worden.")
     v_plafonds = st.slider('Vul max en min te implementeren producten in',0, 20, (0, 20), key=33)
     
-    st.markdown("Hoe veel producten zijn er al geïmplementeerd in het project?")
+    st.markdown("**Hoe veel producten zijn er al geïmplementeerd in het project?**")
     b_plafonds = st.number_input("Vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key=34)
 
 
@@ -302,7 +302,7 @@ with st.container(border=True):
     st.markdown("Vul hieronder in hoeveel producten er in een productgroep geïmplementeerd kunnen worden. Hierbij kan er een maximum en minimum aangegeven worden.")
     v_riolering = st.slider('Vul max en min te implementeren producten in',0, 20, (0, 20), key=35)
     
-    st.markdown("Hoe veel producten zijn er al geïmplementeerd in het project?")
+    st.markdown("**Hoe veel producten zijn er al geïmplementeerd in het project?**")
     b_riolering = st.number_input("Vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key=36)
 
 
@@ -318,7 +318,7 @@ with st.container(border=True):
     st.markdown("Vul hieronder in hoeveel producten er in een productgroep geïmplementeerd kunnen worden. Hierbij kan er een maximum en minimum aangegeven worden.")
     v_sanitair = st.slider('Vul max en min te implementeren producten in',0, 20, (0, 20), key=37)
     
-    st.markdown("Hoe veel producten zijn er al geïmplementeerd in het project?")
+    st.markdown("**Hoe veel producten zijn er al geïmplementeerd in het project?**")
     b_sanitair = st.number_input("Vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key=38)
 
 
@@ -334,7 +334,7 @@ with st.container(border=True):
     st.markdown("Vul hieronder in hoeveel producten er in een productgroep geïmplementeerd kunnen worden. Hierbij kan er een maximum en minimum aangegeven worden.")
     v_terreininrichting = st.slider('Vul max en min te implementeren producten in',0, 20, (0, 20), key=39)
     
-    st.markdown("Hoe veel producten zijn er al geïmplementeerd in het project?")
+    st.markdown("**Hoe veel producten zijn er al geïmplementeerd in het project?**")
     b_terreininrichting = st.number_input("Vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key=40)
 
 
@@ -350,7 +350,7 @@ with st.container(border=True):
     st.markdown("Vul hieronder in hoeveel producten er in een productgroep geïmplementeerd kunnen worden. Hierbij kan er een maximum en minimum aangegeven worden.")
     v_trappen = st.slider('Vul max en min te implementeren producten in',0, 20, (0, 20), key=41)
     
-    st.markdown("Hoe veel producten zijn er al geïmplementeerd in het project?")
+    st.markdown("**Hoe veel producten zijn er al geïmplementeerd in het project?**")
     b_trappen = st.number_input("Vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key=42)
 
 
@@ -366,7 +366,7 @@ with st.container(border=True):
     st.markdown("Vul hieronder in hoeveel producten er in een productgroep geïmplementeerd kunnen worden. Hierbij kan er een maximum en minimum aangegeven worden.")
     v_verwarming = st.slider('Vul max en min te implementeren producten in',0, 20, (0, 20), key=43)
     
-    st.markdown("Hoe veel producten zijn er al geïmplementeerd in het project?")
+    st.markdown("**Hoe veel producten zijn er al geïmplementeerd in het project?**")
     b_koeling = st.number_input("Vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key=44)
 
 
@@ -382,7 +382,7 @@ with st.container(border=True):
     st.markdown("Vul hieronder in hoeveel producten er in een productgroep geïmplementeerd kunnen worden. Hierbij kan er een maximum en minimum aangegeven worden.")
     v_vloerafwerking = st.slider('Vul max en min te implementeren producten in',0, 20, (0, 20), key=45)
     
-    st.markdown("Hoe veel producten zijn er al geïmplementeerd in het project?")
+    st.markdown("**Hoe veel producten zijn er al geïmplementeerd in het project?**")
     b_vloerafwerking = st.number_input("Vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key=46)
 
 
@@ -398,7 +398,7 @@ with st.container(border=True):
     st.markdown("Vul hieronder in hoeveel producten er in een productgroep geïmplementeerd kunnen worden. Hierbij kan er een maximum en minimum aangegeven worden.")
     v_vloeren = st.slider('Vul max en min te implementeren producten in',0, 20, (0, 20), key=47)
     
-    st.markdown("Hoe veel producten zijn er al geïmplementeerd in het project?")
+    st.markdown("**Hoe veel producten zijn er al geïmplementeerd in het project?**")
     b_vloeren = st.number_input("Vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key=48)
 
 
@@ -414,6 +414,6 @@ with st.container(border=True):
     st.markdown("Vul hieronder in hoeveel producten er in een productgroep geïmplementeerd kunnen worden. Hierbij kan er een maximum en minimum aangegeven worden.")
     v_water = st.slider('Vul max en min te implementeren producten in',0, 20, (0, 20), key=49)
     
-    st.markdown("Hoe veel producten zijn er al geïmplementeerd in het project?")
+    st.markdown("**Hoe veel producten zijn er al geïmplementeerd in het project?**")
     b_water = st.number_input("Vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key=50)
 
