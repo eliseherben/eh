@@ -78,9 +78,10 @@ initial_solution = [random.randint(0, 20) for _ in range(25)]  # Initial solutio
 objective_functions = [f1, f2, f3, f4]
 pareto_front = pareto_simulated_annealing(objective_functions, initial_solution, max_iterations=1000, max_temperature=100, min_temperature=0.01, cooling_rate=0.95)
 
+st.markdown("## Pareto Front:")
 for solution in pareto_front:
+    st.markdown("### Solution:")
     st.write(solution)
-    st.write("f1:", f1(solution), "f2:", f2(solution), "f3:", f3(solution), "f4:", f4(solution))
-    st.write("")
-
+    st.markdown("#### Objective Values:")
+    st.write("- aanschafkosten:", f1(solution), "- onderhoudskosten:", f2(solution), "- mate van losmaakbaarheid:", f3(solution), "- woonbeleving:", f4(solution))
 
