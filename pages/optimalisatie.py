@@ -14,10 +14,6 @@ menu_with_redirect()
 
 st.title("Optimalisatie")
 
-st.markdown({st.session_state.budget})
-
-print("yes")
-
 
 # In[1]:
 
@@ -82,13 +78,13 @@ st.markdown("## Pareto Front:")
 i = 0
 for solution in pareto_front:
     i = i + 1
-    st.markdown("### Oplossing {i}")
+    st.markdown(f"### Oplossing {1}")
     st.markdown(solution)
     st.markdown("#### Objective Values:")
-    st.markdown("- aanschafkosten:", f1(solution))
-    st.markdown("- onderhoudskosten:", f2(solution))
-    st.markdown("- mate van losmaakbaarheid:", f3(solution))
-    st.markdown("- woonbeleving:", f4(solution))
+    st.markdown(f"- aanschafkosten: {f1(solution)} ")
+    st.markdown(f"- onderhoudskosten: {f2(solution)}")
+    st.markdown(f"- mate van losmaakbaarheid: {f3(solution)}")
+    st.markdown(f"- woonbeleving: {f4(solution)}")
     
 
 
