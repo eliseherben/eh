@@ -118,11 +118,21 @@ initial_solution = [random.randint(0, 20) for _ in range(25)]  # Initial solutio
 objective_functions = [f1, f2, f3, f4, f5, f6]
 pareto_front = pareto_simulated_annealing(objective_functions, initial_solution, max_iterations=1000, max_temperature=100, min_temperature=0.01, cooling_rate=0.95)
 
+productgroepen = ["Buitenkozijnen, -ramen, -deuren en -puien", "Lift", "Binnenkozijnen en deuren", 
+                  "Binnenwandafwerkingen", "Vloerafwerkingen", "Plafonds", "Sanitair", "Keuken", "Buitenwanden", 
+                 "Vloeren", "Daken", "Hoofddraagconstructie", "Na-isolatie binnen", "Riolering en HWA", "Terreininrichting", 
+                 "Verwarming en koeling", "Luchtbehandeling", "Vaste gebouwvoorzieningen", "Binnenwanden", 
+                 "Trappen en hellingen", "Luiken en vensters", "Balustrades en leuningen", "Warm- en koud water installaties", 
+                 "Elektrische installaties", "Beveiliging"]
+
 st.markdown("## Pareto Front:")
 i = 0
 for solution in pareto_front:
     i = i + 1
     st.markdown(f"### Oplossing {i}")
+    for j in solution:
+        for product in productgroepen:
+            st.markdown(f"Aantal producten in de productgroep {product} {solution[j]}")
     st.markdown(solution)
     st.markdown("#### Objective Values:")
     st.markdown(f"- aanschafkosten: {f1(solution)} ")
