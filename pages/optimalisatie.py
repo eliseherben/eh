@@ -85,11 +85,13 @@ for solution in pareto_front:
     st.markdown(f"- onderhoudskosten: {f2(solution)}")
     st.markdown(f"- mate van losmaakbaarheid: {f3(solution)}")
     st.markdown(f"- woonbeleving: {f4(solution)}")
-    
+
 
 
 # In[ ]:
 
 
-
+st.markdown(balustrades)
+st.markdown(water)
+st.markdown(isolatie)
 
