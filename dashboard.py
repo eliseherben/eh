@@ -88,7 +88,7 @@ if "isolatie" not in st.session_state:
 st.session_state._isolatie = st.session_state.isolatie
 
 if "keuken" not in st.session_state:
-    st.session_state.elektra = None
+    st.session_state.keuken = None
 
 st.session_state._keuken = st.session_state.keuken
 
