@@ -25,6 +25,10 @@ st.markdown("Hieronder zijn de verschillende productgroepen weergegeven. Bij elk
 # In[ ]:
 
 
+def set_session_var(var_name):
+    # Callback functie om de selectie op te slaan in de sessievariabele
+    st.session_state[var_name] = st.session_state[f"_{var_name}"]
+
 def generate_product_group_ui(productgroep_naam, var_name):
     with st.container(border=True):
         st.subheader(productgroep_naam)
