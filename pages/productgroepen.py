@@ -27,7 +27,7 @@ st.markdown("Hieronder zijn de verschillende productgroepen weergegeven. Bij elk
 
 def generate_product_group_ui(productgroep_naam, var_name):
     with st.container(border=True):
-        st.subheader(product_group_name)
+        st.subheader(productgroep_naam)
         st.markdown("**Wat is de range van producten die in een productgroep geïmplementeerd kunnen worden?**")
         st.markdown("Vul hieronder in hoeveel producten er in een productgroep geïmplementeerd kunnen worden. Hierbij kan er een maximum en minimum aangegeven worden.")
         v_productgroep = st.slider(f'Vul max en min te implementeren producten in voor {productgroep_naam.lower()}', 0, 20, (0, 20), key=f"v_{var_name}")
