@@ -130,9 +130,8 @@ i = 0
 for solution in pareto_front:
     i = i + 1
     st.markdown(f"### Oplossing {i}")
-    for j in solution:
-        for product in productgroepen:
-            st.markdown(f"Aantal producten in de productgroep {product} {solution[j]}")
+    for j, product in solution, productgroepen:
+        st.markdown(f"Aantal producten in de productgroep {product} {j}")
     st.markdown(solution)
     st.markdown("#### Objective Values:")
     st.markdown(f"- aanschafkosten: {f1(solution)} ")
