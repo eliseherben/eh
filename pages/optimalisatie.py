@@ -15,7 +15,13 @@ menu_with_redirect()
 st.title("Optimalisatie")
 
 
-# In[1]:
+# In[ ]:
+
+
+productgroepen = ["buitenkozijnen", "lift", "binnenkozijnen", "binnenwandafwerkingen", "vloerafwerkingen", "plafonds", "sanitair", "keuken", "buitenwanden", "vloeren", "daken", "hoofddraagconstructie", "isolatie", "riolering", "terreininrichting", "verwarming", "luchtbehandeling", "gebouwvoorziening", "binnenwanden", "trappen", "luiken", "balustrades", "water", "elektra", "beveiliging"]
+
+
+# In[ ]:
 
 
 import random
@@ -51,6 +57,11 @@ def pareto_simulated_annealing(objective_functions, initial_solution, max_iterat
 
     for _ in range(max_iterations):
         new_solution = [current_solution[i] + random.randint(-1, 1) for i in range(25)]  # Perturb the current solution with random integers
+        
+#         #restricties geimplementeerde producten
+#         for i in productgroepen:
+#             new_solution[0] = max(st.session_state.i, new_solution[0])  
+        
         new_objectives = [objective(new_solution) for objective in objective_functions]
         dominated = False
         if (new_objectives[0] + new_objectives[1]) <= st.session_state.budget:
@@ -91,7 +102,6 @@ for solution in pareto_front:
 # In[ ]:
 
 
-st.markdown(st.session_state.balustrades)
-st.markdown(st.session_state.water)
-st.markdown(st.session_state.isolatie)
+for i in productgroepen:
+    st.markdown(st.session_state.i)
 
