@@ -95,16 +95,16 @@ def pareto_simulated_annealing(objective_functions, initial_solution, max_iterat
 #         new_solution[22] = max(st.session_state.water, new_solution[22])  
 #         new_solution[23] = max(st.session_state.elektra, new_solution[23])  
 #         new_solution[24] = max(st.session_state.beveiliging, new_solution[24])  
-        
+        st.write(new_solution)
         new_objectives = [objective(new_solution) for objective in objective_functions]
         dominated = False
-        if (new_objectives[0] + new_objectives[1]) <= st.session_state.budget:
-            for sol in pareto_set:
-                if dominates(new_objectives, [objective(sol) for objective in objective_functions]):
-                    pareto_set.remove(sol)
-                if dominates([objective(sol) for objective in objective_functions], new_objectives):
-                    dominated = True
-                    break
+#         if (new_objectives[0] + new_objectives[1]) <= st.session_state.budget:
+#             for sol in pareto_set:
+#                 if dominates(new_objectives, [objective(sol) for objective in objective_functions]):
+#                     pareto_set.remove(sol)
+#                 if dominates([objective(sol) for objective in objective_functions], new_objectives):
+#                     dominated = True
+#                     break
             if not dominated:
                 pareto_set.append(new_solution)
 
