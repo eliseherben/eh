@@ -63,7 +63,7 @@ def pareto_simulated_annealing(objective_functions, initial_solution, max_iterat
         new_solution[1] = max(st.session_state.lift, new_solution[1])  
         new_solution[2] = max(st.session_state.binnenkozijnen, new_solution[2])  
         new_solution[3] = max(st.session_state.binnenwandafwerking, new_solution[3])  
-        new_solution[4] = max(st.session_state.vloerafwerkingen, new_solution[4])  
+        new_solution[4] = max(st.session_state.vloerafwerking, new_solution[4])  
         new_solution[5] = max(st.session_state.plafonds, new_solution[5])  
         new_solution[6] = max(st.session_state.sanitair, new_solution[6])  
         new_solution[7] = max(st.session_state.keuken, new_solution[7])  
