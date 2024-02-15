@@ -22,37 +22,37 @@ import random
 import math
 
 # Define the objective functions
-def f1(x, minimize=True):
+def f1(x):
     result = 6*x[0] + 9*x[1] + 2*x[2] + 7*x[3] + 4*x[4] + 4*x[5] + 6*x[6] + x[7] + 4*x[8] + 7*x[9] + 9*x[10] + 10*x[11] + 4*x[12] + 2*x[13] + 6*x[14] + 6*x[15] + 2*x[16] + x[17] + 5*x[18] + 4*x[19] + 4*x[20] + 10*x[21] + 2*x[22] + 2.5*x[23] + 9*x[24]
-    return result if minimize else -result
+    return -result 
 
-def f2(x, minimize=True):
+def f2(x):
     result = 4.5*x[0] + 2*x[1] + 6*x[2] + 4*x[3] + 4*x[4] + 5*x[5] + 10*x[6] + 3*x[7] + 6*x[8] + x[9] + x[10] + x[11] + 4*x[12] + 9*x[13] + 7.5*x[14] + 4*x[15] + 2*x[16] + x[17] + 3*x[18] + 4*x[19] + 3*x[20] + 2.5*x[21] + 4*x[22] + 6*x[23] + 5*x[24]
-    return result if minimize else -result
+    return -result 
 
-def f3(x, maximize=True):
+def f3(x):
     result = 9.5*x[0] + 3*x[1] + 9*x[2] + 4.5*x[3] + x[4] + 3*x[5] + 9*x[6] + 9*x[7] + 4*x[8] + 6*x[9] + 8*x[10] + 2*x[11] + 9*x[12] + 4*x[13] + 6*x[14] + 6*x[15] + 4*x[16] + 6*x[17] + 7*x[18] + 4*x[19] + 6*x[20] + 6*x[21] + 8*x[22] + 7*x[23] + 4*x[24]
-    return result if maximize else -result
+    return result 
 
-def f4(x, maximize=True):
+def f4(x):
     result = 8*x[0] + 2.5*x[1] + 8*x[2] + 5*x[3] + 6*x[4] + 3*x[5] + 8*x[6] + 8*x[7] + 6*x[8] + 7*x[9] + 7*x[10] + 7.5*x[11] + 8*x[12] + 6*x[13] + 6*x[14] + 4*x[15] + 7*x[16] + 7*x[17] + 7*x[18] + 4*x[19] + 4*x[20] + 7.5*x[21] + 6*x[22] + 5*x[23] + 3*x[24]
-    return result if maximize else -result
+    return result 
 
-def f5(x, maximize=True):
+def f5(x):
     result = 9.5*x[0] + 10*x[1] + 4*x[2] + 8*x[3] + 6*x[4] + 7*x[5] + 6*x[6] + 8*x[7] + 6.5*x[8] + 4*x[9] + x[10] + 5*x[11] + 5*x[12] + 4*x[13] + 8*x[14] + 6*x[15] + 6*x[16] + 6*x[17] + 8*x[18] + 3*x[19] + 4*x[20] + 4*x[21] + 2*x[22] + 4*x[23] + 6*x[24]
-    return result if maximize else -result
+    return result 
 
-def f6(x, maximize=True):
+def f6(x):
     result = 7.5*x[0] + 7.5*x[1] + 8*x[2] + 7.5*x[3] + 6*x[4] + 7.5*x[5] + 8*x[6] + 8*x[7] + 6*x[8] + 7*x[9] + 4*x[10] + 2*x[11] + 5*x[12] + 2.5*x[13] + 6*x[14] + 3*x[15] + 8*x[16] + 8*x[17] + 6*x[18] + 3*x[19] + 4*x[20] + 4*x[21] + 7*x[22] + 5*x[23] + 6*x[24]
-    return result if maximize else -result
+    return -result 
 
-def f7(x, maximize=True):
+def f7(x):
     result = 4*x[0] + x[1] + 4*x[2] + 2*x[3] + 6*x[4] + 3*x[5] + x[6] + 4*x[7] + 4*x[8] + 4*x[9] + 2*x[10] + 4*x[11] + 6*x[12] + 2.5*x[13] + 3*x[14] + 2.5*x[15] + 4*x[16] + 4*x[17] + 4*x[18] + x[19] + 3*x[20] + 4*x[21] + 4*x[22] + 2.5*x[23] + 4*x[24]
-    return result if maximize else -result
+    return result 
 
-def f8(x, maximize=True):
+def f8(x):
     result = 4*x[0] + x[1] + 9*x[2] + 8*x[3] + 5*x[4] + 6*x[5] + 9*x[6] + 9*x[7] + 6*x[8] + 4*x[9] + 2*x[10] + x[11] + x[12] + 5*x[13] + 2*x[14] + 2*x[15] + 8*x[16] + 6*x[17] + 7*x[18] + 2.5*x[19] + 4*x[20] + 2*x[21] + 4*x[22] + 7*x[23] + 3*x[24]
-    return result if maximize else -result
+    return result 
     
 # Check if solution x dominates solution y
 def dominates(x, y):
