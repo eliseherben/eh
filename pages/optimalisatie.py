@@ -98,7 +98,7 @@ def pareto_simulated_annealing(objective_functions, initial_solution, max_iterat
         st.write(new_solution)
         new_objectives = [objective(new_solution) for objective in objective_functions]
         dominated = False
-#         if (new_objectives[0] + new_objectives[1]) <= st.session_state.budget:
+        if (new_objectives[0] + new_objectives[1]) <= st.session_state.budget:
 #             for sol in pareto_set:
 #                 if dominates(new_objectives, [objective(sol) for objective in objective_functions]):
 #                     pareto_set.remove(sol)
