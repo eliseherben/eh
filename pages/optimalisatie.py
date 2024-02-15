@@ -76,6 +76,7 @@ def dominates(x, y):
 def pareto_simulated_annealing(objective_functions, initial_solution, max_iterations, max_temperature, min_temperature, cooling_rate):
     current_solution = initial_solution
     temperature = max_temperature
+    st.write(objective_functions)
 
     pareto_set = [current_solution]
 
