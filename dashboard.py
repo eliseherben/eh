@@ -12,159 +12,190 @@ from menu import menu
 # In[ ]:
 
 
-if "project" not in st.session_state:
-    st.session_state.project = None
-    
-st.session_state._project = st.session_state.project
-    
-if "optimalisatie" not in st.session_state:
-    st.session_state.optimalisatie = None
-    
-st.session_state._optimalisatie = st.session_state.optimalisatie
-
-if "budget" not in st.session_state:
-    st.session_state.budget = None
-
-st.session_state._budget = st.session_state.budget
-
-if "balustrades" not in st.session_state:
-    st.session_state.balustrades = None
-
-st.session_state._balustrades = st.session_state.balustrades
-
-if "beveiliging" not in st.session_state:
-    st.session_state.beveiliging = None
-
-st.session_state._beveiliging = st.session_state.beveiliging
-
-if "binnenkozijnen" not in st.session_state:
-    st.session_state.binnenkozijnen = None
-
-st.session_state._binnenkozijnen = st.session_state.binnenkozijnen
-
-if "binnenwandafwerking" not in st.session_state:
-    st.session_state.binnenwandafwerking = None
-
-st.session_state._binnenwandafwerking = st.session_state.binnenwandafwerking
-
-if "binnenwanden" not in st.session_state:
-    st.session_state.binnenwanden = None
-
-st.session_state._binnenwanden = st.session_state.binnenwanden
-
-if "buitenkozijnen" not in st.session_state:
-    st.session_state.buitenkozijnen = None
-
-st.session_state._buitenkozijnen = st.session_state.buitenkozijnen
-
-if "buitenwanden" not in st.session_state:
-    st.session_state.buitenwanden = None
-
-st.session_state._buitenwanden = st.session_state.buitenwanden
-
-if "daken" not in st.session_state:
-    st.session_state.daken = None
-
-st.session_state._daken = st.session_state.daken
-
-if "elektra" not in st.session_state:
-    st.session_state.elektra = None
-
-st.session_state._elektra = st.session_state.elektra
-
-if "gebouwvoorzieningen" not in st.session_state:
-    st.session_state.gebouwvoorzieningen = None
-
-st.session_state._gebouwvoorzieningen = st.session_state.gebouwvoorzieningen
-
-if "hoofddraagconstructie" not in st.session_state:
-    st.session_state.hoofddraagconstructie = None
-
-st.session_state._hoofddraagconstructie = st.session_state.hoofddraagconstructie
-
-if "isolatie" not in st.session_state:
-    st.session_state.isolatie = None
-
-st.session_state._isolatie = st.session_state.isolatie
-
-if "keuken" not in st.session_state:
-    st.session_state.keuken = None
-
-st.session_state._keuken = st.session_state.keuken
-
-if "lift" not in st.session_state:
-    st.session_state.lift = None
-
-st.session_state._lift = st.session_state.lift
-
-if "luchtbehandeling" not in st.session_state:
-    st.session_state.luchtbehandeling = None
-
-st.session_state._luchtbehandeling = st.session_state.luchtbehandeling
-
-if "luiken" not in st.session_state:
-    st.session_state.luiken = None
-
-st.session_state._luiken = st.session_state.luiken
-
-if "plafonds" not in st.session_state:
-    st.session_state.plafonds = None
-
-st.session_state._plafonds = st.session_state.plafonds
-
-if "riolering" not in st.session_state:
-    st.session_state.riolering = None
-
-st.session_state._riolering = st.session_state.riolering
-
-if "sanitair" not in st.session_state:
-    st.session_state.sanitair = None
-
-st.session_state._sanitair = st.session_state.sanitair
-
-if "terreininrichting" not in st.session_state:
-    st.session_state.terreininrichting = None
-
-st.session_state._terreininrichting = st.session_state.terreininrichting
-
-if "trappen" not in st.session_state:
-    st.session_state.trappen = None
-
-st.session_state._trappen = st.session_state.trappen
-
-if "verwarming" not in st.session_state:
-    st.session_state.verwarming = None
-
-st.session_state._verwarming = st.session_state.verwarming
-
-if "vloerafwerking" not in st.session_state:
-    st.session_state.vloerafwerking = None
-
-st.session_state._vloerafwerking = st.session_state.vloerafwerking
-
-if "vloeren" not in st.session_state:
-    st.session_state.vloeren = None
-
-st.session_state._vloeren = st.session_state.vloeren
-
-if "water" not in st.session_state:
-    st.session_state.water = None
-
-st.session_state._water = st.session_state.water
-
-menu()
-
-# st.page_link("dashboard.py", label="Home")
-# st.page_link("pages/buitenkozijnen.py", label="Buitenkozijnen, -ramen, -deuren en -puien")
+productgroepen = ["buitenkozijnen", "lift", "binnenkozijnen", "binnenwandafwerkingen", "vloerafwerkingen", "plafonds", "sanitair", "keuken", "buitenwanden", "vloeren", "daken", "hoofddraagconstructie", "isolatie", "riolering", "terreininrichting", "verwarming", "luchtbehandeling", "gebouwvoorziening", "binnenwanden", "trappen", "luiken", "balustrades", "water", "elektra", "beveiliging"]
 
 
 # In[ ]:
 
 
-def set_project():
-    # Callback function to save the role selection to Session State
-    st.session_state.project = st.session_state._project
+# Lijst van sessievariabelen
+session_vars = [
+    "balustrades", "beveiliging", "binnenkozijnen", "binnenwandafwerking",
+    "binnenwanden", "buitenkozijnen", "buitenwanden", "daken", "elektra",
+    "gebouwvoorzieningen", "hoofddraagconstructie", "isolatie", "keuken",
+    "lift", "luchtbehandeling", "luiken", "plafonds", "riolering", "sanitair",
+    "terreininrichting", "trappen", "verwarming", "vloerafwerking", "vloeren",
+    "water", "budget", "project", "optimalisatie"
+]
+
+# Loop door de sessievariabelen en initialiseer ze indien nodig
+for var_name in session_vars:
+    if var_name not in st.session_state:
+        st.session_state[var_name] = None
+
+    # Maak een koppeling met de 'private' versie met een underscore ervoor
+    st.session_state[f"_{var_name}"] = st.session_state[var_name]
+
+menu()
+
+
+# In[ ]:
+
+
+# if "project" not in st.session_state:
+#     st.session_state.project = None
     
+# st.session_state._project = st.session_state.project
+    
+# if "optimalisatie" not in st.session_state:
+#     st.session_state.optimalisatie = None
+    
+# st.session_state._optimalisatie = st.session_state.optimalisatie
+
+# if "budget" not in st.session_state:
+#     st.session_state.budget = None
+
+# st.session_state._budget = st.session_state.budget
+
+# if "balustrades" not in st.session_state:
+#     st.session_state.balustrades = None
+
+# st.session_state._balustrades = st.session_state.balustrades
+
+# if "beveiliging" not in st.session_state:
+#     st.session_state.beveiliging = None
+
+# st.session_state._beveiliging = st.session_state.beveiliging
+
+# if "binnenkozijnen" not in st.session_state:
+#     st.session_state.binnenkozijnen = None
+
+# st.session_state._binnenkozijnen = st.session_state.binnenkozijnen
+
+# if "binnenwandafwerking" not in st.session_state:
+#     st.session_state.binnenwandafwerking = None
+
+# st.session_state._binnenwandafwerking = st.session_state.binnenwandafwerking
+
+# if "binnenwanden" not in st.session_state:
+#     st.session_state.binnenwanden = None
+
+# st.session_state._binnenwanden = st.session_state.binnenwanden
+
+# if "buitenkozijnen" not in st.session_state:
+#     st.session_state.buitenkozijnen = None
+
+# st.session_state._buitenkozijnen = st.session_state.buitenkozijnen
+
+# if "buitenwanden" not in st.session_state:
+#     st.session_state.buitenwanden = None
+
+# st.session_state._buitenwanden = st.session_state.buitenwanden
+
+# if "daken" not in st.session_state:
+#     st.session_state.daken = None
+
+# st.session_state._daken = st.session_state.daken
+
+# if "elektra" not in st.session_state:
+#     st.session_state.elektra = None
+
+# st.session_state._elektra = st.session_state.elektra
+
+# if "gebouwvoorzieningen" not in st.session_state:
+#     st.session_state.gebouwvoorzieningen = None
+
+# st.session_state._gebouwvoorzieningen = st.session_state.gebouwvoorzieningen
+
+# if "hoofddraagconstructie" not in st.session_state:
+#     st.session_state.hoofddraagconstructie = None
+
+# st.session_state._hoofddraagconstructie = st.session_state.hoofddraagconstructie
+
+# if "isolatie" not in st.session_state:
+#     st.session_state.isolatie = None
+
+# st.session_state._isolatie = st.session_state.isolatie
+
+# if "keuken" not in st.session_state:
+#     st.session_state.keuken = None
+
+# st.session_state._keuken = st.session_state.keuken
+
+# if "lift" not in st.session_state:
+#     st.session_state.lift = None
+
+# st.session_state._lift = st.session_state.lift
+
+# if "luchtbehandeling" not in st.session_state:
+#     st.session_state.luchtbehandeling = None
+
+# st.session_state._luchtbehandeling = st.session_state.luchtbehandeling
+
+# if "luiken" not in st.session_state:
+#     st.session_state.luiken = None
+
+# st.session_state._luiken = st.session_state.luiken
+
+# if "plafonds" not in st.session_state:
+#     st.session_state.plafonds = None
+
+# st.session_state._plafonds = st.session_state.plafonds
+
+# if "riolering" not in st.session_state:
+#     st.session_state.riolering = None
+
+# st.session_state._riolering = st.session_state.riolering
+
+# if "sanitair" not in st.session_state:
+#     st.session_state.sanitair = None
+
+# st.session_state._sanitair = st.session_state.sanitair
+
+# if "terreininrichting" not in st.session_state:
+#     st.session_state.terreininrichting = None
+
+# st.session_state._terreininrichting = st.session_state.terreininrichting
+
+# if "trappen" not in st.session_state:
+#     st.session_state.trappen = None
+
+# st.session_state._trappen = st.session_state.trappen
+
+# if "verwarming" not in st.session_state:
+#     st.session_state.verwarming = None
+
+# st.session_state._verwarming = st.session_state.verwarming
+
+# if "vloerafwerking" not in st.session_state:
+#     st.session_state.vloerafwerking = None
+
+# st.session_state._vloerafwerking = st.session_state.vloerafwerking
+
+# if "vloeren" not in st.session_state:
+#     st.session_state.vloeren = None
+
+# st.session_state._vloeren = st.session_state.vloeren
+
+# if "water" not in st.session_state:
+#     st.session_state.water = None
+
+# st.session_state._water = st.session_state.water
+
+# menu()
+
+# # st.page_link("dashboard.py", label="Home")
+# # st.page_link("pages/buitenkozijnen.py", label="Buitenkozijnen, -ramen, -deuren en -puien")
+
+
+# In[1]:
+
+
+def set_session_var(var_name):
+    # Callback functie om de selectie op te slaan in de sessievariabele
+    st.session_state[var_name] = st.session_state[f"_{var_name}"]
+    
+
 st.title("Projecten Eigen Haard")
 st.selectbox(
     'Om wat voor soort project gaat het?',
@@ -172,22 +203,47 @@ st.selectbox(
     index=None,
     placeholder="Selecteer een soort project",
     key="_project", 
-    on_change=set_project, 
+    on_change=lambda: set_session_var("project"), 
 )
 
-
-# In[ ]:
-
-
-def set_budget():
-    # Callback function to save the role selection to Session State
-    st.session_state.budget = st.session_state._budget
 
 if st.session_state.project is not None: 
     with st.container(border=True):
         st.subheader("**Budget**")
         st.markdown("Vul het budget in voor het huidige project.")
-        st.number_input("Vul het budget in", value=None, placeholder="Typ een bedrag", key="_budget", on_change=set_budget)
+        st.number_input("Vul het budget in", value=None, placeholder="Typ een bedrag", key="_budget", on_change=lambda: set_session_var("budget"))
+
+
+# In[ ]:
+
+
+# def set_project():
+#     # Callback function to save the role selection to Session State
+#     st.session_state.project = st.session_state._project
+    
+# st.title("Projecten Eigen Haard")
+# st.selectbox(
+#     'Om wat voor soort project gaat het?',
+#     ['Nieuwbouw woningen', 'Renovatie'], 
+#     index=None,
+#     placeholder="Selecteer een soort project",
+#     key="_project", 
+#     on_change=set_project, 
+# )
+
+
+# In[ ]:
+
+
+# def set_budget():
+#     # Callback function to save the role selection to Session State
+#     st.session_state.budget = st.session_state._budget
+
+# if st.session_state.project is not None: 
+#     with st.container(border=True):
+#         st.subheader("**Budget**")
+#         st.markdown("Vul het budget in voor het huidige project.")
+#         st.number_input("Vul het budget in", value=None, placeholder="Typ een bedrag", key="_budget", on_change=set_budget)
 
 
 
