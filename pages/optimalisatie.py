@@ -125,6 +125,5 @@ for solution in pareto_front:
 # In[ ]:
 
 
-for i in productgroepen:
-    st.markdown(st.session_state.
+
 
