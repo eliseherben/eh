@@ -18,19 +18,6 @@ st.title("Optimalisatie")
 # In[ ]:
 
 
-session_vars = [
-    "buitenkozijnen", "lift", "binnenkozijnen", "binnenwandafwerking",
-    "vloerafwerking", "plafonds", "sanitair", "keuken", "buitenwanden",
-    "vloeren", "daken", "hoofddraagconstructie", "isolatie", "riolering",
-    "terreininrichting", "verwarming", "luchtbehandeling", "gebouwvoorzieningen",
-    "binnenwanden", "trappen", "luiken", "balustrades", "water", "elektra",
-    "beveiliging"
-]
-
-
-# In[ ]:
-
-
 import random
 import math
 
@@ -66,38 +53,31 @@ def pareto_simulated_annealing(objective_functions, initial_solution, max_iterat
         new_solution = [current_solution[i] + random.randint(-1, 1) for i in range(25)]  # Perturb the current solution with random integers
         
         #restricties geimplementeerde producten
-        # Beperk de waarden van new_solution met de sessievariabelen
-        for i, var_name in enumerate(session_vars):
-            session_var_value = st.session_state.get(var_name)
-            if session_var_value is not None:
-                new_solution[i] = max(session_var_value, new_solution[i])
-
-
-#         new_solution[0] = max(st.session_state.buitenkozijnen, new_solution[0])  
-#         new_solution[1] = max(st.session_state.lift, new_solution[1])  
-#         new_solution[2] = max(st.session_state.binnenkozijnen, new_solution[2])  
-#         new_solution[3] = max(st.session_state.binnenwandafwerking, new_solution[3])  
-#         new_solution[4] = max(st.session_state.vloerafwerking, new_solution[4])  
-#         new_solution[5] = max(st.session_state.plafonds, new_solution[5])  
-#         new_solution[6] = max(st.session_state.sanitair, new_solution[6])  
-#         new_solution[7] = max(st.session_state.keuken, new_solution[7])  
-#         new_solution[8] = max(st.session_state.buitenwanden, new_solution[8])  
-#         new_solution[9] = max(st.session_state.vloeren, new_solution[9])  
-#         new_solution[10] = max(st.session_state.daken, new_solution[10])  
-#         new_solution[11] = max(st.session_state.hoofddraagconstructie, new_solution[11])  
-#         new_solution[12] = max(st.session_state.isolatie, new_solution[12])  
-#         new_solution[13] = max(st.session_state.riolering, new_solution[13])  
-#         new_solution[14] = max(st.session_state.terreininrichting, new_solution[14])  
-#         new_solution[15] = max(st.session_state.verwarming, new_solution[15])  
-#         new_solution[16] = max(st.session_state.luchtbehandeling, new_solution[16])  
-#         new_solution[17] = max(st.session_state.gebouwvoorzieningen, new_solution[17])  
-#         new_solution[18] = max(st.session_state.binnenwanden, new_solution[18])  
-#         new_solution[19] = max(st.session_state.trappen, new_solution[19])  
-#         new_solution[20] = max(st.session_state.luiken, new_solution[20])  
-#         new_solution[21] = max(st.session_state.balustrades, new_solution[21])  
-#         new_solution[22] = max(st.session_state.water, new_solution[22])  
-#         new_solution[23] = max(st.session_state.elektra, new_solution[23])  
-#         new_solution[24] = max(st.session_state.beveiliging, new_solution[24])  
+        new_solution[0] = max(st.session_state.buitenkozijnen, new_solution[0])  
+        new_solution[1] = max(st.session_state.lift, new_solution[1])  
+        new_solution[2] = max(st.session_state.binnenkozijnen, new_solution[2])  
+        new_solution[3] = max(st.session_state.binnenwandafwerking, new_solution[3])  
+        new_solution[4] = max(st.session_state.vloerafwerking, new_solution[4])  
+        new_solution[5] = max(st.session_state.plafonds, new_solution[5])  
+        new_solution[6] = max(st.session_state.sanitair, new_solution[6])  
+        new_solution[7] = max(st.session_state.keuken, new_solution[7])  
+        new_solution[8] = max(st.session_state.buitenwanden, new_solution[8])  
+        new_solution[9] = max(st.session_state.vloeren, new_solution[9])  
+        new_solution[10] = max(st.session_state.daken, new_solution[10])  
+        new_solution[11] = max(st.session_state.hoofddraagconstructie, new_solution[11])  
+        new_solution[12] = max(st.session_state.isolatie, new_solution[12])  
+        new_solution[13] = max(st.session_state.riolering, new_solution[13])  
+        new_solution[14] = max(st.session_state.terreininrichting, new_solution[14])  
+        new_solution[15] = max(st.session_state.verwarming, new_solution[15])  
+        new_solution[16] = max(st.session_state.luchtbehandeling, new_solution[16])  
+        new_solution[17] = max(st.session_state.gebouwvoorzieningen, new_solution[17])  
+        new_solution[18] = max(st.session_state.binnenwanden, new_solution[18])  
+        new_solution[19] = max(st.session_state.trappen, new_solution[19])  
+        new_solution[20] = max(st.session_state.luiken, new_solution[20])  
+        new_solution[21] = max(st.session_state.balustrades, new_solution[21])  
+        new_solution[22] = max(st.session_state.water, new_solution[22])  
+        new_solution[23] = max(st.session_state.elektra, new_solution[23])  
+        new_solution[24] = max(st.session_state.beveiliging, new_solution[24])  
         
         new_objectives = [objective(new_solution) for objective in objective_functions]
         dominated = False
