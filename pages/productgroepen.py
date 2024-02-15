@@ -27,6 +27,11 @@ st.markdown("Hieronder zijn de verschillende productgroepen weergegeven. Bij elk
 # In[ ]:
 
 
+def set_balustrades():
+    # Callback function to save the role selection to Session State
+    st.session_state.balustrades = st.session_state._balustrades
+
+
 with st.container(border=True):
     st.subheader("**Balustrades en leuningen**")
     st.markdown("**Wat is de range van producten die in een productgroep geïmplementeerd kunnen worden?**")
@@ -34,12 +39,17 @@ with st.container(border=True):
     v_balustrades = st.slider('Vul max en min te implementeren producten in',0, 20, (0, 20), key=1)
     
     st.markdown("**Hoe veel producten zijn er al geïmplementeerd in het project?**")
-    b_balustrades = st.number_input("Vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key=2)
+    b_balustrades = st.number_input("Vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key="_balustrades", on_change=set_balustrades)
 
 
 # #### Beveiliging
 
 # In[ ]:
+
+
+def set_beveiliging():
+    # Callback function to save the role selection to Session State
+    st.session_state.beveiliging = st.session_state._beveiliging
 
 
 with st.container(border=True):
@@ -49,13 +59,17 @@ with st.container(border=True):
     v_beveiliging = st.slider('Vul max en min te implementeren producten in',0, 20, (0, 20), key=3)
     
     st.markdown("**Hoe veel producten zijn er al geïmplementeerd in het project?**")
-    b_beveiliging = st.number_input("Vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key=4)
+    b_beveiliging = st.number_input("Vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key="_beveiliging", on_change=set_beveiliging)
 
 
 # #### Binnenkozijnen en deuren
 
 # In[ ]:
 
+
+def set_binnenkozijnen():
+    # Callback function to save the role selection to Session State
+    st.session_state.binnenkozijnen = st.session_state._binnenkozijnen
 
 with st.container(border=True):
     st.subheader("Binnenkozijnen en deuren")
@@ -64,13 +78,17 @@ with st.container(border=True):
     v_binnenkozijnen = st.slider('Vul max en min te implementeren producten in',0, 20, (0, 20), key=5)
     
     st.markdown("**Hoe veel producten zijn er al geïmplementeerd in het project?**")
-    b_binnenkozijnen = st.number_input("Vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key=6)
+    b_binnenkozijnen = st.number_input("Vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key="_binnenkozijnen", on_change=set_binnenkozijnen)
 
 
 # #### Binnenwandafwerkingen
 
 # In[ ]:
 
+
+def set_binnenwandafwerking():
+    # Callback function to save the role selection to Session State
+    st.session_state.binnenwandafwerking = st.session_state._binnenwandafwerking
 
 with st.container(border=True):
     st.subheader("Binnenwandafwerkingen")
@@ -79,13 +97,17 @@ with st.container(border=True):
     v_binnenwandafwerkingen = st.slider('Vul max en min te implementeren producten in',0, 20, (0, 20), key=7)
     
     st.markdown("**Hoe veel producten zijn er al geïmplementeerd in het project?**")
-    b_binnenwandafwerkingen = st.number_input("Vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key=8)
+    b_binnenwandafwerkingen = st.number_input("Vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key="_binnenwandafwerking", on_change=set_binnenwandafwerking)
 
 
 # #### Binnenwanden
 
 # In[ ]:
 
+
+def set_binnenwanden():
+    # Callback function to save the role selection to Session State
+    st.session_state.binnenwanden = st.session_state._binnenwanden
 
 with st.container(border=True):
 
@@ -95,13 +117,17 @@ with st.container(border=True):
     v_binnenwanden = st.slider('Vul max en min te implementeren producten in',0, 20, (0, 20), key=9)
     
     st.markdown("**Hoe veel producten zijn er al geïmplementeerd in het project?**")
-    b_binnenwanden = st.number_input("Vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key=10)
+    b_binnenwanden = st.number_input("Vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key="_binnenwanden", on_change=set_binnenwanden)
 
 
 # #### Buitenkozijnen, -ramen, -deuren en -puien
 
 # In[ ]:
 
+
+def set_buitenkozijnen():
+    # Callback function to save the role selection to Session State
+    st.session_state.buitenkozijnen = st.session_state._buitenkozijnen
 
 with st.container(border=True):
 
@@ -111,13 +137,17 @@ with st.container(border=True):
     v_buitenkozijnen = st.slider('Vul max en min te implementeren producten in',0, 20, (0, 20), key=11)
     
     st.markdown("**Hoe veel producten zijn er al geïmplementeerd in het project?**")
-    b_buitenkozijnen = st.number_input("Vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key=12)
+    b_buitenkozijnen = st.number_input("Vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key="_buitenkozijnen", on_change=set_buitenkozijnen)
 
 
 # #### Buitenwanden
 
 # In[ ]:
 
+
+def set_buitenwanden():
+    # Callback function to save the role selection to Session State
+    st.session_state.buitenwanden = st.session_state._buitenwanden
 
 with st.container(border=True):
 
@@ -127,13 +157,17 @@ with st.container(border=True):
     v_buitenwanden = st.slider('Vul max en min te implementeren producten in',0, 20, (0, 20), key=13)
     
     st.markdown("**Hoe veel producten zijn er al geïmplementeerd in het project?**")
-    b_buitenwanden = st.number_input("Vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key=14)
+    b_buitenwanden = st.number_input("Vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key="_buitenwanden", on_change=set_buitenwanden)
 
 
 # #### Daken
 
 # In[ ]:
 
+
+def set_daken():
+    # Callback function to save the role selection to Session State
+    st.session_state.daken = st.session_state._daken
 
 with st.container(border=True):
 
@@ -143,13 +177,17 @@ with st.container(border=True):
     v_daken = st.slider('Vul max en min te implementeren producten in',0, 20, (0, 20), key=15)
     
     st.markdown("**Hoe veel producten zijn er al geïmplementeerd in het project?**")
-    b_daken = st.number_input("Vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key=16)
+    b_daken = st.number_input("Vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key="_daken", on_change=set_daken)
 
 
 # #### Elektrische installaties
 
 # In[ ]:
 
+
+def set_elektra():
+    # Callback function to save the role selection to Session State
+    st.session_state.elektra = st.session_state._elektra
 
 with st.container(border=True):
 
@@ -159,13 +197,17 @@ with st.container(border=True):
     v_elektra = st.slider('Vul max en min te implementeren producten in',0, 20, (0, 20), key=17)
     
     st.markdown("**Hoe veel producten zijn er al geïmplementeerd in het project?**")
-    b_elektra = st.number_input("Vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key=18)
+    b_elektra = st.number_input("Vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key="_elektra", on_change=set_elektra)
 
 
 # #### Vaste gebouwvoorzieningen
 
 # In[ ]:
 
+
+def set_gebouwvoorzieningen():
+    # Callback function to save the role selection to Session State
+    st.session_state.gebouwvoorzieningen = st.session_state._gebouwvoorzieningen
 
 with st.container(border=True):
 
@@ -175,13 +217,17 @@ with st.container(border=True):
     v_gebouwvoorzieningen = st.slider('Vul max en min te implementeren producten in',0, 20, (0, 20), key=19)
     
     st.markdown("**Hoe veel producten zijn er al geïmplementeerd in het project?**")
-    b_gebouwvoorzieningen = st.number_input("Vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key=20)
+    b_gebouwvoorzieningen = st.number_input("Vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key="_gebouwvoorzieningen", on_change=set_gebouwvoorzieningen)
 
 
 # #### Hoofddraagconstructie
 
 # In[ ]:
 
+
+def set_hoofddraagconstructie():
+    # Callback function to save the role selection to Session State
+    st.session_state.hoofddraagconstructie = st.session_state._hoofddraagconstructie
 
 with st.container(border=True):
 
@@ -191,13 +237,17 @@ with st.container(border=True):
     v_hoofddraagconstructie = st.slider('Vul max en min te implementeren producten in',0, 20, (0, 20), key=21)
     
     st.markdown("**Hoe veel producten zijn er al geïmplementeerd in het project?**")
-    b_hoofddraagconstructie = st.number_input("Vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key=22)
+    b_hoofddraagconstructie = st.number_input("Vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key="_hoofddraagconstructie", on_change=set_hoofddraagconstructie)
 
 
 # #### Na-isolatie binnen
 
 # In[ ]:
 
+
+def set_isolatie():
+    # Callback function to save the role selection to Session State
+    st.session_state.isolatie = st.session_state._isolatie
 
 with st.container(border=True):
 
@@ -207,13 +257,18 @@ with st.container(border=True):
     v_isolatie = st.slider('Vul max en min te implementeren producten in',0, 20, (0, 20), key=23)
     
     st.markdown("**Hoe veel producten zijn er al geïmplementeerd in het project?**")
-    b_isolatie = st.number_input("Vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key=24)
+    b_isolatie = st.number_input("Vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key="_isolatie", on_change=set_isolatie)
+    st.write(b_isolatie)
 
 
 # #### Keuken
 
 # In[ ]:
 
+
+def set_keuken():
+    # Callback function to save the role selection to Session State
+    st.session_state.keuken = st.session_state._keuken
 
 with st.container(border=True):
 
@@ -223,13 +278,17 @@ with st.container(border=True):
     v_keuken = st.slider('Vul max en min te implementeren producten in',0, 20, (0, 20), key=25)
     
     st.markdown("**Hoe veel producten zijn er al geïmplementeerd in het project?**")
-    b_keuken = st.number_input("Vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key=26)
+    b_keuken = st.number_input("Vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key="_keuken", on_change=set_keuken)
 
 
 # #### Lift
 
 # In[ ]:
 
+
+def set_lift():
+    # Callback function to save the role selection to Session State
+    st.session_state.lift = st.session_state._lift
 
 with st.container(border=True):
 
@@ -239,13 +298,17 @@ with st.container(border=True):
     v_lift = st.slider('Vul max en min te implementeren producten in',0, 20, (0, 20), key=27)
     
     st.markdown("**Hoe veel producten zijn er al geïmplementeerd in het project?**")
-    b_lift = st.number_input("Vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key=28)
+    b_lift = st.number_input("Vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key="_lift", on_change=set_lift)
 
 
 # #### Luchtbehandeling
 
 # In[ ]:
 
+
+def set_luchtbehandeling():
+    # Callback function to save the role selection to Session State
+    st.session_state.luchtbehandeling = st.session_state._luchtbehandeling
 
 with st.container(border=True):
 
@@ -255,13 +318,17 @@ with st.container(border=True):
     v_luchtbehandeling = st.slider('Vul max en min te implementeren producten in',0, 20, (0, 20), key=29)
     
     st.markdown("**Hoe veel producten zijn er al geïmplementeerd in het project?**")
-    b_luchtbehandeling = st.number_input("Vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key=30)
+    b_luchtbehandeling = st.number_input("Vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key="_luchtbehandeling", on_change=set_luchtbehandeling)
 
 
 # #### Luiken en vensters
 
 # In[ ]:
 
+
+def set_luiken():
+    # Callback function to save the role selection to Session State
+    st.session_state.luiken = st.session_state._luiken
 
 with st.container(border=True):
 
@@ -271,13 +338,17 @@ with st.container(border=True):
     v_luiken = st.slider('Vul max en min te implementeren producten in',0, 20, (0, 20), key=31)
     
     st.markdown("**Hoe veel producten zijn er al geïmplementeerd in het project?**")
-    b_luiken = st.number_input("Vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key=32)
+    b_luiken = st.number_input("Vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key="_luiken", on_change=set_luiken)
 
 
 # #### Plafonds
 
 # In[ ]:
 
+
+def set_plafonds():
+    # Callback function to save the role selection to Session State
+    st.session_state.plafonds = st.session_state._plafonds
 
 with st.container(border=True):
 
@@ -287,13 +358,17 @@ with st.container(border=True):
     v_plafonds = st.slider('Vul max en min te implementeren producten in',0, 20, (0, 20), key=33)
     
     st.markdown("**Hoe veel producten zijn er al geïmplementeerd in het project?**")
-    b_plafonds = st.number_input("Vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key=34)
+    b_plafonds = st.number_input("Vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key="_plafonds", on_change=set_plafonds)
 
 
 # #### Riolering en HWA
 
 # In[ ]:
 
+
+def set_riolering():
+    # Callback function to save the role selection to Session State
+    st.session_state.riolering = st.session_state._riolering
 
 with st.container(border=True):
 
@@ -303,13 +378,17 @@ with st.container(border=True):
     v_riolering = st.slider('Vul max en min te implementeren producten in',0, 20, (0, 20), key=35)
     
     st.markdown("**Hoe veel producten zijn er al geïmplementeerd in het project?**")
-    b_riolering = st.number_input("Vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key=36)
+    b_riolering = st.number_input("Vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key="_riolering", on_change=set_riolering)
 
 
 # #### Sanitair
 
 # In[ ]:
 
+
+def set_sanitair():
+    # Callback function to save the role selection to Session State
+    st.session_state.sanitair = st.session_state._sanitair
 
 with st.container(border=True):
 
@@ -319,13 +398,17 @@ with st.container(border=True):
     v_sanitair = st.slider('Vul max en min te implementeren producten in',0, 20, (0, 20), key=37)
     
     st.markdown("**Hoe veel producten zijn er al geïmplementeerd in het project?**")
-    b_sanitair = st.number_input("Vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key=38)
+    b_sanitair = st.number_input("Vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key="_sanitair", on_change=set_sanitair)
 
 
 # #### Terreininrichting
 
 # In[ ]:
 
+
+def set_terreininrichting():
+    # Callback function to save the role selection to Session State
+    st.session_state.terreininrichting = st.session_state._terreininrichting
 
 with st.container(border=True):
 
@@ -335,13 +418,17 @@ with st.container(border=True):
     v_terreininrichting = st.slider('Vul max en min te implementeren producten in',0, 20, (0, 20), key=39)
     
     st.markdown("**Hoe veel producten zijn er al geïmplementeerd in het project?**")
-    b_terreininrichting = st.number_input("Vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key=40)
+    b_terreininrichting = st.number_input("Vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key="_terreininrichting", on_change=set_terreininrichting)
 
 
 # #### Trappen en hellingen
 
 # In[ ]:
 
+
+def set_trappen():
+    # Callback function to save the role selection to Session State
+    st.session_state.trappen = st.session_state._trappen
 
 with st.container(border=True):
 
@@ -351,13 +438,17 @@ with st.container(border=True):
     v_trappen = st.slider('Vul max en min te implementeren producten in',0, 20, (0, 20), key=41)
     
     st.markdown("**Hoe veel producten zijn er al geïmplementeerd in het project?**")
-    b_trappen = st.number_input("Vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key=42)
+    b_trappen = st.number_input("Vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key="_trappen", on_change=set_trappen)
 
 
 # #### Verwarming en koeling
 
 # In[ ]:
 
+
+def set_verwarming():
+    # Callback function to save the role selection to Session State
+    st.session_state.verwarming = st.session_state._verwarming
 
 with st.container(border=True):
 
@@ -367,13 +458,17 @@ with st.container(border=True):
     v_verwarming = st.slider('Vul max en min te implementeren producten in',0, 20, (0, 20), key=43)
     
     st.markdown("**Hoe veel producten zijn er al geïmplementeerd in het project?**")
-    b_koeling = st.number_input("Vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key=44)
+    b_koeling = st.number_input("Vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key="_verwarming", on_change=set_verwarming)
 
 
 # #### Vloerafwerkingen
 
 # In[ ]:
 
+
+def set_vloerafwerking():
+    # Callback function to save the role selection to Session State
+    st.session_state.vloerafwerking = st.session_state._vloerafwerking
 
 with st.container(border=True):
 
@@ -383,13 +478,17 @@ with st.container(border=True):
     v_vloerafwerking = st.slider('Vul max en min te implementeren producten in',0, 20, (0, 20), key=45)
     
     st.markdown("**Hoe veel producten zijn er al geïmplementeerd in het project?**")
-    b_vloerafwerking = st.number_input("Vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key=46)
+    b_vloerafwerking = st.number_input("Vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key="_vloerafwerking", on_change=set_vloerafwerking)
 
 
 # #### Vloeren
 
 # In[ ]:
 
+
+def set_vloeren():
+    # Callback function to save the role selection to Session State
+    st.session_state.vloeren = st.session_state._vloeren
 
 with st.container(border=True):
 
@@ -399,13 +498,17 @@ with st.container(border=True):
     v_vloeren = st.slider('Vul max en min te implementeren producten in',0, 20, (0, 20), key=47)
     
     st.markdown("**Hoe veel producten zijn er al geïmplementeerd in het project?**")
-    b_vloeren = st.number_input("Vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key=48)
+    b_vloeren = st.number_input("Vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key="_vloeren", on_change=set_vloeren)
 
 
 # #### Warm- en koud water installaties
 
 # In[ ]:
 
+
+def set_water():
+    # Callback function to save the role selection to Session State
+    st.session_state.water = st.session_state._water
 
 with st.container(border=True):
 
@@ -415,7 +518,7 @@ with st.container(border=True):
     v_water = st.slider('Vul max en min te implementeren producten in',0, 20, (0, 20), key=49)
     
     st.markdown("**Hoe veel producten zijn er al geïmplementeerd in het project?**")
-    b_water = st.number_input("Vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key=50)
+    b_water = st.number_input("Vul hoeveel producten er al geimplementeerd zijn in", min_value=0, key="_water", on_change=set_water)
 
 
 # #### Optimalisatie
