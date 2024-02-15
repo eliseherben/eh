@@ -91,7 +91,7 @@ for solution in pareto_front:
 # In[ ]:
 
 
-st.markdown(balustrades)
-st.markdown(water)
-st.markdown(isolatie)
+st.markdown(st.session_state.balustrades)
+st.markdown(st.session_state.water)
+st.markdown(st.session_state.isolatie)
 
