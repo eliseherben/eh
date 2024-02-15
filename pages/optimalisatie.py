@@ -44,7 +44,7 @@ def f5(x):
 
 def f6(x):
     result = 7.5*x[0] + 7.5*x[1] + 8*x[2] + 7.5*x[3] + 6*x[4] + 7.5*x[5] + 8*x[6] + 8*x[7] + 6*x[8] + 7*x[9] + 4*x[10] + 2*x[11] + 5*x[12] + 2.5*x[13] + 6*x[14] + 3*x[15] + 8*x[16] + 8*x[17] + 6*x[18] + 3*x[19] + 4*x[20] + 4*x[21] + 7*x[22] + 5*x[23] + 6*x[24]
-    return -result
+    return result
 
 def f7(x):
     result = 4*x[0] + x[1] + 4*x[2] + 2*x[3] + 6*x[4] + 3*x[5] + x[6] + 4*x[7] + 4*x[8] + 4*x[9] + 2*x[10] + 4*x[11] + 6*x[12] + 2.5*x[13] + 3*x[14] + 2.5*x[15] + 4*x[16] + 4*x[17] + 4*x[18] + x[19] + 3*x[20] + 4*x[21] + 4*x[22] + 2.5*x[23] + 4*x[24]
@@ -110,16 +110,17 @@ def pareto_simulated_annealing(objective_functions, initial_solution, max_iterat
         new_solution[24] = max(st.session_state.beveiliging, new_solution[24])  
         
         new_objectives = [objective(new_solution) for objective in objective_functions]
+        st.write(new_objectives)
         dominated = False
-        if (new_objectives[0] + new_objectives[1]) <= st.session_state.budget:
-            for sol in pareto_set:
-                if dominates(new_objectives, [objective(sol) for objective in objective_functions]):
-                    pareto_set.remove(sol)
-                if dominates([objective(sol) for objective in objective_functions], new_objectives):
-                    dominated = True
-                    break
-            if not dominated:
-                pareto_set.append(new_solution)
+#         if (new_objectives[0] + new_objectives[1]) <= st.session_state.budget:
+        for sol in pareto_set:
+            if dominates(new_objectives, [objective(sol) for objective in objective_functions]):
+                pareto_set.remove(sol)
+            if dominates([objective(sol) for objective in objective_functions], new_objectives):
+                dominated = True
+                break
+        if not dominated:
+            pareto_set.append(new_solution)
 
         temperature *= cooling_rate
         if temperature < min_temperature:
