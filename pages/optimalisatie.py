@@ -131,6 +131,8 @@ for solution in pareto_front:
     st.markdown(f"- toepassingsmogelijkheden: {f4(solution)}")
     st.markdown(f"- woonbeleving: {f5(solution)}")
     st.markdown(f"- milieubelasting: {f6(solution)}")
+    st.markdown(f"- flexibiliteit tbv toekomstbestendigheid en innovatie: {f7(solution)}")
+    st.markdown(f"- mate van standaardisering: {f8(solution)}")
 
 
 # In[ ]:
