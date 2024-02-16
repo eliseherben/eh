@@ -191,36 +191,11 @@ menu()
 # In[1]:
 
 
-def set_session_var(var_name):
-    # Callback functie om de selectie op te slaan in de sessievariabele
-    st.session_state[var_name] = st.session_state[f"_{var_name}"]
+# def set_session_var(var_name):
+#     # Callback functie om de selectie op te slaan in de sessievariabele
+#     st.session_state[var_name] = st.session_state[f"_{var_name}"]
     
 
-st.title("Projecten Eigen Haard")
-st.selectbox(
-    'Om wat voor soort project gaat het?',
-    ['Nieuwbouw woningen', 'Renovatie'], 
-    index=None,
-    placeholder="Selecteer een soort project",
-    key="_project", 
-    on_change=lambda: set_session_var("project"), 
-)
-
-
-if st.session_state.project is not None: 
-    with st.container(border=True):
-        st.subheader("**Budget**")
-        st.markdown("Vul het budget in voor het huidige project.")
-        st.number_input("Vul het budget in", value=None, placeholder="Typ een bedrag", key="_budget", on_change=lambda: set_session_var("budget"))
-
-
-# In[ ]:
-
-
-# def set_project():
-#     # Callback function to save the role selection to Session State
-#     st.session_state.project = st.session_state._project
-    
 # st.title("Projecten Eigen Haard")
 # st.selectbox(
 #     'Om wat voor soort project gaat het?',
@@ -228,22 +203,47 @@ if st.session_state.project is not None:
 #     index=None,
 #     placeholder="Selecteer een soort project",
 #     key="_project", 
-#     on_change=set_project, 
+#     on_change=lambda: set_session_var("project"), 
 # )
 
-
-# In[ ]:
-
-
-# def set_budget():
-#     # Callback function to save the role selection to Session State
-#     st.session_state.budget = st.session_state._budget
 
 # if st.session_state.project is not None: 
 #     with st.container(border=True):
 #         st.subheader("**Budget**")
 #         st.markdown("Vul het budget in voor het huidige project.")
-#         st.number_input("Vul het budget in", value=None, placeholder="Typ een bedrag", key="_budget", on_change=set_budget)
+#         st.number_input("Vul het budget in", value=None, placeholder="Typ een bedrag", key="_budget", on_change=lambda: set_session_var("budget"))
+
+
+# In[ ]:
+
+
+def set_project():
+    # Callback function to save the role selection to Session State
+    st.session_state.project = st.session_state._project
+    
+st.title("Projecten Eigen Haard")
+st.selectbox(
+    'Om wat voor soort project gaat het?',
+    ['Nieuwbouw woningen', 'Renovatie'], 
+    index=None,
+    placeholder="Selecteer een soort project",
+    key="_project", 
+    on_change=set_project, 
+)
+
+
+# In[ ]:
+
+
+def set_budget():
+    # Callback function to save the role selection to Session State
+    st.session_state.budget = st.session_state._budget
+
+if st.session_state.project is not None: 
+    with st.container(border=True):
+        st.subheader("**Budget**")
+        st.markdown("Vul het budget in voor het huidige project.")
+        st.number_input("Vul het budget in", value=None, placeholder="Typ een bedrag", key="_budget", on_change=set_budget)
 
 
 
