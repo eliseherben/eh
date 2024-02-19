@@ -222,16 +222,34 @@ def f8(x):
     return result 
 
 def uitkomsten(oplossing):
-    aanschafprijs = st.session_state.aanschafprijs * f1(oplossing)
-    onderhoudsprijs = st.session_state.onderhoudsprijs * f2(oplossing)
-    losmaakbaarheid = st.session_state.losmaakbaarheid * f3(oplossing)
-    toepassingsmogelijkheden = st.session_state.toepassingsmogelijkheden * f4(oplossing)
-    woonbeleving = st.session_state.woonbeleving * f5(oplossing)
-    milieubelasting = st.session_state.milieubelasting * f6(oplossing)
-    flexibiliteit = st.session_state.flexibiliteit * f7(oplossing)
-    standaardisering = st.session_state.standaardisering * f8(oplossing)
+    # Controleer of aanschafprijs en onderhoudskosten binnen het budget vallen
+    if f1(oplossing) + f2(oplossing) <= st.session_state.budget:
+        aanschafprijs = st.session_state.aanschafprijs * f1(oplossing)
+        onderhoudsprijs = st.session_state.onderhoudsprijs * f2(oplossing)
+        losmaakbaarheid = st.session_state.losmaakbaarheid * f3(oplossing)
+        toepassingsmogelijkheden = st.session_state.toepassingsmogelijkheden * f4(oplossing)
+        woonbeleving = st.session_state.woonbeleving * f5(oplossing)
+        milieubelasting = st.session_state.milieubelasting * f6(oplossing)
+        flexibiliteit = st.session_state.flexibiliteit * f7(oplossing)
+        standaardisering = st.session_state.standaardisering * f8(oplossing)
 
-    return -aanschafprijs - onderhoudsprijs + losmaakbaarheid + toepassingsmogelijkheden + woonbeleving - milieubelasting + flexibiliteit + standaardisering
+        return -aanschafprijs - onderhoudsprijs + losmaakbaarheid + toepassingsmogelijkheden + woonbeleving - milieubelasting + flexibiliteit + standaardisering
+    else:
+        # Als aanschafprijs + onderhoudskosten hoger zijn dan het budget, retourneer een grote negatieve waarde
+        return -float('inf')
+
+
+# def uitkomsten(oplossing):
+#     aanschafprijs = st.session_state.aanschafprijs * f1(oplossing)
+#     onderhoudsprijs = st.session_state.onderhoudsprijs * f2(oplossing)
+#     losmaakbaarheid = st.session_state.losmaakbaarheid * f3(oplossing)
+#     toepassingsmogelijkheden = st.session_state.toepassingsmogelijkheden * f4(oplossing)
+#     woonbeleving = st.session_state.woonbeleving * f5(oplossing)
+#     milieubelasting = st.session_state.milieubelasting * f6(oplossing)
+#     flexibiliteit = st.session_state.flexibiliteit * f7(oplossing)
+#     standaardisering = st.session_state.standaardisering * f8(oplossing)
+
+#     return -aanschafprijs - onderhoudsprijs + losmaakbaarheid + toepassingsmogelijkheden + woonbeleving - milieubelasting + flexibiliteit + standaardisering
 
 def startoplossingen():
     oplossingen = []
