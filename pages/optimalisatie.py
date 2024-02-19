@@ -245,12 +245,18 @@ def ouders_maken(populatie):
 def kinderen_maken(ouders):
     kinderen = []
     while len(ouders) != 0:
-        parent1, parent2 = random.sample(ouders, 2)
+        kind1 = []
+        kind2 = []
+        parent1 = random.choice(ouders)
         ouders.remove(parent1)
+        parent2 = random.choice(ouders)
         ouders.remove(parent2)
-        
-        kind1 = random.choice([parent1, parent2])
-        kind2 = random.choice([parent1, parent2])
+        while len(kind1) < 25:
+            for i in range(25):
+                kind1.append(random.choice([parent1[i], parent2[i]]))
+        while len(kind2) < 25:
+            for a in range(25):
+                kind2.append(random.choice([parent1[a], parent2[a]]))
         kinderen.append(kind1)
         kinderen.append(kind2)
     return kinderen
