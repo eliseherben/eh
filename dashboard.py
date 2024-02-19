@@ -304,6 +304,43 @@ if st.session_state.project is not None:
 # In[ ]:
 
 
+def set_aanschafprijs():
+    # Callback function to save the role selection to Session State
+    st.session_state.aanschafprijs = st.session_state._aanschafprijs
+    
+def set_onderhoudsprijs():
+    # Callback function to save the role selection to Session State
+    st.session_state.onderhoudsprijs = st.session_state._onderhoudsprijs
+    
+def set_losmaakbaarheid():
+    # Callback function to save the role selection to Session State
+    st.session_state.losmaakbaarheid = st.session_state._losmaakbaarheid
+    
+def set_toepassingsmogelijkheden():
+    # Callback function to save the role selection to Session State
+    st.session_state.toepassingsmogelijkheden = st.session_state._toepassingsmogelijkheden
+    
+def set_woonbeleving():
+    # Callback function to save the role selection to Session State
+    st.session_state.woonbeleving = st.session_state._woonbeleving
+    
+def set_milieubelasting():
+    # Callback function to save the role selection to Session State
+    st.session_state.milieubelasting = st.session_state._milieubelasting
+    
+def set_flexibiliteit():
+    # Callback function to save the role selection to Session State
+    st.session_state.flexibiliteit = st.session_state._flexibiliteit
+    
+def set_standaardisering():
+    # Callback function to save the role selection to Session State
+    st.session_state.standaardisering = st.session_state._standaardisering
+    
+
+
+# In[ ]:
+
+
 if st.session_state.project is not None:
     with st.container(border=True):
         st.subheader("**Weging onderdelen**")
