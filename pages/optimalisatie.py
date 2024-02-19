@@ -238,19 +238,6 @@ def uitkomsten(oplossing):
         # Als aanschafprijs + onderhoudskosten hoger zijn dan het budget, retourneer een grote negatieve waarde
         return -float('inf')
 
-
-# def uitkomsten(oplossing):
-#     aanschafprijs = st.session_state.aanschafprijs * f1(oplossing)
-#     onderhoudsprijs = st.session_state.onderhoudsprijs * f2(oplossing)
-#     losmaakbaarheid = st.session_state.losmaakbaarheid * f3(oplossing)
-#     toepassingsmogelijkheden = st.session_state.toepassingsmogelijkheden * f4(oplossing)
-#     woonbeleving = st.session_state.woonbeleving * f5(oplossing)
-#     milieubelasting = st.session_state.milieubelasting * f6(oplossing)
-#     flexibiliteit = st.session_state.flexibiliteit * f7(oplossing)
-#     standaardisering = st.session_state.standaardisering * f8(oplossing)
-
-#     return -aanschafprijs - onderhoudsprijs + losmaakbaarheid + toepassingsmogelijkheden + woonbeleving - milieubelasting + flexibiliteit + standaardisering
-
 def startoplossingen():
     oplossingen = []
     while len(oplossingen) < 10:
@@ -290,15 +277,25 @@ def kinderen_maken(ouders):
         kind1 = []
         kind2 = []
         parent1 = random.choice(ouders)
+        st.markdown(f"ouder 1: {parent1}")
         ouders.remove(parent1)
         parent2 = random.choice(ouders)
+        st.markdown(f"ouder 2: {parent2}")
         ouders.remove(parent2)
         while len(kind1) < 25:
             for i in range(25):
-                kind1.append(random.choice([parent1[i], parent2[i]]))
+                if random.randint(0, 10) == 1:
+                    kind1.append(random.randint(0,20))
+                else:
+                    kind1.append(random.choice([parent1[i], parent2[i]]))
         while len(kind2) < 25:
             for a in range(25):
-                kind2.append(random.choice([parent1[a], parent2[a]]))
+                if random.randint(0, 10) == 1:
+                    kind1.append(random.randint(0,20))
+                else:
+                    kind2.append(random.choice([parent1[a], parent2[a]]))
+        st.markdown(f"kind 1: {kind1}")
+        st.markdown(f"kind 2: {kind2}")
         kinderen.append(kind1)
         kinderen.append(kind2)
     return kinderen
