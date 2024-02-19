@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[3]:
+# In[ ]:
 
 
 import streamlit as st
@@ -162,7 +162,7 @@ st.title("Optimalisatie")
 
 # ### Genetic algorithm
 
-# In[4]:
+# In[ ]:
 
 
 productgroepen = ["Buitenkozijnen, -ramen, -deuren en -puien", "Lift", "Binnenkozijnen en deuren", 
@@ -173,20 +173,20 @@ productgroepen = ["Buitenkozijnen, -ramen, -deuren en -puien", "Lift", "Binnenko
                  "Elektrische installaties", "Beveiliging"]
 
 
-# In[7]:
+# In[ ]:
 
 
-test = [st.session_state.buitenkozijnen, st.session_state.lift]
+sessions = [st.session_state.buitenkozijnen, st.session_state.lift, st.session_state.binnenkozijnen, 
+            st.session_state.binnenwandafwerking, st.session_state.vloerafwerking, st.session_state.plafonds, 
+            st.session_state.sanitair, st.session_state.keuken, st.session_state.buitenwanden, st.session_state.vloeren, 
+            st.session_state.daken, st.session_state.hoofddraagconstructie, st.session_state.isolatie, 
+            st.session_state.riolering, st.session_state.terreininrichting, st.session_state.verwarming, 
+            st.session_state.luchtbehandeling, st.session_state.gebouwvoorzieningen, st.session_state.binnenwanden, 
+            st.session_state.trappen, st.session_state.luiken, st.session_state.balustrades, st.session_state.water, 
+            st.session_state.elektra, st.session_state.beveiliging]
 
 
-# In[8]:
-
-
-for i in test:
-    st.markdown(f"test: {i}")
-
-
-# In[1]:
+# In[ ]:
 
 
 def f1(x):
@@ -236,10 +236,9 @@ def uitkomsten(oplossing):
 def startoplossingen():
     oplossingen = []
     while len(oplossingen) < 10:
-        oplossing = [random.randint(0, 100) for _ in range(25)]
-        for i in range(len(oplossing)):
-            oplossing[i] = max(st.session_state.buitenkozijnen, oplossing[i])
-           
+        oplossing = [random.randint(0, 20) for _ in range(25)]
+        for i, session in zip(range(len(oplossing)), sessions):
+            oplossing[i] = max(session, oplossing[i])
         oplossingen.append((oplossing, uitkomsten(oplossing)))
     oplossingen.sort(key=lambda uitkomsten: uitkomsten[1], reverse=True)
     return oplossingen
