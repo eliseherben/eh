@@ -275,7 +275,7 @@ for solution in populatie:
     st.markdown(f"#### Oplossing {i}")
     st.markdown(f"totale score: {uitkomsten(solution)}")
     for product in productgroepen:
-        st.markdown(f"Aantal producten in de productgroep {product} {solution[j]}")
+#         st.markdown(f"Aantal producten in de productgroep {product} {solution[j]}")
         j = j + 1
     st.markdown(solution)
     st.markdown("#### Objective Values:")
