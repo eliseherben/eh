@@ -223,7 +223,7 @@ def uitkomsten(oplossing):
 def startoplossingen():
     oplossingen = []
     while len(oplossingen) < 10:
-        oplossing = [random.randint(0, 20) for _ in range(25)]
+        oplossing = [random.randint(0, 100) for _ in range(25)]
         oplossingen.append((oplossing, uitkomsten(oplossing)))
     oplossingen.sort(key=lambda uitkomsten: uitkomsten[1], reverse=True)
     return oplossingen
