@@ -176,6 +176,43 @@ productgroepen = ["Buitenkozijnen, -ramen, -deuren en -puien", "Lift", "Binnenko
 # In[ ]:
 
 
+def set_aanschafprijs():
+    # Callback function to save the role selection to Session State
+    st.session_state.aanschafprijs = st.session_state._aanschafprijs
+    
+def set_onderhoudsprijs():
+    # Callback function to save the role selection to Session State
+    st.session_state.onderhoudsprijs = st.session_state._onderhoudsprijs
+    
+def set_losmaakbaarheid():
+    # Callback function to save the role selection to Session State
+    st.session_state.losmaakbaarheid = st.session_state._losmaakbaarheid
+    
+def set_toepassingsmogelijkheden():
+    # Callback function to save the role selection to Session State
+    st.session_state.toepassingsmogelijkheden = st.session_state._toepassingsmogelijkheden
+    
+def set_woonbeleving():
+    # Callback function to save the role selection to Session State
+    st.session_state.woonbeleving = st.session_state._woonbeleving
+    
+def set_milieubelasting():
+    # Callback function to save the role selection to Session State
+    st.session_state.milieubelasting = st.session_state._milieubelasting
+    
+def set_flexibiliteit():
+    # Callback function to save the role selection to Session State
+    st.session_state.flexibiliteit = st.session_state._flexibiliteit
+    
+def set_standaardisering():
+    # Callback function to save the role selection to Session State
+    st.session_state.standaardisering = st.session_state._standaardisering
+    
+
+
+# In[1]:
+
+
 def f1(x):
     result = 6*x[0] + 9*x[1] + 2*x[2] + 7*x[3] + 4*x[4] + 4*x[5] + 6*x[6] + x[7] + 4*x[8] + 7*x[9] + 9*x[10] + 10*x[11] + 4*x[12] + 2*x[13] + 6*x[14] + 6*x[15] + 2*x[16] + x[17] + 5*x[18] + 4*x[19] + 4*x[20] + 10*x[21] + 2*x[22] + 2.5*x[23] + 9*x[24]
     return result 
@@ -209,7 +246,16 @@ def f8(x):
     return result 
 
 def uitkomsten(oplossing):
-    return -f1(oplossing) - f2(oplossing) + f3(oplossing) + f4(oplossing) + f5(oplossing) - f6(oplossing) + f7(oplossing) + f8(oplossing)
+    aanschafprijs = st.session_state.aanschafprijs * f1(oplossing)
+    onderhoudsprijs = st.session_state.onderhoudsprijs * f2(oplossing)
+    losmaakbaarheid = st.session_state.losmaakbaarheid * f3(oplossing)
+    toepassingsmogelijkheden = st.session_state.toepassingsmogelijkheden * f4(oplossing)
+    woonbeleving = st.session_state.woonbeleving * f5(oplossing)
+    milieubelasting = st.session_state.milieubelasting * f6(oplossing)
+    flexibiliteit = st.session_state.flexibiliteit * f7(oplossing)
+    standaardisering = st.session_state.standaardisering * f8(oplossing)
+
+    return -aanschafprijs - onderhoudsprijs + losmaakbaarheid + toepassingsmogelijkheden + woonbeleving - milieubelasting + flexibiliteit + standaardisering
 
 def startoplossingen():
     oplossingen = []
