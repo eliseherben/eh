@@ -246,45 +246,14 @@ def f8(x):
     return result 
 
 def uitkomsten(oplossing):
-    if st.session_state.aanschafprijs is not None: 
-        aanschafprijs = st.session_state.aanschafprijs * f1(oplossing)
-    else:
-        aanschafprijs = f1(oplossing)
-        
-    if st.session_state.onderhoudsprijs is not None:
-        onderhoudsprijs = st.session_state.onderhoudsprijs * f2(oplossing)
-    else:
-        onderhoudsprijs = f2(oplossing)
-        
-    if st.session_state.losmaakbaarheid is not None:
-        losmaakbaarheid = st.session_state.losmaakbaarheid * f3(oplossing)
-    else:
-        losmaakbaarheid = f3(oplossing)
-    
-    if st.session_state.toepassingsmogelijkheden is not None:
-        toepassingsmogelijkheden = st.session_state.toepassingsmogelijkheden * f4(oplossing)
-    else:
-        toepassingsmogelijkheden = f4(oplossing)
-    
-    if st.session_state.woonbeleving is not None:
-        woonbeleving = st.session_state.woonbeleving * f5(oplossing)
-    else:
-        woonbeleving = f5(oplossing)
-    
-    if st.session_state.milieubelasting is not None:
-        milieubelasting = st.session_state.milieubelasting * f6(oplossing)
-    else:
-        milieubelasting = f6(oplossing)
-    
-    if st.session_state.flexibiliteit is not None:
-        flexibiliteit = st.session_state.flexibiliteit * f7(oplossing)
-    else:
-        flexibiliteit = f7(oplossing)
-    
-    if st.session_state.standaardisering is not None:
-        standaardisering = st.session_state.standaardisering * f8(oplossing)
-    else:
-        standaardisering = f8(oplossing)
+    aanschafprijs = st.session_state.aanschafprijs * f1(oplossing)
+    onderhoudsprijs = st.session_state.onderhoudsprijs * f2(oplossing)
+    losmaakbaarheid = st.session_state.losmaakbaarheid * f3(oplossing)
+    toepassingsmogelijkheden = st.session_state.toepassingsmogelijkheden * f4(oplossing)
+    woonbeleving = st.session_state.woonbeleving * f5(oplossing)
+    milieubelasting = st.session_state.milieubelasting * f6(oplossing)
+    flexibiliteit = st.session_state.flexibiliteit * f7(oplossing)
+    standaardisering = st.session_state.standaardisering * f8(oplossing)
 
     return -aanschafprijs - onderhoudsprijs + losmaakbaarheid + toepassingsmogelijkheden + woonbeleving - milieubelasting + flexibiliteit + standaardisering
 
