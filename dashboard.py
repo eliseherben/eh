@@ -310,28 +310,28 @@ if st.session_state.project is not None:
         st.markdown("Hebben onderstaande onderdelen een zwaardere weging? De weging van de onderdelen staat standaard op 1. Als er onderdelen zijn die zwaarder wegen kunnen die hieronder aangepast worden.")
 
         st.markdown("**Aanschafprijs**")
-        aanschafprijs = st.number_input("Weging", min_value=1, key=1)
+        aanschafprijs = st.number_input("Weging", min_value=1, key="_aanschafprijs", on_change=set_aanschafprijs)
 
         st.markdown("**Onderhoudsprijs**")
-        onderhoudsprijs = st.number_input("Weging", min_value=1, key=2)
+        onderhoudsprijs = st.number_input("Weging", min_value=1, key="_onderhoudsprijs", on_change=set_onderhoudsprijs)
 
         st.markdown("**Mate van losmaakbaarheid**")
-        losmaakbaarheid = st.number_input("Weging", min_value=1, key=3)
+        losmaakbaarheid = st.number_input("Weging", min_value=1, key="_losmaakbaarheid", on_change=set_losmaakbaarheid)
 
         st.markdown("**Toepassingsmogelijkheden**")
-        toepassingsmogelijkheden = st.number_input("Weging", min_value=1, key=4)
+        toepassingsmogelijkheden = st.number_input("Weging", min_value=1, key="_toepassingsmogelijkheden", on_change=set_toepassingsmogelijkheden)
 
         st.markdown("**Woonbeleving**")
-        woonbeleving = st.number_input("Weging", min_value=1, key=5)
+        woonbeleving = st.number_input("Weging", min_value=1, key="_woonbeleving", on_change=set_woonbeleving)
 
         st.markdown("**Milieubelasting**")
-        milieubelasting = st.number_input("Weging", min_value=1, key=6)
+        milieubelasting = st.number_input("Weging", min_value=1, key="_milieubelasting", on_change = set_milieubelasting)
 
         st.markdown("**Flexibiliteit tbv toekomstbestendigheid en innovatie**")
-        flexibiliteit = st.number_input("Weging", min_value=1, key=7)
+        flexibiliteit = st.number_input("Weging", min_value=1, key="_flexibiliteit", on_change = set_flexibiliteit)
 
         st.markdown("**Mate van standaardisering**")
-        standaardisering = st.number_input("Weging", min_value=1, key=8)
+        standaardisering = st.number_input("Weging", min_value=1, key="_standaardisering", on_change = set_standaardisering)
 
 
 # In[ ]:
