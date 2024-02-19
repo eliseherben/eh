@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[ ]:
+# In[3]:
 
 
 import streamlit as st
@@ -162,7 +162,7 @@ st.title("Optimalisatie")
 
 # ### Genetic algorithm
 
-# In[ ]:
+# In[4]:
 
 
 productgroepen = ["Buitenkozijnen, -ramen, -deuren en -puien", "Lift", "Binnenkozijnen en deuren", 
@@ -171,6 +171,19 @@ productgroepen = ["Buitenkozijnen, -ramen, -deuren en -puien", "Lift", "Binnenko
                  "Verwarming en koeling", "Luchtbehandeling", "Vaste gebouwvoorzieningen", "Binnenwanden", 
                  "Trappen en hellingen", "Luiken en vensters", "Balustrades en leuningen", "Warm- en koud water installaties", 
                  "Elektrische installaties", "Beveiliging"]
+
+
+# In[7]:
+
+
+test = [st.session_state.buitenkozijnen, st.session_state.lift]
+
+
+# In[8]:
+
+
+for i in test:
+    st.markdown(f"test: {i}")
 
 
 # In[1]:
@@ -224,6 +237,9 @@ def startoplossingen():
     oplossingen = []
     while len(oplossingen) < 10:
         oplossing = [random.randint(0, 100) for _ in range(25)]
+        for i in range(len(oplossing)):
+            oplossing[i] = max(st.session_state.buitenkozijnen, oplossing[i])
+           
         oplossingen.append((oplossing, uitkomsten(oplossing)))
     oplossingen.sort(key=lambda uitkomsten: uitkomsten[1], reverse=True)
     return oplossingen
@@ -314,5 +330,4 @@ for solution in populatie:
     st.markdown(f"- milieubelasting: {f6(solution)}")
     st.markdown(f"- flexibiliteit tbv toekomstbestendigheid en innovatie: {f7(solution)}")
     st.markdown(f"- mate van standaardisering: {f8(solution)}")
-st.markdown(f"{st.session_state.woonbeleving}")
 
