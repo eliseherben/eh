@@ -280,6 +280,7 @@ while iteraties < 5:
 
 st.markdown("### Genetic algorithm:")
 i = 0
+populatie = [tuple(i[0]) for i in populatie]
 for solution in populatie:
     i = i + 1
     j = 0
