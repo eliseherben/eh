@@ -382,5 +382,5 @@ for solution in populatie:
     st.markdown(f"- milieubelasting: {f6(solution)}")
     st.markdown(f"- flexibiliteit tbv toekomstbestendigheid en innovatie: {f7(solution)}")
     st.markdown(f"- mate van standaardisering: {f8(solution)}")
-st.markdown(f"{st.session_state.woonbeleving})
+st.markdown(f"{st.session_state.woonbeleving}")
 
