@@ -6,6 +6,8 @@
 
 import streamlit as st
 from menu import menu_with_redirect
+import random
+import pandas as pd
 menu_with_redirect()
 
 
