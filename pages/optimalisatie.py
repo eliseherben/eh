@@ -378,7 +378,7 @@ for solution in populatie:
     st.markdown(f"- onderhoudskosten: {f2(solution)}")
     st.markdown(f"- mate van losmaakbaarheid: {f3(solution)}")
     st.markdown(f"- toepassingsmogelijkheden: {f4(solution)}")
-    st.markdown(f"- woonbeleving: {f5(solution)}")
+    st.markdown(f"- woonbeleving: {st.session_state.woonbeleving * f5(solution)}")
     st.markdown(f"- milieubelasting: {f6(solution)}")
     st.markdown(f"- flexibiliteit tbv toekomstbestendigheid en innovatie: {f7(solution)}")
     st.markdown(f"- mate van standaardisering: {f8(solution)}")
