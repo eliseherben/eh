@@ -39,6 +39,8 @@ productgroepen = ["buitenkozijnen", "lift", "binnenkozijnen", "binnenwandafwerki
 # menu()
 
 
+# #### algemene state sessions
+
 # In[ ]:
 
 
@@ -56,6 +58,17 @@ if "budget" not in st.session_state:
     st.session_state.budget = None
 
 st.session_state._budget = st.session_state.budget
+
+menu()
+
+# st.page_link("dashboard.py", label="Home")
+# st.page_link("pages/buitenkozijnen.py", label="Buitenkozijnen, -ramen, -deuren en -puien")
+
+
+# #### productgroepen state sessions
+
+# In[ ]:
+
 
 if "balustrades" not in st.session_state:
     st.session_state.balustrades = None
@@ -182,10 +195,51 @@ if "water" not in st.session_state:
 
 st.session_state._water = st.session_state.water
 
-menu()
 
-# st.page_link("dashboard.py", label="Home")
-# st.page_link("pages/buitenkozijnen.py", label="Buitenkozijnen, -ramen, -deuren en -puien")
+# #### themas state sessions
+
+# In[ ]:
+
+
+if "aanschafprijs" not in st.session_state:
+    st.session_state.aanschafprijs = None
+
+st.session_state._aanschafprijs = st.session_state.aanschafprijs
+
+if "onderhoudsprijs" not in st.session_state:
+    st.session_state.onderhoudsprijs = None
+
+st.session_state._onderhoudsprijs = st.session_state.onderhoudsprijs
+
+if "losmaakbaarheid" not in st.session_state:
+    st.session_state.losmaakbaarheid = None
+
+st.session_state._losmaakbaarheid = st.session_state.losmaakbaarheid
+
+if "toepassingsmogelijkheden" not in st.session_state:
+    st.session_state.toepassingsmogelijkheden = None
+
+st.session_state._toepassingsmogelijkheden = st.session_state.toepassingsmogelijkheden
+
+if "woonbeleving" not in st.session_state:
+    st.session_state.woonbeleving = None
+
+st.session_state._woonbeleving = st.session_state.woonbeleving
+
+if "milieubelasting" not in st.session_state:
+    st.session_state.milieubelasting = None
+
+st.session_state._milieubelasting = st.session_state.milieubelasting
+
+if "flexibiliteit" not in st.session_state:
+    st.session_state.flexibiliteit = None
+
+st.session_state._flexibiliteit = st.session_state.flexibiliteit
+
+if "standaardisering" not in st.session_state:
+    st.session_state.standaardisering = None
+
+st.session_state._standaardisering = st.session_state.standaardisering
 
 
 # In[1]:
