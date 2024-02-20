@@ -352,7 +352,7 @@ for solution in populatie:
     for product in productgroepen:
         st.markdown(f"Aantal producten in de productgroep {product} {solution[j]}")
         j = j + 1
-    st.markdown(solution)
+    st.markdown(f"{solution} {len(solution)}")
     st.markdown("#### Objective Values:")
     st.markdown(f"- aanschafkosten: {f1(solution)} ")
     st.markdown(f"- onderhoudskosten: {f2(solution)}")
