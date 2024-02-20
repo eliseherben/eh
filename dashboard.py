@@ -201,6 +201,137 @@ if "water" not in st.session_state:
 st.session_state._water = st.session_state.water
 
 
+# #### max productgroepen
+
+# In[ ]:
+
+
+if "maxbalustrades" not in st.session_state:
+    st.session_state.maxbalustrades = 20
+
+st.session_state._maxbalustrades = st.session_state.maxbalustrades
+
+if "maxbeveiliging" not in st.session_state:
+    st.session_state.maxbeveiliging = 20
+
+st.session_state._maxbeveiliging = st.session_state.maxbeveiliging
+
+if "maxbinnenkozijnen" not in st.session_state:
+    st.session_state.maxbinnenkozijnen = 20
+
+st.session_state._maxbinnenkozijnen = st.session_state.maxbinnenkozijnen
+
+if "maxbinnenwandafwerking" not in st.session_state:
+    st.session_state.maxbinnenwandafwerking = 20
+
+st.session_state._maxbinnenwandafwerking = st.session_state.maxbinnenwandafwerking
+
+if "maxbinnenwanden" not in st.session_state:
+    st.session_state.maxbinnenwanden = 20
+
+st.session_state._maxbinnenwanden = st.session_state.maxbinnenwanden
+
+if "maxbuitenkozijnen" not in st.session_state:
+    st.session_state.maxbuitenkozijnen = 20
+
+st.session_state._maxbuitenkozijnen = st.session_state.maxbuitenkozijnen
+
+if "maxbuitenwanden" not in st.session_state:
+    st.session_state.maxbuitenwanden = 20
+
+st.session_state._maxbuitenwanden = st.session_state.maxbuitenwanden
+
+if "maxdaken" not in st.session_state:
+    st.session_state.maxdaken = 20
+
+st.session_state._maxdaken = st.session_state.maxdaken
+
+if "maxelektra" not in st.session_state:
+    st.session_state.maxelektra = 20
+
+st.session_state._maxelektra = st.session_state.maxelektra
+
+if "maxgebouwvoorzieningen" not in st.session_state:
+    st.session_state.maxgebouwvoorzieningen = 20
+
+st.session_state._maxgebouwvoorzieningen = st.session_state.maxgebouwvoorzieningen
+
+if "maxhoofddraagconstructie" not in st.session_state:
+    st.session_state.maxhoofddraagconstructie = 20
+
+st.session_state._maxhoofddraagconstructie = st.session_state.maxhoofddraagconstructie
+
+if "maxisolatie" not in st.session_state:
+    st.session_state.maxisolatie = 20
+
+st.session_state._maxisolatie = st.session_state.maxisolatie
+
+if "maxkeuken" not in st.session_state:
+    st.session_state.maxkeuken = 20
+
+st.session_state._maxkeuken = st.session_state.maxkeuken
+
+if "maxlift" not in st.session_state:
+    st.session_state.maxlift = 20
+
+st.session_state._maxlift = st.session_state.maxlift
+
+if "maxluchtbehandeling" not in st.session_state:
+    st.session_state.maxluchtbehandeling = 20
+
+st.session_state._maxluchtbehandeling = st.session_state.maxluchtbehandeling
+
+if "maxluiken" not in st.session_state:
+    st.session_state.maxluiken = 20
+
+st.session_state._maxluiken = st.session_state.maxluiken
+
+if "maxplafonds" not in st.session_state:
+    st.session_state.maxplafonds = 20
+
+st.session_state._maxplafonds = st.session_state.maxplafonds
+
+if "maxriolering" not in st.session_state:
+    st.session_state.maxriolering = 20
+
+st.session_state._maxriolering = st.session_state.maxriolering
+
+if "maxsanitair" not in st.session_state:
+    st.session_state.maxsanitair = 20
+
+st.session_state._maxsanitair = st.session_state.maxsanitair
+
+if "maxterreininrichting" not in st.session_state:
+    st.session_state.maxterreininrichting = 20
+
+st.session_state._maxterreininrichting = st.session_state.maxterreininrichting
+
+if "maxtrappen" not in st.session_state:
+    st.session_state.maxtrappen = 20
+
+st.session_state._maxtrappen = st.session_state.maxtrappen
+
+if "maxverwarming" not in st.session_state:
+    st.session_state.maxverwarming = 20
+
+st.session_state._maxverwarming = st.session_state.maxverwarming
+
+if "maxvloerafwerking" not in st.session_state:
+    st.session_state.maxvloerafwerking = 20
+
+st.session_state._maxvloerafwerking = st.session_state.maxvloerafwerking
+
+if "maxvloeren" not in st.session_state:
+    st.session_state.maxvloeren = 20
+
+st.session_state._maxvloeren = st.session_state.maxvloeren
+
+if "maxwater" not in st.session_state:
+    st.session_state.maxwater = 20
+
+st.session_state._maxwater = st.session_state.maxwater
+
+
 # #### themas state sessions
 
 # In[ ]:
