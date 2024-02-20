@@ -287,7 +287,6 @@ def kinderen_maken(ouders):
             if random.randint(0, 10) == 1:
                 st.markdown("mutatie")
                 kind1.append(random.randint(0,20))
-                i = i + 1
             elif random.randint(0, 10) == 1:
                 st.markdown("mutatie")
                 kind2.append(random.randint(0,20))
