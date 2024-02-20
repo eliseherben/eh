@@ -12,14 +12,17 @@ import streamlit as st
 
 def authenticated_menu():
     st.sidebar.page_link("dashboard.py", label = "Introductie")
-    if st.session_state.project == 'Nieuwbouw woningen':
-        st.sidebar.page_link("pages/productgroepen.py", label = "Productgroepen")
+#     if st.session_state.project == 'Nieuwbouw woningen':
+#         st.sidebar.page_link("pages/productgroepen.py", label = "Productgroepen")
 
-    if st.session_state.project == 'Renovatie':
-        st.sidebar.page_link("pages/productgroepen.py", label = "Productgroepen")
+#     if st.session_state.project == 'Renovatie':
+#         st.sidebar.page_link("pages/productgroepen.py", label = "Productgroepen")
         
     if st.session_state.optimalisatie:
         st.sidebar.page_link("pages/optimalisatie.py", label = "Optimalisatie")
+        
+    if st.session_state.fase == 'Begin fase':
+        st.sidebar.page_link("pages/fase1.py", label = "Productgroepen begin fase")
 
 def unauthenticated_menu():
     st.sidebar.page_link("dashboard.py", label = "Introductie")
