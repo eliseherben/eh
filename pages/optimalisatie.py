@@ -189,6 +189,20 @@ sessions = [st.session_state.buitenkozijnen, st.session_state.lift, st.session_s
 # In[ ]:
 
 
+st.markdown(st.session_state.maxbuitenkozijnen, st.session_state.maxlift, st.session_state.maxbinnenkozijnen, 
+            st.session_state.maxbinnenwandafwerking, st.session_state.maxvloerafwerking, st.session_state.maxplafonds, 
+            st.session_state.maxsanitair, st.session_state.maxkeuken, st.session_state.maxbuitenwanden, 
+            st.session_state.maxvloeren, st.session_state.maxdaken, st.session_state.maxhoofddraagconstructie, 
+            st.session_state.maxisolatie, st.session_state.maxriolering, st.session_state.maxterreininrichting, 
+            st.session_state.maxverwarming, st.session_state.maxluchtbehandeling, st.session_state.maxgebouwvoorzieningen, 
+            st.session_state.maxbinnenwanden, st.session_state.maxtrappen, st.session_state.maxluiken, 
+            st.session_state.maxbalustrades, st.session_state.maxwater, st.session_state.maxelektra, 
+            st.session_state.maxbeveiliging)
+
+
+# In[ ]:
+
+
 def f1(x):
     result = 6*x[0] + 9*x[1] + 2*x[2] + 7*x[3] + 4*x[4] + 4*x[5] + 6*x[6] + x[7] + 4*x[8] + 7*x[9] + 9*x[10] + 10*x[11] + 4*x[12] + 2*x[13] + 6*x[14] + 6*x[15] + 2*x[16] + x[17] + 5*x[18] + 4*x[19] + 4*x[20] + 10*x[21] + 2*x[22] + 2.5*x[23] + 9*x[24]
     return result 
