@@ -292,7 +292,7 @@ def kinderen_maken(ouders):
                 st.markdown("mutatie")
                 kind2.append(random.randint(0,20))
             else:
-                kind2.append(random.choice([parent1[a], parent2[a]]))
+                kind2.append(random.choice([parent1[i], parent2[i]]))
                 kind1.append(random.choice([parent1[i], parent2[i]]))
                 st.markdown(f"kind1 {kind1}")
                 st.markdown(f"kind2 {kind2}")
