@@ -306,7 +306,7 @@ def kinderen_maken(ouders):
 populatie = startoplossingen()
 iteraties = 0
 while iteraties < 5:
-    st.markdown(f"iteratie {iteratie}")
+    st.markdown(f"iteratie {iteraties}")
     st.markdown(f"populatie {populatie}")
     populatie = [tuple(i[0]) for i in populatie]
     ouders = ouders_maken(populatie)
