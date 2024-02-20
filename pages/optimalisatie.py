@@ -294,8 +294,8 @@ def kinderen_maken(ouders):
             else:
                 kind2.append(random.choice([parent1[i], parent2[i]]))
                 kind1.append(random.choice([parent1[i], parent2[i]]))
-                st.markdown(f"kind1 {kind1}")
-                st.markdown(f"kind2 {kind2}")
+                st.markdown(f"kind1 {kind1} {len(kind1)}")
+                st.markdown(f"kind2 {kind2} {len(kind2)}")
         kinderen.append(kind1)
         kinderen.append(kind2)
     return kinderen
