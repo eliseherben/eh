@@ -258,6 +258,9 @@ def startoplossingen():
         oplossing = [random.randint(0, 20) for _ in range(25)]
         if st.session_state.fase == 'Budget te veel':
             for i, s, m in zip(range(len(oplossing)), sessions, maximaal):
+                st.markdown(f"oplossing before {oplossing[i]}")
+                st.markdown(f"min {s}")
+                st.markdown(f"max {m}")
                 if oplossing[i] < s:
                     oplossing[i] = s
                 elif oplossing[i] > m:
@@ -300,25 +303,18 @@ def kinderen_maken(ouders):
         ouders.remove(parent1)
         parent2 = random.choice(ouders)
         ouders.remove(parent2)
-        st.markdown(f"ouder1 {parent1}")
-        st.markdown(f"ouder2 {parent2}")
         for i in range(25):
             if random.randint(0, 10) == 1:
-                st.markdown("mutatie")
                 kind1.append(random.randint(0,20))
                 i = i + 1
             else:
                 kind1.append(random.choice([parent1[i], parent2[i]]))
-            st.markdown(f"kind1 {kind1} {len(kind1)}")
         for a in range(25):
-            st.markdown(f"a{a}")
             if random.randint(0, 10) == 1:
-                st.markdown("mutatie")
                 kind2.append(random.randint(0,20))
                 a = a + 1
             else:
                 kind2.append(random.choice([parent1[a], parent2[a]]))
-            st.markdown(f"kind2 {kind2} {len(kind2)}")
         kinderen.append(kind1)
         kinderen.append(kind2)
     return kinderen
@@ -330,8 +326,6 @@ def kinderen_maken(ouders):
 populatie = startoplossingen()
 iteraties = 0
 while iteraties < 5:
-    st.markdown(f"iteratie {iteraties}")
-    st.markdown(f"populatie {populatie}")
     populatie = [tuple(i[0]) for i in populatie]
     ouders = ouders_maken(populatie)
     populatie = [i for i in populatie[0:4]]
