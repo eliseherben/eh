@@ -300,18 +300,16 @@ def kinderen_maken(ouders):
         ouders.remove(parent1)
         parent2 = random.choice(ouders)
         ouders.remove(parent2)
-        for i in range(25):
+        for i, s, m in zip(range(25), sessions, maximaal):
             if random.randint(0, 10) == 1:
-                for s, m in zip(sessions, maximaal):
-                    kind1.append(random.randint(s, m))
-                    i = i + 1
+                kind1.append(random.randint(s, m))
+                i = i + 1
             else:
                 kind1.append(random.choice([parent1[i], parent2[i]]))
         for a in range(25):
             if random.randint(0, 10) == 1:
-                for s, m in zip(sessions, maximaal):
-                    kind2.append(random.randint(s, m))
-                    a = a + 1
+                kind2.append(random.randint(s, m))
+                a = a + 1
             else:
                 kind2.append(random.choice([parent1[a], parent2[a]]))
         kinderen.append(kind1)
