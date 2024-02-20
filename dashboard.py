@@ -59,6 +59,11 @@ if "budget" not in st.session_state:
 
 st.session_state._budget = st.session_state.budget
 
+if "fase" not in st.session_state:
+    st.session_state.fase = None
+    
+st.session_state._fase = st.session_state.fase
+
 menu()
 
 # st.page_link("dashboard.py", label="Home")
@@ -289,11 +294,27 @@ st.selectbox(
 # In[ ]:
 
 
+def set_fase():
+    # Callback function to save the role selection to Session State
+    st.session_state.fase = st.session_state._fase
+
+st.selectbox(
+    "Wat is de fase van het project?", 
+    ["Begin fase", "Budget te veel", "Budget te weinig"], 
+    index = None, 
+    placeholder = "Selecteer de fase van het project"
+    key = "_fase", 
+    on_change = set_fase)
+
+
+# In[ ]:
+
+
 def set_budget():
     # Callback function to save the role selection to Session State
     st.session_state.budget = st.session_state._budget
 
-if st.session_state.project is not None: 
+if st.session_state.project and st.session_state.fase is not None: 
     with st.container(border=True):
         st.subheader("**Budget**")
         st.markdown("Vul het budget in voor het huidige project.")
@@ -341,7 +362,7 @@ def set_standaardisering():
 # In[ ]:
 
 
-if st.session_state.project is not None:
+if st.session_state.project and st.session_state.fase is not None:
     with st.container(border=True):
         st.subheader("**Weging onderdelen**")
         st.markdown("Hebben onderstaande onderdelen een zwaardere weging? De weging van de onderdelen staat standaard op 1. Als er onderdelen zijn die zwaarder wegen kunnen die hieronder aangepast worden.")
