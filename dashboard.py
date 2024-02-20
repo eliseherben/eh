@@ -76,127 +76,127 @@ menu()
 
 
 if "balustrades" not in st.session_state:
-    st.session_state.balustrades = None
+    st.session_state.balustrades = 0
 
 st.session_state._balustrades = st.session_state.balustrades
 
 if "beveiliging" not in st.session_state:
-    st.session_state.beveiliging = None
+    st.session_state.beveiliging = 0
 
 st.session_state._beveiliging = st.session_state.beveiliging
 
 if "binnenkozijnen" not in st.session_state:
-    st.session_state.binnenkozijnen = None
+    st.session_state.binnenkozijnen = 0
 
 st.session_state._binnenkozijnen = st.session_state.binnenkozijnen
 
 if "binnenwandafwerking" not in st.session_state:
-    st.session_state.binnenwandafwerking = None
+    st.session_state.binnenwandafwerking = 0
 
 st.session_state._binnenwandafwerking = st.session_state.binnenwandafwerking
 
 if "binnenwanden" not in st.session_state:
-    st.session_state.binnenwanden = None
+    st.session_state.binnenwanden = 0
 
 st.session_state._binnenwanden = st.session_state.binnenwanden
 
 if "buitenkozijnen" not in st.session_state:
-    st.session_state.buitenkozijnen = None
+    st.session_state.buitenkozijnen = 0
 
 st.session_state._buitenkozijnen = st.session_state.buitenkozijnen
 
 if "buitenwanden" not in st.session_state:
-    st.session_state.buitenwanden = None
+    st.session_state.buitenwanden = 0
 
 st.session_state._buitenwanden = st.session_state.buitenwanden
 
 if "daken" not in st.session_state:
-    st.session_state.daken = None
+    st.session_state.daken = 0
 
 st.session_state._daken = st.session_state.daken
 
 if "elektra" not in st.session_state:
-    st.session_state.elektra = None
+    st.session_state.elektra = 0
 
 st.session_state._elektra = st.session_state.elektra
 
 if "gebouwvoorzieningen" not in st.session_state:
-    st.session_state.gebouwvoorzieningen = None
+    st.session_state.gebouwvoorzieningen = 0
 
 st.session_state._gebouwvoorzieningen = st.session_state.gebouwvoorzieningen
 
 if "hoofddraagconstructie" not in st.session_state:
-    st.session_state.hoofddraagconstructie = None
+    st.session_state.hoofddraagconstructie = 0
 
 st.session_state._hoofddraagconstructie = st.session_state.hoofddraagconstructie
 
 if "isolatie" not in st.session_state:
-    st.session_state.isolatie = None
+    st.session_state.isolatie = 0
 
 st.session_state._isolatie = st.session_state.isolatie
 
 if "keuken" not in st.session_state:
-    st.session_state.keuken = None
+    st.session_state.keuken = 0
 
 st.session_state._keuken = st.session_state.keuken
 
 if "lift" not in st.session_state:
-    st.session_state.lift = None
+    st.session_state.lift = 0
 
 st.session_state._lift = st.session_state.lift
 
 if "luchtbehandeling" not in st.session_state:
-    st.session_state.luchtbehandeling = None
+    st.session_state.luchtbehandeling = 0
 
 st.session_state._luchtbehandeling = st.session_state.luchtbehandeling
 
 if "luiken" not in st.session_state:
-    st.session_state.luiken = None
+    st.session_state.luiken = 0
 
 st.session_state._luiken = st.session_state.luiken
 
 if "plafonds" not in st.session_state:
-    st.session_state.plafonds = None
+    st.session_state.plafonds = 0
 
 st.session_state._plafonds = st.session_state.plafonds
 
 if "riolering" not in st.session_state:
-    st.session_state.riolering = None
+    st.session_state.riolering = 0
 
 st.session_state._riolering = st.session_state.riolering
 
 if "sanitair" not in st.session_state:
-    st.session_state.sanitair = None
+    st.session_state.sanitair = 0
 
 st.session_state._sanitair = st.session_state.sanitair
 
 if "terreininrichting" not in st.session_state:
-    st.session_state.terreininrichting = None
+    st.session_state.terreininrichting = 0
 
 st.session_state._terreininrichting = st.session_state.terreininrichting
 
 if "trappen" not in st.session_state:
-    st.session_state.trappen = None
+    st.session_state.trappen = 0
 
 st.session_state._trappen = st.session_state.trappen
 
 if "verwarming" not in st.session_state:
-    st.session_state.verwarming = None
+    st.session_state.verwarming = 0
 
 st.session_state._verwarming = st.session_state.verwarming
 
 if "vloerafwerking" not in st.session_state:
-    st.session_state.vloerafwerking = None
+    st.session_state.vloerafwerking = 0
 
 st.session_state._vloerafwerking = st.session_state.vloerafwerking
 
 if "vloeren" not in st.session_state:
-    st.session_state.vloeren = None
+    st.session_state.vloeren = 0
 
 st.session_state._vloeren = st.session_state.vloeren
 
 if "water" not in st.session_state:
-    st.session_state.water = None
+    st.session_state.water = 0
 
 st.session_state._water = st.session_state.water
 
