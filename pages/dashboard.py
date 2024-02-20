@@ -59,6 +59,11 @@ if "budget" not in st.session_state:
 
 st.session_state._budget = st.session_state.budget
 
+if "fase" not in st.session_state:
+    st.session_state.fase = None
+    
+st.session_state._fase = st.session_state.fase
+
 menu()
 
 # st.page_link("dashboard.py", label="Home")
@@ -202,42 +207,42 @@ st.session_state._water = st.session_state.water
 
 
 if "aanschafprijs" not in st.session_state:
-    st.session_state.aanschafprijs = 1
+    st.session_state.aanschafprijs = None
 
 st.session_state._aanschafprijs = st.session_state.aanschafprijs
 
 if "onderhoudsprijs" not in st.session_state:
-    st.session_state.onderhoudsprijs = 1
+    st.session_state.onderhoudsprijs = None
 
 st.session_state._onderhoudsprijs = st.session_state.onderhoudsprijs
 
 if "losmaakbaarheid" not in st.session_state:
-    st.session_state.losmaakbaarheid = 1
+    st.session_state.losmaakbaarheid = None
 
 st.session_state._losmaakbaarheid = st.session_state.losmaakbaarheid
 
 if "toepassingsmogelijkheden" not in st.session_state:
-    st.session_state.toepassingsmogelijkheden = 1
+    st.session_state.toepassingsmogelijkheden = None
 
 st.session_state._toepassingsmogelijkheden = st.session_state.toepassingsmogelijkheden
 
 if "woonbeleving" not in st.session_state:
-    st.session_state.woonbeleving = 1
+    st.session_state.woonbeleving = None
 
 st.session_state._woonbeleving = st.session_state.woonbeleving
 
 if "milieubelasting" not in st.session_state:
-    st.session_state.milieubelasting = 1
+    st.session_state.milieubelasting = None
 
 st.session_state._milieubelasting = st.session_state.milieubelasting
 
 if "flexibiliteit" not in st.session_state:
-    st.session_state.flexibiliteit = 1
+    st.session_state.flexibiliteit = None
 
 st.session_state._flexibiliteit = st.session_state.flexibiliteit
 
 if "standaardisering" not in st.session_state:
-    st.session_state.standaardisering = 1
+    st.session_state.standaardisering = None
 
 st.session_state._standaardisering = st.session_state.standaardisering
 
@@ -289,11 +294,27 @@ st.selectbox(
 # In[ ]:
 
 
+def set_fase():
+    # Callback function to save the role selection to Session State
+    st.session_state.fase = st.session_state._fase
+
+st.selectbox(
+    "Wat is de fase van het project?", 
+    ["Begin fase", "Budget te veel", "Budget te weinig"], 
+    index = None, 
+    placeholder = "Selecteer de fase van het project",
+    key = "_fase", 
+    on_change = set_fase)
+
+
+# In[ ]:
+
+
 def set_budget():
     # Callback function to save the role selection to Session State
     st.session_state.budget = st.session_state._budget
 
-if st.session_state.project is not None: 
+if st.session_state.project and st.session_state.fase is not None: 
     with st.container(border=True):
         st.subheader("**Budget**")
         st.markdown("Vul het budget in voor het huidige project.")
@@ -304,34 +325,71 @@ if st.session_state.project is not None:
 # In[ ]:
 
 
-if st.session_state.project is not None:
+def set_aanschafprijs():
+    # Callback function to save the role selection to Session State
+    st.session_state.aanschafprijs = st.session_state._aanschafprijs
+    
+def set_onderhoudsprijs():
+    # Callback function to save the role selection to Session State
+    st.session_state.onderhoudsprijs = st.session_state._onderhoudsprijs
+    
+def set_losmaakbaarheid():
+    # Callback function to save the role selection to Session State
+    st.session_state.losmaakbaarheid = st.session_state._losmaakbaarheid
+    
+def set_toepassingsmogelijkheden():
+    # Callback function to save the role selection to Session State
+    st.session_state.toepassingsmogelijkheden = st.session_state._toepassingsmogelijkheden
+    
+def set_woonbeleving():
+    # Callback function to save the role selection to Session State
+    st.session_state.woonbeleving = st.session_state._woonbeleving
+    
+def set_milieubelasting():
+    # Callback function to save the role selection to Session State
+    st.session_state.milieubelasting = st.session_state._milieubelasting
+    
+def set_flexibiliteit():
+    # Callback function to save the role selection to Session State
+    st.session_state.flexibiliteit = st.session_state._flexibiliteit
+    
+def set_standaardisering():
+    # Callback function to save the role selection to Session State
+    st.session_state.standaardisering = st.session_state._standaardisering
+    
+
+
+# In[ ]:
+
+
+if st.session_state.project and st.session_state.fase is not None:
     with st.container(border=True):
         st.subheader("**Weging onderdelen**")
         st.markdown("Hebben onderstaande onderdelen een zwaardere weging? De weging van de onderdelen staat standaard op 1. Als er onderdelen zijn die zwaarder wegen kunnen die hieronder aangepast worden.")
 
         st.markdown("**Aanschafprijs**")
-        aanschafprijs = st.number_input("Weging", min_value=1, key=1)
+        aanschafprijs = st.number_input("Weging", min_value=1, key="_aanschafprijs", on_change=set_aanschafprijs)
 
         st.markdown("**Onderhoudsprijs**")
-        onderhoudsprijs = st.number_input("Weging", min_value=1, key=2)
+        onderhoudsprijs = st.number_input("Weging", min_value=1, key="_onderhoudsprijs", on_change=set_onderhoudsprijs)
 
         st.markdown("**Mate van losmaakbaarheid**")
-        losmaakbaarheid = st.number_input("Weging", min_value=1, key=3)
+        losmaakbaarheid = st.number_input("Weging", min_value=1, key="_losmaakbaarheid", on_change=set_losmaakbaarheid)
 
         st.markdown("**Toepassingsmogelijkheden**")
-        toepassingsmogelijkheden = st.number_input("Weging", min_value=1, key=4)
+        toepassingsmogelijkheden = st.number_input("Weging", min_value=1, key="_toepassingsmogelijkheden", on_change=set_toepassingsmogelijkheden)
 
         st.markdown("**Woonbeleving**")
-        woonbeleving = st.number_input("Weging", min_value=1, key=5)
+        woonbeleving = st.number_input("Weging", min_value=1, key="_woonbeleving", on_change=set_woonbeleving)
 
         st.markdown("**Milieubelasting**")
-        milieubelasting = st.number_input("Weging", min_value=1, key=6)
+        milieubelasting = st.number_input("Weging", min_value=1, key="_milieubelasting", on_change = set_milieubelasting)
 
         st.markdown("**Flexibiliteit tbv toekomstbestendigheid en innovatie**")
-        flexibiliteit = st.number_input("Weging", min_value=1, key=7)
+        flexibiliteit = st.number_input("Weging", min_value=1, key="_flexibiliteit", on_change = set_flexibiliteit)
 
         st.markdown("**Mate van standaardisering**")
-        standaardisering = st.number_input("Weging", min_value=1, key=8)
+        standaardisering = st.number_input("Weging", min_value=1, key="_standaardisering", on_change = set_standaardisering)
 
 
 # In[ ]:
