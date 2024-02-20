@@ -198,8 +198,6 @@ maximaal = [st.session_state.maxbuitenkozijnen, st.session_state.maxlift, st.ses
             st.session_state.maxbinnenwanden, st.session_state.maxtrappen, st.session_state.maxluiken, 
             st.session_state.maxbalustrades, st.session_state.maxwater, st.session_state.maxelektra, 
             st.session_state.maxbeveiliging]
-for i in opties:
-    st.markdown(i)
 
 
 # In[ ]:
