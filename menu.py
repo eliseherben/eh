@@ -23,6 +23,12 @@ def authenticated_menu():
         
     if st.session_state.fase == 'Begin fase':
         st.sidebar.page_link("pages/fase1.py", label = "Productgroepen begin fase")
+        
+    if st.session_state.fase == 'Budget te veel':
+        st.sidebar.page_link("pages/implementeren.py", label = "Productgroepen implementeren fase")
+        
+    if st.session_state.fase == 'Budget te weinig':
+        st.sidebar.page_link("pages/fase1.py", label = "Productgroepen besparen fase")
 
 def unauthenticated_menu():
     st.sidebar.page_link("dashboard.py", label = "Introductie")
