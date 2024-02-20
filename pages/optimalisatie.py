@@ -292,6 +292,7 @@ def kinderen_maken(ouders):
                     kind1.append(random.choice([parent1[i], parent2[i]]))
         while len(kind2) < 26:
             for a in range(25):
+                st.markdown(f"a{a}")
                 st.markdown(f"kind2 {kind2}")
                 if random.randint(0, 10) == 1:
                     st.markdown("mutatie")
