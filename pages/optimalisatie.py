@@ -242,8 +242,9 @@ def startoplossingen():
     oplossingen = []
     while len(oplossingen) < 10:
         oplossing = [random.randint(0, 20) for _ in range(25)]
-        for i, session in zip(range(len(oplossing)), sessions):
-            oplossing[i] = max(session, oplossing[i])
+        if st.session_state.fase == 'Budget te veel':
+            for i, session in zip(range(len(oplossing)), sessions):
+                oplossing[i] = max(session, oplossing[i])
         oplossingen.append((oplossing, uitkomsten(oplossing)))
     oplossingen.sort(key=lambda uitkomsten: uitkomsten[1], reverse=True)
     return oplossingen
@@ -277,27 +278,21 @@ def kinderen_maken(ouders):
         kind1 = []
         kind2 = []
         parent1 = random.choice(ouders)
-        st.markdown(f"ouder 1: {parent1}")
         ouders.remove(parent1)
         parent2 = random.choice(ouders)
-        st.markdown(f"ouder 2: {parent2}")
         ouders.remove(parent2)
         while len(kind1) < 25:
             for i in range(25):
                 if random.randint(0, 10) == 1:
                     kind1.append(random.randint(0,20))
-                    st.markdown(f"mutatie bij kind 1 bij {i}")
                 else:
                     kind1.append(random.choice([parent1[i], parent2[i]]))
         while len(kind2) < 25:
             for a in range(25):
                 if random.randint(0, 10) == 1:
                     kind1.append(random.randint(0,20))
-                    st.markdown(f"mutatie bij kind 2 bij {a}")
                 else:
                     kind2.append(random.choice([parent1[a], parent2[a]]))
-        st.markdown(f"kind 1: {kind1}")
-        st.markdown(f"kind 2: {kind2}")
         kinderen.append(kind1)
         kinderen.append(kind2)
     return kinderen
