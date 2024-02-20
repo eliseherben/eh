@@ -244,6 +244,8 @@ def startoplossingen():
         oplossing = [random.randint(0, 20) for _ in range(25)]
         if st.session_state.fase == 'Budget te veel':
             for i, session in zip(range(len(oplossing)), sessions):
+                st.markdown(f"session {session}")
+                st.markdown(f"oplossing {oplossing[i]}")
                 oplossing[i] = max(session, oplossing[i])
         oplossingen.append((oplossing, uitkomsten(oplossing)))
     oplossingen.sort(key=lambda uitkomsten: uitkomsten[1], reverse=True)
