@@ -302,7 +302,7 @@ st.selectbox(
     "Wat is de fase van het project?", 
     ["Begin fase", "Budget te veel", "Budget te weinig"], 
     index = None, 
-    placeholder = "Selecteer de fase van het project"
+    placeholder = "Selecteer de fase van het project",
     key = "_fase", 
     on_change = set_fase)
 
