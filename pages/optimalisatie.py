@@ -260,8 +260,8 @@ def startoplossingen():
             for i, session in zip(range(len(oplossing)), sessions):
                 oplossing[i] = max(session, oplossing[i])
         if st.session_state.fase == 'Budget te veel':
-            for i, session in zip(range(len(oplossing)), sessions):
-                oplossing[i] = min(maximaal, oplossing[i])
+            for i, m in zip(range(len(oplossing)), maximaal):
+                oplossing[i] = min(m, oplossing[i])
         oplossingen.append((oplossing, uitkomsten(oplossing)))
     oplossingen.sort(key=lambda uitkomsten: uitkomsten[1], reverse=True)
     return oplossingen
