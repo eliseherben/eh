@@ -268,7 +268,7 @@ def startoplossingen():
                 else:
                     oplossing[i] = oplossing[i]
                 st.markdown(f"oplossing after {oplossing[i]}")
-                st.markdown(f"oplossing {oplossing}")
+        st.markdown(f"oplossing {oplossing}")
         oplossingen.append((oplossing, uitkomsten(oplossing)))
     oplossingen.sort(key=lambda uitkomsten: uitkomsten[1], reverse=True)
     return oplossingen
