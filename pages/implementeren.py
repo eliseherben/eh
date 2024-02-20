@@ -43,7 +43,7 @@ with st.container(border=True):
     
     st.markdown("**Hoe veel producten kunnen er maximaal geïmplementeerd worden?**")
     st.markdown("Vul hieronder in hoeveel producten er maximaal in een productgroep geïmplementeerd kunnen worden.")
-    max_buitenkozijnen = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 20, 10, key="_maxbuitenkozijnen", on_change=set_maxbuitenkozijnen)
+    max_buitenkozijnen = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 200, 100, key="_maxbuitenkozijnen", on_change=set_maxbuitenkozijnen)
 
 
 # #### Lift
@@ -67,7 +67,7 @@ with st.container(border=True):
     
     st.markdown("**Hoe veel producten kunnen er maximaal geïmplementeerd worden?**")
     st.markdown("Vul hieronder in hoeveel producten er maximaal in een productgroep geïmplementeerd kunnen worden.")
-    max_lift = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 20, 10, key="_maxlift", on_change=set_maxlift)
+    max_lift = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 200, 100, key="_maxlift", on_change=set_maxlift)
 
 
 # #### Binnenkozijnen en deuren
@@ -91,7 +91,7 @@ with st.container(border=True):
     
     st.markdown("**Hoe veel producten kunnen er maximaal geïmplementeerd worden?**")
     st.markdown("Vul hieronder in hoeveel producten er maximaal in een productgroep geïmplementeerd kunnen worden.")
-    max_binnenkozijnen = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 20, 10, key="_maxbinnenkozijnen", on_change=set_maxbinnenkozijnen)
+    max_binnenkozijnen = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 200, 100, key="_maxbinnenkozijnen", on_change=set_maxbinnenkozijnen)
 
 
 # #### Binnenwandafwerkingen
@@ -115,7 +115,7 @@ with st.container(border=True):
     
     st.markdown("**Hoe veel producten kunnen er maximaal geïmplementeerd worden?**")
     st.markdown("Vul hieronder in hoeveel producten er maximaal in een productgroep geïmplementeerd kunnen worden.")
-    max_binnenwandafwerkingen = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 20, 10, key="_maxbinnenwandafwerking", on_change=set_maxbinnenwandafwerking)
+    max_binnenwandafwerkingen = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 200, 100, key="_maxbinnenwandafwerking", on_change=set_maxbinnenwandafwerking)
 
 
 # #### Vloerafwerkingen
@@ -139,7 +139,7 @@ with st.container(border=True):
     
     st.markdown("**Hoe veel producten kunnen er maximaal geïmplementeerd worden?**")
     st.markdown("Vul hieronder in hoeveel producten er maximaal in een productgroep geïmplementeerd kunnen worden.")
-    max_vloerafwerking = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 20, 10, key="_maxvloerafwerking", on_change=set_maxvloerafwerking)
+    max_vloerafwerking = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 200, 100, key="_maxvloerafwerking", on_change=set_maxvloerafwerking)
 
 
 # #### Plafonds
@@ -163,7 +163,7 @@ with st.container(border=True):
     
     st.markdown("**Hoe veel producten kunnen er maximaal geïmplementeerd worden?**")
     st.markdown("Vul hieronder in hoeveel producten er maximaal in een productgroep geïmplementeerd kunnen worden.")
-    max_plafonds = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 20, 10, key="_maxplafonds", on_change=set_maxplafonds)
+    max_plafonds = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 200, 100, key="_maxplafonds", on_change=set_maxplafonds)
 
 
 # #### Sanitair
@@ -187,7 +187,7 @@ with st.container(border=True):
     
     st.markdown("**Hoe veel producten kunnen er maximaal geïmplementeerd worden?**")
     st.markdown("Vul hieronder in hoeveel producten er maximaal in een productgroep geïmplementeerd kunnen worden.")
-    max_sanitair = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 20, 10, key="_maxsanitair", on_change=set_maxsanitair)
+    max_sanitair = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 200, 100, key="_maxsanitair", on_change=set_maxsanitair)
 
 
 # #### Keuken
@@ -211,7 +211,7 @@ with st.container(border=True):
     
     st.markdown("**Hoe veel producten kunnen er maximaal geïmplementeerd worden?**")
     st.markdown("Vul hieronder in hoeveel producten er maximaal in een productgroep geïmplementeerd kunnen worden.")
-    max_keuken = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 20, 10, key="_maxkeuken", on_change=set_maxkeuken)
+    max_keuken = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 200, 100, key="_maxkeuken", on_change=set_maxkeuken)
 
 
 # #### Buitenwanden
@@ -235,7 +235,7 @@ with st.container(border=True):
     
     st.markdown("**Hoe veel producten kunnen er maximaal geïmplementeerd worden?**")
     st.markdown("Vul hieronder in hoeveel producten er maximaal in een productgroep geïmplementeerd kunnen worden.")
-    max_buitenwanden = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 20, 10, key="_maxbuitenwanden", on_change=set_maxbuitenwanden)
+    max_buitenwanden = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 200, 100, key="_maxbuitenwanden", on_change=set_maxbuitenwanden)
 
 
 # #### Vloeren
@@ -259,7 +259,7 @@ with st.container(border=True):
     
     st.markdown("**Hoe veel producten kunnen er maximaal geïmplementeerd worden?**")
     st.markdown("Vul hieronder in hoeveel producten er maximaal in een productgroep geïmplementeerd kunnen worden.")
-    max_vloeren = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 20, 10, key="_maxvloeren", on_change=set_maxvloeren)
+    max_vloeren = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 200, 100, key="_maxvloeren", on_change=set_maxvloeren)
 
 
 # #### Daken
@@ -283,7 +283,7 @@ with st.container(border=True):
     
     st.markdown("**Hoe veel producten kunnen er maximaal geïmplementeerd worden?**")
     st.markdown("Vul hieronder in hoeveel producten er maximaal in een productgroep geïmplementeerd kunnen worden.")
-    max_daken = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 20, 10, key="_maxdaken", on_change=set_maxdaken)
+    max_daken = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 200, 100, key="_maxdaken", on_change=set_maxdaken)
 
 
 # #### Hoofddraagconstructie
@@ -307,7 +307,7 @@ with st.container(border=True):
     
     st.markdown("**Hoe veel producten kunnen er maximaal geïmplementeerd worden?**")
     st.markdown("Vul hieronder in hoeveel producten er maximaal in een productgroep geïmplementeerd kunnen worden.")
-    max_hoofddraagconstructie = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 20, 10, key="_maxhoofddraagconstructie", on_change=set_maxhoofddraagconstructie)
+    max_hoofddraagconstructie = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 200, 100, key="_maxhoofddraagconstructie", on_change=set_maxhoofddraagconstructie)
 
 
 # #### Na-isolatie binnen
@@ -331,7 +331,7 @@ with st.container(border=True):
     
     st.markdown("**Hoe veel producten kunnen er maximaal geïmplementeerd worden?**")
     st.markdown("Vul hieronder in hoeveel producten er maximaal in een productgroep geïmplementeerd kunnen worden.")
-    max_isolatie = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 20, 10, key="_maxisolatie", on_change=set_maxisolatie)
+    max_isolatie = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 200, 100, key="_maxisolatie", on_change=set_maxisolatie)
 
 
 # #### Riolering en HWA
@@ -355,7 +355,7 @@ with st.container(border=True):
     
     st.markdown("**Hoe veel producten kunnen er maximaal geïmplementeerd worden?**")
     st.markdown("Vul hieronder in hoeveel producten er maximaal in een productgroep geïmplementeerd kunnen worden.")
-    max_riolering = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 20, 10, key="_maxriolering", on_change=set_maxriolering)
+    max_riolering = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 200, 100, key="_maxriolering", on_change=set_maxriolering)
 
 
 # #### Terreininrichting
@@ -379,7 +379,7 @@ with st.container(border=True):
     
     st.markdown("**Hoe veel producten kunnen er maximaal geïmplementeerd worden?**")
     st.markdown("Vul hieronder in hoeveel producten er maximaal in een productgroep geïmplementeerd kunnen worden.")
-    max_terreininrichting = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 20, 10, key="_maxterreininrichting", on_change=set_maxterreininrichting)
+    max_terreininrichting = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 200, 100, key="_maxterreininrichting", on_change=set_maxterreininrichting)
 
 
 # #### Verwarming en koeling
@@ -403,7 +403,7 @@ with st.container(border=True):
     
     st.markdown("**Hoe veel producten kunnen er maximaal geïmplementeerd worden?**")
     st.markdown("Vul hieronder in hoeveel producten er maximaal in een productgroep geïmplementeerd kunnen worden.")
-    max_verwarming = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 20, 10, key="_maxverwarming", on_change=set_maxverwarming)
+    max_verwarming = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 200, 100, key="_maxverwarming", on_change=set_maxverwarming)
 
 
 # #### Luchtbehandeling
@@ -427,7 +427,7 @@ with st.container(border=True):
     
     st.markdown("**Hoe veel producten kunnen er maximaal geïmplementeerd worden?**")
     st.markdown("Vul hieronder in hoeveel producten er maximaal in een productgroep geïmplementeerd kunnen worden.")
-    max_luchtbehandeling = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 20, 10, key="_maxluchtbehandeling", on_change=set_maxluchtbehandeling)
+    max_luchtbehandeling = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 200, 100, key="_maxluchtbehandeling", on_change=set_maxluchtbehandeling)
 
 
 # #### Vaste gebouwvoorzieningen
@@ -451,7 +451,7 @@ with st.container(border=True):
     
     st.markdown("**Hoe veel producten kunnen er maximaal geïmplementeerd worden?**")
     st.markdown("Vul hieronder in hoeveel producten er maximaal in een productgroep geïmplementeerd kunnen worden.")
-    max_gebouwvoorzieningen = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 20, 10, key="_maxgebouwvoorzieningen", on_change=set_maxgebouwvoorzieningen)
+    max_gebouwvoorzieningen = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 200, 100, key="_maxgebouwvoorzieningen", on_change=set_maxgebouwvoorzieningen)
 
 
 # #### Binnenwanden
@@ -475,7 +475,7 @@ with st.container(border=True):
     
     st.markdown("**Hoe veel producten kunnen er maximaal geïmplementeerd worden?**")
     st.markdown("Vul hieronder in hoeveel producten er maximaal in een productgroep geïmplementeerd kunnen worden.")
-    max_binnenwanden = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 20, 10, key="_maxbinnenwanden", on_change=set_maxbinnenwanden)
+    max_binnenwanden = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 200, 100, key="_maxbinnenwanden", on_change=set_maxbinnenwanden)
 
 
 # #### Trappen en hellingen
@@ -499,7 +499,7 @@ with st.container(border=True):
     
     st.markdown("**Hoe veel producten kunnen er maximaal geïmplementeerd worden?**")
     st.markdown("Vul hieronder in hoeveel producten er maximaal in een productgroep geïmplementeerd kunnen worden.")
-    max_trappen = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 20, 10, key="_maxtrappen", on_change=set_maxtrappen)
+    max_trappen = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 200, 100, key="_maxtrappen", on_change=set_maxtrappen)
 
 
 # #### Luiken en vensters
@@ -523,7 +523,7 @@ with st.container(border=True):
     
     st.markdown("**Hoe veel producten kunnen er maximaal geïmplementeerd worden?**")
     st.markdown("Vul hieronder in hoeveel producten er maximaal in een productgroep geïmplementeerd kunnen worden.")
-    max_luiken = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 20, 10, key="_maxluiken", on_change=set_maxluiken)
+    max_luiken = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 200, 100, key="_maxluiken", on_change=set_maxluiken)
 
 
 # #### Balustrades en leuningen
@@ -548,7 +548,7 @@ with st.container(border=True):
     
     st.markdown("**Hoe veel producten kunnen er maximaal geïmplementeerd worden?**")
     st.markdown("Vul hieronder in hoeveel producten er maximaal in een productgroep geïmplementeerd kunnen worden.")
-    max_balustrades = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 20, 10, key="_maxbalustrades", on_change=set_maxbalustrades)
+    max_balustrades = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 200, 100, key="_maxbalustrades", on_change=set_maxbalustrades)
 
 
 # #### Warm- en koud water installaties
@@ -572,7 +572,7 @@ with st.container(border=True):
     
     st.markdown("**Hoe veel producten kunnen er maximaal geïmplementeerd worden?**")
     st.markdown("Vul hieronder in hoeveel producten er maximaal in een productgroep geïmplementeerd kunnen worden.")
-    max_water = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 20, 10, key="_maxwater", on_change=set_maxwater)
+    max_water = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 200, 100, key="_maxwater", on_change=set_maxwater)
 
 
 # #### Elektrische installaties
@@ -596,7 +596,7 @@ with st.container(border=True):
     
     st.markdown("**Hoe veel producten kunnen er maximaal geïmplementeerd worden?**")
     st.markdown("Vul hieronder in hoeveel producten er maximaal in een productgroep geïmplementeerd kunnen worden.")
-    max_elektra = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 20, 10, key="_maxelektra", on_change=set_maxelektra)
+    max_elektra = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 200, 100, key="_maxelektra", on_change=set_maxelektra)
 
 
 # #### Beveiliging
@@ -621,7 +621,7 @@ with st.container(border=True):
     
     st.markdown("**Hoe veel producten kunnen er maximaal geïmplementeerd worden?**")
     st.markdown("Vul hieronder in hoeveel producten er maximaal in een productgroep geïmplementeerd kunnen worden.")
-    max_beveiliging = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 20, 10, key="_maxbeveiliging", on_change=set_maxbeveiliging)
+    max_beveiliging = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 200, 100, key="_maxbeveiliging", on_change=set_maxbeveiliging)
 
 
 # #### Optimalisatie
