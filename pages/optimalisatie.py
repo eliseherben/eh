@@ -189,7 +189,7 @@ sessions = [st.session_state.buitenkozijnen, st.session_state.lift, st.session_s
 # In[ ]:
 
 
-st.markdown(st.session_state.maxbuitenkozijnen, st.session_state.maxlift, st.session_state.maxbinnenkozijnen, 
+opties = [st.session_state.maxbuitenkozijnen, st.session_state.maxlift, st.session_state.maxbinnenkozijnen, 
             st.session_state.maxbinnenwandafwerking, st.session_state.maxvloerafwerking, st.session_state.maxplafonds, 
             st.session_state.maxsanitair, st.session_state.maxkeuken, st.session_state.maxbuitenwanden, 
             st.session_state.maxvloeren, st.session_state.maxdaken, st.session_state.maxhoofddraagconstructie, 
@@ -197,7 +197,9 @@ st.markdown(st.session_state.maxbuitenkozijnen, st.session_state.maxlift, st.ses
             st.session_state.maxverwarming, st.session_state.maxluchtbehandeling, st.session_state.maxgebouwvoorzieningen, 
             st.session_state.maxbinnenwanden, st.session_state.maxtrappen, st.session_state.maxluiken, 
             st.session_state.maxbalustrades, st.session_state.maxwater, st.session_state.maxelektra, 
-            st.session_state.maxbeveiliging)
+            st.session_state.maxbeveiliging]
+for i in opties:
+    st.markdown(i)
 
 
 # In[ ]:
