@@ -189,7 +189,7 @@ sessions = [st.session_state.buitenkozijnen, st.session_state.lift, st.session_s
 # In[ ]:
 
 
-opties = [st.session_state.maxbuitenkozijnen, st.session_state.maxlift, st.session_state.maxbinnenkozijnen, 
+maximaal = [st.session_state.maxbuitenkozijnen, st.session_state.maxlift, st.session_state.maxbinnenkozijnen, 
             st.session_state.maxbinnenwandafwerking, st.session_state.maxvloerafwerking, st.session_state.maxplafonds, 
             st.session_state.maxsanitair, st.session_state.maxkeuken, st.session_state.maxbuitenwanden, 
             st.session_state.maxvloeren, st.session_state.maxdaken, st.session_state.maxhoofddraagconstructie, 
@@ -261,6 +261,9 @@ def startoplossingen():
         if st.session_state.fase == 'Budget te veel':
             for i, session in zip(range(len(oplossing)), sessions):
                 oplossing[i] = max(session, oplossing[i])
+        if st.session_state.fase == 'Budget te veel':
+            for i, session in zip(range(len(oplossing)), sessions):
+                oplossing[i] = min(maximaal, oplossing[i])
         oplossingen.append((oplossing, uitkomsten(oplossing)))
     oplossingen.sort(key=lambda uitkomsten: uitkomsten[1], reverse=True)
     return oplossingen
