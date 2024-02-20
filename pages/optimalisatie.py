@@ -257,11 +257,13 @@ def startoplossingen():
     while len(oplossingen) < 10:
         oplossing = [random.randint(0, 20) for _ in range(25)]
         if st.session_state.fase == 'Budget te veel':
-            for i, session in zip(range(len(oplossing)), sessions):
-                oplossing[i] = max(session, oplossing[i])
-        if st.session_state.fase == 'Budget te veel':
-            for i, m in zip(range(len(oplossing)), maximaal):
-                oplossing[i] = min(m, oplossing[i])
+            for i, s, m in zip(range(len(oplossing)), sessions, maximaal):
+                if oplossing[i] < s:
+                    oplossing[i] = s
+                elif oplossing[i] > m:
+                    oplossing[i] = m
+                else:
+                    oplossing[i] = oplossing[i]
         oplossingen.append((oplossing, uitkomsten(oplossing)))
     oplossingen.sort(key=lambda uitkomsten: uitkomsten[1], reverse=True)
     return oplossingen
