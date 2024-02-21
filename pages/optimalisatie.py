@@ -341,7 +341,6 @@ def kinderen_maken(ouders):
                     if random.randint(0, 10) == 1:
                         st.markdown(f"mutatie kind 1")
                         st.markdown(f"i {i}")
-                        st.markdown(f"s {s}")
                         st.markdown(f"m {m}")
                         kind.append(random.randint(m[0], m[1]))
                         i = i + 1
