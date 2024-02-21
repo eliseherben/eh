@@ -317,7 +317,6 @@ def ouders_maken(populatie):
 def kinderen_maken(ouders):
     kinderen = []
     while len(ouders) != 0:
-        kind = []
 #         kind2 = []
         parent1 = random.choice(ouders)
         ouders.remove(parent1)
@@ -326,6 +325,7 @@ def kinderen_maken(ouders):
         st.markdown(f"ouder 1 {parent1}")
         st.markdown(f"ouder 2 {parent2}")
         for k in range(2):
+            kind = []
             for i, s, m in zip(range(25), sessions, maximaal):
                 if random.randint(0, 10) == 1:
                     st.markdown(f"mutatie kind 1")
