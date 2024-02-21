@@ -321,17 +321,11 @@ def kinderen_maken(ouders):
         ouders.remove(parent1)
         parent2 = random.choice(ouders)
         ouders.remove(parent2)
-        st.markdown(f"ouder 1 {parent1}")
-        st.markdown(f"ouder 2 {parent2}")
         for k in range(2):
             kind = []
             if st.session_state.fase == 'Budget te veel':
                 for i, s, m in zip(range(25), sessions, maximaal):
                     if random.randint(0, 10) == 1:
-                        st.markdown(f"mutatie kind 1")
-                        st.markdown(f"i {i}")
-                        st.markdown(f"s {s}")
-                        st.markdown(f"m {m}")
                         kind.append(random.randint(s, m))
                         i = i + 1
                     else:
@@ -339,15 +333,11 @@ def kinderen_maken(ouders):
             else:
                 for i, m in zip(range(25), minmax):
                     if random.randint(0, 10) == 1:
-                        st.markdown(f"mutatie kind 1")
-                        st.markdown(f"i {i}")
-                        st.markdown(f"m {m}")
                         kind.append(random.randint(m[0], m[1]))
                         i = i + 1
                     else:
                         kind.append(random.choice([parent1[i], parent2[i]]))
             kinderen.append(kind)
-            st.markdown(f"kind {k} {kind}")
             k = k + 1
     return kinderen
 

@@ -42,14 +42,6 @@ with st.container(border=True):
     v_buitenkozijnen = st.slider('Vul max en min te implementeren producten in',0, 20, (0, 20), key="_min_max_buitenkozijnen", on_change=set_min_max_buitenkozijnen)
 
 
-# In[ ]:
-
-
-st.markdown(st.session_state.min_max_buitenkozijnen)
-st.markdown(st.session_state.min_max_keuken)
-st.markdown(st.session_state.min_max_sanitair)
-
-
 # #### Lift
 
 # In[ ]:
