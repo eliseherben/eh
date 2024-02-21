@@ -206,130 +206,130 @@ st.session_state._water = st.session_state.water
 # In[ ]:
 
 
-if "maxbalustrades" not in st.session_state:
-    st.session_state.maxbalustrades = 20
+if "max_balustrades" not in st.session_state:
+    st.session_state.max_balustrades = 20
 
-st.session_state._maxbalustrades = st.session_state.maxbalustrades
+st.session_state._max_balustrades = st.session_state.max_balustrades
 
-if "maxbeveiliging" not in st.session_state:
-    st.session_state.maxbeveiliging = 20
+if "max_beveiliging" not in st.session_state:
+    st.session_state.max_beveiliging = 20
 
-st.session_state._maxbeveiliging = st.session_state.maxbeveiliging
+st.session_state._max_beveiliging = st.session_state.max_beveiliging
 
-if "maxbinnenkozijnen" not in st.session_state:
-    st.session_state.maxbinnenkozijnen = 20
+if "max_binnenkozijnen" not in st.session_state:
+    st.session_state.max_binnenkozijnen = 20
 
-st.session_state._maxbinnenkozijnen = st.session_state.maxbinnenkozijnen
+st.session_state._max_binnenkozijnen = st.session_state.max_binnenkozijnen
 
-if "maxbinnenwandafwerking" not in st.session_state:
-    st.session_state.maxbinnenwandafwerking = 20
+if "max_binnenwandafwerking" not in st.session_state:
+    st.session_state.max_binnenwandafwerking = 20
 
-st.session_state._maxbinnenwandafwerking = st.session_state.maxbinnenwandafwerking
+st.session_state._max_binnenwandafwerking = st.session_state.max_binnenwandafwerking
 
-if "maxbinnenwanden" not in st.session_state:
-    st.session_state.maxbinnenwanden = 20
+if "max_binnenwanden" not in st.session_state:
+    st.session_state.max_binnenwanden = 20
 
-st.session_state._maxbinnenwanden = st.session_state.maxbinnenwanden
+st.session_state._max_binnenwanden = st.session_state.max_binnenwanden
 
-if "maxbuitenkozijnen" not in st.session_state:
-    st.session_state.maxbuitenkozijnen = 20
+if "max_buitenkozijnen" not in st.session_state:
+    st.session_state.max_buitenkozijnen = 20
 
-st.session_state._maxbuitenkozijnen = st.session_state.maxbuitenkozijnen
+st.session_state._max_buitenkozijnen = st.session_state.max_buitenkozijnen
 
-if "maxbuitenwanden" not in st.session_state:
-    st.session_state.maxbuitenwanden = 20
+if "max_buitenwanden" not in st.session_state:
+    st.session_state.max_buitenwanden = 20
 
-st.session_state._maxbuitenwanden = st.session_state.maxbuitenwanden
+st.session_state._max_buitenwanden = st.session_state.max_buitenwanden
 
-if "maxdaken" not in st.session_state:
-    st.session_state.maxdaken = 20
+if "max_daken" not in st.session_state:
+    st.session_state.max_daken = 20
 
-st.session_state._maxdaken = st.session_state.maxdaken
+st.session_state._max_daken = st.session_state.max_daken
 
-if "maxelektra" not in st.session_state:
-    st.session_state.maxelektra = 20
+if "max_elektra" not in st.session_state:
+    st.session_state.max_elektra = 20
 
-st.session_state._maxelektra = st.session_state.maxelektra
+st.session_state._max_elektra = st.session_state.max_elektra
 
-if "maxgebouwvoorzieningen" not in st.session_state:
-    st.session_state.maxgebouwvoorzieningen = 20
+if "max_gebouwvoorzieningen" not in st.session_state:
+    st.session_state.max_gebouwvoorzieningen = 20
 
-st.session_state._maxgebouwvoorzieningen = st.session_state.maxgebouwvoorzieningen
+st.session_state._max_gebouwvoorzieningen = st.session_state.max_gebouwvoorzieningen
 
-if "maxhoofddraagconstructie" not in st.session_state:
-    st.session_state.maxhoofddraagconstructie = 20
+if "max_hoofddraagconstructie" not in st.session_state:
+    st.session_state.max_hoofddraagconstructie = 20
 
-st.session_state._maxhoofddraagconstructie = st.session_state.maxhoofddraagconstructie
+st.session_state._max_hoofddraagconstructie = st.session_state.max_hoofddraagconstructie
 
-if "maxisolatie" not in st.session_state:
-    st.session_state.maxisolatie = 20
+if "max_isolatie" not in st.session_state:
+    st.session_state.max_isolatie = 20
 
-st.session_state._maxisolatie = st.session_state.maxisolatie
+st.session_state._max_isolatie = st.session_state.max_isolatie
 
-if "maxkeuken" not in st.session_state:
-    st.session_state.maxkeuken = 20
+if "max_keuken" not in st.session_state:
+    st.session_state.max_keuken = 20
 
-st.session_state._maxkeuken = st.session_state.maxkeuken
+st.session_state._max_keuken = st.session_state.max_keuken
 
-if "maxlift" not in st.session_state:
-    st.session_state.maxlift = 20
+if "max_lift" not in st.session_state:
+    st.session_state.max_lift = 20
 
-st.session_state._maxlift = st.session_state.maxlift
+st.session_state._max_lift = st.session_state.max_lift
 
-if "maxluchtbehandeling" not in st.session_state:
-    st.session_state.maxluchtbehandeling = 20
+if "max_luchtbehandeling" not in st.session_state:
+    st.session_state.max_luchtbehandeling = 20
 
-st.session_state._maxluchtbehandeling = st.session_state.maxluchtbehandeling
+st.session_state._max_luchtbehandeling = st.session_state.max_luchtbehandeling
 
-if "maxluiken" not in st.session_state:
-    st.session_state.maxluiken = 20
+if "max_luiken" not in st.session_state:
+    st.session_state.max_luiken = 20
 
-st.session_state._maxluiken = st.session_state.maxluiken
+st.session_state._max_luiken = st.session_state.max_luiken
 
-if "maxplafonds" not in st.session_state:
-    st.session_state.maxplafonds = 20
+if "max_plafonds" not in st.session_state:
+    st.session_state.max_plafonds = 20
 
-st.session_state._maxplafonds = st.session_state.maxplafonds
+st.session_state._max_plafonds = st.session_state.max_plafonds
 
-if "maxriolering" not in st.session_state:
-    st.session_state.maxriolering = 20
+if "max_riolering" not in st.session_state:
+    st.session_state.max_riolering = 20
 
-st.session_state._maxriolering = st.session_state.maxriolering
+st.session_state._max_riolering = st.session_state.max_riolering
 
-if "maxsanitair" not in st.session_state:
-    st.session_state.maxsanitair = 20
+if "max_sanitair" not in st.session_state:
+    st.session_state.max_sanitair = 20
 
-st.session_state._maxsanitair = st.session_state.maxsanitair
+st.session_state._max_sanitair = st.session_state.max_sanitair
 
-if "maxterreininrichting" not in st.session_state:
-    st.session_state.maxterreininrichting = 20
+if "max_terreininrichting" not in st.session_state:
+    st.session_state.max_terreininrichting = 20
 
-st.session_state._maxterreininrichting = st.session_state.maxterreininrichting
+st.session_state._max_terreininrichting = st.session_state.max_terreininrichting
 
-if "maxtrappen" not in st.session_state:
-    st.session_state.maxtrappen = 20
+if "max_trappen" not in st.session_state:
+    st.session_state.max_trappen = 20
 
-st.session_state._maxtrappen = st.session_state.maxtrappen
+st.session_state._max_trappen = st.session_state.max_trappen
 
-if "maxverwarming" not in st.session_state:
-    st.session_state.maxverwarming = 20
+if "max_verwarming" not in st.session_state:
+    st.session_state.max_verwarming = 20
 
-st.session_state._maxverwarming = st.session_state.maxverwarming
+st.session_state._max_verwarming = st.session_state.max_verwarming
 
-if "maxvloerafwerking" not in st.session_state:
-    st.session_state.maxvloerafwerking = 20
+if "max_vloerafwerking" not in st.session_state:
+    st.session_state.max_vloerafwerking = 20
 
-st.session_state._maxvloerafwerking = st.session_state.maxvloerafwerking
+st.session_state._max_vloerafwerking = st.session_state.max_vloerafwerking
 
-if "maxvloeren" not in st.session_state:
-    st.session_state.maxvloeren = 20
+if "max_vloeren" not in st.session_state:
+    st.session_state.max_vloeren = 20
 
-st.session_state._maxvloeren = st.session_state.maxvloeren
+st.session_state._max_vloeren = st.session_state.max_vloeren
 
-if "maxwater" not in st.session_state:
-    st.session_state.maxwater = 20
+if "max_water" not in st.session_state:
+    st.session_state.max_water = 20
 
-st.session_state._maxwater = st.session_state.maxwater
+st.session_state._max_water = st.session_state.max_water
 
 
 # #### min max productgroepen
@@ -337,10 +337,130 @@ st.session_state._maxwater = st.session_state.maxwater
 # In[ ]:
 
 
-if "minmax" not in st.session_state:
-    st.session_state.minmax = None
+if "min_max_balustrades" not in st.session_state:
+    st.session_state.min_max_balustrades = None
 
-st.session_state._minmax = st.session_state.minmax
+st.session_state._min_max_balustrades = st.session_state.min_max_balustrades
+
+if "min_max_beveiliging" not in st.session_state:
+    st.session_state.min_max_beveiliging = None
+
+st.session_state._min_max_beveiliging = st.session_state.min_max_beveiliging
+
+if "min_max_binnenkozijnen" not in st.session_state:
+    st.session_state.min_max_binnenkozijnen = None
+
+st.session_state._min_max_binnenkozijnen = st.session_state.min_max_binnenkozijnen
+
+if "min_max_binnenwandafwerking" not in st.session_state:
+    st.session_state.min_max_binnenwandafwerking = None
+
+st.session_state._min_max_binnenwandafwerking = st.session_state.min_max_binnenwandafwerking
+
+if "min_max_binnenwanden" not in st.session_state:
+    st.session_state.min_max_binnenwanden = None
+
+st.session_state._min_max_binnenwanden = st.session_state.min_max_binnenwanden
+
+if "min_max_buitenkozijnen" not in st.session_state:
+    st.session_state.min_max_buitenkozijnen = None
+
+st.session_state._min_max_buitenkozijnen = st.session_state.min_max_buitenkozijnen
+
+if "min_max_buitenwanden" not in st.session_state:
+    st.session_state.min_max_buitenwanden = None
+
+st.session_state._min_max_buitenwanden = st.session_state.min_max_buitenwanden
+
+if "min_max_daken" not in st.session_state:
+    st.session_state.min_max_daken = None
+
+st.session_state._min_max_daken = st.session_state.min_max_daken
+
+if "min_max_elektra" not in st.session_state:
+    st.session_state.min_max_elektra = None
+
+st.session_state._min_max_elektra = st.session_state.min_max_elektra
+
+if "min_max_gebouwvoorzieningen" not in st.session_state:
+    st.session_state.min_max_gebouwvoorzieningen = None
+
+st.session_state._min_max_gebouwvoorzieningen = st.session_state.min_max_gebouwvoorzieningen
+
+if "min_max_hoofddraagconstructie" not in st.session_state:
+    st.session_state.min_max_hoofddraagconstructie = None
+
+st.session_state._min_max_hoofddraagconstructie = st.session_state.min_max_hoofddraagconstructie
+
+if "min_max_isolatie" not in st.session_state:
+    st.session_state.min_max_isolatie = None
+
+st.session_state._min_max_isolatie = st.session_state.min_max_isolatie
+
+if "min_max_keuken" not in st.session_state:
+    st.session_state.min_max_keuken = None
+
+st.session_state._min_max_keuken = st.session_state.min_max_keuken
+
+if "min_max_lift" not in st.session_state:
+    st.session_state.min_max_lift = None
+
+st.session_state._min_max_lift = st.session_state.min_max_lift
+
+if "min_max_luchtbehandeling" not in st.session_state:
+    st.session_state.min_max_luchtbehandeling = None
+
+st.session_state._min_max_luchtbehandeling = st.session_state.min_max_luchtbehandeling
+
+if "min_max_luiken" not in st.session_state:
+    st.session_state.min_max_luiken = None
+
+st.session_state._min_max_luiken = st.session_state.min_max_luiken
+
+if "min_max_plafonds" not in st.session_state:
+    st.session_state.min_max_plafonds = None
+
+st.session_state._min_max_plafonds = st.session_state.min_max_plafonds
+
+if "min_max_riolering" not in st.session_state:
+    st.session_state.min_max_riolering = None
+
+st.session_state._min_max_riolering = st.session_state.min_max_riolering
+
+if "min_max_sanitair" not in st.session_state:
+    st.session_state.min_max_sanitair = None
+
+st.session_state._min_max_sanitair = st.session_state.min_max_sanitair
+
+if "min_max_terreininrichting" not in st.session_state:
+    st.session_state.min_max_terreininrichting = None
+
+st.session_state._min_max_terreininrichting = st.session_state.min_max_terreininrichting
+
+if "min_max_trappen" not in st.session_state:
+    st.session_state.min_max_trappen = None
+
+st.session_state._min_max_trappen = st.session_state.min_max_trappen
+
+if "min_max_verwarming" not in st.session_state:
+    st.session_state.min_max_verwarming = None
+
+st.session_state._min_max_verwarming = st.session_state.min_max_verwarming
+
+if "min_max_vloerafwerking" not in st.session_state:
+    st.session_state.min_max_vloerafwerking = None
+
+st.session_state._min_max_vloerafwerking = st.session_state.min_max_vloerafwerking
+
+if "min_max_vloeren" not in st.session_state:
+    st.session_state.min_max_vloeren = None
+
+st.session_state._min_max_vloeren = st.session_state.min_max_vloeren
+
+if "min_max_water" not in st.session_state:
+    st.session_state.min_max_water = None
+
+st.session_state._min_max_water = st.session_state.min_max_water
 
 
 # #### themas state sessions
