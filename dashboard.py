@@ -332,6 +332,17 @@ if "maxwater" not in st.session_state:
 st.session_state._maxwater = st.session_state.maxwater
 
 
+# #### min max productgroepen
+
+# In[ ]:
+
+
+if "minmax" not in st.session_state:
+    st.session_state.minmax = 20
+
+st.session_state._minmax = st.session_state.minmax
+
+
 # #### themas state sessions
 
 # In[ ]:
