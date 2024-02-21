@@ -41,6 +41,7 @@ with st.container(border=True):
     st.markdown("Vul hieronder in hoeveel producten er in een productgroep geïmplementeerd kunnen worden. Hierbij kan er een maximum en minimum aangegeven worden.")
     v_buitenkozijnen = st.slider('Vul max en min te implementeren producten in',0, 20, (0, 20), key="_minmax", on_change=set_minmax)
     st.markdown(f"minmax {st.session_state.minmax}")
+    st.markdown(f"min {st.session_state.minmax[0]}")
 
 
 # #### Lift
