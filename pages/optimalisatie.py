@@ -189,15 +189,30 @@ sessions = [st.session_state.buitenkozijnen, st.session_state.lift, st.session_s
 # In[ ]:
 
 
-maximaal = [st.session_state.maxbuitenkozijnen, st.session_state.maxlift, st.session_state.maxbinnenkozijnen, 
-            st.session_state.maxbinnenwandafwerking, st.session_state.maxvloerafwerking, st.session_state.maxplafonds, 
-            st.session_state.maxsanitair, st.session_state.maxkeuken, st.session_state.maxbuitenwanden, 
-            st.session_state.maxvloeren, st.session_state.maxdaken, st.session_state.maxhoofddraagconstructie, 
-            st.session_state.maxisolatie, st.session_state.maxriolering, st.session_state.maxterreininrichting, 
-            st.session_state.maxverwarming, st.session_state.maxluchtbehandeling, st.session_state.maxgebouwvoorzieningen, 
-            st.session_state.maxbinnenwanden, st.session_state.maxtrappen, st.session_state.maxluiken, 
-            st.session_state.maxbalustrades, st.session_state.maxwater, st.session_state.maxelektra, 
-            st.session_state.maxbeveiliging]
+maximaal = [st.session_state.max_buitenkozijnen, st.session_state.max_lift, st.session_state.max_binnenkozijnen, 
+            st.session_state.max_binnenwandafwerking, st.session_state.max_vloerafwerking, st.session_state.max_plafonds, 
+            st.session_state.max_sanitair, st.session_state.max_keuken, st.session_state.max_buitenwanden, 
+            st.session_state.max_vloeren, st.session_state.max_daken, st.session_state.max_hoofddraagconstructie, 
+            st.session_state.max_isolatie, st.session_state.max_riolering, st.session_state.max_terreininrichting, 
+            st.session_state.max_verwarming, st.session_state.max_luchtbehandeling, st.session_state.max_gebouwvoorzieningen, 
+            st.session_state.max_binnenwanden, st.session_state.max_trappen, st.session_state.max_luiken, 
+            st.session_state.max_balustrades, st.session_state.max_water, st.session_state.max_elektra, 
+            st.session_state.max_beveiliging]
+
+
+# In[ ]:
+
+
+minmax = [st.session_state.min_max_buitenkozijnen, st.session_state.min_max_lift, st.session_state.min_max_binnenkozijnen, 
+            st.session_state.min_max_binnenwandafwerking, st.session_state.min_max_vloerafwerking, st.session_state.min_max_plafonds, 
+            st.session_state.min_max_sanitair, st.session_state.min_max_keuken, st.session_state.min_max_buitenwanden, 
+            st.session_state.min_max_vloeren, st.session_state.min_max_daken, st.session_state.min_max_hoofddraagconstructie, 
+            st.session_state.min_max_isolatie, st.session_state.min_max_riolering, st.session_state.min_max_terreininrichting, 
+            st.session_state.min_max_verwarming, st.session_state.min_max_luchtbehandeling, st.session_state.min_max_gebouwvoorzieningen, 
+            st.session_state.min_max_binnenwanden, st.session_state.min_max_trappen, st.session_state.min_max_luiken, 
+            st.session_state.min_max_balustrades, st.session_state.min_max_water, st.session_state.min_max_elektra, 
+            st.session_state.min_max_balustrades, st.session_state.min_max_water, st.session_state.min_max_elektra, 
+            st.session_state.min_max_beveiliging]
 
 
 # In[ ]:
@@ -262,6 +277,14 @@ def startoplossingen():
                     oplossing[i] = s
                 elif oplossing[i] > m:
                     oplossing[i] = m
+                else:
+                    oplossing[i] = oplossing[i]
+        else:
+            for i, m in zip(range(len(oplossing)), minmax):
+                if oplossing[i] < m[0]:
+                    oplossing[i] = m[0]
+                elif oplossing[i] > m[1]:
+                    oplossing[i] = m[1]
                 else:
                     oplossing[i] = oplossing[i]
         oplossingen.append((oplossing, uitkomsten(oplossing)))

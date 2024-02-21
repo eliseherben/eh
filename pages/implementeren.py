@@ -31,9 +31,9 @@ def set_buitenkozijnen():
     # Callback function to save the role selection to Session State
     st.session_state.buitenkozijnen = st.session_state._buitenkozijnen
     
-def set_maxbuitenkozijnen():
+def set_max_buitenkozijnen():
     # Callback function to save the role selection to Session State
-    st.session_state.maxbuitenkozijnen = st.session_state._maxbuitenkozijnen
+    st.session_state.max_buitenkozijnen = st.session_state._max_buitenkozijnen
 
 with st.container(border=True):
     st.subheader("Buitenkozijnen, -ramen, -deuren en -puien")
@@ -43,7 +43,7 @@ with st.container(border=True):
     
     st.markdown("**Hoe veel producten kunnen er maximaal geïmplementeerd worden?**")
     st.markdown("Vul hieronder in hoeveel producten er maximaal in een productgroep geïmplementeerd kunnen worden.")
-    max_buitenkozijnen = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 200, 100, key="_maxbuitenkozijnen", on_change=set_maxbuitenkozijnen)
+    max_buitenkozijnen = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 200, 100, key="_max_buitenkozijnen", on_change=set_max_buitenkozijnen)
 
 
 # #### Lift
@@ -55,9 +55,9 @@ def set_lift():
     # Callback function to save the role selection to Session State
     st.session_state.lift = st.session_state._lift
     
-def set_maxlift():
+def set_max_lift():
     # Callback function to save the role selection to Session State
-    st.session_state.maxlift = st.session_state._maxlift
+    st.session_state.max_lift = st.session_state._max_lift
 
 with st.container(border=True):
     st.subheader("Lift")
@@ -67,7 +67,7 @@ with st.container(border=True):
     
     st.markdown("**Hoe veel producten kunnen er maximaal geïmplementeerd worden?**")
     st.markdown("Vul hieronder in hoeveel producten er maximaal in een productgroep geïmplementeerd kunnen worden.")
-    max_lift = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 200, 100, key="_maxlift", on_change=set_maxlift)
+    max_lift = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 200, 100, key="_max_lift", on_change=set_max_lift)
 
 
 # #### Binnenkozijnen en deuren
@@ -79,9 +79,9 @@ def set_binnenkozijnen():
     # Callback function to save the role selection to Session State
     st.session_state.binnenkozijnen = st.session_state._binnenkozijnen
     
-def set_maxbinnenkozijnen():
+def set_max_binnenkozijnen():
     # Callback function to save the role selection to Session State
-    st.session_state.maxbinnenkozijnen = st.session_state._maxbinnenkozijnen
+    st.session_state.max_binnenkozijnen = st.session_state._max_binnenkozijnen
 
 with st.container(border=True):
     st.subheader("Binnenkozijnen en deuren")
@@ -91,7 +91,7 @@ with st.container(border=True):
     
     st.markdown("**Hoe veel producten kunnen er maximaal geïmplementeerd worden?**")
     st.markdown("Vul hieronder in hoeveel producten er maximaal in een productgroep geïmplementeerd kunnen worden.")
-    max_binnenkozijnen = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 200, 100, key="_maxbinnenkozijnen", on_change=set_maxbinnenkozijnen)
+    max_binnenkozijnen = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 200, 100, key="_max_binnenkozijnen", on_change=set_max_binnenkozijnen)
 
 
 # #### Binnenwandafwerkingen
@@ -103,9 +103,9 @@ def set_binnenwandafwerking():
     # Callback function to save the role selection to Session State
     st.session_state.binnenwandafwerking = st.session_state._binnenwandafwerking
     
-def set_maxbinnenwandafwerking():
+def set_max_binnenwandafwerking():
     # Callback function to save the role selection to Session State
-    st.session_state.maxbinnenwandafwerking = st.session_state._maxbinnenwandafwerking
+    st.session_state.max_binnenwandafwerking = st.session_state._max_binnenwandafwerking
 
 with st.container(border=True):
     st.subheader("Binnenwandafwerkingen")
@@ -115,7 +115,7 @@ with st.container(border=True):
     
     st.markdown("**Hoe veel producten kunnen er maximaal geïmplementeerd worden?**")
     st.markdown("Vul hieronder in hoeveel producten er maximaal in een productgroep geïmplementeerd kunnen worden.")
-    max_binnenwandafwerkingen = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 200, 100, key="_maxbinnenwandafwerking", on_change=set_maxbinnenwandafwerking)
+    max_binnenwandafwerkingen = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 200, 100, key="_max_binnenwandafwerking", on_change=set_max_binnenwandafwerking)
 
 
 # #### Vloerafwerkingen
@@ -127,9 +127,9 @@ def set_vloerafwerking():
     # Callback function to save the role selection to Session State
     st.session_state.vloerafwerking = st.session_state._vloerafwerking
     
-def set_maxvloerafwerking():
+def set_max_vloerafwerking():
     # Callback function to save the role selection to Session State
-    st.session_state.maxvloerafwerking = st.session_state._maxvloerafwerking
+    st.session_state.max_vloerafwerking = st.session_state._max_vloerafwerking
 
 with st.container(border=True):
     st.subheader("Vloerafwerkingen")
@@ -139,7 +139,7 @@ with st.container(border=True):
     
     st.markdown("**Hoe veel producten kunnen er maximaal geïmplementeerd worden?**")
     st.markdown("Vul hieronder in hoeveel producten er maximaal in een productgroep geïmplementeerd kunnen worden.")
-    max_vloerafwerking = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 200, 100, key="_maxvloerafwerking", on_change=set_maxvloerafwerking)
+    max_vloerafwerking = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 200, 100, key="_max_vloerafwerking", on_change=set_max_vloerafwerking)
 
 
 # #### Plafonds
@@ -151,9 +151,9 @@ def set_plafonds():
     # Callback function to save the role selection to Session State
     st.session_state.plafonds = st.session_state._plafonds
     
-def set_maxplafonds():
+def set_max_plafonds():
     # Callback function to save the role selection to Session State
-    st.session_state.maxplafonds = st.session_state._maxplafonds
+    st.session_state.max_plafonds = st.session_state._max_plafonds
 
 with st.container(border=True):
     st.subheader("Plafonds")
@@ -163,7 +163,7 @@ with st.container(border=True):
     
     st.markdown("**Hoe veel producten kunnen er maximaal geïmplementeerd worden?**")
     st.markdown("Vul hieronder in hoeveel producten er maximaal in een productgroep geïmplementeerd kunnen worden.")
-    max_plafonds = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 200, 100, key="_maxplafonds", on_change=set_maxplafonds)
+    max_plafonds = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 200, 100, key="_max_plafonds", on_change=set_max_plafonds)
 
 
 # #### Sanitair
@@ -175,9 +175,9 @@ def set_sanitair():
     # Callback function to save the role selection to Session State
     st.session_state.sanitair = st.session_state._sanitair
     
-def set_maxsanitair():
+def set_max_sanitair():
     # Callback function to save the role selection to Session State
-    st.session_state.maxsanitair = st.session_state._maxsanitair
+    st.session_state.max_sanitair = st.session_state._max_sanitair
 
 with st.container(border=True):
     st.subheader("Sanitair")
@@ -187,7 +187,7 @@ with st.container(border=True):
     
     st.markdown("**Hoe veel producten kunnen er maximaal geïmplementeerd worden?**")
     st.markdown("Vul hieronder in hoeveel producten er maximaal in een productgroep geïmplementeerd kunnen worden.")
-    max_sanitair = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 200, 100, key="_maxsanitair", on_change=set_maxsanitair)
+    max_sanitair = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 200, 100, key="_max_sanitair", on_change=set_max_sanitair)
 
 
 # #### Keuken
@@ -199,9 +199,9 @@ def set_keuken():
     # Callback function to save the role selection to Session State
     st.session_state.keuken = st.session_state._keuken
 
-def set_maxkeuken():
+def set_max_keuken():
     # Callback function to save the role selection to Session State
-    st.session_state.maxkeuken = st.session_state._maxkeuken
+    st.session_state.max_keuken = st.session_state._max_keuken
     
 with st.container(border=True):
     st.subheader("Keuken")
@@ -211,7 +211,7 @@ with st.container(border=True):
     
     st.markdown("**Hoe veel producten kunnen er maximaal geïmplementeerd worden?**")
     st.markdown("Vul hieronder in hoeveel producten er maximaal in een productgroep geïmplementeerd kunnen worden.")
-    max_keuken = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 200, 100, key="_maxkeuken", on_change=set_maxkeuken)
+    max_keuken = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 200, 100, key="_max_keuken", on_change=set_max_keuken)
 
 
 # #### Buitenwanden
@@ -223,9 +223,9 @@ def set_buitenwanden():
     # Callback function to save the role selection to Session State
     st.session_state.buitenwanden = st.session_state._buitenwanden
     
-def set_maxbuitenwanden():
+def set_max_buitenwanden():
     # Callback function to save the role selection to Session State
-    st.session_state.maxbuitenwanden = st.session_state._maxbuitenwanden
+    st.session_state.max_buitenwanden = st.session_state._max_buitenwanden
 
 with st.container(border=True):
     st.subheader("Buitenwanden")
@@ -235,7 +235,7 @@ with st.container(border=True):
     
     st.markdown("**Hoe veel producten kunnen er maximaal geïmplementeerd worden?**")
     st.markdown("Vul hieronder in hoeveel producten er maximaal in een productgroep geïmplementeerd kunnen worden.")
-    max_buitenwanden = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 200, 100, key="_maxbuitenwanden", on_change=set_maxbuitenwanden)
+    max_buitenwanden = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 200, 100, key="_max_buitenwanden", on_change=set_max_buitenwanden)
 
 
 # #### Vloeren
@@ -247,9 +247,9 @@ def set_vloeren():
     # Callback function to save the role selection to Session State
     st.session_state.vloeren = st.session_state._vloeren
     
-def set_maxvloeren():
+def set_max_vloeren():
     # Callback function to save the role selection to Session State
-    st.session_state.maxvloeren = st.session_state._maxvloeren
+    st.session_state.max_vloeren = st.session_state._max_vloeren
 
 with st.container(border=True):
     st.subheader("Vloeren")
@@ -259,7 +259,7 @@ with st.container(border=True):
     
     st.markdown("**Hoe veel producten kunnen er maximaal geïmplementeerd worden?**")
     st.markdown("Vul hieronder in hoeveel producten er maximaal in een productgroep geïmplementeerd kunnen worden.")
-    max_vloeren = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 200, 100, key="_maxvloeren", on_change=set_maxvloeren)
+    max_vloeren = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 200, 100, key="_max_vloeren", on_change=set_max_vloeren)
 
 
 # #### Daken
@@ -271,9 +271,9 @@ def set_daken():
     # Callback function to save the role selection to Session State
     st.session_state.daken = st.session_state._daken
     
-def set_maxdaken():
+def set_max_daken():
     # Callback function to save the role selection to Session State
-    st.session_state.maxdaken = st.session_state._maxdaken
+    st.session_state.max_daken = st.session_state._max_daken
 
 with st.container(border=True):
     st.subheader("Daken")
@@ -283,7 +283,7 @@ with st.container(border=True):
     
     st.markdown("**Hoe veel producten kunnen er maximaal geïmplementeerd worden?**")
     st.markdown("Vul hieronder in hoeveel producten er maximaal in een productgroep geïmplementeerd kunnen worden.")
-    max_daken = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 200, 100, key="_maxdaken", on_change=set_maxdaken)
+    max_daken = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 200, 100, key="_max_daken", on_change=set_max_daken)
 
 
 # #### Hoofddraagconstructie
@@ -295,9 +295,9 @@ def set_hoofddraagconstructie():
     # Callback function to save the role selection to Session State
     st.session_state.hoofddraagconstructie = st.session_state._hoofddraagconstructie
     
-def set_maxhoofddraagconstructie():
+def set_max_hoofddraagconstructie():
     # Callback function to save the role selection to Session State
-    st.session_state.maxhoofddraagconstructie = st.session_state._maxhoofddraagconstructie
+    st.session_state.max_hoofddraagconstructie = st.session_state._max_hoofddraagconstructie
 
 with st.container(border=True):
     st.subheader("Hoofddraagconstructie")
@@ -307,7 +307,7 @@ with st.container(border=True):
     
     st.markdown("**Hoe veel producten kunnen er maximaal geïmplementeerd worden?**")
     st.markdown("Vul hieronder in hoeveel producten er maximaal in een productgroep geïmplementeerd kunnen worden.")
-    max_hoofddraagconstructie = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 200, 100, key="_maxhoofddraagconstructie", on_change=set_maxhoofddraagconstructie)
+    max_hoofddraagconstructie = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 200, 100, key="_max_hoofddraagconstructie", on_change=set_max_hoofddraagconstructie)
 
 
 # #### Na-isolatie binnen
@@ -319,9 +319,9 @@ def set_isolatie():
     # Callback function to save the role selection to Session State
     st.session_state.isolatie = st.session_state._isolatie
     
-def set_maxisolatie():
+def set_max_isolatie():
     # Callback function to save the role selection to Session State
-    st.session_state.maxisolatie = st.session_state._maxisolatie
+    st.session_state.max_isolatie = st.session_state._max_isolatie
 
 with st.container(border=True):
     st.subheader("Na-isolatie binnen")
@@ -331,7 +331,7 @@ with st.container(border=True):
     
     st.markdown("**Hoe veel producten kunnen er maximaal geïmplementeerd worden?**")
     st.markdown("Vul hieronder in hoeveel producten er maximaal in een productgroep geïmplementeerd kunnen worden.")
-    max_isolatie = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 200, 100, key="_maxisolatie", on_change=set_maxisolatie)
+    max_isolatie = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 200, 100, key="_max_isolatie", on_change=set_max_isolatie)
 
 
 # #### Riolering en HWA
@@ -343,9 +343,9 @@ def set_riolering():
     # Callback function to save the role selection to Session State
     st.session_state.riolering = st.session_state._riolering
     
-def set_maxriolering():
+def set_max_riolering():
     # Callback function to save the role selection to Session State
-    st.session_state.maxriolering = st.session_state._maxriolering
+    st.session_state.max_riolering = st.session_state._max_riolering
 
 with st.container(border=True):
     st.subheader("Riolering en HWA")
@@ -355,7 +355,7 @@ with st.container(border=True):
     
     st.markdown("**Hoe veel producten kunnen er maximaal geïmplementeerd worden?**")
     st.markdown("Vul hieronder in hoeveel producten er maximaal in een productgroep geïmplementeerd kunnen worden.")
-    max_riolering = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 200, 100, key="_maxriolering", on_change=set_maxriolering)
+    max_riolering = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 200, 100, key="_max_riolering", on_change=set_max_riolering)
 
 
 # #### Terreininrichting
@@ -367,9 +367,9 @@ def set_terreininrichting():
     # Callback function to save the role selection to Session State
     st.session_state.terreininrichting = st.session_state._terreininrichting
     
-def set_maxterreininrichting():
+def set_max_terreininrichting():
     # Callback function to save the role selection to Session State
-    st.session_state.maxterreininrichting = st.session_state._maxterreininrichting
+    st.session_state.max_terreininrichting = st.session_state._max_terreininrichting
 
 with st.container(border=True):
     st.subheader("Terreininrichting")
@@ -379,7 +379,7 @@ with st.container(border=True):
     
     st.markdown("**Hoe veel producten kunnen er maximaal geïmplementeerd worden?**")
     st.markdown("Vul hieronder in hoeveel producten er maximaal in een productgroep geïmplementeerd kunnen worden.")
-    max_terreininrichting = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 200, 100, key="_maxterreininrichting", on_change=set_maxterreininrichting)
+    max_terreininrichting = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 200, 100, key="_max_terreininrichting", on_change=set_max_terreininrichting)
 
 
 # #### Verwarming en koeling
@@ -391,9 +391,9 @@ def set_verwarming():
     # Callback function to save the role selection to Session State
     st.session_state.verwarming = st.session_state._verwarming
     
-def set_maxverwarming():
+def set_max_verwarming():
     # Callback function to save the role selection to Session State
-    st.session_state.maxverwarming = st.session_state._maxverwarming
+    st.session_state.max_verwarming = st.session_state._max_verwarming
 
 with st.container(border=True):
     st.subheader("Verwarming en koeling")
@@ -403,7 +403,7 @@ with st.container(border=True):
     
     st.markdown("**Hoe veel producten kunnen er maximaal geïmplementeerd worden?**")
     st.markdown("Vul hieronder in hoeveel producten er maximaal in een productgroep geïmplementeerd kunnen worden.")
-    max_verwarming = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 200, 100, key="_maxverwarming", on_change=set_maxverwarming)
+    max_verwarming = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 200, 100, key="_max_verwarming", on_change=set_max_verwarming)
 
 
 # #### Luchtbehandeling
@@ -415,9 +415,9 @@ def set_luchtbehandeling():
     # Callback function to save the role selection to Session State
     st.session_state.luchtbehandeling = st.session_state._luchtbehandeling
     
-def set_maxluchtbehandeling():
+def set_max_luchtbehandeling():
     # Callback function to save the role selection to Session State
-    st.session_state.maxluchtbehandeling = st.session_state._maxluchtbehandeling
+    st.session_state.max_luchtbehandeling = st.session_state._max_luchtbehandeling
 
 with st.container(border=True):
     st.subheader("Luchtbehandeling")
@@ -427,7 +427,7 @@ with st.container(border=True):
     
     st.markdown("**Hoe veel producten kunnen er maximaal geïmplementeerd worden?**")
     st.markdown("Vul hieronder in hoeveel producten er maximaal in een productgroep geïmplementeerd kunnen worden.")
-    max_luchtbehandeling = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 200, 100, key="_maxluchtbehandeling", on_change=set_maxluchtbehandeling)
+    max_luchtbehandeling = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 200, 100, key="_max_luchtbehandeling", on_change=set_max_luchtbehandeling)
 
 
 # #### Vaste gebouwvoorzieningen
@@ -439,9 +439,9 @@ def set_gebouwvoorzieningen():
     # Callback function to save the role selection to Session State
     st.session_state.gebouwvoorzieningen = st.session_state._gebouwvoorzieningen
     
-def set_maxgebouwvoorzieningen():
+def set_max_gebouwvoorzieningen():
     # Callback function to save the role selection to Session State
-    st.session_state.maxgebouwvoorzieningen = st.session_state._maxgebouwvoorzieningen
+    st.session_state.max_gebouwvoorzieningen = st.session_state._max_gebouwvoorzieningen
 
 with st.container(border=True):
     st.subheader("Vaste gebouwvoorzieningen")
@@ -451,7 +451,7 @@ with st.container(border=True):
     
     st.markdown("**Hoe veel producten kunnen er maximaal geïmplementeerd worden?**")
     st.markdown("Vul hieronder in hoeveel producten er maximaal in een productgroep geïmplementeerd kunnen worden.")
-    max_gebouwvoorzieningen = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 200, 100, key="_maxgebouwvoorzieningen", on_change=set_maxgebouwvoorzieningen)
+    max_gebouwvoorzieningen = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 200, 100, key="_max_gebouwvoorzieningen", on_change=set_max_gebouwvoorzieningen)
 
 
 # #### Binnenwanden
@@ -463,9 +463,9 @@ def set_binnenwanden():
     # Callback function to save the role selection to Session State
     st.session_state.binnenwanden = st.session_state._binnenwanden
     
-def set_maxbinnenwanden():
+def set_max_binnenwanden():
     # Callback function to save the role selection to Session State
-    st.session_state.maxbinnenwanden = st.session_state._maxbinnenwanden
+    st.session_state.max_binnenwanden = st.session_state._max_binnenwanden
 
 with st.container(border=True):
     st.subheader("Binnenwanden")
@@ -475,7 +475,7 @@ with st.container(border=True):
     
     st.markdown("**Hoe veel producten kunnen er maximaal geïmplementeerd worden?**")
     st.markdown("Vul hieronder in hoeveel producten er maximaal in een productgroep geïmplementeerd kunnen worden.")
-    max_binnenwanden = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 200, 100, key="_maxbinnenwanden", on_change=set_maxbinnenwanden)
+    max_binnenwanden = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 200, 100, key="_max_binnenwanden", on_change=set_max_binnenwanden)
 
 
 # #### Trappen en hellingen
@@ -487,9 +487,9 @@ def set_trappen():
     # Callback function to save the role selection to Session State
     st.session_state.trappen = st.session_state._trappen
     
-def set_maxtrappen():
+def set_max_trappen():
     # Callback function to save the role selection to Session State
-    st.session_state.maxtrappen = st.session_state._maxtrappen
+    st.session_state.max_trappen = st.session_state._max_trappen
 
 with st.container(border=True):
     st.subheader("Trappen en hellingen")
@@ -499,7 +499,7 @@ with st.container(border=True):
     
     st.markdown("**Hoe veel producten kunnen er maximaal geïmplementeerd worden?**")
     st.markdown("Vul hieronder in hoeveel producten er maximaal in een productgroep geïmplementeerd kunnen worden.")
-    max_trappen = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 200, 100, key="_maxtrappen", on_change=set_maxtrappen)
+    max_trappen = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 200, 100, key="_max_trappen", on_change=set_max_trappen)
 
 
 # #### Luiken en vensters
@@ -511,9 +511,9 @@ def set_luiken():
     # Callback function to save the role selection to Session State
     st.session_state.luiken = st.session_state._luiken
     
-def set_maxluiken():
+def set_max_luiken():
     # Callback function to save the role selection to Session State
-    st.session_state.maxluiken = st.session_state._maxluiken
+    st.session_state.max_luiken = st.session_state._max_luiken
 
 with st.container(border=True):
     st.subheader("Luiken en vensters")
@@ -523,7 +523,7 @@ with st.container(border=True):
     
     st.markdown("**Hoe veel producten kunnen er maximaal geïmplementeerd worden?**")
     st.markdown("Vul hieronder in hoeveel producten er maximaal in een productgroep geïmplementeerd kunnen worden.")
-    max_luiken = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 200, 100, key="_maxluiken", on_change=set_maxluiken)
+    max_luiken = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 200, 100, key="_max_luiken", on_change=set_max_luiken)
 
 
 # #### Balustrades en leuningen
@@ -535,9 +535,9 @@ def set_balustrades():
     # Callback function to save the role selection to Session State
     st.session_state.balustrades = st.session_state._balustrades
     
-def set_maxbalustrades():
+def set_max_balustrades():
     # Callback function to save the role selection to Session State
-    st.session_state.maxbalustrades = st.session_state._maxbalustrades
+    st.session_state.max_balustrades = st.session_state._max_balustrades
 
 
 with st.container(border=True):
@@ -548,7 +548,7 @@ with st.container(border=True):
     
     st.markdown("**Hoe veel producten kunnen er maximaal geïmplementeerd worden?**")
     st.markdown("Vul hieronder in hoeveel producten er maximaal in een productgroep geïmplementeerd kunnen worden.")
-    max_balustrades = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 200, 100, key="_maxbalustrades", on_change=set_maxbalustrades)
+    max_balustrades = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 200, 100, key="_max_balustrades", on_change=set_max_balustrades)
 
 
 # #### Warm- en koud water installaties
@@ -560,9 +560,9 @@ def set_water():
     # Callback function to save the role selection to Session State
     st.session_state.water = st.session_state._water
     
-def set_maxwater():
+def set_max_water():
     # Callback function to save the role selection to Session State
-    st.session_state.maxwater = st.session_state._maxwater
+    st.session_state.max_water = st.session_state._max_water
 
 with st.container(border=True):
     st.subheader("Warm- en koud water installaties")
@@ -572,7 +572,7 @@ with st.container(border=True):
     
     st.markdown("**Hoe veel producten kunnen er maximaal geïmplementeerd worden?**")
     st.markdown("Vul hieronder in hoeveel producten er maximaal in een productgroep geïmplementeerd kunnen worden.")
-    max_water = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 200, 100, key="_maxwater", on_change=set_maxwater)
+    max_water = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 200, 100, key="_max_water", on_change=set_max_water)
 
 
 # #### Elektrische installaties
@@ -584,9 +584,9 @@ def set_elektra():
     # Callback function to save the role selection to Session State
     st.session_state.elektra = st.session_state._elektra
     
-def set_maxelektra():
+def set_max_elektra():
     # Callback function to save the role selection to Session State
-    st.session_state.maxelektra = st.session_state._maxelektra
+    st.session_state.max_elektra = st.session_state._max_elektra
 
 with st.container(border=True):
     st.subheader("Elektrische installaties")
@@ -596,7 +596,7 @@ with st.container(border=True):
     
     st.markdown("**Hoe veel producten kunnen er maximaal geïmplementeerd worden?**")
     st.markdown("Vul hieronder in hoeveel producten er maximaal in een productgroep geïmplementeerd kunnen worden.")
-    max_elektra = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 200, 100, key="_maxelektra", on_change=set_maxelektra)
+    max_elektra = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 200, 100, key="_max_elektra", on_change=set_max_elektra)
 
 
 # #### Beveiliging
@@ -608,9 +608,9 @@ def set_beveiliging():
     # Callback function to save the role selection to Session State
     st.session_state.beveiliging = st.session_state._beveiliging
     
-def set_maxbeveiliging():
+def set_max_beveiliging():
     # Callback function to save the role selection to Session State
-    st.session_state.maxbeveiliging = st.session_state._maxbeveiliging
+    st.session_state.max_beveiliging = st.session_state._max_beveiliging
 
 
 with st.container(border=True):
@@ -621,7 +621,7 @@ with st.container(border=True):
     
     st.markdown("**Hoe veel producten kunnen er maximaal geïmplementeerd worden?**")
     st.markdown("Vul hieronder in hoeveel producten er maximaal in een productgroep geïmplementeerd kunnen worden.")
-    max_beveiliging = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 200, 100, key="_maxbeveiliging", on_change=set_maxbeveiliging)
+    max_beveiliging = st.slider("Vul een max voor het aantal te implementeren producten in", 0, 200, 100, key="_max_beveiliging", on_change=set_max_beveiliging)
 
 
 # #### Optimalisatie
