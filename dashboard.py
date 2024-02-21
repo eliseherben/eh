@@ -338,7 +338,7 @@ st.session_state._maxwater = st.session_state.maxwater
 
 
 if "minmax" not in st.session_state:
-    st.session_state.minmax = 20
+    st.session_state.minmax = None
 
 st.session_state._minmax = st.session_state.minmax
 
