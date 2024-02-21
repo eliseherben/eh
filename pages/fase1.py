@@ -31,11 +31,16 @@ def set_buitenkozijnen():
     # Callback function to save the role selection to Session State
     st.session_state.buitenkozijnen = st.session_state._buitenkozijnen
 
+def set_minmax():
+    # Callback function to save the role selection to Session State
+    st.session_state.minmax = st.session_state._minmax
+    
 with st.container(border=True):
     st.subheader("Buitenkozijnen, -ramen, -deuren en -puien")
     st.markdown("**Wat is de range van producten die in een productgroep geïmplementeerd kunnen worden?**")
     st.markdown("Vul hieronder in hoeveel producten er in een productgroep geïmplementeerd kunnen worden. Hierbij kan er een maximum en minimum aangegeven worden.")
-    v_buitenkozijnen = st.slider('Vul max en min te implementeren producten in',0, 20, (0, 20), key=11)
+    v_buitenkozijnen = st.slider('Vul max en min te implementeren producten in',0, 20, (0, 20), key="_minmax", on_change=set_minmax)
+    st.markdown(f"minmax {minmax}")
 
 
 # #### Lift
