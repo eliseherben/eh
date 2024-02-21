@@ -335,10 +335,10 @@ def kinderen_maken(ouders):
                 i = i + 1
             else:
                 kind1.append(random.choice([parent1[i], parent2[i]]))
-        for a in range(25):
+        for a, s, m in zip(range(25), sessions, maximaal):
             if random.randint(0, 10) == 1:
                 st.markdown(f"mutatie kind 2")
-                st.markdown(f"i {i}")
+                st.markdown(f"a {a}")
                 st.markdown(f"s {s}")
                 st.markdown(f"m {m}")
                 kind2.append(random.randint(s, m))
