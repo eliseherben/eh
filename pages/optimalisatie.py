@@ -317,38 +317,40 @@ def ouders_maken(populatie):
 def kinderen_maken(ouders):
     kinderen = []
     while len(ouders) != 0:
-        kind1 = []
-        kind2 = []
+        kind = []
+#         kind2 = []
         parent1 = random.choice(ouders)
         ouders.remove(parent1)
         parent2 = random.choice(ouders)
         ouders.remove(parent2)
         st.markdown(f"ouder 1 {parent1}")
         st.markdown(f"ouder 2 {parent2}")
-        for i, s, m in zip(range(25), sessions, maximaal):
-            if random.randint(0, 10) == 1:
-                st.markdown(f"mutatie kind 1")
-                st.markdown(f"i {i}")
-                st.markdown(f"s {s}")
-                st.markdown(f"m {m}")
-                kind1.append(random.randint(s, m))
-                i = i + 1
-            else:
-                kind1.append(random.choice([parent1[i], parent2[i]]))
-        for a, s, m in zip(range(25), sessions, maximaal):
-            if random.randint(0, 10) == 1:
-                st.markdown(f"mutatie kind 2")
-                st.markdown(f"a {a}")
-                st.markdown(f"s {s}")
-                st.markdown(f"m {m}")
-                kind2.append(random.randint(s, m))
-                a = a + 1
-            else:
-                kind2.append(random.choice([parent1[a], parent2[a]]))
-        st.markdown(f"kind 1 {kind1}")
-        st.markdown(f"kind 2 {kind2}")
-        kinderen.append(kind1)
-        kinderen.append(kind2)
+        for k in range(2):
+            for i, s, m in zip(range(25), sessions, maximaal):
+                if random.randint(0, 10) == 1:
+                    st.markdown(f"mutatie kind 1")
+                    st.markdown(f"i {i}")
+                    st.markdown(f"s {s}")
+                    st.markdown(f"m {m}")
+                    kind.append(random.randint(s, m))
+                    i = i + 1
+                else:
+                    kind.append(random.choice([parent1[i], parent2[i]]))
+            kinderen.append(kind)
+#         for a, s, m in zip(range(25), sessions, maximaal):
+#             if random.randint(0, 10) == 1:
+#                 st.markdown(f"mutatie kind 2")
+#                 st.markdown(f"a {a}")
+#                 st.markdown(f"s {s}")
+#                 st.markdown(f"m {m}")
+#                 kind2.append(random.randint(s, m))
+#                 a = a + 1
+#             else:
+#                 kind2.append(random.choice([parent1[a], parent2[a]]))
+            st.markdown(f"kind {k} {kind}")
+#         st.markdown(f"kind 2 {kind2}")
+#         kinderen.append(kind1)
+#         kinderen.append(kind2)
     return kinderen
 
 
