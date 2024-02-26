@@ -606,38 +606,98 @@ if st.session_state.project and st.session_state.fase is not None:
 # In[ ]:
 
 
-# def set_aanschafprijs():
-#     # Callback function to save the role selection to Session State
-#     st.session_state.aanschafprijs = st.session_state._aanschafprijs
+def set_aanschafprijs():
+    # Callback function to save the role selection to Session State
+    st.session_state.aanschafprijs = st.session_state._aanschafprijs
     
-# def set_onderhoudsprijs():
-#     # Callback function to save the role selection to Session State
-#     st.session_state.onderhoudsprijs = st.session_state._onderhoudsprijs
+def set_onderhoudsprijs():
+    # Callback function to save the role selection to Session State
+    st.session_state.onderhoudsprijs = st.session_state._onderhoudsprijs
     
-# def set_losmaakbaarheid():
-#     # Callback function to save the role selection to Session State
-#     st.session_state.losmaakbaarheid = st.session_state._losmaakbaarheid
+def set_losmaakbaarheid():
+    # Callback function to save the role selection to Session State
+    st.session_state.losmaakbaarheid = st.session_state._losmaakbaarheid
     
-# def set_toepassingsmogelijkheden():
-#     # Callback function to save the role selection to Session State
-#     st.session_state.toepassingsmogelijkheden = st.session_state._toepassingsmogelijkheden
+def set_toepassingsmogelijkheden():
+    # Callback function to save the role selection to Session State
+    st.session_state.toepassingsmogelijkheden = st.session_state._toepassingsmogelijkheden
     
-# def set_woonbeleving():
-#     # Callback function to save the role selection to Session State
-#     st.session_state.woonbeleving = st.session_state._woonbeleving
+def set_woonbeleving():
+    # Callback function to save the role selection to Session State
+    st.session_state.woonbeleving = st.session_state._woonbeleving
     
-# def set_milieubelasting():
-#     # Callback function to save the role selection to Session State
-#     st.session_state.milieubelasting = st.session_state._milieubelasting
+def set_milieubelasting():
+    # Callback function to save the role selection to Session State
+    st.session_state.milieubelasting = st.session_state._milieubelasting
     
-# def set_flexibiliteit():
-#     # Callback function to save the role selection to Session State
-#     st.session_state.flexibiliteit = st.session_state._flexibiliteit
+def set_flexibiliteit():
+    # Callback function to save the role selection to Session State
+    st.session_state.flexibiliteit = st.session_state._flexibiliteit
     
-# def set_standaardisering():
-#     # Callback function to save the role selection to Session State
-#     st.session_state.standaardisering = st.session_state._standaardisering
+def set_standaardisering():
+    # Callback function to save the role selection to Session State
+    st.session_state.standaardisering = st.session_state._standaardisering
     
+
+
+# In[ ]:
+
+
+# Definieer de opties voor elke select box
+opties_aanschafprijs = ['1', '2', '3', '4', '5', '6', '7', '8']
+opties_onderhoudsprijs = ['1', '2', '3', '4', '5', '6', '7', '8']
+opties_losmaakbaarheid = ['1', '2', '3', '4', '5', '6', '7', '8']
+opties_toepassingsmogelijkheden = ['1', '2', '3', '4', '5', '6', '7', '8']
+opties_woonbeleving = ['1', '2', '3', '4', '5', '6', '7', '8']
+opties_milieubelasting = ['1', '2', '3', '4', '5', '6', '7', '8']
+opties_flexibiliteit = ['1', '2', '3', '4', '5', '6', '7', '8']
+opties_standaardisering = ['1', '2', '3', '4', '5', '6', '7', '8']
+
+
+# Maak een select box voor elke set opties
+keuze_aanschafprijs = st.selectbox('Kies de plek van aanschafprijs', opties_aanschafprijs)
+
+# Verwijder de gekozen optie uit de opties van de volgende select box
+opties_onderhoudsprijs.remove(keuze_aanschafprijs)
+keuze_onderhoudsprijs = st.selectbox('Kies de plek van onderhoudsprijs', opties_onderhoudsprijs)
+
+# Verwijder de gekozen opties uit de opties van de volgende select box
+opties_selectbox3.remove(keuze_selectbox1)
+opties_selectbox3.remove(keuze_selectbox2)
+keuze_selectbox3 = st.selectbox('Select Box 3', opties_selectbox3)
+
+
+# In[ ]:
+
+
+if st.session_state.project and st.session_state.fase is not None:
+    with st.container(border=True):
+        st.subheader("**Weging onderdelen**")
+        st.markdown("Hebben onderstaande onderdelen een zwaardere weging? De weging van de onderdelen staat standaard op 1. Als er onderdelen zijn die zwaarder wegen kunnen die hieronder aangepast worden.")
+        
+        st.markdown("**Aanschafprijs**")
+        aanschafprijs = st.selectbox("Kies de weging van de Aanschaf", min_value=1, key="_aanschafprijs", on_change=set_aanschafprijs)
+
+        st.markdown("**Onderhoudsprijs**")
+        onderhoudsprijs = st.selectbox("Weging", min_value=1, key="_onderhoudsprijs", on_change=set_onderhoudsprijs)
+
+        st.markdown("**Mate van losmaakbaarheid**")
+        losmaakbaarheid = st.selectbox("Weging", min_value=1, key="_losmaakbaarheid", on_change=set_losmaakbaarheid)
+
+        st.markdown("**Toepassingsmogelijkheden**")
+        toepassingsmogelijkheden = st.selectbox("Weging", min_value=1, key="_toepassingsmogelijkheden", on_change=set_toepassingsmogelijkheden)
+
+        st.markdown("**Woonbeleving**")
+        woonbeleving = st.selectbox("Weging", min_value=1, key="_woonbeleving", on_change=set_woonbeleving)
+
+        st.markdown("**Milieubelasting**")
+        milieubelasting = st.selectbox("Weging", min_value=1, key="_milieubelasting", on_change = set_milieubelasting)
+
+        st.markdown("**Flexibiliteit tbv toekomstbestendigheid en innovatie**")
+        flexibiliteit = st.selectbox("Weging", min_value=1, key="_flexibiliteit", on_change = set_flexibiliteit)
+
+        st.markdown("**Mate van standaardisering**")
+        standaardisering = st.selectbox("Weging", min_value=1, key="_standaardisering", on_change = set_standaardisering)
 
 
 # In[ ]:
