@@ -414,7 +414,6 @@ for i in range(len(startpopulatie)):
     st.markdown(f"f6 {f6(startpopulatie[0][i])}")
     st.markdown(f"f7 {f7(startpopulatie[0][i])}")
     st.markdown(f"f8 {f8(startpopulatie[0][i])}")
-    st.markdown(uitkomst(startpopulatie[0][i]))
     st.markdown("")
 iteraties = 0
 while iteraties < 5:
