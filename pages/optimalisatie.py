@@ -373,7 +373,7 @@ wegingen = [st.session_state.aanschafprijs, st.session_state.onderhoudsprijs, st
            st.session_state.flexibiliteit, st.session_state.standaardisering]
 populatie.append(wegingen)
 populatie.sort(key=lambda wegingen: wegingen[1], reverse=True)
-st.markdown({populatie})
+st.markdown(populatie)
 st.markdown(wegingen)
 wegingen.sort(reverse=True)
 st.markdown(wegingen)
