@@ -64,6 +64,11 @@ if "fase" not in st.session_state:
     
 st.session_state._fase = st.session_state.fase
 
+if "doelstelling" not in st.session_state:
+    st.session_state.doelstelling = None
+    
+st.session_state._doelstelling = st.session_state.doelstelling
+
 menu()
 
 # st.page_link("dashboard.py", label="Home")
@@ -582,6 +587,20 @@ if st.session_state.project and st.session_state.fase is not None:
         st.markdown("Vul het budget in voor het huidige project.")
         st.number_input("Vul het budget in", value=None, placeholder="Typ een bedrag", key="_budget", on_change=set_budget)
 
+
+
+# In[ ]:
+
+
+def set_doelstelling():
+    # Callback function to save the role selection to Session State
+    st.session_state.doelstelling = st.session_state._doelstelling
+    
+if st.session_state.project and st.session_state.fase is not None:
+    st.selectbox('Welke doelstelling is het belangrijkst in dit project', 
+                ('Aanschafprijs', 'Onderhoudsprijs', 'Mate van losmaakbaarheid', 'Toepassingsmogelijkheden', 'Woonbeleving', 
+                'Milieubelasting', 'Flexibiliteit tbv toekomstbestendigheid en innovatie', 'Mate van standaardisering'), 
+                index = None, placeholder='Selecteer een doelstelling', key = '_doelstelling', on_change=set_doelstelling)
 
 
 # In[ ]:
