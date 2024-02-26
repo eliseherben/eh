@@ -357,7 +357,7 @@ while iteraties < 5:
         populatie.append(tuple(a))
     for x in range(len(populatie)):
         populatie[x] = (list(populatie[x]), uitkomsten(populatie[x]))
-    populatie.sort(key=lambda uitkomst: uitkomst[1])
+    populatie.sort(key=lambda uitkomst: uitkomst[1], reverse = True)
     iteraties = iteraties + 1
 
 
