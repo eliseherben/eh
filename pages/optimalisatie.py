@@ -372,8 +372,8 @@ wegingen = [st.session_state.aanschafprijs, st.session_state.onderhoudsprijs, st
             st.session_state.toepassingsmogelijkheden, st.session_state.woonbeleving, st.session_state.milieubelasting, 
            st.session_state.flexibiliteit, st.session_state.standaardisering]
 st.markdown(wegingen)
-sorted_wegingen = wegingen.sort(reverse=True)
-st.markdown(sorted_wegingen)
+wegingen.sort(reverse=True)
+st.markdown(wegingen)
 for solution in populatie:
     i = i + 1
     j = 0
