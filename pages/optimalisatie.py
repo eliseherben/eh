@@ -366,8 +366,9 @@ while iteraties < 5:
 
 st.markdown("### Genetic algorithm:")
 i = 0
-populatie = [tuple(i[0]) for i in populatie]
 st.markdown(populatie)
+
+populatie = [tuple(i[0]) for i in populatie]
 
 if st.session_state.doelstelling == 'Aanschafprijs':
     for x in range(len(populatie)):
