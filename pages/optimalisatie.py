@@ -446,12 +446,6 @@ if st.session_state.doelstelling == 'Flexibiliteit tbv toekomstbestendigheid en 
     populatie.sort(key=lambda flexibiliteit: flexibiliteit[7], reverse=True)
 if st.session_state.doelstelling == 'Mate van standaardisering':
     populatie.sort(key=lambda standaardisering: standaardisering[8], reverse=True)
-        
-
-#testen op pareto
-def pareto(populatie):
-    
-    
     
 populatie = [tuple(i[0]) for i in populatie]
 
