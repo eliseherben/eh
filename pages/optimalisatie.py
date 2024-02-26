@@ -355,38 +355,9 @@ while iteraties < 5:
     kinderen = kinderen_maken(ouders)
     for a in kinderen:
         populatie.append(tuple(a))
-    if st.session_state.doelstelling == 'Aanschafprijs':
-        for x in range(len(populatie)):
-            populatie[x] = (list(populatie[x]), f1(populatie[x]))
-        populatie.sort(key=lambda aanschafprijs: aanschafprijs[1])
-    if st.session_state.doelstelling == 'Onderhoudsprijs':
-        for x in range(len(populatie)):
-            populatie[x] = (list(populatie[x]), f1(populatie[x]))
-        populatie.sort(key=lambda onderhoudsprijs: onderhoudsprijs[1])
-    if st.session_state.doelstelling == 'Mate van losmaakbaarheid':
-        for x in range(len(populatie)):
-            populatie[x] = (list(populatie[x]), f1(populatie[x]))
-        populatie.sort(key=lambda losmaakbaarheid: losmaakbaarheid[1], reverse=True)
-    if st.session_state.doelstelling == 'Toepassingsmogelijkheden':
-        for x in range(len(populatie)):
-            populatie[x] = (list(populatie[x]), f1(populatie[x]))
-        populatie.sort(key=lambda toepassingsmogelijkheden: toepassingsmogelijkheden[1], reverse=True)
-    if st.session_state.doelstelling == 'Woonbeleving':
-        for x in range(len(populatie)):
-            populatie[x] = (list(populatie[x]), f1(populatie[x]))
-        populatie.sort(key=lambda woonbeleving: woonbeleving[1], reverse=True)
-    if st.session_state.doelstelling == 'Milieubelasting':
-        for x in range(len(populatie)):
-            populatie[x] = (list(populatie[x]), f1(populatie[x]))
-        populatie.sort(key=lambda milieubelasting: milieubelasting[1])
-    if st.session_state.doelstelling == 'Flexibiliteit tbv toekomstbestendigheid en innovatie':
-        for x in range(len(populatie)):
-            populatie[x] = (list(populatie[x]), f1(populatie[x]))
-        populatie.sort(key=lambda flexibiliteit: flexibiliteit[1], reverse=True)
-    if st.session_state.doelstelling == 'Mate van standaardisering':
-        for x in range(len(populatie)):
-            populatie[x] = (list(populatie[x]), f1(populatie[x]))
-        populatie.sort(key=lambda standaardisering: standaardisering[1], reverse=True)
+    for x in range(len(populatie)):
+        populatie[x] = (list(populatie[x]), uitkomsten(populatie[x]))
+    populatie.sort(key=lambda uitkomst: uitkomst[1])
     iteraties = iteraties + 1
 
 
@@ -396,6 +367,42 @@ while iteraties < 5:
 st.markdown("### Genetic algorithm:")
 i = 0
 populatie = [tuple(i[0]) for i in populatie]
+
+if st.session_state.doelstelling == 'Aanschafprijs':
+    for x in range(len(populatie)):
+        populatie[x] = (list(populatie[x]), f1(populatie[x]))
+    populatie.sort(key=lambda aanschafprijs: aanschafprijs[1])
+if st.session_state.doelstelling == 'Onderhoudsprijs':
+    for x in range(len(populatie)):
+        populatie[x] = (list(populatie[x]), f1(populatie[x]))
+    populatie.sort(key=lambda onderhoudsprijs: onderhoudsprijs[1])
+if st.session_state.doelstelling == 'Mate van losmaakbaarheid':
+    for x in range(len(populatie)):
+        populatie[x] = (list(populatie[x]), f1(populatie[x]))
+    populatie.sort(key=lambda losmaakbaarheid: losmaakbaarheid[1], reverse=True)
+if st.session_state.doelstelling == 'Toepassingsmogelijkheden':
+    for x in range(len(populatie)):
+        populatie[x] = (list(populatie[x]), f1(populatie[x]))
+    populatie.sort(key=lambda toepassingsmogelijkheden: toepassingsmogelijkheden[1], reverse=True)
+if st.session_state.doelstelling == 'Woonbeleving':
+    for x in range(len(populatie)):
+        populatie[x] = (list(populatie[x]), f1(populatie[x]))
+    populatie.sort(key=lambda woonbeleving: woonbeleving[1], reverse=True)
+if st.session_state.doelstelling == 'Milieubelasting':
+    for x in range(len(populatie)):
+        populatie[x] = (list(populatie[x]), f1(populatie[x]))
+    populatie.sort(key=lambda milieubelasting: milieubelasting[1])
+if st.session_state.doelstelling == 'Flexibiliteit tbv toekomstbestendigheid en innovatie':
+    for x in range(len(populatie)):
+        populatie[x] = (list(populatie[x]), f1(populatie[x]))
+    populatie.sort(key=lambda flexibiliteit: flexibiliteit[1], reverse=True)
+if st.session_state.doelstelling == 'Mate van standaardisering':
+    for x in range(len(populatie)):
+        populatie[x] = (list(populatie[x]), f1(populatie[x]))
+    populatie.sort(key=lambda standaardisering: standaardisering[1], reverse=True)
+        
+populatie = [tuple(i[0]) for i in populatie]
+
 for solution in populatie:
     i = i + 1
     j = 0
