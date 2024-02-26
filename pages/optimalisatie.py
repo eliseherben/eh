@@ -215,7 +215,16 @@ minmax = [st.session_state.min_max_buitenkozijnen, st.session_state.min_max_lift
             st.session_state.min_max_beveiliging]
 
 
-# In[ ]:
+# **startpopulatie**
+
+# In[16]:
+
+
+def dominates(x, y):
+    return x[0] <= y[0] and x[1] <= y[1] and x[2] >= y[2] and x[3] >= y[3] and x[4] >= y[4] and x[5] <= y[5] and x[6] >= y[6] and x[7] >= y[7] and (x[0] < y[0] or x[1] < y[1] or x[2] > y[2] or x[3] > y[3] or x[4] > y[4] or x[5] < y[5] or x[6] > y[6] or x[7] > y[7])
+
+
+# In[15]:
 
 
 def f1(x):
@@ -276,29 +285,67 @@ def uitkomsten(oplossing):
         # Als aanschafprijs + onderhoudskosten hoger zijn dan het budget, retourneer een grote negatieve waarde
         return -float('inf')
 
-def startoplossingen():
-    oplossingen = []
-    while len(oplossingen) < 10:
-        oplossing = [random.randint(0, 20) for _ in range(25)]
+def startoplossing():
+    startoplossing = [random.randint(0, 20) for _ in range(25)]
+    if st.session_state.fase == 'Budget te veel':
+        for i, s, m in zip(range(len(startoplossing)), sessions, maximaal):
+            if startoplossing[i] < s:
+                startoplossing[i] = s
+            elif startoplossing[i] > m:
+                startoplossing[i] = m
+            else:
+                startoplossing[i] = startoplossing[i]
+    else:
+        for i, m in zip(range(len(startoplossing)), minmax):
+            if startoplossing[i] < m[0]:
+                startoplossing[i] = m[0]
+            elif startoplossing[i] > m[1]:
+                startoplossing[i] = m[1]
+            else:
+                startoplossing[i] = startoplossing[i]
+    return startoplossing
+                   
+def startpopulatie(startoplossing):
+    huidige_oplossing = startoplossing
+    
+    populatie = [huidige_oplossing]
+    
+    oplossing = [random.randint(0, 20) for _ in range(25)]
+    for _ in range(9):
+        nieuwe_oplossing = [random.randint(0, 20) for _ in range(25)]
         if st.session_state.fase == 'Budget te veel':
-            for i, s, m in zip(range(len(oplossing)), sessions, maximaal):
-                if oplossing[i] < s:
-                    oplossing[i] = s
-                elif oplossing[i] > m:
-                    oplossing[i] = m
+            for i, s, m in zip(range(len(nieuwe_oplossing)), sessions, maximaal):
+                if nieuwe_oplossing[i] < s:
+                    nieuwe_oplossing[i] = s
+                elif nieuwe_oplossing[i] > m:
+                    nieuwe_oplossing[i] = m
                 else:
-                    oplossing[i] = oplossing[i]
+                    nieuwe_oplossing[i] = nieuwe_oplossing[i]
         else:
-            for i, m in zip(range(len(oplossing)), minmax):
-                if oplossing[i] < m[0]:
-                    oplossing[i] = m[0]
-                elif oplossing[i] > m[1]:
-                    oplossing[i] = m[1]
+            for i, m in zip(range(len(nieuwe_oplossing)), minmax):
+                if nieuwe_oplossing[i] < m[0]:
+                    nieuwe_oplossing[i] = m[0]
+                elif nieuwe_oplossing[i] > m[1]:
+                    nieuwe_oplossing[i] = m[1]
                 else:
-                    oplossing[i] = oplossing[i]
-        oplossingen.append((oplossing, uitkomsten(oplossing)))
-    oplossingen.sort(key=lambda uitkomsten: uitkomsten[1], reverse=True)
-    return oplossingen
+                    nieuwe_oplossing[i] = nieuwe_oplossing[i]
+                    
+        nieuwe_uitkomsten = [f1(nieuwe_oplossing), f2(nieuwe_oplossing), f3(nieuwe_oplossing), f4(nieuwe_oplossing), f5(nieuwe_oplossing), f6(nieuwe_oplossing), f7(nieuwe_oplossing), f8(nieuwe_oplossing)]
+        dominated = False
+        for sol in populatie:
+            if dominates(nieuwe_uitkomsten, [f1(sol), f2(sol), f3(sol), f4(sol), f5(sol), f6(sol), f7(sol), f8(sol)]):
+                populatie.remove(sol)
+            if dominates([f1(sol), f2(sol), f3(sol), f4(sol), f5(sol), f6(sol), f7(sol), f8(sol)], nieuwe_uitkomsten):
+                dominated = True
+                break
+        if not dominated:
+            populatie.append(nieuwe_oplossing)
+    
+    for x in range(len(populatie)):
+        populatie[x] = (list(populatie[x]), uitkomsten(populatie[x]))
+    populatie.sort(key=lambda uitkomst: uitkomst[1], reverse = True)
+
+    return populatie
 
 
 # In[ ]:
@@ -354,10 +401,11 @@ def kinderen_maken(ouders):
 # In[ ]:
 
 
-populatie = startoplossingen()
+startoplossing = startoplossing()
+startpopulatie = startpopulatie(startoplossing)
 iteraties = 0
 while iteraties < 5:
-    populatie = [tuple(i[0]) for i in populatie]
+    populatie = [tuple(i[0]) for i in startpopulatie]
     st.markdown(f"populatie {populatie}")
     ouders = ouders_maken(populatie)
     populatie = [i for i in populatie[0:4]]
@@ -379,41 +427,35 @@ st.markdown(populatie)
 
 populatie = [tuple(i[0]) for i in populatie]
 
+for x in range(len(populatie)):
+        populatie[x] = (list(populatie[x]), f1(populatie[x]), f2(populatie[x]), f3(populatie[x]), f4(populatie[x]), f5(populatie[x]), f7(populatie[x]), f8(populatie[x]))
+
 if st.session_state.doelstelling == 'Aanschafprijs':
-    for x in range(len(populatie)):
-        populatie[x] = (list(populatie[x]), f1(populatie[x]))
     populatie.sort(key=lambda aanschafprijs: aanschafprijs[1])
 if st.session_state.doelstelling == 'Onderhoudsprijs':
-    for x in range(len(populatie)):
-        populatie[x] = (list(populatie[x]), f2(populatie[x]))
-    populatie.sort(key=lambda onderhoudsprijs: onderhoudsprijs[1])
+    populatie.sort(key=lambda onderhoudsprijs: onderhoudsprijs[2])
 if st.session_state.doelstelling == 'Mate van losmaakbaarheid':
-    for x in range(len(populatie)):
-        populatie[x] = (list(populatie[x]), f3(populatie[x]))
-    populatie.sort(key=lambda losmaakbaarheid: losmaakbaarheid[1], reverse=True)
+    populatie.sort(key=lambda losmaakbaarheid: losmaakbaarheid[3], reverse=True)
 if st.session_state.doelstelling == 'Toepassingsmogelijkheden':
-    for x in range(len(populatie)):
-        populatie[x] = (list(populatie[x]), f4(populatie[x]))
-    populatie.sort(key=lambda toepassingsmogelijkheden: toepassingsmogelijkheden[1], reverse=True)
+    populatie.sort(key=lambda toepassingsmogelijkheden: toepassingsmogelijkheden[4], reverse=True)
 if st.session_state.doelstelling == 'Woonbeleving':
-    for x in range(len(populatie)):
-        populatie[x] = (list(populatie[x]), f5(populatie[x]))
-    populatie.sort(key=lambda woonbeleving: woonbeleving[1], reverse=True)
+    populatie.sort(key=lambda woonbeleving: woonbeleving[5], reverse=True)
 if st.session_state.doelstelling == 'Milieubelasting':
-    for x in range(len(populatie)):
-        populatie[x] = (list(populatie[x]), f6(populatie[x]))
-    populatie.sort(key=lambda milieubelasting: milieubelasting[1])
+    populatie.sort(key=lambda milieubelasting: milieubelasting[6])
 if st.session_state.doelstelling == 'Flexibiliteit tbv toekomstbestendigheid en innovatie':
-    for x in range(len(populatie)):
-        populatie[x] = (list(populatie[x]), f7(populatie[x]))
-    populatie.sort(key=lambda flexibiliteit: flexibiliteit[1], reverse=True)
+    populatie.sort(key=lambda flexibiliteit: flexibiliteit[7], reverse=True)
 if st.session_state.doelstelling == 'Mate van standaardisering':
-    for x in range(len(populatie)):
-        populatie[x] = (list(populatie[x]), f8(populatie[x]))
-    populatie.sort(key=lambda standaardisering: standaardisering[1], reverse=True)
+    populatie.sort(key=lambda standaardisering: standaardisering[8], reverse=True)
         
+
+#testen op pareto
+def pareto(populatie):
+    
+    
+    
 populatie = [tuple(i[0]) for i in populatie]
 
+    
 for solution in populatie:
     i = i + 1
     j = 0
@@ -432,4 +474,183 @@ for solution in populatie:
     st.markdown(f"- milieubelasting: {f6(solution)}")
     st.markdown(f"- flexibiliteit tbv toekomstbestendigheid en innovatie: {f7(solution)}")
     st.markdown(f"- mate van standaardisering: {f8(solution)}")
+
+
+# In[ ]:
+
+
+# def f1(x):
+#     result = 6*x[0] + 9*x[1] + 2*x[2] + 7*x[3] + 4*x[4] + 4*x[5] + 6*x[6] + x[7] + 4*x[8] + 7*x[9] + 9*x[10] + 10*x[11] + 4*x[12] + 2*x[13] + 6*x[14] + 6*x[15] + 2*x[16] + x[17] + 5*x[18] + 4*x[19] + 4*x[20] + 10*x[21] + 2*x[22] + 2.5*x[23] + 9*x[24]
+#     return result 
+
+# def f2(x):
+#     result = 4.5*x[0] + 2*x[1] + 6*x[2] + 4*x[3] + 4*x[4] + 5*x[5] + 10*x[6] + 3*x[7] + 6*x[8] + x[9] + x[10] + x[11] + 4*x[12] + 9*x[13] + 7.5*x[14] + 4*x[15] + 2*x[16] + x[17] + 3*x[18] + 4*x[19] + 3*x[20] + 2.5*x[21] + 4*x[22] + 6*x[23] + 5*x[24]
+#     return result 
+
+# def f3(x):
+#     result = 9.5*x[0] + 3*x[1] + 9*x[2] + 4.5*x[3] + x[4] + 3*x[5] + 9*x[6] + 9*x[7] + 4*x[8] + 6*x[9] + 8*x[10] + 2*x[11] + 9*x[12] + 4*x[13] + 6*x[14] + 6*x[15] + 4*x[16] + 6*x[17] + 7*x[18] + 4*x[19] + 6*x[20] + 6*x[21] + 8*x[22] + 7*x[23] + 4*x[24]
+#     return result 
+
+# def f4(x):
+#     result = 8*x[0] + 2.5*x[1] + 8*x[2] + 5*x[3] + 6*x[4] + 3*x[5] + 8*x[6] + 8*x[7] + 6*x[8] + 7*x[9] + 7*x[10] + 7.5*x[11] + 8*x[12] + 6*x[13] + 6*x[14] + 4*x[15] + 7*x[16] + 7*x[17] + 7*x[18] + 4*x[19] + 4*x[20] + 7.5*x[21] + 6*x[22] + 5*x[23] + 3*x[24]
+#     return result 
+
+# def f5(x):
+#     result = 9.5*x[0] + 10*x[1] + 4*x[2] + 8*x[3] + 6*x[4] + 7*x[5] + 6*x[6] + 8*x[7] + 6.5*x[8] + 4*x[9] + x[10] + 5*x[11] + 5*x[12] + 4*x[13] + 8*x[14] + 6*x[15] + 6*x[16] + 6*x[17] + 8*x[18] + 3*x[19] + 4*x[20] + 4*x[21] + 2*x[22] + 4*x[23] + 6*x[24]
+#     return result 
+
+# def f6(x):
+#     result = 7.5*x[0] + 7.5*x[1] + 8*x[2] + 7.5*x[3] + 6*x[4] + 7.5*x[5] + 8*x[6] + 8*x[7] + 6*x[8] + 7*x[9] + 4*x[10] + 2*x[11] + 5*x[12] + 2.5*x[13] + 6*x[14] + 3*x[15] + 8*x[16] + 8*x[17] + 6*x[18] + 3*x[19] + 4*x[20] + 4*x[21] + 7*x[22] + 5*x[23] + 6*x[24]
+#     return result 
+
+# def f7(x):
+#     result = 4*x[0] + x[1] + 4*x[2] + 2*x[3] + 6*x[4] + 3*x[5] + x[6] + 4*x[7] + 4*x[8] + 4*x[9] + 2*x[10] + 4*x[11] + 6*x[12] + 2.5*x[13] + 3*x[14] + 2.5*x[15] + 4*x[16] + 4*x[17] + 4*x[18] + x[19] + 3*x[20] + 4*x[21] + 4*x[22] + 2.5*x[23] + 4*x[24]
+#     return result 
+
+# def f8(x):
+#     result = 4*x[0] + x[1] + 9*x[2] + 8*x[3] + 5*x[4] + 6*x[5] + 9*x[6] + 9*x[7] + 6*x[8] + 4*x[9] + 2*x[10] + x[11] + x[12] + 5*x[13] + 2*x[14] + 2*x[15] + 8*x[16] + 6*x[17] + 7*x[18] + 2.5*x[19] + 4*x[20] + 2*x[21] + 4*x[22] + 7*x[23] + 3*x[24]
+#     return result 
+
+# def uitkomsten(oplossing):
+#     # Controleer of aanschafprijs en onderhoudskosten binnen het budget vallen
+#     if f1(oplossing) + f2(oplossing) <= st.session_state.budget:
+# #         aanschafprijs = st.session_state.aanschafprijs * f1(oplossing)
+# #         onderhoudsprijs = st.session_state.onderhoudsprijs * f2(oplossing)
+# #         losmaakbaarheid = st.session_state.losmaakbaarheid * f3(oplossing)
+# #         toepassingsmogelijkheden = st.session_state.toepassingsmogelijkheden * f4(oplossing)
+# #         woonbeleving = st.session_state.woonbeleving * f5(oplossing)
+# #         milieubelasting = st.session_state.milieubelasting * f6(oplossing)
+# #         flexibiliteit = st.session_state.flexibiliteit * f7(oplossing)
+# #         standaardisering = st.session_state.standaardisering * f8(oplossing)
+
+#         aanschafprijs = f1(oplossing)
+#         onderhoudsprijs = f2(oplossing)
+#         losmaakbaarheid = f3(oplossing)
+#         toepassingsmogelijkheden = f4(oplossing)
+#         woonbeleving = f5(oplossing)
+#         milieubelasting = f6(oplossing)
+#         flexibiliteit = f7(oplossing)
+#         standaardisering = f8(oplossing)
+        
+#         return -aanschafprijs - onderhoudsprijs + losmaakbaarheid + toepassingsmogelijkheden + woonbeleving - milieubelasting + flexibiliteit + standaardisering
+#     else:
+#         # Als aanschafprijs + onderhoudskosten hoger zijn dan het budget, retourneer een grote negatieve waarde
+#         return -float('inf')
+
+# def startoplossingen():
+#     oplossingen = []
+#     while len(oplossingen) < 10:
+#         oplossing = [random.randint(0, 20) for _ in range(25)]
+#         if st.session_state.fase == 'Budget te veel':
+#             for i, s, m in zip(range(len(oplossing)), sessions, maximaal):
+#                 if oplossing[i] < s:
+#                     oplossing[i] = s
+#                 elif oplossing[i] > m:
+#                     oplossing[i] = m
+#                 else:
+#                     oplossing[i] = oplossing[i]
+#         else:
+#             for i, m in zip(range(len(oplossing)), minmax):
+#                 if oplossing[i] < m[0]:
+#                     oplossing[i] = m[0]
+#                 elif oplossing[i] > m[1]:
+#                     oplossing[i] = m[1]
+#                 else:
+#                     oplossing[i] = oplossing[i]
+#         oplossingen.append((oplossing, uitkomsten(oplossing)))
+#     oplossingen.sort(key=lambda uitkomsten: uitkomsten[1], reverse=True)
+#     return oplossingen
+
+
+# In[25]:
+
+
+# import random
+# import pandas as pd
+# import streamlit as st
+
+# def startoplossing():
+#     startoplossing = [random.randint(0, 20) for _ in range(25)]
+# #     if st.session_state.fase == 'Budget te veel':
+# #         for i, s, m in zip(range(len(startoplossing)), sessions, maximaal):
+# #             if startoplossing[i] < s:
+# #                 startoplossing[i] = s
+# #             elif startoplossing[i] > m:
+# #                 startoplossing[i] = m
+# #             else:
+# #                 startoplossing[i] = startoplossing[i]
+# #     else:
+# #         for i, m in zip(range(len(startoplossing)), minmax):
+# #             if startoplossing[i] < m[0]:
+# #                 startoplossing[i] = m[0]
+# #             elif startoplossing[i] > m[1]:
+# #                 startoplossing[i] = m[1]
+# #             else:
+# #                 startoplossing[i] = startoplossing[i]
+#     return startoplossing
+                   
+# def startpopulatie(startoplossing):
+#     huidige_oplossing = startoplossing
+    
+#     populatie = [huidige_oplossing]
+    
+#     oplossing = [random.randint(0, 20) for _ in range(25)]
+#     for _ in range(9):
+#         nieuwe_oplossing = [random.randint(0, 20) for _ in range(25)]
+# #         if st.session_state.fase == 'Budget te veel':
+# #             for i, s, m in zip(range(len(nieuwe_oplossing)), sessions, maximaal):
+# #                 if nieuwe_oplossing[i] < s:
+# #                     nieuwe_oplossing[i] = s
+# #                 elif nieuwe_oplossing[i] > m:
+# #                     nieuwe_oplossing[i] = m
+# #                 else:
+# #                     nieuwe_oplossing[i] = nieuwe_oplossing[i]
+# #         else:
+# #             for i, m in zip(range(len(nieuwe_oplossing)), minmax):
+# #                 if nieuwe_oplossing[i] < m[0]:
+# #                     nieuwe_oplossing[i] = m[0]
+# #                 elif nieuwe_oplossing[i] > m[1]:
+# #                     nieuwe_oplossing[i] = m[1]
+# #                 else:
+# #                     nieuwe_oplossing[i] = nieuwe_oplossing[i]
+                    
+#         nieuwe_uitkomsten = [f1(nieuwe_oplossing), f2(nieuwe_oplossing), f3(nieuwe_oplossing), f4(nieuwe_oplossing), f5(nieuwe_oplossing), f6(nieuwe_oplossing), f7(nieuwe_oplossing), f8(nieuwe_oplossing)]
+#         dominated = False
+#         for sol in populatie:
+#             if dominates(nieuwe_uitkomsten, [f1(sol), f2(sol), f3(sol), f4(sol), f5(sol), f6(sol), f7(sol), f8(sol)]):
+#                 populatie.remove(sol)
+#             if dominates([f1(sol), f2(sol), f3(sol), f4(sol), f5(sol), f6(sol), f7(sol), f8(sol)], nieuwe_uitkomsten):
+#                 dominated = True
+#                 break
+#         if not dominated:
+#             populatie.append(nieuwe_oplossing)
+            
+#     return populatie
+
+# def uitkomst(oplossing):
+#     aanschafprijs = f1(oplossing)
+#     onderhoudsprijs = f2(oplossing)
+#     losmaakbaarheid = f3(oplossing)
+#     toepassingsmogelijkheden = f4(oplossing)
+#     woonbeleving = f5(oplossing)
+#     milieubelasting = f6(oplossing)
+#     flexibiliteit = f7(oplossing)
+#     standaardisering = f8(oplossing)
+
+#     return -aanschafprijs - onderhoudsprijs + losmaakbaarheid + toepassingsmogelijkheden + woonbeleving - milieubelasting + flexibiliteit + standaardisering
+
+# startoplossing = startoplossing()
+# populatie = startpopulatie(startoplossing)
+# for i in range(len(populatie)):
+#     print(populatie[i])
+#     print(f"f1 {f1(populatie[i])}")
+#     print(f"f2 {f2(populatie[i])}")
+#     print(f"f3 {f3(populatie[i])}")
+#     print(f"f4 {f4(populatie[i])}")
+#     print(f"f5 {f5(populatie[i])}")
+#     print(f"f6 {f6(populatie[i])}")
+#     print(f"f7 {f7(populatie[i])}")
+#     print(f"f8 {f8(populatie[i])}")
+#     print(uitkomst(populatie[i]))
+#     print("")
 
