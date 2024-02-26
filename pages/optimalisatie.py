@@ -358,11 +358,11 @@ while iteraties < 5:
     if st.session_state.doelstelling == 'Aanschafprijs':
         for x in range(len(populatie)):
             populatie[x] = (list(populatie[x]), f1(populatie[x]))
-        populatie.sort(key=lambda aanschafprijs: aanschafprijs[1], reverse=True)
+        populatie.sort(key=lambda aanschafprijs: aanschafprijs[1])
     if st.session_state.doelstelling == 'Onderhoudsprijs':
         for x in range(len(populatie)):
             populatie[x] = (list(populatie[x]), f1(populatie[x]))
-        populatie.sort(key=lambda onderhoudsprijs: onderhoudsprijs[1], reverse=True)
+        populatie.sort(key=lambda onderhoudsprijs: onderhoudsprijs[1])
     if st.session_state.doelstelling == 'Mate van losmaakbaarheid':
         for x in range(len(populatie)):
             populatie[x] = (list(populatie[x]), f1(populatie[x]))
@@ -378,7 +378,7 @@ while iteraties < 5:
     if st.session_state.doelstelling == 'Milieubelasting':
         for x in range(len(populatie)):
             populatie[x] = (list(populatie[x]), f1(populatie[x]))
-        populatie.sort(key=lambda milieubelasting: milieubelasting[1], reverse=True)
+        populatie.sort(key=lambda milieubelasting: milieubelasting[1])
     if st.session_state.doelstelling == 'Flexibiliteit tbv toekomstbestendigheid en innovatie':
         for x in range(len(populatie)):
             populatie[x] = (list(populatie[x]), f1(populatie[x]))
