@@ -643,28 +643,28 @@ def set_standaardisering():
 # In[ ]:
 
 
-# Definieer de opties voor elke select box
-opties_aanschafprijs = ['1', '2', '3', '4', '5', '6', '7', '8']
-opties_onderhoudsprijs = ['1', '2', '3', '4', '5', '6', '7', '8']
-opties_losmaakbaarheid = ['1', '2', '3', '4', '5', '6', '7', '8']
-opties_toepassingsmogelijkheden = ['1', '2', '3', '4', '5', '6', '7', '8']
-opties_woonbeleving = ['1', '2', '3', '4', '5', '6', '7', '8']
-opties_milieubelasting = ['1', '2', '3', '4', '5', '6', '7', '8']
-opties_flexibiliteit = ['1', '2', '3', '4', '5', '6', '7', '8']
-opties_standaardisering = ['1', '2', '3', '4', '5', '6', '7', '8']
+# # Definieer de opties voor elke select box
+# opties_aanschafprijs = ['1', '2', '3', '4', '5', '6', '7', '8']
+# opties_onderhoudsprijs = ['1', '2', '3', '4', '5', '6', '7', '8']
+# opties_losmaakbaarheid = ['1', '2', '3', '4', '5', '6', '7', '8']
+# opties_toepassingsmogelijkheden = ['1', '2', '3', '4', '5', '6', '7', '8']
+# opties_woonbeleving = ['1', '2', '3', '4', '5', '6', '7', '8']
+# opties_milieubelasting = ['1', '2', '3', '4', '5', '6', '7', '8']
+# opties_flexibiliteit = ['1', '2', '3', '4', '5', '6', '7', '8']
+# opties_standaardisering = ['1', '2', '3', '4', '5', '6', '7', '8']
 
 
-# Maak een select box voor elke set opties
-keuze_aanschafprijs = st.selectbox('Kies de plek van aanschafprijs', opties_aanschafprijs)
+# # Maak een select box voor elke set opties
+# keuze_aanschafprijs = st.selectbox('Kies de plek van aanschafprijs', opties_aanschafprijs)
 
-# Verwijder de gekozen optie uit de opties van de volgende select box
-opties_onderhoudsprijs.remove(keuze_aanschafprijs)
-keuze_onderhoudsprijs = st.selectbox('Kies de plek van onderhoudsprijs', opties_onderhoudsprijs)
+# # Verwijder de gekozen optie uit de opties van de volgende select box
+# opties_onderhoudsprijs.remove(keuze_aanschafprijs)
+# keuze_onderhoudsprijs = st.selectbox('Kies de plek van onderhoudsprijs', opties_onderhoudsprijs)
 
-# Verwijder de gekozen opties uit de opties van de volgende select box
-opties_selectbox3.remove(keuze_selectbox1)
-opties_selectbox3.remove(keuze_selectbox2)
-keuze_selectbox3 = st.selectbox('Select Box 3', opties_selectbox3)
+# # Verwijder de gekozen opties uit de opties van de volgende select box
+# opties_selectbox3.remove(keuze_selectbox1)
+# opties_selectbox3.remove(keuze_selectbox2)
+# keuze_selectbox3 = st.selectbox('Select Box 3', opties_selectbox3)
 
 
 # In[ ]:
