@@ -371,6 +371,9 @@ populatie = [tuple(i[0]) for i in populatie]
 wegingen = [st.session_state.aanschafprijs, st.session_state.onderhoudsprijs, st.session_state.losmaakbaarheid, 
             st.session_state.toepassingsmogelijkheden, st.session_state.woonbeleving, st.session_state.milieubelasting, 
            st.session_state.flexibiliteit, st.session_state.standaardisering]
+populatie.append(wegingen)
+populatie.sort(key=lambda wegingen: wegingen[1], reverse=True)
+st.markdown({populatie})
 st.markdown(wegingen)
 wegingen.sort(reverse=True)
 st.markdown(wegingen)
