@@ -403,10 +403,22 @@ def kinderen_maken(ouders):
 
 startoplossing = startoplossing()
 startpopulatie = startpopulatie(startoplossing)
+
+for i in range(len(startpopulatie)):
+    st.markdown(startpopulatie[i])
+    st.markdown(f"f1 {f1(startpopulatie[i])}")
+    st.markdown(f"f2 {f2(startpopulatie[i])}")
+    st.markdown(f"f3 {f3(startpopulatie[i])}")
+    st.markdown(f"f4 {f4(startpopulatie[i])}")
+    st.markdown(f"f5 {f5(startpopulatie[i])}")
+    st.markdown(f"f6 {f6(startpopulatie[i])}")
+    st.markdown(f"f7 {f7(startpopulatie[i])}")
+    st.markdown(f"f8 {f8(startpopulatie[i])}")
+    st.markdown(uitkomst(startpopulatie[i]))
+    st.markdown("")
 iteraties = 0
 while iteraties < 5:
     populatie = [tuple(i[0]) for i in startpopulatie]
-    st.markdown(f"populatie {populatie}")
     ouders = ouders_maken(populatie)
     populatie = [i for i in populatie[0:4]]
     kinderen = kinderen_maken(ouders)
