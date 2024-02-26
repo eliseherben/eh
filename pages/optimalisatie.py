@@ -361,6 +361,7 @@ while iteraties < 5:
 #         populatie[x] = (list(populatie[x]), uitkomsten(populatie[x]))
     populatie.sort(key=lambda uitkomsten: uitkomsten[1], reverse=True)
     populatie.sort(key=lambda woonbeleving: woonbeleving[1], reverse=True)
+    st.markdown(populatie)
     populatie = populatie
     iteraties = iteraties + 1
 
