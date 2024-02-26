@@ -356,6 +356,8 @@ while iteraties < 5:
     for a in kinderen:
         populatie.append(tuple(a))
     for x in range(len(populatie)):
+        if st.session_state.doelstelling == 'Woonbeleving':
+            st.markdown('werkt')
         populatie[x] = (list(populatie[x]), uitkomsten(populatie[x]))
     populatie.sort(key=lambda uitkomsten: uitkomsten[1], reverse=True)
     populatie = populatie
