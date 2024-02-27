@@ -447,21 +447,6 @@ def kinderen_maken(ouders):
 # In[ ]:
 
 
-startoplossing = startoplossing()
-startpopulatie = startpopulatie(startoplossing)
-test = [tuple(i[0]) for i in startpopulatie]
-
-
-for i in range(len(test)):
-    st.markdown(test[i])
-    st.markdown(f"f1 {f1(test[i])}")
-    st.markdown(f"f2 {f2(test[i])}")
-    st.markdown(f"f3 {f3(test[i])}")
-    st.markdown(f"f4 {f4(test[i])}")
-    st.markdown(f"f5 {f5(test[i])}")
-    st.markdown(f"f6 {f6(test[i])}")
-    st.markdown(f"f7 {f7(test[i])}")
-    st.markdown(f"f8 {f8(test[i])}")
 iteraties = 0
 while iteraties < 5:
     populatie = [tuple(i[0]) for i in startpopulatie]
