@@ -353,9 +353,8 @@ def startpopulatie(startoplossing):
     
     populatie = [huidige_oplossing]
     
-    oplossing = [random.randint(0, 200) for _ in range(25)]
     for _ in range(9):
-        nieuwe_oplossing = [random.randint(0, 20) for _ in range(25)]
+        nieuwe_oplossing = [random.randint(0, 200) for _ in range(25)]
         if st.session_state.fase == 'Budget te veel':
             for i, s, m in zip(range(len(nieuwe_oplossing)), sessions, maximaal):
                 if nieuwe_oplossing[i] < s:
@@ -482,9 +481,9 @@ while iteraties < 5:
 
 st.markdown("### Genetic algorithm:")
 i = 0
-st.markdown(populatie)
 
 populatie = [tuple(i[0]) for i in populatie]
+st.markdown(populatie)
 
 for x in range(len(populatie)):
         populatie[x] = (list(populatie[x]), f1(populatie[x]), f2(populatie[x]), f3(populatie[x]), f4(populatie[x]), f5(populatie[x]), f7(populatie[x]), f8(populatie[x]))
