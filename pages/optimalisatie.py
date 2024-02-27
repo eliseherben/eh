@@ -466,11 +466,25 @@ while iteraties < 5:
 # In[ ]:
 
 
-st.markdown("### Genetic algorithm:")
-i = 0
-
 populatie = [tuple(i[0]) for i in populatie]
 st.markdown(populatie)
+
+for i in range(len(populatie)):
+    pareto = populatie[i]
+    uitkomsten_pareto = [f1(pareto), f2(pareto), f3(pareto), f4(pareto), f5(pareto), f6(pareto), f7(pareto), f8(pareto)]
+    for sol in populatie:
+        if dominates(uitkomsten_pareto, [f1(sol), f2(sol), f3(sol), f4(sol), f5(sol), f6(sol), f7(sol), f8(sol)]):
+            st.markdown(f"pareto {pareto} dominates sol {sol}")
+            populatie.remove(sol)
+        if dominates([f1(sol), f2(sol), f3(sol), f4(sol), f5(sol), f6(sol), f7(sol), f8(sol)], uitkomsten_pareto):
+            st.markdown(f"pareto {pareto} dominates sol {sol}")
+            populatie.remove(pareto)
+
+st.markdown(populatie)
+
+
+# In[ ]:
+
 
 for x in range(len(populatie)):
         populatie[x] = (list(populatie[x]), f1(populatie[x]), f2(populatie[x]), f3(populatie[x]), f4(populatie[x]), f5(populatie[x]), f7(populatie[x]), f8(populatie[x]))
@@ -491,9 +505,15 @@ if st.session_state.doelstelling == 'Flexibiliteit tbv toekomstbestendigheid en 
     populatie.sort(key=lambda flexibiliteit: flexibiliteit[7], reverse=True)
 if st.session_state.doelstelling == 'Mate van standaardisering':
     populatie.sort(key=lambda standaardisering: standaardisering[8], reverse=True)
-    
+
+
+# In[ ]:
+
+
 populatie = [tuple(i[0]) for i in populatie]
 
+st.markdown("### Genetic algorithm:")
+i = 0
     
 for solution in populatie:
     i = i + 1
