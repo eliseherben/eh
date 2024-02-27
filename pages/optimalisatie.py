@@ -377,8 +377,10 @@ def startpopulatie(startoplossing):
         dominated = False
         for sol in populatie:
             if dominates(nieuwe_uitkomsten, [f1(sol), f2(sol), f3(sol), f4(sol), f5(sol), f6(sol), f7(sol), f8(sol)]):
+                st.markdown(f"nieuwe {nieuwe_oplossing} dominates een oude {sol}")
                 populatie.remove(sol)
             if dominates([f1(sol), f2(sol), f3(sol), f4(sol), f5(sol), f6(sol), f7(sol), f8(sol)], nieuwe_uitkomsten):
+                st.markdown(f"oude {sol} dominates de nieuwe {nieuwe_oplossing}")
                 dominated = True
                 break
         if not dominated:
