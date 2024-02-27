@@ -670,34 +670,34 @@ def set_standaardisering():
 # In[ ]:
 
 
-if st.session_state.project and st.session_state.fase is not None:
-    with st.container(border=True):
-        st.subheader("**Weging onderdelen**")
-        st.markdown("Hebben onderstaande onderdelen een zwaardere weging? De weging van de onderdelen staat standaard op 1. Als er onderdelen zijn die zwaarder wegen kunnen die hieronder aangepast worden.")
+# if st.session_state.project and st.session_state.fase is not None:
+#     with st.container(border=True):
+#         st.subheader("**Weging onderdelen**")
+#         st.markdown("Hebben onderstaande onderdelen een zwaardere weging? De weging van de onderdelen staat standaard op 1. Als er onderdelen zijn die zwaarder wegen kunnen die hieronder aangepast worden.")
         
-        st.markdown("**Aanschafprijs**")
-        aanschafprijs = st.selectbox("Kies de weging van de Aanschaf", min_value=1, key="_aanschafprijs", on_change=set_aanschafprijs)
+#         st.markdown("**Aanschafprijs**")
+#         aanschafprijs = st.selectbox("Kies de weging van de Aanschaf", min_value=1, key="_aanschafprijs", on_change=set_aanschafprijs)
 
-        st.markdown("**Onderhoudsprijs**")
-        onderhoudsprijs = st.selectbox("Weging", min_value=1, key="_onderhoudsprijs", on_change=set_onderhoudsprijs)
+#         st.markdown("**Onderhoudsprijs**")
+#         onderhoudsprijs = st.selectbox("Weging", min_value=1, key="_onderhoudsprijs", on_change=set_onderhoudsprijs)
 
-        st.markdown("**Mate van losmaakbaarheid**")
-        losmaakbaarheid = st.selectbox("Weging", min_value=1, key="_losmaakbaarheid", on_change=set_losmaakbaarheid)
+#         st.markdown("**Mate van losmaakbaarheid**")
+#         losmaakbaarheid = st.selectbox("Weging", min_value=1, key="_losmaakbaarheid", on_change=set_losmaakbaarheid)
 
-        st.markdown("**Toepassingsmogelijkheden**")
-        toepassingsmogelijkheden = st.selectbox("Weging", min_value=1, key="_toepassingsmogelijkheden", on_change=set_toepassingsmogelijkheden)
+#         st.markdown("**Toepassingsmogelijkheden**")
+#         toepassingsmogelijkheden = st.selectbox("Weging", min_value=1, key="_toepassingsmogelijkheden", on_change=set_toepassingsmogelijkheden)
 
-        st.markdown("**Woonbeleving**")
-        woonbeleving = st.selectbox("Weging", min_value=1, key="_woonbeleving", on_change=set_woonbeleving)
+#         st.markdown("**Woonbeleving**")
+#         woonbeleving = st.selectbox("Weging", min_value=1, key="_woonbeleving", on_change=set_woonbeleving)
 
-        st.markdown("**Milieubelasting**")
-        milieubelasting = st.selectbox("Weging", min_value=1, key="_milieubelasting", on_change = set_milieubelasting)
+#         st.markdown("**Milieubelasting**")
+#         milieubelasting = st.selectbox("Weging", min_value=1, key="_milieubelasting", on_change = set_milieubelasting)
 
-        st.markdown("**Flexibiliteit tbv toekomstbestendigheid en innovatie**")
-        flexibiliteit = st.selectbox("Weging", min_value=1, key="_flexibiliteit", on_change = set_flexibiliteit)
+#         st.markdown("**Flexibiliteit tbv toekomstbestendigheid en innovatie**")
+#         flexibiliteit = st.selectbox("Weging", min_value=1, key="_flexibiliteit", on_change = set_flexibiliteit)
 
-        st.markdown("**Mate van standaardisering**")
-        standaardisering = st.selectbox("Weging", min_value=1, key="_standaardisering", on_change = set_standaardisering)
+#         st.markdown("**Mate van standaardisering**")
+#         standaardisering = st.selectbox("Weging", min_value=1, key="_standaardisering", on_change = set_standaardisering)
 
 
 # In[ ]:
