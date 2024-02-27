@@ -337,7 +337,7 @@ def uitkomsten(oplossing):
         return -float('inf')
 
 def startoplossing():
-    startoplossing = [random.randint(0, 20) for _ in range(25)]
+    startoplossing = [random.randint(0, 200) for _ in range(25)]
     if st.session_state.fase == 'Budget te veel':
         for i, s, m in zip(range(len(startoplossing)), sessions, maximaal):
             if startoplossing[i] < s:
@@ -361,7 +361,7 @@ def startpopulatie(startoplossing):
     
     populatie = [huidige_oplossing]
     
-    oplossing = [random.randint(0, 20) for _ in range(25)]
+    oplossing = [random.randint(0, 200) for _ in range(25)]
     for _ in range(9):
         nieuwe_oplossing = [random.randint(0, 20) for _ in range(25)]
         if st.session_state.fase == 'Budget te veel':
