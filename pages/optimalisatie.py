@@ -447,6 +447,9 @@ def kinderen_maken(ouders):
 # In[ ]:
 
 
+startoplossing = startoplossing()
+startpopulatie = startpopulatie(startoplossing)
+
 iteraties = 0
 while iteraties < 5:
     populatie = [tuple(i[0]) for i in startpopulatie]
