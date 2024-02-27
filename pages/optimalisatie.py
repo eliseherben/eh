@@ -221,6 +221,7 @@ minmax = [st.session_state.min_max_buitenkozijnen, st.session_state.min_max_lift
 
 
 def dominates(x, y):
+    st.markdown("begin")
     st.markdown(x[0])
     st.markdown(y[0])
     st.markdown(f"is {x[0]} kleiner of gelijk aan {y[0]} {x[0] <= y[0]}")
