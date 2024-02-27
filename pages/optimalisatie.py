@@ -221,6 +221,56 @@ minmax = [st.session_state.min_max_buitenkozijnen, st.session_state.min_max_lift
 
 
 def dominates(x, y):
+    st.markdown(x[0])
+    st.markdown(y[0])
+    st.markdown(x[0] <= y[0])
+    st.markdown(x[0] < y[0])
+    st.markdown("---")
+    
+    st.markdown(x[1])
+    st.markdown(y[1])
+    st.markdown(x[1] <= y[1])
+    st.markdown(x[1] < y[1])
+    st.markdown("---")
+    
+    st.markdown(x[2])
+    st.markdown(y[2])
+    st.markdown(x[2] >= y[2])
+    st.markdown(x[2] > y[2])
+    st.markdown("---")
+
+    st.markdown(x[3])
+    st.markdown(y[3])
+    st.markdown(x[3] >= y[3])
+    st.markdown(x[3] > y[3])
+    st.markdown("---")
+
+    st.markdown(x[4])
+    st.markdown(y[4])
+    st.markdown(x[4] >= y[4])
+    st.markdown(x[4] > y[4])
+    st.markdown("---")
+
+    st.markdown(x[5])
+    st.markdown(y[5])
+    st.markdown(x[5] <= y[5])
+    st.markdown(x[5] < y[5])
+    st.markdown("---")
+
+    st.markdown(x[6])
+    st.markdown(y[6])
+    st.markdown(x[6] >= y[6])
+    st.markdown(x[6] > y[6])
+    st.markdown("---")
+
+    st.markdown(x[7])
+    st.markdown(y[7])
+    st.markdown(x[7] >= y[7])
+    st.markdown(x[7] > y[7])
+    st.markdown("---")
+    
+    st.markdown(x[0] <= y[0] and x[1] <= y[1] and x[2] >= y[2] and x[3] >= y[3] and x[4] >= y[4] and x[5] <= y[5] and x[6] >= y[6] and x[7] >= y[7] and (x[0] < y[0] or x[1] < y[1] or x[2] > y[2] or x[3] > y[3] or x[4] > y[4] or x[5] < y[5] or x[6] > y[6] or x[7] > y[7]))
+
     return x[0] <= y[0] and x[1] <= y[1] and x[2] >= y[2] and x[3] >= y[3] and x[4] >= y[4] and x[5] <= y[5] and x[6] >= y[6] and x[7] >= y[7] and (x[0] < y[0] or x[1] < y[1] or x[2] > y[2] or x[3] > y[3] or x[4] > y[4] or x[5] < y[5] or x[6] > y[6] or x[7] > y[7])
 
 
