@@ -467,7 +467,7 @@ while iteraties < 5:
 
 
 populatie = [tuple(i[0]) for i in populatie]
-st.markdown(populatie)
+st.markdown(f"{populatie} {len(populatie)}")
 
 for i in range(len(populatie)):
     pareto = populatie[i]
@@ -480,7 +480,7 @@ for i in range(len(populatie)):
             st.markdown(f"pareto {pareto} dominates sol {sol}")
             populatie.remove(pareto)
 
-st.markdown(populatie)
+st.markdown(f"{populatie} {len(populatie)}")
 
 
 # In[ ]:
