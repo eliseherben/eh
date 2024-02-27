@@ -470,8 +470,10 @@ populatie = [tuple(i[0]) for i in populatie]
 st.markdown(f"{populatie} {len(populatie)}")
 
 for pareto in populatie:
+    st.markdown("pareto")
     uitkomsten_pareto = [f1(pareto), f2(pareto), f3(pareto), f4(pareto), f5(pareto), f6(pareto), f7(pareto), f8(pareto)]
     for sol in populatie:
+        st.markdown("sol")
         if dominates(uitkomsten_pareto, [f1(sol), f2(sol), f3(sol), f4(sol), f5(sol), f6(sol), f7(sol), f8(sol)]):
             st.markdown(f"pareto {pareto} dominates sol {sol}")
             populatie.remove(sol)
