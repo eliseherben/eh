@@ -469,8 +469,7 @@ while iteraties < 5:
 populatie = [tuple(i[0]) for i in populatie]
 st.markdown(f"{populatie} {len(populatie)}")
 
-for i in range(len(populatie)):
-    pareto = populatie[i]
+for pareto in populatie:
     uitkomsten_pareto = [f1(pareto), f2(pareto), f3(pareto), f4(pareto), f5(pareto), f6(pareto), f7(pareto), f8(pareto)]
     for sol in populatie:
         if dominates(uitkomsten_pareto, [f1(sol), f2(sol), f3(sol), f4(sol), f5(sol), f6(sol), f7(sol), f8(sol)]):
