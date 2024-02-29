@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[ ]:
+# In[3]:
 
 
 import streamlit as st
@@ -74,7 +74,7 @@ minmax = [st.session_state.min_max_buitenkozijnen, st.session_state.min_max_lift
 
 # **startpopulatie**
 
-# In[16]:
+# In[ ]:
 
 
 def dominates(x, y):
@@ -84,7 +84,7 @@ def dominates(x, y):
              x[4] > y[4] or x[5] < y[5] or x[6] > y[6] or x[7] > y[7]))
 
 
-# In[15]:
+# In[ ]:
 
 
 def f1(x):
@@ -300,10 +300,35 @@ st.markdown(f"{populatie} {len(populatie)}")
 # In[ ]:
 
 
-# for _ in populatie
+aanschafprijs = []
+onderhoudsprijs = []
+losmaakbaarheid = []
+toepassingsmogelijkheden = []
+woonbeleving = []
+milieubelasting = []
+flexibiliteit = []
+standaardisering = []
+
+for oplossing in populatie:
+    aanschafprijs.append(f1(oplossing))
+    onderhoudsprijs.append(f2(oplossing))
+    losmaakbaarheid.append(f3(oplossing))    
+    toepassingsmogelijkheden.append(f4(oplossing))    
+    woonbeleving.append(f5(oplossing))
+    milieubelasting.append(f6(oplossing))
+    flexibiliteit.append(f7(oplossing))
+    standaardisering.append(f8(oplossing))
+    
+dict = {'Oplossing': populatie, 'Aanschafprijs': aanschafprijs, 'Onderhoudsprijs': onderhoudsprijs, 
+        'Mate van losmaakbaarheid': losmaakbaarheid, 'Toepassingsmogelijkheden': toepassingsmogelijkheden, 
+       'Woonbeleving': woonbeleving, 'Milieubelasting': milieubelasting, 
+        'Flexibiliteit tbv toekomstbestendigheid en innovatie': flexibiliteit, 'Mate van standaardisering': standaardisering} 
+
+df = pd.DataFrame(dict)
+st.dataframe(df)  # Same as st.write(df)
 
 
-# In[ ]:
+# In[4]:
 
 
 for x in range(len(populatie)):
@@ -327,7 +352,7 @@ if st.session_state.doelstelling == 'Mate van standaardisering':
     populatie.sort(key=lambda standaardisering: standaardisering[8], reverse=True)
 
 
-# In[ ]:
+# In[5]:
 
 
 populatie = [tuple(i[0]) for i in populatie]
@@ -353,4 +378,10 @@ for solution in populatie:
     st.markdown(f"- milieubelasting: {f6(solution)}")
     st.markdown(f"- flexibiliteit tbv toekomstbestendigheid en innovatie: {f7(solution)}")
     st.markdown(f"- mate van standaardisering: {f8(solution)}")
+
+
+# In[ ]:
+
+
+
 
