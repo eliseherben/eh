@@ -15,30 +15,6 @@ from menu import menu
 productgroepen = ["buitenkozijnen", "lift", "binnenkozijnen", "binnenwandafwerkingen", "vloerafwerkingen", "plafonds", "sanitair", "keuken", "buitenwanden", "vloeren", "daken", "hoofddraagconstructie", "isolatie", "riolering", "terreininrichting", "verwarming", "luchtbehandeling", "gebouwvoorziening", "binnenwanden", "trappen", "luiken", "balustrades", "water", "elektra", "beveiliging"]
 
 
-# In[ ]:
-
-
-# # Lijst van sessievariabelen
-# session_vars = [
-#     "balustrades", "beveiliging", "binnenkozijnen", "binnenwandafwerking",
-#     "binnenwanden", "buitenkozijnen", "buitenwanden", "daken", "elektra",
-#     "gebouwvoorzieningen", "hoofddraagconstructie", "isolatie", "keuken",
-#     "lift", "luchtbehandeling", "luiken", "plafonds", "riolering", "sanitair",
-#     "terreininrichting", "trappen", "verwarming", "vloerafwerking", "vloeren",
-#     "water", "budget", "project", "optimalisatie"
-# ]
-
-# # Loop door de sessievariabelen en initialiseer ze indien nodig
-# for var_name in session_vars:
-#     if var_name not in st.session_state:
-#         st.session_state[var_name] = None
-
-#     # Maak een koppeling met de 'private' versie met een underscore ervoor
-#     st.session_state[f"_{var_name}"] = st.session_state[var_name]
-
-# menu()
-
-
 # #### algemene state sessions
 
 # In[ ]:
@@ -212,127 +188,127 @@ st.session_state._water = st.session_state.water
 
 
 if "max_balustrades" not in st.session_state:
-    st.session_state.max_balustrades = 20
+    st.session_state.max_balustrades = 200
 
 st.session_state._max_balustrades = st.session_state.max_balustrades
 
 if "max_beveiliging" not in st.session_state:
-    st.session_state.max_beveiliging = 20
+    st.session_state.max_beveiliging = 200
 
 st.session_state._max_beveiliging = st.session_state.max_beveiliging
 
 if "max_binnenkozijnen" not in st.session_state:
-    st.session_state.max_binnenkozijnen = 20
+    st.session_state.max_binnenkozijnen = 200
 
 st.session_state._max_binnenkozijnen = st.session_state.max_binnenkozijnen
 
 if "max_binnenwandafwerking" not in st.session_state:
-    st.session_state.max_binnenwandafwerking = 20
+    st.session_state.max_binnenwandafwerking = 200
 
 st.session_state._max_binnenwandafwerking = st.session_state.max_binnenwandafwerking
 
 if "max_binnenwanden" not in st.session_state:
-    st.session_state.max_binnenwanden = 20
+    st.session_state.max_binnenwanden = 200
 
 st.session_state._max_binnenwanden = st.session_state.max_binnenwanden
 
 if "max_buitenkozijnen" not in st.session_state:
-    st.session_state.max_buitenkozijnen = 20
+    st.session_state.max_buitenkozijnen = 200
 
 st.session_state._max_buitenkozijnen = st.session_state.max_buitenkozijnen
 
 if "max_buitenwanden" not in st.session_state:
-    st.session_state.max_buitenwanden = 20
+    st.session_state.max_buitenwanden = 200
 
 st.session_state._max_buitenwanden = st.session_state.max_buitenwanden
 
 if "max_daken" not in st.session_state:
-    st.session_state.max_daken = 20
+    st.session_state.max_daken = 200
 
 st.session_state._max_daken = st.session_state.max_daken
 
 if "max_elektra" not in st.session_state:
-    st.session_state.max_elektra = 20
+    st.session_state.max_elektra = 200
 
 st.session_state._max_elektra = st.session_state.max_elektra
 
 if "max_gebouwvoorzieningen" not in st.session_state:
-    st.session_state.max_gebouwvoorzieningen = 20
+    st.session_state.max_gebouwvoorzieningen = 200
 
 st.session_state._max_gebouwvoorzieningen = st.session_state.max_gebouwvoorzieningen
 
 if "max_hoofddraagconstructie" not in st.session_state:
-    st.session_state.max_hoofddraagconstructie = 20
+    st.session_state.max_hoofddraagconstructie = 200
 
 st.session_state._max_hoofddraagconstructie = st.session_state.max_hoofddraagconstructie
 
 if "max_isolatie" not in st.session_state:
-    st.session_state.max_isolatie = 20
+    st.session_state.max_isolatie = 200
 
 st.session_state._max_isolatie = st.session_state.max_isolatie
 
 if "max_keuken" not in st.session_state:
-    st.session_state.max_keuken = 20
+    st.session_state.max_keuken = 200
 
 st.session_state._max_keuken = st.session_state.max_keuken
 
 if "max_lift" not in st.session_state:
-    st.session_state.max_lift = 20
+    st.session_state.max_lift = 200
 
 st.session_state._max_lift = st.session_state.max_lift
 
 if "max_luchtbehandeling" not in st.session_state:
-    st.session_state.max_luchtbehandeling = 20
+    st.session_state.max_luchtbehandeling = 200
 
 st.session_state._max_luchtbehandeling = st.session_state.max_luchtbehandeling
 
 if "max_luiken" not in st.session_state:
-    st.session_state.max_luiken = 20
+    st.session_state.max_luiken = 200
 
 st.session_state._max_luiken = st.session_state.max_luiken
 
 if "max_plafonds" not in st.session_state:
-    st.session_state.max_plafonds = 20
+    st.session_state.max_plafonds = 200
 
 st.session_state._max_plafonds = st.session_state.max_plafonds
 
 if "max_riolering" not in st.session_state:
-    st.session_state.max_riolering = 20
+    st.session_state.max_riolering = 200
 
 st.session_state._max_riolering = st.session_state.max_riolering
 
 if "max_sanitair" not in st.session_state:
-    st.session_state.max_sanitair = 20
+    st.session_state.max_sanitair = 200
 
 st.session_state._max_sanitair = st.session_state.max_sanitair
 
 if "max_terreininrichting" not in st.session_state:
-    st.session_state.max_terreininrichting = 20
+    st.session_state.max_terreininrichting = 200
 
 st.session_state._max_terreininrichting = st.session_state.max_terreininrichting
 
 if "max_trappen" not in st.session_state:
-    st.session_state.max_trappen = 20
+    st.session_state.max_trappen = 200
 
 st.session_state._max_trappen = st.session_state.max_trappen
 
 if "max_verwarming" not in st.session_state:
-    st.session_state.max_verwarming = 20
+    st.session_state.max_verwarming = 200
 
 st.session_state._max_verwarming = st.session_state.max_verwarming
 
 if "max_vloerafwerking" not in st.session_state:
-    st.session_state.max_vloerafwerking = 20
+    st.session_state.max_vloerafwerking = 200
 
 st.session_state._max_vloerafwerking = st.session_state.max_vloerafwerking
 
 if "max_vloeren" not in st.session_state:
-    st.session_state.max_vloeren = 20
+    st.session_state.max_vloeren = 200
 
 st.session_state._max_vloeren = st.session_state.max_vloeren
 
 if "max_water" not in st.session_state:
-    st.session_state.max_water = 20
+    st.session_state.max_water = 200
 
 st.session_state._max_water = st.session_state.max_water
 
@@ -514,37 +490,10 @@ if "standaardisering" not in st.session_state:
 st.session_state._standaardisering = st.session_state.standaardisering
 
 
-# In[1]:
-
-
-# def set_session_var(var_name):
-#     # Callback functie om de selectie op te slaan in de sessievariabele
-#     st.session_state[var_name] = st.session_state[f"_{var_name}"]
-    
-
-# st.title("Projecten Eigen Haard")
-# st.selectbox(
-#     'Om wat voor soort project gaat het?',
-#     ['Nieuwbouw woningen', 'Renovatie'], 
-#     index=None,
-#     placeholder="Selecteer een soort project",
-#     key="_project", 
-#     on_change=lambda: set_session_var("project"), 
-# )
-
-
-# if st.session_state.project is not None: 
-#     with st.container(border=True):
-#         st.subheader("**Budget**")
-#         st.markdown("Vul het budget in voor het huidige project.")
-#         st.number_input("Vul het budget in", value=None, placeholder="Typ een bedrag", key="_budget", on_change=lambda: set_session_var("budget"))
-
-
 # In[ ]:
 
 
 def set_project():
-    # Callback function to save the role selection to Session State
     st.session_state.project = st.session_state._project
     
 st.title("Projecten Eigen Haard")
