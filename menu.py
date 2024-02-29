@@ -19,7 +19,7 @@ def authenticated_menu():
 #         st.sidebar.page_link("pages/productgroepen.py", label = "Productgroepen")
         
     if st.session_state.optimalisatie:
-        st.sidebar.page_link("pages/optimalisatie.py", label = "Optimalisatie")
+        st.sidebar.page_link("pages/2functies.py", label = "Optimalisatie")
         
     if st.session_state.fase == 'Begin fase':
         st.sidebar.page_link("pages/fase1.py", label = "Productgroepen begin fase")
