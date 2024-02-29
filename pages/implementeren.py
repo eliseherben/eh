@@ -638,5 +638,5 @@ def set_optimalisatie():
 
 
 with st.container(border = True):
-    st.page_link("pages/optimalisatie.py", label = "Klik hier om de optimalisatie te starten")
+    st.page_link("pages/2functies.py", label = "Klik hier om de optimalisatie te starten")
 
