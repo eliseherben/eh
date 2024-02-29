@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[3]:
+# In[ ]:
 
 
 import streamlit as st
@@ -332,15 +332,15 @@ st.dataframe(df)  # Same as st.write(df)
 # In[ ]:
 
 
-x_kolom = st.selectbox("Selecteer een optie voor de x-as", df.columns)
-y_kolom = st.selectbox("Selecteer een optie voor de y-as", df.columns)
+x_kolom = st.selectbox("Selecteer een optie voor de x-as", df.columns[1:])
+y_kolom = st.selectbox("Selecteer een optie voor de y-as", df.columns[1:])
 
 
 fig = px.scatter(df, x=x_kolom, y=y_kolom, hover_data={"Oplossing": True})
 st.plotly_chart(fig)
 
 
-# In[4]:
+# In[ ]:
 
 
 for x in range(len(populatie)):
@@ -364,7 +364,7 @@ if st.session_state.doelstelling == 'Mate van standaardisering':
     populatie.sort(key=lambda standaardisering: standaardisering[8], reverse=True)
 
 
-# In[5]:
+# In[ ]:
 
 
 populatie = [tuple(i[0]) for i in populatie]
