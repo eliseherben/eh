@@ -328,6 +328,17 @@ df = pd.DataFrame(dict)
 st.dataframe(df)  # Same as st.write(df)
 
 
+# In[ ]:
+
+
+x_kolom = st.selectbox("Selecteer een optie voor de x-as", df.columns)
+y_kolom = st.selectbox("Selecteer een optie voor de y-as", df.columns)
+
+
+fig = px.scatter(df, x=x_kolom, y=y_kolom, hover_data={"Oplossing": True})
+st.plotly_chart(fig)
+
+
 # In[4]:
 
 
