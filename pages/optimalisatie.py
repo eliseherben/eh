@@ -8,6 +8,7 @@ import streamlit as st
 from menu import menu_with_redirect
 import random
 import pandas as pd
+import plotly.express as px
 menu_with_redirect()
 
 
