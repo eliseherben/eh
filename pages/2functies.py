@@ -247,6 +247,7 @@ populatie = [tuple(i[0]) for i in populatie]
 st.markdown(f"{populatie} {len(populatie)}")
 
 pareto_populatie = [i for i in populatie]
+st.markdown(f"pareto populatie {pareto_populatie}")
 
 for pareto in populatie:
     dominate = False
