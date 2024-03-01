@@ -79,8 +79,8 @@ minmax = [st.session_state.min_max_buitenkozijnen, st.session_state.min_max_lift
 
 
 def dominates(x, y):
-    return (x[0] <= y[0] and x[1] <= y[1] and
-            (x[0] < y[0] or x[1] < y[1] ))
+    return (x[0] <= y[0] and x[1] >= y[1] and
+            (x[0] < y[0] or x[1] > y[1] ))
 
 
 # In[ ]:
