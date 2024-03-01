@@ -263,7 +263,7 @@ for pareto in populatie:
         if pareto in pareto_populatie:
             pareto_populatie.remove(pareto)
 
-st.markdown(f"{populatie} {len(populatie)}")
+st.markdown(f"{pareto_populatie} {len(pareto_populatie)}")
 
 
 # In[ ]:
