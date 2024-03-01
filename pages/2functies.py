@@ -260,7 +260,7 @@ for pareto in populatie:
         if pareto in pareto_populatie:
             pareto_populatie.remove(pareto)
 
-st.markdown(f"{pareto_populatie} {len(pareto_populatie)}")
+st.markdown(f"len popu {len(pareto_populatie)}")
 
 
 # In[ ]:
@@ -286,7 +286,7 @@ dict = {'Oplossing': populatie, 'Aanschafprijs': aanschafprijs, 'Woonbeleving': 
 
 df = pd.DataFrame(dict)
 df.loc[df['Oplossing'].isin(pareto_populatie), 'Pareto'] = 'ja'
-st.dataframe(df)  # Same as st.write(df)
+# st.dataframe(df)  # Same as st.write(df)
 
 
 # In[ ]:
