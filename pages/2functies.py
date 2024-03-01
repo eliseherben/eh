@@ -286,7 +286,7 @@ dict = {'Oplossing': populatie, 'Aanschafprijs': aanschafprijs, 'Woonbeleving': 
 
 df = pd.DataFrame(dict)
 df.loc[df['Oplossing'].isin(pareto_populatie), 'Pareto'] = 'ja'
-# st.dataframe(df)  # Same as st.write(df)
+st.dataframe(df)  # Same as st.write(df)
 
 
 # In[ ]:
