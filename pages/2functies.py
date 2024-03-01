@@ -243,15 +243,21 @@ while iteraties < 5:
 populatie = [tuple(i[0]) for i in populatie]
 st.markdown(f"{populatie} {len(populatie)}")
 
+pareto_populatie = [i for i in populatie]
+
 for pareto in populatie:
+    dominate = False
     uitkomsten_pareto = [f1(pareto), f5(pareto)]
     for sol in populatie:
         if dominates(uitkomsten_pareto, [f1(sol), f5(sol)]):
             st.markdown(f"pareto {pareto} dominates sol {sol}")
-            populatie.remove(sol)
+            pareto_populatie.remove(sol)
         if dominates([f1(sol), f5(sol)], uitkomsten_pareto):
             st.markdown(f"pareto {pareto} dominates sol {sol}")
-            populatie.remove(pareto)
+            dominate = True
+    if dominate == True:
+        if pareto in pareto_populatie:
+            pareto_populatie.remove(pareto)
 
 st.markdown(f"{populatie} {len(populatie)}")
 
@@ -268,6 +274,7 @@ milieubelasting = []
 flexibiliteit = []
 standaardisering = []
 
+
 for oplossing in populatie:
     aanschafprijs.append(f1(oplossing))
     woonbeleving.append(f5(oplossing))
@@ -275,6 +282,7 @@ for oplossing in populatie:
 dict = {'Oplossing': populatie, 'Aanschafprijs': aanschafprijs, 'Woonbeleving': woonbeleving} 
 
 df = pd.DataFrame(dict)
+df.loc[df['Oplossing'].isin(pareto_populatie), 'Pareto'] = 'ja'
 st.dataframe(df)  # Same as st.write(df)
 
 
