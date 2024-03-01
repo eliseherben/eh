@@ -127,7 +127,7 @@ def startpopulatie(startoplossing):
     
     populatie = [huidige_oplossing]
     
-    for _ in range(19):
+    while len(populatie) < 19:
         nieuwe_oplossing = [random.randint(0, 200) for _ in range(25)]
         if st.session_state.fase == 'Budget te veel':
             for i, s, m in zip(range(len(nieuwe_oplossing)), sessions, maximaal):
@@ -159,6 +159,8 @@ def startpopulatie(startoplossing):
                 break
         if not dominated:
             populatie.append(nieuwe_oplossing)
+            
+        
     
     for x in range(len(populatie)):
         populatie[x] = (list(populatie[x]), uitkomsten(populatie[x]))
