@@ -127,7 +127,7 @@ def startpopulatie(startoplossing):
     
     populatie = [huidige_oplossing]
     
-    while len(populatie) < 199:
+    while len(populatie) < 99:
         nieuwe_oplossing = [random.randint(0, 200) for _ in range(25)]
         if st.session_state.fase == 'Budget te veel':
             for i, s, m in zip(range(len(nieuwe_oplossing)), sessions, maximaal):
