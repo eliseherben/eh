@@ -127,7 +127,7 @@ def startpopulatie(startoplossing):
     
     populatie = [huidige_oplossing]
     
-    while len(populatie) < 29:
+    while len(populatie) < 49:
         nieuwe_oplossing = [random.randint(0, 200) for _ in range(25)]
         if st.session_state.fase == 'Budget te veel':
             for i, s, m in zip(range(len(nieuwe_oplossing)), sessions, maximaal):
@@ -241,10 +241,10 @@ while iteraties < 5:
 
 
 populatie = [tuple(i[0]) for i in populatie]
-st.markdown(f"{populatie} {len(populatie)}")
+# st.markdown(f"{populatie} {len(populatie)}")
 
 pareto_populatie = [i for i in populatie]
-st.markdown(f"pareto populatie {pareto_populatie}")
+# st.markdown(f"pareto populatie {pareto_populatie}")
 
 for pareto in populatie:
     dominate = False
@@ -286,7 +286,7 @@ dict = {'Oplossing': populatie, 'Aanschafprijs': aanschafprijs, 'Woonbeleving': 
 
 df = pd.DataFrame(dict)
 df.loc[df['Oplossing'].isin(pareto_populatie), 'Pareto'] = 'ja'
-st.dataframe(df)  # Same as st.write(df)
+# st.dataframe(df)  # Same as st.write(df)
 
 
 # In[ ]:
@@ -303,7 +303,7 @@ st.plotly_chart(fig)
 # In[ ]:
 
 
-for x in range(len(populatie)):
+for x in range(len(pareto_populatie)):
         pareto_populatie[x] = (list(pareto_populatie[x]), f1(pareto_populatie[x]), f5(pareto_populatie[x]))
 
 if st.session_state.doelstelling == 'Aanschafprijs':
