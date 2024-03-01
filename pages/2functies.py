@@ -151,7 +151,7 @@ def startpopulatie(startoplossing):
         for sol in populatie:
             if dominates(nieuwe_uitkomsten, [f1(sol), f5(sol)]):
 #                 st.markdown(f"nieuwe {nieuwe_oplossing} dominates een oude {sol}")
-                st.markdown(populatie)
+#                 st.markdown(populatie)
                 populatie.remove(sol)
             if dominates([f1(sol), f5(sol)], nieuwe_uitkomsten):
 #                 st.markdown(f"oude {sol} dominates de nieuwe {nieuwe_oplossing}")
@@ -251,10 +251,10 @@ for pareto in populatie:
     uitkomsten_pareto = [f1(pareto), f5(pareto)]
     for sol in pareto_populatie:
         if dominates(uitkomsten_pareto, [f1(sol), f5(sol)]):
-            st.markdown(f"pareto {pareto} dominates sol {sol}")
+#             st.markdown(f"pareto {pareto} dominates sol {sol}")
             pareto_populatie.remove(sol)
         if dominates([f1(sol), f5(sol)], uitkomsten_pareto):
-            st.markdown(f"sol {sol} dominates pareto {pareto}")
+#             st.markdown(f"sol {sol} dominates pareto {pareto}")
             dominate = True
     if dominate == True:
         if pareto in pareto_populatie:
