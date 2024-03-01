@@ -277,13 +277,15 @@ woonbeleving = []
 milieubelasting = []
 flexibiliteit = []
 standaardisering = []
+pareto = []
 
 
 for oplossing in populatie:
     aanschafprijs.append(f1(oplossing))
     woonbeleving.append(f5(oplossing))
+    pareto.append("nee")
     
-dict = {'Oplossing': populatie, 'Aanschafprijs': aanschafprijs, 'Woonbeleving': woonbeleving} 
+dict = {'Oplossing': populatie, 'Aanschafprijs': aanschafprijs, 'Woonbeleving': woonbeleving, 'Pareto': pareto} 
 
 df = pd.DataFrame(dict)
 df.loc[df['Oplossing'].isin(pareto_populatie), 'Pareto'] = 'ja'
@@ -297,7 +299,7 @@ x_kolom = st.selectbox("Selecteer een optie voor de x-as", df.columns[1:])
 y_kolom = st.selectbox("Selecteer een optie voor de y-as", df.columns[1:])
 
 
-fig = px.scatter(df, x=x_kolom, y=y_kolom, hover_data={"Oplossing": True})
+fig = px.scatter(df, x=x_kolom, y=y_kolom, color='Pareto', color_discrete_map={'ja': 'blue', 'nee': 'green'}, hover_data={"Oplossing": True})
 st.plotly_chart(fig)
 
 
