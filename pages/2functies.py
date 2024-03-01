@@ -296,7 +296,7 @@ x_kolom = st.selectbox("Selecteer een optie voor de x-as", df.columns[1:])
 y_kolom = st.selectbox("Selecteer een optie voor de y-as", df.columns[1:])
 
 
-fig = px.scatter(df, x=x_kolom, y=y_kolom, color='Pareto', color_discrete_map={'ja': 'blue', 'nee': 'green'}, hover_data={"Oplossing": True})
+fig = px.scatter(df, x="Woonbeleving", y="Aanschafprijs", color='Pareto', color_discrete_map={'ja': 'blue', 'nee': 'green'}, hover_data={"Oplossing": True})
 st.plotly_chart(fig)
 
 
@@ -309,7 +309,7 @@ for x in range(len(pareto_populatie)):
 if st.session_state.doelstelling == 'Aanschafprijs':
     pareto_populatie.sort(key=lambda aanschafprijs: aanschafprijs[1])
 if st.session_state.doelstelling == 'Woonbeleving':
-    pareto_populatie.sort(key=lambda woonbeleving: woonbeleving[5], reverse=True)
+    pareto_populatie.sort(key=lambda woonbeleving: woonbeleving[2], reverse=True)
 
 
 # In[ ]:
