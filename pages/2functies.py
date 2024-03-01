@@ -127,7 +127,7 @@ def startpopulatie(startoplossing):
     
     populatie = [huidige_oplossing]
     
-    while len(populatie) < 49:
+    while len(populatie) < 99:
         nieuwe_oplossing = [random.randint(0, 200) for _ in range(25)]
         if st.session_state.fase == 'Budget te veel':
             for i, s, m in zip(range(len(nieuwe_oplossing)), sessions, maximaal):
@@ -172,15 +172,15 @@ def startpopulatie(startoplossing):
 
 def ouders_maken(populatie):
     ouders = []
-    beste = [i for i in populatie[0:10]]
-    slechtste = [i for i in populatie[10:]] 
+    beste = [i for i in populatie[0:50]]
+    slechtste = [i for i in populatie[50:]] 
     i = 0
-    while i < 7:    
+    while i < 40:    
         ouders.append(random.choice(beste))
         i = i + 1
 
     j = 0
-    while j < 3:
+    while j < 20:
         ouders.append(random.choice(slechtste))
         j = j + 1
     return ouders
@@ -227,7 +227,7 @@ iteraties = 0
 while iteraties < 5:
     populatie = [tuple(i[0]) for i in startpopulatie]
     ouders = ouders_maken(populatie)
-    populatie = [i for i in populatie[0:10]]
+    populatie = [i for i in populatie[0:40]]
     kinderen = kinderen_maken(ouders)
     for a in kinderen:
         populatie.append(tuple(a))
