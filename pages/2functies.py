@@ -127,7 +127,7 @@ def startpopulatie(startoplossing):
     
     populatie = [huidige_oplossing]
     
-    while len(populatie) < 19:
+    while len(populatie) < 199:
         nieuwe_oplossing = [random.randint(0, 200) for _ in range(25)]
         if st.session_state.fase == 'Budget te veel':
             for i, s, m in zip(range(len(nieuwe_oplossing)), sessions, maximaal):
@@ -145,24 +145,21 @@ def startpopulatie(startoplossing):
                     nieuwe_oplossing[i] = m[1]
                 else:
                     nieuwe_oplossing[i] = nieuwe_oplossing[i]
-                    
-        populatie.append(nieuwe_oplossing)
-                    
-#         nieuwe_uitkomsten = [f1(nieuwe_oplossing), f5(nieuwe_oplossing)]
-#         dominated = False
-#         for sol in populatie:
-#             if dominates(nieuwe_uitkomsten, [f1(sol), f5(sol)]):
+                                        
+        nieuwe_uitkomsten = [f1(nieuwe_oplossing), f5(nieuwe_oplossing)]
+        dominated = False
+        for sol in populatie:
+            if dominates(nieuwe_uitkomsten, [f1(sol), f5(sol)]):
 #                 st.markdown(f"nieuwe {nieuwe_oplossing} dominates een oude {sol}")
-#                 st.markdown(populatie)
-#                 populatie.remove(sol)
-#             if dominates([f1(sol), f5(sol)], nieuwe_uitkomsten):
+                st.markdown(populatie)
+                populatie.remove(sol)
+            if dominates([f1(sol), f5(sol)], nieuwe_uitkomsten):
 #                 st.markdown(f"oude {sol} dominates de nieuwe {nieuwe_oplossing}")
-#                 dominated = True
-#                 break
-#         if not dominated:
-#             populatie.append(nieuwe_oplossing)
+                dominated = True
+                break
+        if not dominated:
+            populatie.append(nieuwe_oplossing)
         
-    
     for x in range(len(populatie)):
         populatie[x] = (list(populatie[x]), uitkomsten(populatie[x]))
     populatie.sort(key=lambda uitkomst: uitkomst[1], reverse = True)
@@ -307,23 +304,23 @@ st.plotly_chart(fig)
 
 
 for x in range(len(populatie)):
-        populatie[x] = (list(populatie[x]), f1(populatie[x]), f5(populatie[x]))
+        pareto_populatie[x] = (list(pareto_populatie[x]), f1(pareto_populatie[x]), f5(pareto_populatie[x]))
 
 if st.session_state.doelstelling == 'Aanschafprijs':
-    populatie.sort(key=lambda aanschafprijs: aanschafprijs[1])
+    pareto_populatie.sort(key=lambda aanschafprijs: aanschafprijs[1])
 if st.session_state.doelstelling == 'Woonbeleving':
-    populatie.sort(key=lambda woonbeleving: woonbeleving[5], reverse=True)
+    pareto_populatie.sort(key=lambda woonbeleving: woonbeleving[5], reverse=True)
 
 
 # In[ ]:
 
 
-populatie = [tuple(i[0]) for i in populatie]
+pareto_populatie = [tuple(i[0]) for i in pareto_populatie]
 
 st.markdown("### Genetic algorithm:")
 i = 0
     
-for solution in populatie:
+for solution in pareto_populatie:
     i = i + 1
     j = 0
     st.markdown(f"#### Oplossing {i}")
