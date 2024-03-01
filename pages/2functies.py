@@ -146,20 +146,21 @@ def startpopulatie(startoplossing):
                 else:
                     nieuwe_oplossing[i] = nieuwe_oplossing[i]
                     
-        nieuwe_uitkomsten = [f1(nieuwe_oplossing), f5(nieuwe_oplossing)]
-        dominated = False
-        for sol in populatie:
-            if dominates(nieuwe_uitkomsten, [f1(sol), f5(sol)]):
-                st.markdown(f"nieuwe {nieuwe_oplossing} dominates een oude {sol}")
-                st.markdown(populatie)
-                populatie.remove(sol)
-            if dominates([f1(sol), f5(sol)], nieuwe_uitkomsten):
-                st.markdown(f"oude {sol} dominates de nieuwe {nieuwe_oplossing}")
-                dominated = True
-                break
-        if not dominated:
-            populatie.append(nieuwe_oplossing)
-            
+        populatie.append(nieuwe_oplossing)
+                    
+#         nieuwe_uitkomsten = [f1(nieuwe_oplossing), f5(nieuwe_oplossing)]
+#         dominated = False
+#         for sol in populatie:
+#             if dominates(nieuwe_uitkomsten, [f1(sol), f5(sol)]):
+#                 st.markdown(f"nieuwe {nieuwe_oplossing} dominates een oude {sol}")
+#                 st.markdown(populatie)
+#                 populatie.remove(sol)
+#             if dominates([f1(sol), f5(sol)], nieuwe_uitkomsten):
+#                 st.markdown(f"oude {sol} dominates de nieuwe {nieuwe_oplossing}")
+#                 dominated = True
+#                 break
+#         if not dominated:
+#             populatie.append(nieuwe_oplossing)
         
     
     for x in range(len(populatie)):
