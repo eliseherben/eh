@@ -279,11 +279,12 @@ def optimalisatie(startpopulatie):
             populatie[x] = (list(populatie[x]), uitkomsten(populatie[x]))
         populatie.sort(key=lambda uitkomst: uitkomst[1], reverse = True)
         iteraties = iteraties + 1
-    
+    populatie = [tuple(i[0]) for i in populatie]
+
     return populatie
 
 def pareto_poulatie(populatie):
-    populatie = [tuple(i[0]) for i in populatie]
+
     pareto_populatie = [i for i in populatie]
     
     
