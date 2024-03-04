@@ -280,8 +280,12 @@ def optimalisatie(startpopulatie):
         populatie.sort(key=lambda uitkomst: uitkomst[1], reverse = True)
         iteraties = iteraties + 1
     
+    return populatie
+
+def pareto_poulatie(populatie):
     populatie = [tuple(i[0]) for i in populatie]
     pareto_populatie = [i for i in populatie]
+    
     
     for pareto in populatie:
         dominate = False
@@ -296,44 +300,44 @@ def optimalisatie(startpopulatie):
         if dominate:
             if pareto in pareto_populatie:
                 pareto_populatie.remove(pareto)
+    return pareto_poulatie
             
-    aanschafprijs = []
-    onderhoudsprijs = []
-    losmaakbaarheid = []
-    toepassingsmogelijkheden = []
-    woonbeleving = []
-    milieubelasting = []
-    flexibiliteit = []
-    standaardisering = []
-    pareto =[]
+aanschafprijs = []
+onderhoudsprijs = []
+losmaakbaarheid = []
+toepassingsmogelijkheden = []
+woonbeleving = []
+milieubelasting = []
+flexibiliteit = []
+standaardisering = []
+pareto =[]
 
-    for oplossing in populatie:
-        aanschafprijs.append(f1(oplossing))
-        onderhoudsprijs.append(f2(oplossing))
-        losmaakbaarheid.append(f3(oplossing))    
-        toepassingsmogelijkheden.append(f4(oplossing))    
-        woonbeleving.append(f5(oplossing))
-        milieubelasting.append(f6(oplossing))
-        flexibiliteit.append(f7(oplossing))
-        standaardisering.append(f8(oplossing))
-        pareto.append("nee")
+for oplossing in populatie:
+    aanschafprijs.append(f1(oplossing))
+    onderhoudsprijs.append(f2(oplossing))
+    losmaakbaarheid.append(f3(oplossing))    
+    toepassingsmogelijkheden.append(f4(oplossing))    
+    woonbeleving.append(f5(oplossing))
+    milieubelasting.append(f6(oplossing))
+    flexibiliteit.append(f7(oplossing))
+    standaardisering.append(f8(oplossing))
+    pareto.append("nee")
 
-    dict = {'Oplossing': populatie, 'Aanschafprijs': aanschafprijs, 'Onderhoudsprijs': onderhoudsprijs, 
-            'Mate van losmaakbaarheid': losmaakbaarheid, 'Toepassingsmogelijkheden': toepassingsmogelijkheden, 
-           'Woonbeleving': woonbeleving, 'Milieubelasting': milieubelasting, 
-            'Flexibiliteit tbv toekomstbestendigheid en innovatie': flexibiliteit, 'Mate van standaardisering': standaardisering, 
-            'Pareto': pareto} 
+dict = {'Oplossing': populatie, 'Aanschafprijs': aanschafprijs, 'Onderhoudsprijs': onderhoudsprijs, 
+        'Mate van losmaakbaarheid': losmaakbaarheid, 'Toepassingsmogelijkheden': toepassingsmogelijkheden, 
+       'Woonbeleving': woonbeleving, 'Milieubelasting': milieubelasting, 
+        'Flexibiliteit tbv toekomstbestendigheid en innovatie': flexibiliteit, 'Mate van standaardisering': standaardisering, 
+        'Pareto': pareto} 
 
-    df = pd.DataFrame(dict)
-    df.loc[df['Oplossing'].isin(pareto_populatie), 'Pareto'] = 'ja'
-    return df
+df = pd.DataFrame(dict)
+df.loc[df['Oplossing'].isin(pareto_populatie), 'Pareto'] = 'ja'
 
 
 # In[ ]:
 
 
 @st.cache
-def populatie_sort():
+def populatie_sort(populatie):
     for x in range(len(populatie)):
         populatie[x] = (list(populatie[x]), f1(populatie[x]), f2(populatie[x]), f3(populatie[x]), f4(populatie[x]), f5(populatie[x]), f7(populatie[x]), f8(populatie[x]))
 
@@ -358,6 +362,28 @@ def populatie_sort():
 
     return populatie
 
+
+
+# In[ ]:
+
+
+startoplossing = startoplossing()
+startpopulatie = startpopulatie(startoplossing)
+populatie = optimalisatie(startpopulatie)
+pareto_populatie = pareto_poulatie(populatie)
+
+
+# fig = px.scatter(df, x='Aanschafprijs', y='Woonbeleving', color = 'Pareto', hover_data={"Oplossing": True})
+
+
+x_kolom = st.selectbox("Selecteer een optie voor de x-as", df.columns[1:])
+y_kolom = st.selectbox("Selecteer een optie voor de y-as", df.columns[1:])
+
+fig = px.scatter(df, x=x_kolom, y=y_kolom, color = 'Pareto', hover_data={"Oplossing": True})
+
+st.plotly_chart(fig)
+# fig = px.scatter(df, x=x_kolom, y=y_kolom, color = 'Pareto', hover_data={"Oplossing": True})
+# st.plotly_chart(fig)
 
 
 # In[ ]:
@@ -422,27 +448,7 @@ def populatie_sort():
 # In[ ]:
 
 
-startoplossing = startoplossing()
-startpopulatie = startpopulatie(startoplossing)
-df = optimalisatie(startpopulatie)
-
-# fig = px.scatter(df, x='Aanschafprijs', y='Woonbeleving', color = 'Pareto', hover_data={"Oplossing": True})
-
-
-x_kolom = st.selectbox("Selecteer een optie voor de x-as", df.columns[1:])
-y_kolom = st.selectbox("Selecteer een optie voor de y-as", df.columns[1:])
-
-fig = px.scatter(df, x=x_kolom, y=y_kolom, color = 'Pareto', hover_data={"Oplossing": True})
-
-st.plotly_chart(fig)
-# fig = px.scatter(df, x=x_kolom, y=y_kolom, color = 'Pareto', hover_data={"Oplossing": True})
-# st.plotly_chart(fig)
-
-
-# In[ ]:
-
-
-populatie = populatie_sort()
+populatie = populatie_sort(populatie)
 st.markdown("### Genetic algorithm:")
 i = 0
     
