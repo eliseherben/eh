@@ -341,6 +341,8 @@ st.dataframe(df)  # Same as st.write(df)
 # In[ ]:
 
 
+fig = px.scatter(df, x='Aanschafprijs', y='Woonbeleving', color = 'Pareto', hover_data={"Oplossing": True})
+
 def plot():
     fig = px.scatter(df, x=x_kolom, y=y_kolom, color = 'Pareto', hover_data={"Oplossing": True})
 
