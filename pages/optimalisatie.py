@@ -332,6 +332,37 @@ def optimalisatie(startpopulatie):
 # In[ ]:
 
 
+@st.cache
+def populatie_sort()
+    for x in range(len(populatie)):
+        populatie[x] = (list(populatie[x]), f1(populatie[x]), f2(populatie[x]), f3(populatie[x]), f4(populatie[x]), f5(populatie[x]), f7(populatie[x]), f8(populatie[x]))
+
+    if st.session_state.doelstelling == 'Aanschafprijs':
+        populatie.sort(key=lambda aanschafprijs: aanschafprijs[1])
+    if st.session_state.doelstelling == 'Onderhoudsprijs':
+        populatie.sort(key=lambda onderhoudsprijs: onderhoudsprijs[2])
+    if st.session_state.doelstelling == 'Mate van losmaakbaarheid':
+        populatie.sort(key=lambda losmaakbaarheid: losmaakbaarheid[3], reverse=True)
+    if st.session_state.doelstelling == 'Toepassingsmogelijkheden':
+        populatie.sort(key=lambda toepassingsmogelijkheden: toepassingsmogelijkheden[4], reverse=True)
+    if st.session_state.doelstelling == 'Woonbeleving':
+        populatie.sort(key=lambda woonbeleving: woonbeleving[5], reverse=True)
+    if st.session_state.doelstelling == 'Milieubelasting':
+        populatie.sort(key=lambda milieubelasting: milieubelasting[6])
+    if st.session_state.doelstelling == 'Flexibiliteit tbv toekomstbestendigheid en innovatie':
+        populatie.sort(key=lambda flexibiliteit: flexibiliteit[7], reverse=True)
+    if st.session_state.doelstelling == 'Mate van standaardisering':
+        populatie.sort(key=lambda standaardisering: standaardisering[8], reverse=True)
+        
+    populatie = [tuple(i[0]) for i in populatie]
+
+    return populatie
+
+
+
+# In[ ]:
+
+
 # populatie = [tuple(i[0]) for i in populatie]
 # pareto_populatie = [i for i in populatie]
 # # st.markdown(f"{populatie} {len(populatie)}")
@@ -406,6 +437,33 @@ fig = px.scatter(df, x=x_kolom, y=y_kolom, color = 'Pareto', hover_data={"Oploss
 st.plotly_chart(fig)
 # fig = px.scatter(df, x=x_kolom, y=y_kolom, color = 'Pareto', hover_data={"Oplossing": True})
 # st.plotly_chart(fig)
+
+
+# In[ ]:
+
+
+populatie = populatie_sort()
+st.markdown("### Genetic algorithm:")
+i = 0
+    
+for solution in populatie:
+    i = i + 1
+    j = 0
+    st.markdown(f"#### Oplossing {i}")
+    st.markdown(f"totale score: {uitkomsten(solution)}")
+    for product in productgroepen:
+        st.markdown(f"Aantal producten in de productgroep {product} {solution[j]}")
+        j = j + 1
+    st.markdown(f"{solution} {len(solution)}")
+    st.markdown("#### Objective Values:")
+    st.markdown(f"- aanschafkosten: {f1(solution)} ")
+    st.markdown(f"- onderhoudskosten: {f2(solution)}")
+    st.markdown(f"- mate van losmaakbaarheid: {f3(solution)}")
+    st.markdown(f"- toepassingsmogelijkheden: {f4(solution)}")
+    st.markdown(f"- woonbeleving: {f5(solution)}")
+    st.markdown(f"- milieubelasting: {f6(solution)}")
+    st.markdown(f"- flexibiliteit tbv toekomstbestendigheid en innovatie: {f7(solution)}")
+    st.markdown(f"- mate van standaardisering: {f8(solution)}")
 
 
 # In[ ]:
