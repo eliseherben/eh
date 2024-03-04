@@ -285,18 +285,18 @@ def optimalisatie():
     pareto_populatie = [i for i in populatie]
     
     for pareto in populatie:
-    dominate = False
-    uitkomsten_pareto = [f1(pareto), f2(pareto), f3(pareto), f4(pareto), f5(pareto), f6(pareto), f7(pareto), f8(pareto)]
-    for sol in pareto_populatie:
-        if dominates(uitkomsten_pareto, [f1(sol), f2(sol), f3(sol), f4(sol), f5(sol), f6(sol), f7(sol), f8(sol)]):
-            st.markdown(f"pareto {pareto} dominates sol {sol}")
-            pareto_populatie.remove(sol)
-        if dominates([f1(sol), f2(sol), f3(sol), f4(sol), f5(sol), f6(sol), f7(sol), f8(sol)], uitkomsten_pareto):
-            st.markdown(f"pareto {pareto} dominates sol {sol}")
-            dominate = True
-    if dominate:
-        if pareto in pareto_populatie:
-            pareto_populatie.remove(pareto)
+        dominate = False
+        uitkomsten_pareto = [f1(pareto), f2(pareto), f3(pareto), f4(pareto), f5(pareto), f6(pareto), f7(pareto), f8(pareto)]
+        for sol in pareto_populatie:
+            if dominates(uitkomsten_pareto, [f1(sol), f2(sol), f3(sol), f4(sol), f5(sol), f6(sol), f7(sol), f8(sol)]):
+                st.markdown(f"pareto {pareto} dominates sol {sol}")
+                pareto_populatie.remove(sol)
+            if dominates([f1(sol), f2(sol), f3(sol), f4(sol), f5(sol), f6(sol), f7(sol), f8(sol)], uitkomsten_pareto):
+                st.markdown(f"pareto {pareto} dominates sol {sol}")
+                dominate = True
+        if dominate:
+            if pareto in pareto_populatie:
+                pareto_populatie.remove(pareto)
             
     aanschafprijs = []
     onderhoudsprijs = []
