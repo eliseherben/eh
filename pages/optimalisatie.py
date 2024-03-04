@@ -292,13 +292,13 @@ for pareto in populatie:
     for sol in pareto_populatie:
         if dominates(uitkomsten_pareto, [f1(sol), f2(sol), f3(sol), f4(sol), f5(sol), f6(sol), f7(sol), f8(sol)]):
             st.markdown(f"pareto {pareto} dominates sol {sol}")
-            populatie.remove(sol)
+            pareto_populatie.remove(sol)
         if dominates([f1(sol), f2(sol), f3(sol), f4(sol), f5(sol), f6(sol), f7(sol), f8(sol)], uitkomsten_pareto):
             st.markdown(f"pareto {pareto} dominates sol {sol}")
             dominate = True
     if dominate:
         if pareto in pareto_populatie:
-            populatie.remove(pareto)
+            pareto_populatie.remove(pareto)
 
 # st.markdown(f"{populatie} {len(populatie)}")
 
