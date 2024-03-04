@@ -142,7 +142,7 @@ def uitkomsten(oplossing):
                 - milieubelasting + flexibiliteit + standaardisering)
     else:
         return -float('inf')
-
+@st.cache
 def startoplossing():
     startoplossing = [random.randint(0, 200) for _ in range(25)]
     if st.session_state.fase == 'Budget te veel':
@@ -162,7 +162,8 @@ def startoplossing():
             else:
                 startoplossing[i] = startoplossing[i]
     return startoplossing
-                   
+ 
+@st.cache
 def startpopulatie(startoplossing):
     huidige_oplossing = startoplossing
     
