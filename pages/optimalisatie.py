@@ -264,8 +264,7 @@ def kinderen_maken(ouders):
 
 
 @st.cache
-def optimalisatie():
-    startoplossing = startoplossing()
+def optimalisatie(startoplossing):
     startpopulatie = startpopulatie(startoplossing)
 
     iteraties = 0
@@ -392,7 +391,8 @@ def optimalisatie():
 # In[ ]:
 
 
-df = optimalisatie()
+startoplossing = startoplossing()
+df = optimalisatie(startoplossing)
 
 fig = px.scatter(df, x='Aanschafprijs', y='Woonbeleving', color = 'Pareto', hover_data={"Oplossing": True})
 
