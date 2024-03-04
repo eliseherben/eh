@@ -282,16 +282,21 @@ while iteraties < 5:
 
 
 populatie = [tuple(i[0]) for i in populatie]
+pareto_populatie = [i for i in populatie]
 st.markdown(f"{populatie} {len(populatie)}")
 
 for pareto in populatie:
+    dominate = False
     uitkomsten_pareto = [f1(pareto), f2(pareto), f3(pareto), f4(pareto), f5(pareto), f6(pareto), f7(pareto), f8(pareto)]
-    for sol in populatie:
+    for sol in pareto_populatie:
         if dominates(uitkomsten_pareto, [f1(sol), f2(sol), f3(sol), f4(sol), f5(sol), f6(sol), f7(sol), f8(sol)]):
             st.markdown(f"pareto {pareto} dominates sol {sol}")
             populatie.remove(sol)
         if dominates([f1(sol), f2(sol), f3(sol), f4(sol), f5(sol), f6(sol), f7(sol), f8(sol)], uitkomsten_pareto):
             st.markdown(f"pareto {pareto} dominates sol {sol}")
+            dominate = True
+    if dominate:
+        if pareto in pareto_populatie:
             populatie.remove(pareto)
 
 st.markdown(f"{populatie} {len(populatie)}")
@@ -308,6 +313,7 @@ woonbeleving = []
 milieubelasting = []
 flexibiliteit = []
 standaardisering = []
+pareto =[]
 
 for oplossing in populatie:
     aanschafprijs.append(f1(oplossing))
@@ -318,13 +324,16 @@ for oplossing in populatie:
     milieubelasting.append(f6(oplossing))
     flexibiliteit.append(f7(oplossing))
     standaardisering.append(f8(oplossing))
+    pareto.append("nee")
     
 dict = {'Oplossing': populatie, 'Aanschafprijs': aanschafprijs, 'Onderhoudsprijs': onderhoudsprijs, 
         'Mate van losmaakbaarheid': losmaakbaarheid, 'Toepassingsmogelijkheden': toepassingsmogelijkheden, 
        'Woonbeleving': woonbeleving, 'Milieubelasting': milieubelasting, 
-        'Flexibiliteit tbv toekomstbestendigheid en innovatie': flexibiliteit, 'Mate van standaardisering': standaardisering} 
+        'Flexibiliteit tbv toekomstbestendigheid en innovatie': flexibiliteit, 'Mate van standaardisering': standaardisering, 
+        'Pareto': pareto} 
 
 df = pd.DataFrame(dict)
+df.loc[df['Oplossing'].isin(pareto_populatie), 'Pareto'] = 'ja'
 st.dataframe(df)  # Same as st.write(df)
 
 
@@ -335,7 +344,7 @@ x_kolom = st.selectbox("Selecteer een optie voor de x-as", df.columns[1:])
 y_kolom = st.selectbox("Selecteer een optie voor de y-as", df.columns[1:])
 
 
-fig = px.scatter(df, x=x_kolom, y=y_kolom, hover_data={"Oplossing": True})
+fig = px.scatter(df, x=x_kolom, y=y_kolom, color = 'Pareto', hover_data={"Oplossing": True})
 st.plotly_chart(fig)
 
 
