@@ -283,7 +283,7 @@ def optimalisatie(startpopulatie):
 
     return populatie
 
-def pareto_poulatie(populatie):
+def pareto_populatie(populatie):
 
     pareto_populatie = [i for i in populatie]
     
@@ -301,7 +301,7 @@ def pareto_poulatie(populatie):
         if dominate:
             if pareto in pareto_populatie:
                 pareto_populatie.remove(pareto)
-    return pareto_poulatie
+    return pareto_populatie
             
 
 
@@ -342,7 +342,7 @@ def populatie_sort(populatie):
 startoplossing = startoplossing()
 startpopulatie = startpopulatie(startoplossing)
 populatie = optimalisatie(startpopulatie)
-pareto_populatie = pareto_poulatie(populatie)
+pareto_populatie = pareto_populatie(populatie)
 
 st.markdown(populatie)
 st.markdown(pareto_populatie)
