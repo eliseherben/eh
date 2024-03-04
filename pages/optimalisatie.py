@@ -168,7 +168,7 @@ def startpopulatie(startoplossing):
     
     populatie = [huidige_oplossing]
     
-    for _ in range(49):
+    for _ in range(99):
         nieuwe_oplossing = [random.randint(0, 200) for _ in range(25)]
         if st.session_state.fase == 'Budget te veel':
             for i, s, m in zip(range(len(nieuwe_oplossing)), sessions, maximaal):
@@ -206,9 +206,6 @@ def startpopulatie(startoplossing):
     for x in range(len(populatie)):
         populatie[x] = (list(populatie[x]), uitkomsten(populatie[x]))
     populatie.sort(key=lambda uitkomst: uitkomst[1], reverse = True)
-    
-    st.markdown(populatie)
-
     return populatie
 
 
@@ -217,15 +214,15 @@ def startpopulatie(startoplossing):
 
 def ouders_maken(populatie):
     ouders = []
-    beste = [i for i in populatie[0:25]]
-    slechtste = [i for i in populatie[25:]] 
+    beste = [i for i in populatie[0:50]]
+    slechtste = [i for i in populatie[50:]] 
     i = 0
-    while i < 20:    
+    while i < 40:    
         ouders.append(random.choice(beste))
         i = i + 1
 
     j = 0
-    while j < 10:
+    while j < 20:
         ouders.append(random.choice(slechtste))
         j = j + 1
     return ouders
@@ -272,7 +269,7 @@ iteraties = 0
 while iteraties < 5:
     populatie = [tuple(i[0]) for i in startpopulatie]
     ouders = ouders_maken(populatie)
-    populatie = [i for i in populatie[0:25]]
+    populatie = [i for i in populatie[0:50]]
     kinderen = kinderen_maken(ouders)
     for a in kinderen:
         populatie.append(tuple(a))
@@ -287,7 +284,7 @@ while iteraties < 5:
 
 populatie = [tuple(i[0]) for i in populatie]
 pareto_populatie = [i for i in populatie]
-st.markdown(f"{populatie} {len(populatie)}")
+# st.markdown(f"{populatie} {len(populatie)}")
 
 for pareto in populatie:
     dominate = False
@@ -303,7 +300,7 @@ for pareto in populatie:
         if pareto in pareto_populatie:
             populatie.remove(pareto)
 
-st.markdown(f"{populatie} {len(populatie)}")
+# st.markdown(f"{populatie} {len(populatie)}")
 
 
 # In[ ]:
