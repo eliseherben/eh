@@ -398,8 +398,8 @@ df = optimalisatie(startpopulatie)
 # fig = px.scatter(df, x='Aanschafprijs', y='Woonbeleving', color = 'Pareto', hover_data={"Oplossing": True})
 
 
-x_kolom = st.selectbox("Selecteer een optie voor de x-as", df.columns[1:], on_change = plot)
-y_kolom = st.selectbox("Selecteer een optie voor de y-as", df.columns[1:], on_change = plot)
+x_kolom = st.selectbox("Selecteer een optie voor de x-as", df.columns[1:])
+y_kolom = st.selectbox("Selecteer een optie voor de y-as", df.columns[1:])
 
 fig = px.scatter(df, x=x_kolom, y=y_kolom, color = 'Pareto', hover_data={"Oplossing": True})
 
