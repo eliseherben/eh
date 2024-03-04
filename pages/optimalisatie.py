@@ -206,6 +206,7 @@ def startpopulatie(startoplossing):
     for x in range(len(populatie)):
         populatie[x] = (list(populatie[x]), uitkomsten(populatie[x]))
     populatie.sort(key=lambda uitkomst: uitkomst[1], reverse = True)
+    
     return populatie
 
 
@@ -262,31 +263,28 @@ def kinderen_maken(ouders):
 # In[ ]:
 
 
-startoplossing = startoplossing()
-startpopulatie = startpopulatie(startoplossing)
+@st.cache
+def optimalisatie()
+    startoplossing = startoplossing()
+    startpopulatie = startpopulatie(startoplossing)
 
-iteraties = 0
-while iteraties < 5:
-    populatie = [tuple(i[0]) for i in startpopulatie]
-    ouders = ouders_maken(populatie)
-    populatie = [i for i in populatie[0:50]]
-    kinderen = kinderen_maken(ouders)
-    for a in kinderen:
-        populatie.append(tuple(a))
-    for x in range(len(populatie)):
-        populatie[x] = (list(populatie[x]), uitkomsten(populatie[x]))
-    populatie.sort(key=lambda uitkomst: uitkomst[1], reverse = True)
-    iteraties = iteraties + 1
-
-
-# In[ ]:
-
-
-populatie = [tuple(i[0]) for i in populatie]
-pareto_populatie = [i for i in populatie]
-# st.markdown(f"{populatie} {len(populatie)}")
-
-for pareto in populatie:
+    iteraties = 0
+    while iteraties < 5:
+        populatie = [tuple(i[0]) for i in startpopulatie]
+        ouders = ouders_maken(populatie)
+        populatie = [i for i in populatie[0:50]]
+        kinderen = kinderen_maken(ouders)
+        for a in kinderen:
+            populatie.append(tuple(a))
+        for x in range(len(populatie)):
+            populatie[x] = (list(populatie[x]), uitkomsten(populatie[x]))
+        populatie.sort(key=lambda uitkomst: uitkomst[1], reverse = True)
+        iteraties = iteraties + 1
+    
+    populatie = [tuple(i[0]) for i in populatie]
+    pareto_populatie = [i for i in populatie]
+    
+    for pareto in populatie:
     dominate = False
     uitkomsten_pareto = [f1(pareto), f2(pareto), f3(pareto), f4(pareto), f5(pareto), f6(pareto), f7(pareto), f8(pareto)]
     for sol in pareto_populatie:
@@ -299,47 +297,102 @@ for pareto in populatie:
     if dominate:
         if pareto in pareto_populatie:
             pareto_populatie.remove(pareto)
+            
+    aanschafprijs = []
+    onderhoudsprijs = []
+    losmaakbaarheid = []
+    toepassingsmogelijkheden = []
+    woonbeleving = []
+    milieubelasting = []
+    flexibiliteit = []
+    standaardisering = []
+    pareto =[]
 
-# st.markdown(f"{populatie} {len(populatie)}")
+    for oplossing in populatie:
+        aanschafprijs.append(f1(oplossing))
+        onderhoudsprijs.append(f2(oplossing))
+        losmaakbaarheid.append(f3(oplossing))    
+        toepassingsmogelijkheden.append(f4(oplossing))    
+        woonbeleving.append(f5(oplossing))
+        milieubelasting.append(f6(oplossing))
+        flexibiliteit.append(f7(oplossing))
+        standaardisering.append(f8(oplossing))
+        pareto.append("nee")
+
+    dict = {'Oplossing': populatie, 'Aanschafprijs': aanschafprijs, 'Onderhoudsprijs': onderhoudsprijs, 
+            'Mate van losmaakbaarheid': losmaakbaarheid, 'Toepassingsmogelijkheden': toepassingsmogelijkheden, 
+           'Woonbeleving': woonbeleving, 'Milieubelasting': milieubelasting, 
+            'Flexibiliteit tbv toekomstbestendigheid en innovatie': flexibiliteit, 'Mate van standaardisering': standaardisering, 
+            'Pareto': pareto} 
+
+    df = pd.DataFrame(dict)
+    df.loc[df['Oplossing'].isin(pareto_populatie), 'Pareto'] = 'ja'
+    return df
 
 
 # In[ ]:
 
 
-aanschafprijs = []
-onderhoudsprijs = []
-losmaakbaarheid = []
-toepassingsmogelijkheden = []
-woonbeleving = []
-milieubelasting = []
-flexibiliteit = []
-standaardisering = []
-pareto =[]
+# populatie = [tuple(i[0]) for i in populatie]
+# pareto_populatie = [i for i in populatie]
+# # st.markdown(f"{populatie} {len(populatie)}")
 
-for oplossing in populatie:
-    aanschafprijs.append(f1(oplossing))
-    onderhoudsprijs.append(f2(oplossing))
-    losmaakbaarheid.append(f3(oplossing))    
-    toepassingsmogelijkheden.append(f4(oplossing))    
-    woonbeleving.append(f5(oplossing))
-    milieubelasting.append(f6(oplossing))
-    flexibiliteit.append(f7(oplossing))
-    standaardisering.append(f8(oplossing))
-    pareto.append("nee")
+# for pareto in populatie:
+#     dominate = False
+#     uitkomsten_pareto = [f1(pareto), f2(pareto), f3(pareto), f4(pareto), f5(pareto), f6(pareto), f7(pareto), f8(pareto)]
+#     for sol in pareto_populatie:
+#         if dominates(uitkomsten_pareto, [f1(sol), f2(sol), f3(sol), f4(sol), f5(sol), f6(sol), f7(sol), f8(sol)]):
+#             st.markdown(f"pareto {pareto} dominates sol {sol}")
+#             pareto_populatie.remove(sol)
+#         if dominates([f1(sol), f2(sol), f3(sol), f4(sol), f5(sol), f6(sol), f7(sol), f8(sol)], uitkomsten_pareto):
+#             st.markdown(f"pareto {pareto} dominates sol {sol}")
+#             dominate = True
+#     if dominate:
+#         if pareto in pareto_populatie:
+#             pareto_populatie.remove(pareto)
+
+# # st.markdown(f"{populatie} {len(populatie)}")
+
+
+# In[ ]:
+
+
+# aanschafprijs = []
+# onderhoudsprijs = []
+# losmaakbaarheid = []
+# toepassingsmogelijkheden = []
+# woonbeleving = []
+# milieubelasting = []
+# flexibiliteit = []
+# standaardisering = []
+# pareto =[]
+
+# for oplossing in populatie:
+#     aanschafprijs.append(f1(oplossing))
+#     onderhoudsprijs.append(f2(oplossing))
+#     losmaakbaarheid.append(f3(oplossing))    
+#     toepassingsmogelijkheden.append(f4(oplossing))    
+#     woonbeleving.append(f5(oplossing))
+#     milieubelasting.append(f6(oplossing))
+#     flexibiliteit.append(f7(oplossing))
+#     standaardisering.append(f8(oplossing))
+#     pareto.append("nee")
     
-dict = {'Oplossing': populatie, 'Aanschafprijs': aanschafprijs, 'Onderhoudsprijs': onderhoudsprijs, 
-        'Mate van losmaakbaarheid': losmaakbaarheid, 'Toepassingsmogelijkheden': toepassingsmogelijkheden, 
-       'Woonbeleving': woonbeleving, 'Milieubelasting': milieubelasting, 
-        'Flexibiliteit tbv toekomstbestendigheid en innovatie': flexibiliteit, 'Mate van standaardisering': standaardisering, 
-        'Pareto': pareto} 
+# dict = {'Oplossing': populatie, 'Aanschafprijs': aanschafprijs, 'Onderhoudsprijs': onderhoudsprijs, 
+#         'Mate van losmaakbaarheid': losmaakbaarheid, 'Toepassingsmogelijkheden': toepassingsmogelijkheden, 
+#        'Woonbeleving': woonbeleving, 'Milieubelasting': milieubelasting, 
+#         'Flexibiliteit tbv toekomstbestendigheid en innovatie': flexibiliteit, 'Mate van standaardisering': standaardisering, 
+#         'Pareto': pareto} 
 
-df = pd.DataFrame(dict)
-df.loc[df['Oplossing'].isin(pareto_populatie), 'Pareto'] = 'ja'
-st.dataframe(df)  # Same as st.write(df)
+# df = pd.DataFrame(dict)
+# df.loc[df['Oplossing'].isin(pareto_populatie), 'Pareto'] = 'ja'
+# st.dataframe(df)  # Same as st.write(df)
 
 
 # In[ ]:
 
+
+df = optimalisatie()
 
 fig = px.scatter(df, x='Aanschafprijs', y='Woonbeleving', color = 'Pareto', hover_data={"Oplossing": True})
 
