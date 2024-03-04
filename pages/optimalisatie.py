@@ -341,12 +341,16 @@ st.dataframe(df)  # Same as st.write(df)
 # In[ ]:
 
 
-x_kolom = st.selectbox("Selecteer een optie voor de x-as", df.columns[1:])
-y_kolom = st.selectbox("Selecteer een optie voor de y-as", df.columns[1:])
+def plot():
+    fig = px.scatter(df, x=x_kolom, y=y_kolom, color = 'Pareto', hover_data={"Oplossing": True})
+    st.plotly_chart(fig)
+
+x_kolom = st.selectbox("Selecteer een optie voor de x-as", df.columns[1:], on_change = plot)
+y_kolom = st.selectbox("Selecteer een optie voor de y-as", df.columns[1:], on_change = plot)
 
 
-fig = px.scatter(df, x=x_kolom, y=y_kolom, color = 'Pareto', hover_data={"Oplossing": True})
-st.plotly_chart(fig)
+# fig = px.scatter(df, x=x_kolom, y=y_kolom, color = 'Pareto', hover_data={"Oplossing": True})
+# st.plotly_chart(fig)
 
 
 # In[ ]:
