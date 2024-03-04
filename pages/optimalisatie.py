@@ -395,13 +395,13 @@ startoplossing = startoplossing()
 startpopulatie = startpopulatie(startoplossing)
 df = optimalisatie(startpopulatie)
 
-fig = px.scatter(df, x='Aanschafprijs', y='Woonbeleving', color = 'Pareto', hover_data={"Oplossing": True})
+# fig = px.scatter(df, x='Aanschafprijs', y='Woonbeleving', color = 'Pareto', hover_data={"Oplossing": True})
 
-def plot():
-    fig = px.scatter(df, x=x_kolom, y=y_kolom, color = 'Pareto', hover_data={"Oplossing": True})
 
 x_kolom = st.selectbox("Selecteer een optie voor de x-as", df.columns[1:], on_change = plot)
 y_kolom = st.selectbox("Selecteer een optie voor de y-as", df.columns[1:], on_change = plot)
+
+fig = px.scatter(df, x=x_kolom, y=y_kolom, color = 'Pareto', hover_data={"Oplossing": True})
 
 st.plotly_chart(fig)
 # fig = px.scatter(df, x=x_kolom, y=y_kolom, color = 'Pareto', hover_data={"Oplossing": True})
