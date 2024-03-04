@@ -201,11 +201,13 @@ def startpopulatie(startoplossing):
 #         if not dominated:
 #             populatie.append(nieuwe_oplossing)
 
-    populatie.append(nieuwe_oplossing)
+        populatie.append(nieuwe_oplossing)
     
     for x in range(len(populatie)):
         populatie[x] = (list(populatie[x]), uitkomsten(populatie[x]))
     populatie.sort(key=lambda uitkomst: uitkomst[1], reverse = True)
+    
+    st.markdown(populatie)
 
     return populatie
 
