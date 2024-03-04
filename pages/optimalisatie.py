@@ -345,6 +345,7 @@ populatie = optimalisatie(startpopulatie)
 pareto_populatie = pareto_poulatie(populatie)
 
 st.markdown(populatie)
+st.markdown(pareto_populatie)
 aanschafprijs = []
 onderhoudsprijs = []
 losmaakbaarheid = []
