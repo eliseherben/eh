@@ -333,7 +333,7 @@ def optimalisatie(startpopulatie):
 
 
 @st.cache
-def populatie_sort()
+def populatie_sort():
     for x in range(len(populatie)):
         populatie[x] = (list(populatie[x]), f1(populatie[x]), f2(populatie[x]), f3(populatie[x]), f4(populatie[x]), f5(populatie[x]), f7(populatie[x]), f8(populatie[x]))
 
