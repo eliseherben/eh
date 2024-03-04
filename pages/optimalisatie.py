@@ -264,7 +264,7 @@ def kinderen_maken(ouders):
 
 
 @st.cache
-def optimalisatie()
+def optimalisatie():
     startoplossing = startoplossing()
     startpopulatie = startpopulatie(startoplossing)
 
