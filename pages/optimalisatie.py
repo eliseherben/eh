@@ -283,6 +283,7 @@ def optimalisatie(startpopulatie):
 
     return populatie
 
+@st.cache
 def pareto_populatie(populatie):
 
     pareto_populatie = [i for i in populatie]
