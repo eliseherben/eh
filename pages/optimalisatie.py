@@ -302,35 +302,6 @@ def pareto_poulatie(populatie):
                 pareto_populatie.remove(pareto)
     return pareto_poulatie
             
-aanschafprijs = []
-onderhoudsprijs = []
-losmaakbaarheid = []
-toepassingsmogelijkheden = []
-woonbeleving = []
-milieubelasting = []
-flexibiliteit = []
-standaardisering = []
-pareto =[]
-
-for oplossing in populatie:
-    aanschafprijs.append(f1(oplossing))
-    onderhoudsprijs.append(f2(oplossing))
-    losmaakbaarheid.append(f3(oplossing))    
-    toepassingsmogelijkheden.append(f4(oplossing))    
-    woonbeleving.append(f5(oplossing))
-    milieubelasting.append(f6(oplossing))
-    flexibiliteit.append(f7(oplossing))
-    standaardisering.append(f8(oplossing))
-    pareto.append("nee")
-
-dict = {'Oplossing': populatie, 'Aanschafprijs': aanschafprijs, 'Onderhoudsprijs': onderhoudsprijs, 
-        'Mate van losmaakbaarheid': losmaakbaarheid, 'Toepassingsmogelijkheden': toepassingsmogelijkheden, 
-       'Woonbeleving': woonbeleving, 'Milieubelasting': milieubelasting, 
-        'Flexibiliteit tbv toekomstbestendigheid en innovatie': flexibiliteit, 'Mate van standaardisering': standaardisering, 
-        'Pareto': pareto} 
-
-df = pd.DataFrame(dict)
-df.loc[df['Oplossing'].isin(pareto_populatie), 'Pareto'] = 'ja'
 
 
 # In[ ]:
@@ -372,6 +343,35 @@ startpopulatie = startpopulatie(startoplossing)
 populatie = optimalisatie(startpopulatie)
 pareto_populatie = pareto_poulatie(populatie)
 
+aanschafprijs = []
+onderhoudsprijs = []
+losmaakbaarheid = []
+toepassingsmogelijkheden = []
+woonbeleving = []
+milieubelasting = []
+flexibiliteit = []
+standaardisering = []
+pareto =[]
+
+for oplossing in populatie:
+    aanschafprijs.append(f1(oplossing))
+    onderhoudsprijs.append(f2(oplossing))
+    losmaakbaarheid.append(f3(oplossing))    
+    toepassingsmogelijkheden.append(f4(oplossing))    
+    woonbeleving.append(f5(oplossing))
+    milieubelasting.append(f6(oplossing))
+    flexibiliteit.append(f7(oplossing))
+    standaardisering.append(f8(oplossing))
+    pareto.append("nee")
+
+dict = {'Oplossing': populatie, 'Aanschafprijs': aanschafprijs, 'Onderhoudsprijs': onderhoudsprijs, 
+        'Mate van losmaakbaarheid': losmaakbaarheid, 'Toepassingsmogelijkheden': toepassingsmogelijkheden, 
+       'Woonbeleving': woonbeleving, 'Milieubelasting': milieubelasting, 
+        'Flexibiliteit tbv toekomstbestendigheid en innovatie': flexibiliteit, 'Mate van standaardisering': standaardisering, 
+        'Pareto': pareto} 
+
+df = pd.DataFrame(dict)
+df.loc[df['Oplossing'].isin(pareto_populatie), 'Pareto'] = 'ja'
 
 # fig = px.scatter(df, x='Aanschafprijs', y='Woonbeleving', color = 'Pareto', hover_data={"Oplossing": True})
 
