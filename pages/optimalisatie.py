@@ -162,7 +162,7 @@ def startpopulatie(startoplossing):
     
     populatie = [huidige_oplossing]
     
-    for _ in range(99):
+    for _ in range(19):
         nieuwe_oplossing = [random.randint(0, 200) for _ in range(25)]
         if st.session_state.fase == 'Budget te veel':
             for i, s, m in zip(range(len(nieuwe_oplossing)), sessions, maximaal):
@@ -209,15 +209,15 @@ def startpopulatie(startoplossing):
 
 def ouders_maken(populatie):
     ouders = []
-    beste = [i for i in populatie[0:50]]
-    slechtste = [i for i in populatie[50:]] 
+    beste = [i for i in populatie[0:10]]
+    slechtste = [i for i in populatie[10:]] 
     i = 0
-    while i < 40:    
+    while i < 8:    
         ouders.append(random.choice(beste))
         i = i + 1
 
     j = 0
-    while j < 20:
+    while j < 4:
         ouders.append(random.choice(slechtste))
         j = j + 1
     return ouders
@@ -264,7 +264,7 @@ def optimalisatie(startpopulatie):
     while iteraties < 5:
         populatie = [tuple(i[0]) for i in startpopulatie]
         ouders = ouders_maken(populatie)
-        populatie = [i for i in populatie[0:50]]
+        populatie = [i for i in populatie[0:10]]
         kinderen = kinderen_maken(ouders)
         for a in kinderen:
             populatie.append(tuple(a))
@@ -376,7 +376,7 @@ y_kolom = st.selectbox("Selecteer een optie voor de y-as", df.columns[1:])
 
 fig = px.scatter(df, x=x_kolom, y=y_kolom, color = 'Pareto', hover_data={"Oplossing": True})
 
-st.plotly_chart(fig)
+# st.plotly_chart(fig)
 # fig = px.scatter(df, x=x_kolom, y=y_kolom, color = 'Pareto', hover_data={"Oplossing": True})
 # st.plotly_chart(fig)
 
