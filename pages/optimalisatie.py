@@ -301,7 +301,7 @@ def pareto_populatie(populatie):
 # In[ ]:
 
 
-@st.cache_data
+
 def populatie_sort(populatie):
     for x in range(len(populatie)):
         populatie[x] = (list(populatie[x]), f1(populatie[x]), f2(populatie[x]), f3(populatie[x]), f4(populatie[x]), f5(populatie[x]), f6(populatie[x]), f7(populatie[x]), f8(populatie[x]))
