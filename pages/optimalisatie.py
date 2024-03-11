@@ -306,8 +306,6 @@ def populatie_sort(populatie):
     for x in range(len(populatie)):
         populatie[x] = (list(populatie[x]), f1(populatie[x]), f2(populatie[x]), f3(populatie[x]), f4(populatie[x]), f5(populatie[x]), f6(populatie[x]), f7(populatie[x]), f8(populatie[x]))
 
-    st.markdown(st.session_state.doelstelling)
-    st.markdown(populatie)
     if st.session_state.doelstelling == 'Aanschafprijs':
         populatie.sort(key=lambda aanschafprijs: aanschafprijs[1])
     if st.session_state.doelstelling == 'Onderhoudsprijs':
@@ -375,9 +373,9 @@ df.loc[df['Oplossing'].isin(pareto_populatie), 'Pareto'] = 'ja'
 x_kolom = st.selectbox("Selecteer een optie voor de x-as", df.columns[1:])
 y_kolom = st.selectbox("Selecteer een optie voor de y-as", df.columns[1:])
 
-# fig = px.scatter(df, x=x_kolom, y=y_kolom, color = 'Pareto', hover_data={"Oplossing": True})
+fig = px.scatter(df, x=x_kolom, y=y_kolom, color = 'Pareto', hover_data={"Oplossing": True})
 
-# st.plotly_chart(fig)
+st.plotly_chart(fig)
 # fig = px.scatter(df, x=x_kolom, y=y_kolom, color = 'Pareto', hover_data={"Oplossing": True})
 # st.plotly_chart(fig)
 
@@ -443,10 +441,9 @@ y_kolom = st.selectbox("Selecteer een optie voor de y-as", df.columns[1:])
 
 # In[ ]:
 
-st.markdown(populatie)
+
 populatie = populatie_sort(populatie)
 
-st.markdown(populatie)
 st.markdown("### Genetic algorithm:")
 i = 0
     
