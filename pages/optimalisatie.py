@@ -120,6 +120,7 @@ def f8(x):
     return (4 * x[0] + x[1] + 9 * x[2] + 8 * x[3] + 5 * x[4] + 6 * x[5] + 9 * x[6] + 9 * x[7] + 6 * x[8] + 4 * x[9] + 
             2 * x[10] + x[11] + x[12] + 5 * x[13] + 2 * x[14] + 2 * x[15] + 8 * x[16] + 6 * x[17] + 7 * x[18] + 2.5 * x[19] + 
             4 * x[20] + 2 * x[21] + 4 * x[22] + 7 * x[23] + 3 * x[24]) 
+
 @st.cache_data
 def uitkomsten(oplossing):
     if f1(oplossing) + f2(oplossing) <= st.session_state.budget:
@@ -135,6 +136,7 @@ def uitkomsten(oplossing):
                 - milieubelasting + flexibiliteit + standaardisering)
     else:
         return -float('inf')
+
 @st.cache_data
 def startoplossing():
     startoplossing = [random.randint(0, 200) for _ in range(25)]
@@ -367,17 +369,13 @@ dict = {'Oplossing': populatie, 'Aanschafprijs': aanschafprijs, 'Onderhoudsprijs
 df = pd.DataFrame(dict)
 df.loc[df['Oplossing'].isin(pareto_populatie), 'Pareto'] = 'ja'
 
-# fig = px.scatter(df, x='Aanschafprijs', y='Woonbeleving', color = 'Pareto', hover_data={"Oplossing": True})
-
-
 x_kolom = st.selectbox("Selecteer een optie voor de x-as", df.columns[1:-1])
 y_kolom = st.selectbox("Selecteer een optie voor de y-as", df.columns[1:-1])
 
 fig = px.scatter(df, x=x_kolom, y=y_kolom, color = 'Pareto', hover_data={"Oplossing": True})
 
 st.plotly_chart(fig)
-# fig = px.scatter(df, x=x_kolom, y=y_kolom, color = 'Pareto', hover_data={"Oplossing": True})
-# st.plotly_chart(fig)
+
 
 
 # In[ ]:
@@ -442,7 +440,7 @@ st.plotly_chart(fig)
 # In[ ]:
 
 
-populatie = populatie_sort(populatie)
+populatie = populatie_sort(pareto_populatie)
 populatie = [i for i in populatie[0:10]]
 
 st.markdown("### Genetic algorithm:")
