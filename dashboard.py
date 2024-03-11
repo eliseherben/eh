@@ -497,6 +497,7 @@ def set_project():
     st.session_state.project = st.session_state._project
     
 st.title("Projecten Eigen Haard")
+st.markdown("**Soort project**")
 st.selectbox(
     'Om wat voor soort project gaat het?',
     ['Nieuwbouw woningen', 'Renovatie'], 
