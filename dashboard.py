@@ -13,8 +13,6 @@ from menu import menu
 
 productgroepen = ["buitenkozijnen", "lift", "binnenkozijnen", "binnenwandafwerkingen", "vloerafwerkingen", "plafonds", "sanitair", "keuken", "buitenwanden", "vloeren", "daken", "hoofddraagconstructie", "isolatie", "riolering", "terreininrichting", "verwarming", "luchtbehandeling", "gebouwvoorziening", "binnenwanden", "trappen", "luiken", "balustrades", "water", "elektra", "beveiliging"]
 
-"""#### algemene state sessions"""
-
 if "project" not in st.session_state:
     st.session_state.project = None
 
@@ -44,8 +42,6 @@ menu()
 
 # st.page_link("dashboard.py", label="Home")
 # st.page_link("pages/buitenkozijnen.py", label="Buitenkozijnen, -ramen, -deuren en -puien")
-
-"""#### productgroepen state sessions"""
 
 if "balustrades" not in st.session_state:
     st.session_state.balustrades = 0
@@ -172,8 +168,6 @@ if "water" not in st.session_state:
 
 st.session_state._water = st.session_state.water
 
-"""#### max productgroepen"""
-
 if "max_balustrades" not in st.session_state:
     st.session_state.max_balustrades = 200
 
@@ -298,8 +292,6 @@ if "max_water" not in st.session_state:
     st.session_state.max_water = 200
 
 st.session_state._max_water = st.session_state.max_water
-
-"""#### min max productgroepen"""
 
 if "min_max_balustrades" not in st.session_state:
     st.session_state.min_max_balustrades = None
@@ -426,8 +418,6 @@ if "min_max_water" not in st.session_state:
 
 st.session_state._min_max_water = st.session_state.min_max_water
 
-"""#### themas state sessions"""
-
 if "aanschafprijs" not in st.session_state:
     st.session_state.aanschafprijs = None
 
@@ -498,9 +488,9 @@ def set_budget():
     st.session_state.budget = st.session_state._budget
 
 if st.session_state.project and st.session_state.fase is not None:
-  st.subheader("**Budget**")
-  st.markdown("Vul het budget in voor het huidige project.")
-  st.number_input("Vul het budget in", value=None, placeholder="Typ een bedrag", key="_budget", on_change=set_budget)
+  # st.subheader("**Budget**")
+  # st.markdown("Vul het budget in voor het huidige project.")
+  st.number_input("Vul het budget in voor het huidige project", value=None, placeholder="Typ een bedrag", key="_budget", on_change=set_budget)
 
 def set_doelstelling():
     # Callback function to save the role selection to Session State
