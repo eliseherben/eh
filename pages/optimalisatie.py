@@ -374,7 +374,7 @@ df.loc[df['Oplossing'].isin(pareto_populatie), 'Pareto'] = 'ja'
 x_kolom = st.selectbox("Selecteer een optie voor de x-as", df.columns[1:])
 y_kolom = st.selectbox("Selecteer een optie voor de y-as", df.columns[1:])
 
-fig = px.scatter(df, x=x_kolom, y=y_kolom, color = 'Pareto', hover_data={"Oplossing": True})
+# fig = px.scatter(df, x=x_kolom, y=y_kolom, color = 'Pareto', hover_data={"Oplossing": True})
 
 # st.plotly_chart(fig)
 # fig = px.scatter(df, x=x_kolom, y=y_kolom, color = 'Pareto', hover_data={"Oplossing": True})
