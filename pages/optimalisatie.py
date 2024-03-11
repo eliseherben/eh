@@ -441,8 +441,10 @@ st.plotly_chart(fig)
 
 # In[ ]:
 
-
+st.markdown(populatie)
 populatie = populatie_sort(populatie)
+
+st.markdown(populatie)
 st.markdown("### Genetic algorithm:")
 i = 0
     
