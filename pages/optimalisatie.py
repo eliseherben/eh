@@ -306,6 +306,7 @@ def populatie_sort(populatie):
     for x in range(len(populatie)):
         populatie[x] = (list(populatie[x]), f1(populatie[x]), f2(populatie[x]), f3(populatie[x]), f4(populatie[x]), f5(populatie[x]), f7(populatie[x]), f8(populatie[x]))
 
+    print(st.session_state.doelstelling)
     if st.session_state.doelstelling == 'Aanschafprijs':
         populatie.sort(key=lambda aanschafprijs: aanschafprijs[1])
     if st.session_state.doelstelling == 'Onderhoudsprijs':
