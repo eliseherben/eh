@@ -532,9 +532,9 @@ def set_budget():
 
 if st.session_state.project and st.session_state.fase is not None: 
     with st.container(border=True):
-        st.subheader("**Budget**")
-        st.markdown("Vul het budget in voor het huidige project.")
-        st.number_input("Vul het budget in", value=None, placeholder="Typ een bedrag", key="_budget", on_change=set_budget)
+        # st.subheader("**Budget**")
+        # st.markdown("Vul het budget in voor het huidige project.")
+        st.number_input("Vul het budget in voor het huidige project", value=None, placeholder="Typ een bedrag", key="_budget", on_change=set_budget)
 
 
 
