@@ -22,13 +22,13 @@ def authenticated_menu():
         st.sidebar.page_link("pages/2functies.py", label = "Optimalisatie")
         
     if st.session_state.fase == 'Begin fase':
-        st.sidebar.page_link("pages/fase1.py", label = "Productgroepen begin fase")
+        st.sidebar.page_link("pages/fase1.py", label = "Productgroepen")
         
     if st.session_state.fase == 'Budget te veel':
-        st.sidebar.page_link("pages/implementeren.py", label = "Productgroepen implementeren fase")
+        st.sidebar.page_link("pages/implementeren.py", label = "Productgroepen")
         
     if st.session_state.fase == 'Budget te weinig':
-        st.sidebar.page_link("pages/fase1.py", label = "Productgroepen besparen fase")
+        st.sidebar.page_link("pages/fase1.py", label = "Productgroepen")
 
 def unauthenticated_menu():
     st.sidebar.page_link("dashboard.py", label = "Introductie")
