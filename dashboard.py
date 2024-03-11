@@ -514,6 +514,7 @@ def set_fase():
     # Callback function to save the role selection to Session State
     st.session_state.fase = st.session_state._fase
 
+st.markdown("**Projectfase**")
 st.selectbox(
     "Wat is de fase van het project?", 
     ["Begin fase", "Budget te veel", "Budget te weinig"], 
@@ -531,10 +532,9 @@ def set_budget():
     st.session_state.budget = st.session_state._budget
 
 if st.session_state.project and st.session_state.fase is not None: 
-    with st.container(border=True):
-        # st.subheader("**Budget**")
-        # st.markdown("Vul het budget in voor het huidige project.")
-        st.number_input("Vul het budget in voor het huidige project", value=None, placeholder="Typ een bedrag", key="_budget", on_change=set_budget)
+    # st.subheader("**Budget**")
+    st.markdown("**Budget**")
+    st.number_input("Vul het budget in voor het huidige project", value=None, placeholder="Typ een bedrag", key="_budget", on_change=set_budget)
 
 
 
@@ -546,6 +546,7 @@ def set_doelstelling():
     st.session_state.doelstelling = st.session_state._doelstelling
     
 if st.session_state.project and st.session_state.fase is not None:
+    st.markdown("**Belangrijkste doelstelling**")
     st.selectbox('Welke doelstelling is het belangrijkst in dit project', 
                 ('Aanschafprijs', 'Onderhoudsprijs', 'Mate van losmaakbaarheid', 'Toepassingsmogelijkheden', 'Woonbeleving', 
                 'Milieubelasting', 'Flexibiliteit tbv toekomstbestendigheid en innovatie', 'Mate van standaardisering'), 
