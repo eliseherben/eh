@@ -50,7 +50,7 @@ st.latex(r'''
 x_9 = Het aandeel van de productgroep buitenwanden
 ''')
 st.latex(r'''
-x_(10) = Het aandeel van de productgroep vloeren
+x_1_0 = Het aandeel van de productgroep vloeren
 ''')
 st.latex(r'''
 x_11 = Het aandeel van de productgroep daken
