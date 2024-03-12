@@ -11,6 +11,8 @@ import pandas as pd
 import plotly.express as px
 import streamlit as st
 import plotly.graph_objects as go
+from menu import menu_with_redirect
+menu_with_redirect()
 
 #pip install streamlit
 
