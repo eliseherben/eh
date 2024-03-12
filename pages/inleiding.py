@@ -31,7 +31,9 @@ import streamlit as st
 
 st.latex("x_n")
 
-st.latex(r'''x_n''')
+st.latex(r'''
+x_n
+''')
 
 labels = ["Buitenkozijnen, -ramen, -deuren en -puien", "Lift", "Binnenkozijnen en deuren",
                   "Binnenwandafwerkingen", "Vloerafwerkingen", "Plafonds", "Sanitair", "Keuken", "Buitenwanden",
