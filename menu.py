@@ -11,6 +11,9 @@ import streamlit as st
 
 
 def authenticated_menu():
+
+    st.sidebar.page_link("inleiding.py", label = "Inleiding")
+    
     st.sidebar.page_link("dashboard.py", label = "Introductie")
 #     if st.session_state.project == 'Nieuwbouw woningen':
 #         st.sidebar.page_link("pages/productgroepen.py", label = "Productgroepen")
@@ -31,6 +34,7 @@ def authenticated_menu():
         st.sidebar.page_link("pages/fase1.py", label = "Productgroepen")
 
 def unauthenticated_menu():
+    st.sidebar.page_link("inleiding.py", label = "Inleiding")
     st.sidebar.page_link("dashboard.py", label = "Introductie")
         
 def menu():
