@@ -12,7 +12,7 @@ import streamlit as st
 
 def authenticated_menu():
 
-    st.sidebar.page_link("inleiding.py", label = "Inleiding")
+    # st.sidebar.page_link("inleiding.py", label = "Inleiding")
     
     st.sidebar.page_link("dashboard.py", label = "Introductie")
 #     if st.session_state.project == 'Nieuwbouw woningen':
@@ -25,7 +25,7 @@ def authenticated_menu():
         st.sidebar.page_link("pages/2functies.py", label = "Optimalisatie")
         
     if st.session_state.fase == 'Begin fase':
-        st.sidebar.page_link("pages/fase1.py", label = "Productgroepen")
+        st.sidebar.page_link("pages/inleiding.py", label = "Inleiding")
         
     if st.session_state.fase == 'Budget te veel':
         st.sidebar.page_link("pages/implementeren.py", label = "Productgroepen")
@@ -34,7 +34,7 @@ def authenticated_menu():
         st.sidebar.page_link("pages/fase1.py", label = "Productgroepen")
 
 def unauthenticated_menu():
-    st.sidebar.page_link("inleiding.py", label = "Inleiding")
+    # st.sidebar.page_link("inleiding.py", label = "Inleiding")
     st.sidebar.page_link("dashboard.py", label = "Introductie")
         
 def menu():
