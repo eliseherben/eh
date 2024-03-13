@@ -74,3 +74,12 @@ with tab2:
   fig.update_yaxes(range=[-2, 2], tickvals=[-2, -1, 0, 1, 2], tickmode='array')
   st.plotly_chart(fig)
 
+with tab3:
+  st.markdown("Hieronder kunnen de verschillende aandelen van productgroepen aangepast worden, om daarvan de invloed te zien op de verschillende thema's")
+  keukens = st.slider('Het aandeel van de productgroep Keukens', 0, 100, 20)
+  sanitair = st.slider('Het aandeel van de productgroep Sanitair', 0, 100, 15)
+  isolatie = st.slider('Het aandeel van de productgroep Na-isolatie', 0, 100, 7)
+  trappen = st.slider('Het aandeel van de productgroep Trappen', 0, 100, 15)
+  vloeren = st.slider('Het aandeel van de productgroep Vloeren', 0, 100, 8)
+  buitenwanden = st.slider('Het aandeel van de productgroep Buitenwanden', 0, 100, 15)
+  vloerafwerking = st.slider('Het aandeel van de productgroep Vloerafwerking', 0, 100, 20)
