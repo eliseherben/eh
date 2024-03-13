@@ -47,18 +47,19 @@ with tab1:
 
 with tab2:
   st.markdown("In dit project, is het optimaal om het aandeel van de productgroepen als volgt in te delen:")
-  st.markdown('''De productgroep Keukens 20% van het totale project
+  st.markdown('''- De productgroep Keukens 20% van het totale project
 
-  De productgroep Sanitair 15% van het totale project
-  De productgroep Na-isolatie 7% van het totale project
+  - De productgroep Sanitair 15% van het totale project
 
-  De productgroep Trappen 15% van het totale project
+  - De productgroep Na-isolatie 7% van het totale project
 
-  De productgroep Vloeren 8% van het totale project
+  - De productgroep Trappen 15% van het totale project
 
-  De productgroep Buitenwanden 15% van het totale project
+  - De productgroep Vloeren 8% van het totale project
 
-  De productgroep Vloerafwerking 20% van het totale project''')
+  - De productgroep Buitenwanden 15% van het totale project
+
+  - De productgroep Vloerafwerking 20% van het totale project''')
 
   fig1 = px.pie(values=[20, 15, 7, 15, 8, 15, 20], names=['Keuken', 'Sanitair', 'Na-isolatie', 'Trappen', 'Vloeren', 'Buitenwanden', 'Vloerafwerking'], color_discrete_sequence=px.colors.sequential.RdBu)
 
