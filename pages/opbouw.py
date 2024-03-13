@@ -39,7 +39,7 @@ with tab1:
 
   st.markdown("**Wegingen**")
   st.markdown("Hieronder kan er per thema aangegeven worden of deze zwaarder of minder zwaar meeweegt tijdens dit project. "
-   "Als een thema neutraal is kan deze op '0' blijven staan. Als een thema zwaader meeweegt kan deze op +1 of +2 staan, "
+   "Als een thema neutraal is kan deze op '0' blijven staan. Als een thema zwaarder meeweegt kan deze op +1 of +2 staan, "
    "als een thema minder zwaar meeweegt kan deze op -1 of -2 gezet worden. ")
   st.number_input("Vul de weging in voor het thema 'Woonbeleving' in dit project", value=0, min_value = -2, max_value = 2)
   st.number_input("Vul de weging in voor het thema 'Duurzaam' in dit project", value=0, min_value = -2, max_value = 2)
@@ -70,7 +70,7 @@ with tab2:
 
 
 # Maak een lijnplot met Plotly Express
-  fig = px.bar(x=['Prijs', 'Woonbeleving', 'Duurzaamheid'], y=[1, 2, -2], color=[1, 2, 0], color_continuous_scale='blues', range_color=(-2, 2))
+  fig = px.bar(x=['Prijs', 'Woonbeleving', 'Mate van losmaakbaarheid', 'Toepassingsmogelijkheden'], y=[-1, 2, -2, 1], color=[-1, 2, -2, 1], color_continuous_scale='blues', range_color=(-2, 2))
   fig.update_yaxes(range=[-2, 2], tickvals=[-2, -1, 0, 1, 2], tickmode='array')
   st.plotly_chart(fig)
 
