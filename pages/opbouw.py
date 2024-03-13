@@ -41,9 +41,14 @@ with tab1:
   st.markdown("Hieronder kan er per thema aangegeven worden of deze zwaarder of minder zwaar meeweegt tijdens dit project. "
    "Als een thema neutraal is kan deze op '0' blijven staan. Als een thema zwaarder meeweegt kan deze op +1 of +2 staan, "
    "als een thema minder zwaar meeweegt kan deze op -1 of -2 gezet worden. ")
-  st.number_input("Vul de weging in voor het thema 'Woonbeleving' in dit project", value=0, min_value = -2, max_value = 2)
-  st.number_input("Vul de weging in voor het thema 'Duurzaam' in dit project", value=0, min_value = -2, max_value = 2)
-  st.number_input("Vul de weging in voor het thema 'Prijs' in dit project", value=0, min_value = -2, max_value = 2)
+  st.number_input("De weging in voor het thema 'Woonbeleving' in dit project", value=0, min_value = -2, max_value = 2)
+  st.number_input("De weging in voor het thema 'Duurzaam' in dit project", value=0, min_value = -2, max_value = 2)
+  st.number_input("De weging in voor het thema 'Prijs' in dit project", value=0, min_value = -2, max_value = 2)
+
+  st.markdown("Wat is het aandeel van de productgroepen tot nu toe?")
+  st.number_input("Het aandeel van de productgroep 'Keuken' in dit project", value=0, min_value = 0, max_value = 100)
+  st.number_input("Het aandeel van de productgroep 'Sanitair' in dit project", value=0, min_value = 0, max_value = 100)
+  st.number_input("Het aandeel van de productgroep 'Na-isolatie' in dit project", value=0, min_value = 0, max_value = 100)
 
 with tab2:
   st.markdown("In dit project, is het optimaal om het aandeel van de productgroepen als volgt in te delen:")
