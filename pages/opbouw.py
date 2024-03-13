@@ -50,7 +50,6 @@ with tab2:
   st.markdown('''De productgroep Keukens 20% van het totale project
 
   De productgroep Sanitair 15% van het totale project
-
   De productgroep Na-isolatie 7% van het totale project
 
   De productgroep Trappen 15% van het totale project
@@ -60,6 +59,10 @@ with tab2:
   De productgroep Buitenwanden 15% van het totale project
 
   De productgroep Vloerafwerking 20% van het totale project''')
+
+  fig1 = px.pie(values=[20, 15, 7, 15, 8, 15, 20], names=['Keuken', 'Sanitair', 'Na-isolatie', 'Trappen', 'Vloeren', 'Buitenwanden', 'Vloerafwerking'], color_discrete_sequence=px.colors.sequential.RdBu)
+
+  st.plotly_chart(fig1)
 
   st.markdown("Hierbij wordt rekening gehouden met de volgende wegingen van de thema's")
 
