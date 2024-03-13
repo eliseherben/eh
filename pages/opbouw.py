@@ -47,7 +47,8 @@ with tab1:
 
 with tab2:
   st.markdown("In dit project, is het optimaal om het aandeel van de productgroepen als volgt in te delen:")
-  st.markdown('''- De productgroep Keukens 20% van het totale project
+  st.markdown('''
+  - De productgroep Keukens 20% van het totale project
 
   - De productgroep Sanitair 15% van het totale project
 
