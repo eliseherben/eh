@@ -25,7 +25,7 @@ def authenticated_menu():
         st.sidebar.page_link("pages/2functies.py", label = "Optimalisatie")
         
     if st.session_state.fase == 'Begin fase':
-        st.sidebar.page_link("pages/opbouw.py", label = "Inleiding")
+        st.sidebar.page_link("pages/simplex.py", label = "Simplex")
         
     if st.session_state.fase == 'Budget te veel':
         st.sidebar.page_link("pages/implementeren.py", label = "Productgroepen")
