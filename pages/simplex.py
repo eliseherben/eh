@@ -1,77 +1,88 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[5]:
+# In[2]:
 
 
 # pip install pulp
 
 
-# In[4]:
+# In[3]:
 
 
 import streamlit as st
 import pandas as pd
 import plotly.express as px
-from pulp import *
+import pulp as pl
 
 
-# In[ ]:
+# In[4]:
+
+
+test1 =[1, 2, 3, 4, 5]
+
+[test1[i] * [2, 4, 6, 8, 10][i] for i in range(5)]
+
+
+# In[6]:
 
 
 # Creëer een LP probleem
-prob = LpProblem("Maximize", LpMaximize)
+prob = pl.LpProblem("Eigen Haard", pl.LpMaximize)
 
 # Definieer de variabelen
-keuken = LpVariable("keuken", lowBound=0)
-sanitair = LpVariable("sanitair", lowBound=0)
-buitenwanden = LpVariable("buitenwanden", lowBound=0)
-binnenwanden = LpVariable("binnenwanden", lowBound=0)
-elektra = LpVariable("elektra", lowBound=0)
+keuken = pl.LpVariable("keuken", lowBound=0)
+sanitair = pl.LpVariable("sanitair", lowBound=0)
+buitenwanden = pl.LpVariable("buitenwanden", lowBound=0)
+binnenwanden = pl.LpVariable("binnenwanden", lowBound=0)
+elektra = pl.LpVariable("elektra", lowBound=0)
+
+variabelen = [keuken, sanitair, buitenwanden, binnenwanden, elektra]
 
 #Impact themas op productgroepen
-prijs_keuken = 2
-prijs_sanitair = 5
-prijs_buitenwanden = 6
-prijs_binnenwanden = 4
-prijs_elektra = 8
+impact_prijs = [2, 5, 6, 4, 8]
+# prijs_keuken = 2
+# prijs_sanitair = 5
+# prijs_buitenwanden = 6
+# prijs_binnenwanden = 4
+# prijs_elektra = 8
 
-woonbeleving_keuken = 5
-woonbeleving_sanitair = 4
-woonbeleving_buitenwanden = 6
-woonbeleving_binnenwanden = 2
-woonbeleving_elektra = 4
+impact_woonbeleving = [5, 4, 6, 2, 4]
+# woonbeleving_keuken = 5
+# woonbeleving_sanitair = 4
+# woonbeleving_buitenwanden = 6
+# woonbeleving_binnenwanden = 2
+# woonbeleving_elektra = 4
 
-duurzaamheid_keuken = 7
-duurzaamheid_sanitair = 5
-duurzaamheid_buitenwanden = 7
-duurzaamheid_binnenwanden = 3
-duurzaamheid_elektra = 4
+impact_duurzaamheid = [7, 3, 6, 8, 5]
+# duurzaamheid_keuken = 7
+# duurzaamheid_sanitair = 5
+# duurzaamheid_buitenwanden = 7
+# duurzaamheid_binnenwanden = 3
+# duurzaamheid_elektra = 4
+
+budget = 23
 
 # Definieer de doelfunctie
-prijs = (prijs_keuken * keuken + prijs_sanitair * sanitair + prijs_buitenwanden * buitenwanden + 
-         prijs_binnenwanden * binnenwanden + prijs_elektra * elektra)
-
-woonbeleving = (woonbeleving_keuken * keuken + woonbeleving_sanitair * sanitair + woonbeleving_buitenwanden * buitenwanden +
-                woonbeleving_binnenwanden * binnenwanden + woonbeleving_elektra * elektra)
-
-duurzaamheid = (duurzaamheid_keuken * keuken + duurzaamheid_sanitair * sanitair + duurzaamheid_buitenwanden * buitenwanden +
-                duurzaamheid_binnenwanden * binnenwanden + duurzaamheid_elektra * elektra)
+prijs = pl.lpSum(variabelen[i] * impact_prijs[i] for i in range(5))
+woonbeleving = pl.lpSum(variabelen[i] * impact_woonbeleving[i] for i in range(5))
+duurzaamheid = pl.lpSum(variabelen[i] * impact_duurzaamheid[i] for i in range(5))
 
 #wegingen doelfuncties
 weging_prijs = 2
 weging_woonbeleving = 1
 weging_duurzaamheid = 1
 
-prob += -prijs + woonbeleving + duurzaamheid
+prob += -weging_prijs * prijs + weging_woonbeleving * woonbeleving + weging_duurzaamheid * duurzaamheid
+print(prob.objec)
 # prob += 2 * keuken + 3 * sanitair + 4 * buitenwanden + 6 * binnenwanden + 5 * elektra
 
 # Voeg beperkingen toe (voorbeeldbeperkingen)
 prob += keuken + sanitair + buitenwanden + binnenwanden + elektra == 100
-prob += keuken >= 14
-prob += sanitair >= 3
-prob += buitenwanden >= 24
-prob += binnenwanden >= 11
+prob += keuken >= 3
+prob += sanitair >= 16
+prob += buitenwanden >= 12
+prob += binnenwanden >= 15
 prob += elektra >= 1
 
 # Los het probleem op
@@ -80,7 +91,7 @@ status = prob.solve()
 # Toon de resultaten
 print("Optimale oplossing:")
 
-print(LpStatus[status])
+print(pl.LpStatus[status])
 print("keuken = ", keuken.varValue)
 print("sanitair =", sanitair.varValue)
 print("buitenwanden =", buitenwanden.varValue)
@@ -88,6 +99,83 @@ print("binnenwanden =", binnenwanden.varValue)
 print("elektra =", elektra.varValue)
 
 print("Maximale waarde van de doelfunctie:", prob.objective.value())
+
+
+# In[12]:
+
+
+# # Creëer een LP probleem
+# prob = pl.LpProblem("Maximize", pl.LpMaximize)
+
+# # Definieer de variabelen
+# keuken = pl.LpVariable("keuken", lowBound=0)
+# sanitair = pl.LpVariable("sanitair", lowBound=0)
+# buitenwanden = pl.LpVariable("buitenwanden", lowBound=0)
+# binnenwanden = pl.LpVariable("binnenwanden", lowBound=0)
+# elektra = pl.LpVariable("elektra", lowBound=0)
+
+# #Impact themas op productgroepen
+# prijs_keuken = 2
+# prijs_sanitair = 5
+# prijs_buitenwanden = 6
+# prijs_binnenwanden = 4
+# prijs_elektra = 8
+
+# woonbeleving_keuken = 5
+# woonbeleving_sanitair = 4
+# woonbeleving_buitenwanden = 6
+# woonbeleving_binnenwanden = 2
+# woonbeleving_elektra = 4
+
+# duurzaamheid_keuken = 7
+# duurzaamheid_sanitair = 5
+# duurzaamheid_buitenwanden = 7
+# duurzaamheid_binnenwanden = 3
+# duurzaamheid_elektra = 4
+
+# budget = 23
+
+# # Definieer de doelfunctie
+# prijs = (prijs_keuken * keuken + prijs_sanitair * sanitair + prijs_buitenwanden * buitenwanden + 
+#          prijs_binnenwanden * binnenwanden + prijs_elektra * elektra)
+
+# woonbeleving = (woonbeleving_keuken * keuken + woonbeleving_sanitair * sanitair + woonbeleving_buitenwanden * buitenwanden +
+#                 woonbeleving_binnenwanden * binnenwanden + woonbeleving_elektra * elektra)
+
+# duurzaamheid = (duurzaamheid_keuken * keuken + duurzaamheid_sanitair * sanitair + duurzaamheid_buitenwanden * buitenwanden +
+#                 duurzaamheid_binnenwanden * binnenwanden + duurzaamheid_elektra * elektra)
+
+# #wegingen doelfuncties
+# weging_prijs = 2
+# weging_woonbeleving = 1
+# weging_duurzaamheid = 1
+
+# prob += -prijs + woonbeleving + duurzaamheid
+# # prob += 2 * keuken + 3 * sanitair + 4 * buitenwanden + 6 * binnenwanden + 5 * elektra
+
+# # Voeg beperkingen toe (voorbeeldbeperkingen)
+# prob += keuken + sanitair + buitenwanden + binnenwanden + elektra == 100
+# prob += keuken >= 14
+# prob += sanitair >= 3
+# prob += buitenwanden >= 24
+# prob += binnenwanden >= 11
+# prob += elektra >= 1
+# prob += prijs_keuken <= budget
+
+# # Los het probleem op
+# status = prob.solve()
+
+# # Toon de resultaten
+# print("Optimale oplossing:")
+
+# print(pl.LpStatus[status])
+# print("keuken = ", keuken.varValue)
+# print("sanitair =", sanitair.varValue)
+# print("buitenwanden =", buitenwanden.varValue)
+# print("binnenwanden =", binnenwanden.varValue)
+# print("elektra =", elektra.varValue)
+
+# print("Maximale waarde van de doelfunctie:", prob.objective.value())
 
 
 # In[ ]:
@@ -104,7 +192,7 @@ with tab1:
     st.markdown("**Soort project**")
     st.selectbox(
     'Om wat voor soort project gaat het?',
-    ['Nieuwbouw woningen', 'Renovatie'],
+    ['Nieuwbouw woningen', 'Renovatie', 'Planmatig onderhoud', 'Mutatie onderhoud', 'Dagelijks onderhoud'],
     index=None,
     placeholder="Selecteer een soort project"
     )
@@ -112,7 +200,7 @@ with tab1:
     st.markdown("**Projectfase**")
     st.selectbox(
     "Wat is de fase van het project?",
-    ["Initiële fase", "Ontwerp fase"],
+    ['Projectdefinitie', 'Structuurontwerp', 'Voorontwerp', 'Definitief ontwerp', 'Technisch ontwerp bestek', 'Uitvoeringsgereed ontwerp', 'Gebruik'],
     index = None,
     placeholder = "Selecteer de fase van het project"
     )
@@ -174,11 +262,18 @@ with tab2:
 
 with tab3:
     st.markdown("Hieronder kunnen de verschillende aandelen van productgroepen aangepast worden, om daarvan de invloed te zien op de verschillende thema's")
-    keukens = st.slider('Het aandeel van de productgroep Keukens', 0, 100, 20)
-    sanitair = st.slider('Het aandeel van de productgroep Sanitair', 0, 100, 15)
-    isolatie = st.slider('Het aandeel van de productgroep Na-isolatie', 0, 100, 7)
-    trappen = st.slider('Het aandeel van de productgroep Trappen', 0, 100, 15)
-    vloeren = st.slider('Het aandeel van de productgroep Vloeren', 0, 100, 8)
-    buitenwanden = st.slider('Het aandeel van de productgroep Buitenwanden', 0, 100, 15)
-    vloerafwerking = st.slider('Het aandeel van de productgroep Vloerafwerking', 0, 100, 20)
+
+    def max_sliders(waardes):
+        max_waarde = 100 - sum(waardes)
+        return max_waarde
+    
+    keukens = st.slider('Het aandeel van de productgroep Keukens', 0, max_sliders(max_waarde), 20)
+    sanitair = st.slider('Het aandeel van de productgroep Sanitair', 0, max_sliders(max_waarde), 15)
+    isolatie = st.slider('Het aandeel van de productgroep Na-isolatie', 0, max_sliders(max_waarde), 7)
+    trappen = st.slider('Het aandeel van de productgroep Trappen', 0, max_sliders(max_waarde), 15)
+    vloeren = st.slider('Het aandeel van de productgroep Vloeren', 0, max_sliders(max_waarde), 8)
+    buitenwanden = st.slider('Het aandeel van de productgroep Buitenwanden', 0, max_sliders(max_waarde), 15)
+    vloerafwerking = st.slider('Het aandeel van de productgroep Vloerafwerking', 0, max_sliders(max_waarde), 20)
+
+    waardes = [keuken, sanitair, isolatie, trappen, vloeren, buitenwanden, vloerafwerking]
 
