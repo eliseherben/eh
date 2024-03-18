@@ -266,13 +266,13 @@ with tab3:
         max_waarde = 100 - sum(waardes)
         return max_waarde
     
-    keukens = st.slider('Het aandeel van de productgroep Keukens', 0, max_sliders(max_waarde), 20)
-    sanitair = st.slider('Het aandeel van de productgroep Sanitair', 0, max_sliders(max_waarde), 15)
-    isolatie = st.slider('Het aandeel van de productgroep Na-isolatie', 0, max_sliders(max_waarde), 7)
-    trappen = st.slider('Het aandeel van de productgroep Trappen', 0, max_sliders(max_waarde), 15)
-    vloeren = st.slider('Het aandeel van de productgroep Vloeren', 0, max_sliders(max_waarde), 8)
-    buitenwanden = st.slider('Het aandeel van de productgroep Buitenwanden', 0, max_sliders(max_waarde), 15)
-    vloerafwerking = st.slider('Het aandeel van de productgroep Vloerafwerking', 0, max_sliders(max_waarde), 20)
+    keukens = st.slider('Het aandeel van de productgroep Keukens', 0, max_sliders(waardes), 20)
+    sanitair = st.slider('Het aandeel van de productgroep Sanitair', 0, max_sliders(waardes), 15)
+    isolatie = st.slider('Het aandeel van de productgroep Na-isolatie', 0, max_sliders(waardes), 7)
+    trappen = st.slider('Het aandeel van de productgroep Trappen', 0, max_sliders(waardes), 15)
+    vloeren = st.slider('Het aandeel van de productgroep Vloeren', 0, max_sliders(waardes), 8)
+    buitenwanden = st.slider('Het aandeel van de productgroep Buitenwanden', 0, max_sliders(waardes), 15)
+    vloerafwerking = st.slider('Het aandeel van de productgroep Vloerafwerking', 0, max_sliders(waardes), 20)
 
     waardes = [keuken, sanitair, isolatie, trappen, vloeren, buitenwanden, vloerafwerking]
 
