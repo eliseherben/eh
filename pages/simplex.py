@@ -268,16 +268,34 @@ with tab3:
 
     waardes = [0, 0, 0, 0, 0, 0, 0]
     max_values = max_sliders(waardes)
-    keukens = st.slider('Het aandeel van de productgroep Keukens', 0, max_values[0], 20)
-    sanitair = st.slider('Het aandeel van de productgroep Sanitair', 0, max_values[1], 15)
-    isolatie = st.slider('Het aandeel van de productgroep Na-isolatie', 0, max_values[2], 7)
-    trappen = st.slider('Het aandeel van de productgroep Trappen', 0, max_values[3], 15)
-    vloeren = st.slider('Het aandeel van de productgroep Vloeren', 0, max_values[4], 8)
-    buitenwanden = st.slider('Het aandeel van de productgroep Buitenwanden', 0, max_values[5], 15)
-    vloerafwerking = st.slider('Het aandeel van de productgroep Vloerafwerking', 0, max_values[6], 20)
+    keukens = st.slider('Het aandeel van de productgroep Keukens', 0, 100, 20)
+    sanitair = st.slider('Het aandeel van de productgroep Sanitair', 0, 100, 15)
+    isolatie = st.slider('Het aandeel van de productgroep Na-isolatie', 0, 100, 7)
+    trappen = st.slider('Het aandeel van de productgroep Trappen', 0, 100, 15)
+    vloeren = st.slider('Het aandeel van de productgroep Vloeren', 0, 100, 8)
+    buitenwanden = st.slider('Het aandeel van de productgroep Buitenwanden', 0, 100, 15)
+    vloerafwerking = st.slider('Het aandeel van de productgroep Vloerafwerking', 0, 100, 20)
 
-    waardes = [keukens, sanitair, isolatie, trappen, vloeren, buitenwanden, vloerafwerking]
-    max_values = max_sliders(waardes)
+    sum_values = keukens + sanitair + isolatie + trappen + vloeren + buitenwanden + vloerafwerking
+
+    if sum_values > 100:
+        excess = sum_values - 100
+        while excess > 0:
+            if keukens > 0: 
+                keukens -= 1
+            elif sanitair > 0:
+                sanitair -= 1
+            elif isolatie > 0:
+                isolatie -= 1
+            elif trappen > 0:
+                trappen -= 1
+            elif vloeren > 0:
+                vloeren -= 1
+            elif buitenwanden > 0:
+                buitenwanden -= 1
+            elif vloerafwerking > 0:
+                vloerafwerking -= 1
+            excess -= 1
 
     st.markdown(sum(waardes))
 
