@@ -24,7 +24,7 @@ test1 =[1, 2, 3, 4, 5]
 [test1[i] * [2, 4, 6, 8, 10][i] for i in range(5)]
 
 
-# In[6]:
+# In[8]:
 
 
 # Creëer een LP probleem
@@ -74,7 +74,6 @@ weging_woonbeleving = 1
 weging_duurzaamheid = 1
 
 prob += -weging_prijs * prijs + weging_woonbeleving * woonbeleving + weging_duurzaamheid * duurzaamheid
-print(prob.objec)
 # prob += 2 * keuken + 3 * sanitair + 4 * buitenwanden + 6 * binnenwanden + 5 * elektra
 
 # Voeg beperkingen toe (voorbeeldbeperkingen)
