@@ -279,12 +279,12 @@ with tab3:
     trappen_max = max_sliders([keukens, sanitair, isolatie, 0, 0, 0, 0])
     trappen = st.slider('Het aandeel van de productgroep Trappen', 0, trappen_max, 15)
     
-    vloeren_max = max_sliders([keukens, sanitair, isoaltie, trappen, 0, 0, 0])
+    vloeren_max = max_sliders([keukens, sanitair, isolatie, trappen, 0, 0, 0])
     vloeren = st.slider('Het aandeel van de productgroep Vloeren', 0, vloeren_max, 8)
     
-    buitenwanden_max = max_sliders([keukens, sanitair, isoaltie, trappen, vloeren, 0, 0])
+    buitenwanden_max = max_sliders([keukens, sanitair, isolatie, trappen, vloeren, 0, 0])
     buitenwanden = st.slider('Het aandeel van de productgroep Buitenwanden', 0, buitenwanden_max, 15)
     
-    vloerafwerking_max = max_sliders([keukens, sanitair, isoaltie, trappen, vloeren, buitenwanden, 0])
+    vloerafwerking_max = max_sliders([keukens, sanitair, isolatie, trappen, vloeren, buitenwanden, 0])
     vloerafwerking = st.slider('Het aandeel van de productgroep Vloerafwerking', 0, vloerafwerking_max, 20)
 
