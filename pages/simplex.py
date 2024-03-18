@@ -280,6 +280,7 @@ with tab3:
 
     if sum_values > 100:
         excess = sum_values - 100
+        st.markdown(excess)
         while excess > 0:
             if keukens > 0: 
                 keukens -= 1
@@ -296,6 +297,4 @@ with tab3:
             elif vloerafwerking > 0:
                 vloerafwerking -= 1
             excess -= 1
-
-    st.markdown(sum(waardes))
 
