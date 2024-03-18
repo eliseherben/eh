@@ -265,6 +265,8 @@ with tab3:
     def max_sliders(waardes):
         max_waarde = 100 - sum(waardes)
         return max_waarde
+
+    waardes = [20, 15, 7, 15, 8, 15, 20]
     
     keukens = st.slider('Het aandeel van de productgroep Keukens', 0, max_sliders(waardes), 20)
     sanitair = st.slider('Het aandeel van de productgroep Sanitair', 0, max_sliders(waardes), 15)
