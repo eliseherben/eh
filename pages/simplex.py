@@ -18,14 +18,6 @@ from menu import menu_with_redirect
 menu_with_redirect()
 
 
-# In[4]:
-
-
-test1 =[1, 2, 3, 4, 5]
-
-[test1[i] * [2, 4, 6, 8, 10][i] for i in range(5)]
-
-
 # In[8]:
 
 
@@ -253,9 +245,9 @@ with tab2:
     
     
     # Maak een lijnplot met Plotly Express
-    fig = px.bar(x=['Prijs', 'Woonbeleving', 'Mate van losmaakbaarheid', 'Toepassingsmogelijkheden'], y=[-1, 2, -2, 1], color=[-1, 2, -2, 1], color_continuous_scale='blues', range_color=(-2, 2))
-    fig.update_yaxes(range=[-2, 2], tickvals=[-2, -1, 0, 1, 2], tickmode='array')
-    st.plotly_chart(fig)
+    # fig = px.bar(x=['Prijs', 'Woonbeleving', 'Mate van losmaakbaarheid', 'Toepassingsmogelijkheden'], y=[-1, 2, -2, 1], color=[-1, 2, -2, 1], color_continuous_scale='blues', range_color=(-2, 2))
+    # fig.update_yaxes(range=[-2, 2], tickvals=[-2, -1, 0, 1, 2], tickmode='array')
+    # st.plotly_chart(fig)
 
 
 # In[ ]:
