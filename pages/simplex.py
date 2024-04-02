@@ -589,7 +589,6 @@ data = {
 }
 
 df = pd.DataFrame(data)
-df.head()
 
 duurzaam = df[['productgroep', 'impact duurzaam']]
 duurzaam = duurzaam.sort_values(by='impact duurzaam', ascending=False)
@@ -597,31 +596,70 @@ duurzaam = duurzaam.reset_index(drop=True)
 
 kosten = df[['productgroep', 'impact kosten']]
 kosten = kosten.sort_values(by='impact kosten', ascending=False)
+kosten = kosten.reset_index(drop=True)
 
 woonbeleving = df[['productgroep', 'impact woonbeleving']]
 woonbeleving = woonbeleving.sort_values(by='impact woonbeleving', ascending=False)
+woonbeleving = woonbeleving.reset_index(drop=True)
 
 kwaliteit = df[['productgroep', 'impact kwaliteit']]
 kwaliteit = kwaliteit.sort_values(by='impact kwaliteit', ascending=False)
+kwaliteit = kwaliteit.reset_index(drop=True)
 
 onderhoud = df[['productgroep', 'impact onderhoud']]
 onderhoud = onderhoud.sort_values(by='impact onderhoud', ascending=False)
-
-duurzaam['productgroep'].iloc[0]
+onderhoud = onderhoud.reset_index(drop=True)
 
 
 # In[10]:
 
 
-st.markdown('** Duurzaam **')
-st.markdown(
-f"""
-De productgroepen die het meeste impact maken op het thema 'Duurzaam':
-- {duurzaam['productgroep'].iloc[0]}
-- {duurzaam['productgroep'].iloc[1]}
-- {duurzaam['productgroep'].iloc[2]}
-"""
-)
+with tab2: 
+    st.markdown('**Duurzaam**')
+    st.markdown(
+    f"""
+    De productgroepen die het meeste impact maken op het thema 'Duurzaam':
+    - {duurzaam['productgroep'].iloc[0]}
+    - {duurzaam['productgroep'].iloc[1]}
+    - {duurzaam['productgroep'].iloc[2]}
+    """
+    )
+    st.markdown('**kosten**')
+    st.markdown(
+    f"""
+    De productgroepen die het meeste impact maken op het thema 'kosten':
+    - {kosten['productgroep'].iloc[0]}
+    - {kosten['productgroep'].iloc[1]}
+    - {kosten['productgroep'].iloc[2]}
+    """
+    )
+    st.markdown('**woonbeleving**')
+    st.markdown(
+    f"""
+    De productgroepen die het meeste impact maken op het thema 'woonbeleving':
+    - {woonbeleving['productgroep'].iloc[0]}
+    - {woonbeleving['productgroep'].iloc[1]}
+    - {woonbeleving['productgroep'].iloc[2]}
+    """
+    )
+    st.markdown('**kwaliteit**')
+    st.markdown(
+    f"""
+    De productgroepen die het meeste impact maken op het thema 'kwaliteit':
+    - {kwaliteit['productgroep'].iloc[0]}
+    - {kwaliteit['productgroep'].iloc[1]}
+    - {kwaliteit['productgroep'].iloc[2]}
+    """
+    )
+    st.markdown('**onderhoud**')
+    st.markdown(
+    f"""
+    De productgroepen die het meeste impact maken op het thema 'onderhoud':
+    - {onderhoud['productgroep'].iloc[0]}
+    - {onderhoud['productgroep'].iloc[1]}
+    - {onderhoud['productgroep'].iloc[2]}
+    """
+    )
 
 
 # In[3]:
