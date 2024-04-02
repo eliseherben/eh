@@ -173,38 +173,6 @@ with tab1:
 # In[ ]:
 
 
-with tab2:
-    st.markdown("In dit project, is het optimaal om het aandeel van de productgroepen als volgt in te delen:")
-    st.markdown('''
-    - De productgroep Keukens is 20% van het totale project
-    
-    - De productgroep Sanitair is 15% van het totale project
-    
-    - De productgroep Na-isolatie is 7% van het totale project
-    
-    - De productgroep Trappen is 15% van het totale project
-    
-    - De productgroep Vloeren is 8% van het totale project
-    
-    - De productgroep Buitenwanden is 15% van het totale project
-    
-    - De productgroep Vloerafwerking is 20% van het totale project''')
-    
-    fig1 = px.pie(values=[20, 15, 7, 15, 8, 15, 20], names=['Keuken', 'Sanitair', 'Na-isolatie', 'Trappen', 'Vloeren', 'Buitenwanden', 'Vloerafwerking'], color_discrete_sequence=px.colors.sequential.RdBu)
-    
-    st.plotly_chart(fig1)
-    
-    # st.markdown("Hierbij wordt rekening gehouden met de volgende wegingen van de thema's")
-    
-    # Maak een lijnplot met Plotly Express
-    # fig = px.bar(x=['Prijs', 'Woonbeleving', 'Mate van losmaakbaarheid', 'Toepassingsmogelijkheden'], y=[-1, 2, -2, 1], color=[-1, 2, -2, 1], color_continuous_scale='blues', range_color=(-2, 2))
-    # fig.update_yaxes(range=[-2, 2], tickvals=[-2, -1, 0, 1, 2], tickmode='array')
-    # st.plotly_chart(fig)
-
-
-# In[ ]:
-
-
 with tab3:
     st.markdown("Hieronder kunnen de verschillende aandelen van productgroepen aangepast worden, om daarvan de invloed te zien op de verschillende thema's")
 
@@ -624,37 +592,37 @@ with tab2:
     - {duurzaam['productgroep'].iloc[2]}
     """
     )
-    st.markdown('**kosten**')
+    st.markdown('**Kosten**')
     st.markdown(
     f"""
-    De productgroepen die het meeste impact maken op het thema 'kosten':
+    De productgroepen die het meeste impact maken op het thema 'Kosten':
     - {kosten['productgroep'].iloc[0]}
     - {kosten['productgroep'].iloc[1]}
     - {kosten['productgroep'].iloc[2]}
     """
     )
-    st.markdown('**woonbeleving**')
+    st.markdown('**Woonbeleving**')
     st.markdown(
     f"""
-    De productgroepen die het meeste impact maken op het thema 'woonbeleving':
+    De productgroepen die het meeste impact maken op het thema 'Woonbeleving':
     - {woonbeleving['productgroep'].iloc[0]}
     - {woonbeleving['productgroep'].iloc[1]}
     - {woonbeleving['productgroep'].iloc[2]}
     """
     )
-    st.markdown('**kwaliteit**')
+    st.markdown('**Kwaliteit**')
     st.markdown(
     f"""
-    De productgroepen die het meeste impact maken op het thema 'kwaliteit':
+    De productgroepen die het meeste impact maken op het thema 'Kwaliteit':
     - {kwaliteit['productgroep'].iloc[0]}
     - {kwaliteit['productgroep'].iloc[1]}
     - {kwaliteit['productgroep'].iloc[2]}
     """
     )
-    st.markdown('**onderhoud**')
+    st.markdown('**Onderhoud**')
     st.markdown(
     f"""
-    De productgroepen die het meeste impact maken op het thema 'onderhoud':
+    De productgroepen die het meeste impact maken op het thema 'Onderhoud':
     - {onderhoud['productgroep'].iloc[0]}
     - {onderhoud['productgroep'].iloc[1]}
     - {onderhoud['productgroep'].iloc[2]}
@@ -662,7 +630,7 @@ with tab2:
     )
 
 
-# In[3]:
+# In[19]:
 
 
 # Creëer een LP probleem
@@ -750,6 +718,19 @@ prob += beveiliging >= 2
 # Los het probleem op
 status = prob.solve()
 
+# Maak een lege lijst om de variabelen en hun waarden op te slaan
+variabelen_waarden = []
+
+# Voeg de variabelen en hun waarden toe aan de lijst
+for var in variabelen:
+    variabelen_waarden.append((var.name, var.varValue))
+
+# Maak een DataFrame van de lijst
+df = pd.DataFrame(variabelen_waarden, columns=['Productgroep', 'Waarde'])
+
+# Toon de DataFrame
+print(df)
+
 # Toon de resultaten
 print("Optimale oplossing:")
 
@@ -782,6 +763,20 @@ print("beveiliging =", beveiliging.varValue)
 
 print("Maximale waarde van de doelfunctie:", prob.objective.value())
 print(prob.objective.value())
+
+
+# In[ ]:
+
+
+with tab2:
+    st.markdown("In dit project, is het optimaal om het aandeel van de productgroepen als volgt in te delen:")
+    
+    for index, row in df.iterrows():
+        st.markdown(f"- De productgroep {row['Productgroep']} is {row['Waarde']}% van het totale project")
+    
+    fig1 = px.pie(values=df['Waarde'], names=df['Productgroep'], color_discrete_sequence=px.colors.sequential.RdBu)
+    
+    st.plotly_chart(fig1)
 
 
 # In[ ]:
