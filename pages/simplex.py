@@ -163,6 +163,9 @@ with tab1:
     weging_kosten = st.number_input("De weging in voor het thema 'Kosten' in dit project", value=0, min_value = -2, max_value = 2)
     weging_onderhoud = st.number_input("De weging in voor het thema 'Onderhoud' in dit project", value=0, min_value = -2, max_value = 2)
     weging_kwaliteit = st.number_input("De weging in voor het thema 'Kwaliteit' in dit project", value=0, min_value = -2, max_value = 2)
+
+    if weging_woonbeleving == 0:
+        weging_woonbeleving +
     
     st.markdown("**Productgroepen**")
     st.markdown("Hierbij kan er aangegeven worden wat het aandeel van de productgroepen momenteel in het project is. Dit is uitgedrukt in percentages. ")
@@ -632,7 +635,7 @@ with tab2:
     )
 
 
-# In[38]:
+# In[40]:
 
 
 # Creëer een LP probleem
@@ -684,7 +687,7 @@ kwaliteit = pl.lpSum(variabelen[i] * impact_kwaliteit[i] for i in range(25))
 
 impact_onderhoud = [0.042, 0, 0.25, 0, 0.214, 0, 0.086, 0, 0, 0, 0.308, 0.4, 0, 0, 0, 0, 0.091, 0.083, 0.667, 0, 0, 1, 0, 0, 0]
 onderhoud = pl.lpSum(variabelen[i] * impact_onderhoud[i] for i in range(25))
-
+print(onderhoud) 
 prob += weging_duurzaam * duurzaamheid - weging_kosten * prijs + weging_woonbeleving * woonbeleving + weging_kwaliteit * kwaliteit + weging_onderhoud * onderhoud
 # prob += 2 * keuken + 3 * sanitair + 4 * buitenwanden + 6 * binnenwanden + 5 * elektra
 
