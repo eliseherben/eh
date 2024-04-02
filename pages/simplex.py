@@ -689,31 +689,31 @@ prob += 0.3 * duurzaamheid - 0.1 * prijs + 0.2 * woonbeleving + 0.1 * kwaliteit 
 # Voeg beperkingen toe (voorbeeldbeperkingen)
 prob += buitenkozijnen + lift + binnenkozijnen + binnenwandafwerkingen + vloerafwerkingen + plafonds + sanitair + keuken + buitenwanden + vloeren + daken + hoofddraagconstructie + na_isolatie + riolering_hwa + terreininrichting + verwarming_koeling + luchtbehandeling + gebouwvoorzieningen + binnenwanden + trappen_hellingen + luiken_vensters + balustrades_leuningen+ water_installaties + elektrische_installaties + beveiliging == 100
 
-prob += buitenkozijnen >= 14
-prob += lift >= 1
-prob += binnenkozijnen >= 6
-prob += binnenwandafwerkingen >= 4
-prob += vloerafwerkingen >= 7
-prob += plafonds >= 3
-prob += sanitair >= 3
-prob += keuken >= 2
-prob += buitenwanden >= 8 
-prob += vloeren >= 1
-prob += daken >= 7
-prob += hoofddraagconstructie >= 1
-prob += na_isolatie >= 2
-prob += riolering_hwa >= 6 
-prob += terreininrichting >= 3
-prob += verwarming_koeling >= 4
-prob += luchtbehandeling >= 4
-prob += gebouwvoorzieningen >= 4
-prob += binnenwanden >= 3
-prob += trappen_hellingen >= 3
-prob += luiken_vensters >= 2
-prob += balustrades_leuningen >= 1
-prob += water_installaties  >= 3
-prob += elektrische_installaties >= 2
-prob += beveiliging >= 2
+# prob += buitenkozijnen >= 14
+# prob += lift >= 1
+# prob += binnenkozijnen >= 6
+# prob += binnenwandafwerkingen >= 4
+# prob += vloerafwerkingen >= 7
+# prob += plafonds >= 3
+# prob += sanitair >= 3
+# prob += keuken >= 2
+# prob += buitenwanden >= 8 
+# prob += vloeren >= 1
+# prob += daken >= 7
+# prob += hoofddraagconstructie >= 1
+# prob += na_isolatie >= 2
+# prob += riolering_hwa >= 6 
+# prob += terreininrichting >= 3
+# prob += verwarming_koeling >= 4
+# prob += luchtbehandeling >= 4
+# prob += gebouwvoorzieningen >= 4
+# prob += binnenwanden >= 3
+# prob += trappen_hellingen >= 3
+# prob += luiken_vensters >= 2
+# prob += balustrades_leuningen >= 1
+# prob += water_installaties  >= 3
+# prob += elektrische_installaties >= 2
+# prob += beveiliging >= 2
 
 # Los het probleem op
 status = prob.solve()
@@ -769,7 +769,7 @@ print(prob.objective.value())
 
 
 with tab2:
-    st.markdown("In dit project, is het optimaal om het aandeel van de productgroepen als volgt in te delen:")
+    st.markdown("**In dit project, is het optimaal om het aandeel van de productgroepen als volgt in te delen:**")
     
     for index, row in df.iterrows():
         st.markdown(f"- De productgroep {row['Productgroep']} is {row['Waarde']}% van het totale project")
