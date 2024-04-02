@@ -164,8 +164,8 @@ with tab1:
     weging_onderhoud = st.number_input("De weging in voor het thema 'Onderhoud' in dit project", value=0, min_value = -2, max_value = 2)
     weging_kwaliteit = st.number_input("De weging in voor het thema 'Kwaliteit' in dit project", value=0, min_value = -2, max_value = 2)
 
-    if weging_woonbeleving == 0:
-        weging_woonbeleving +
+    # if weging_woonbeleving == 0:
+    #     weging_woonbeleving +
     
     st.markdown("**Productgroepen**")
     st.markdown("Hierbij kan er aangegeven worden wat het aandeel van de productgroepen momenteel in het project is. Dit is uitgedrukt in percentages. ")
