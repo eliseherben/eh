@@ -1,24 +1,24 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
+# In[21]:
 
 
 # pip install pulp
 
 
-# In[2]:
+# In[22]:
 
 
 import streamlit as st
 import pandas as pd
 import plotly.express as px
 import pulp as pl
-# from menu import menu_with_redirect
-# menu_with_redirect()
+from menu import menu_with_redirect
+menu_with_redirect()
 
 
-# In[6]:
+# In[23]:
 
 
 # Creëer een LP probleem
@@ -124,14 +124,14 @@ print(prob.objective.value()/0.35)
 # als de impact cijfers integers zijn dan kunnen de weighted dingen niet integers zijn, om te voorkomen dat er 0 uit komt bij een van de opties
 # 
 
-# In[ ]:
+# In[24]:
 
 
 st.title("Eigen Haard")
 tab1, tab2, tab3 = st.tabs(["Input", "Optimalisatie", "Aanpassingen"])
 
 
-# In[ ]:
+# In[25]:
 
 
 with tab1:
@@ -158,9 +158,9 @@ with tab1:
     st.markdown("Hieronder kan er per thema aangegeven worden of deze zwaarder of minder zwaar meeweegt tijdens dit project. "
     "Als een thema neutraal is kan deze op '0' blijven staan. Als een thema zwaarder meeweegt kan deze op +1 of +2 staan, "
     "als een thema minder zwaar meeweegt kan deze op -1 of -2 gezet worden. ")
-    st.number_input("De weging in voor het thema 'Woonbeleving' in dit project", value=0, min_value = -2, max_value = 2)
-    st.number_input("De weging in voor het thema 'Duurzaam' in dit project", value=0, min_value = -2, max_value = 2)
-    st.number_input("De weging in voor het thema 'Prijs' in dit project", value=0, min_value = -2, max_value = 2)
+    wb = st.number_input("De weging in voor het thema 'Woonbeleving' in dit project", value=0, min_value = -2, max_value = 2)
+    dz = st.number_input("De weging in voor het thema 'Duurzaam' in dit project", value=0, min_value = -2, max_value = 2)
+    k = st.number_input("De weging in voor het thema 'Prijs' in dit project", value=0, min_value = -2, max_value = 2)
     
     st.markdown("**Productgroepen**")
     st.markdown("Hierbij kan er aangegeven worden wat het aandeel van de productgroepen momenteel in het project is. Dit is uitgedrukt in percentages. ")
@@ -170,7 +170,7 @@ with tab1:
 
 
 
-# In[ ]:
+# In[26]:
 
 
 with tab3:
@@ -205,7 +205,7 @@ with tab3:
 
 # test op basis van literatuur
 
-# In[6]:
+# In[27]:
 
 
 # Creëer een LP probleem
@@ -237,7 +237,7 @@ print("x2 =", x2.varValue)
 print("Maximale waarde van de doelfunctie:", z1.objective.value())
 
 
-# In[7]:
+# In[28]:
 
 
 # Creëer een LP probleem
@@ -269,7 +269,7 @@ print("x2 =", x2.varValue)
 print("Maximale waarde van de doelfunctie:", z2.objective.value())
 
 
-# In[8]:
+# In[29]:
 
 
 # Creëer een LP probleem
@@ -301,7 +301,7 @@ print("x2 =", x2.varValue)
 print("Maximale waarde van de doelfunctie:", z3.objective.value())
 
 
-# In[10]:
+# In[30]:
 
 
 # Creëer een LP probleem
@@ -337,7 +337,7 @@ print("x2 =", x2.varValue)
 print("Maximale waarde van de doelfunctie:", lda.objective.value())
 
 
-# In[11]:
+# In[31]:
 
 
 # Creëer een LP probleem
@@ -390,7 +390,7 @@ print("Maximale waarde van de doelfunctie:", z.objective.value())
 # x5 >= 1
 # 
 
-# In[5]:
+# In[32]:
 
 
 # Creëer een LP probleem
@@ -426,7 +426,7 @@ print("x4 = ", x4.varValue)
 print("Maximale waarde van de doelfunctie f1:", f1.objective.value())
 
 
-# In[6]:
+# In[33]:
 
 
 # Creëer een LP probleem
@@ -462,7 +462,7 @@ print("x4 = ", x4.varValue)
 print("Maximale waarde van de doelfunctie f2:", f2.objective.value())
 
 
-# In[7]:
+# In[34]:
 
 
 # Creëer een LP probleem
@@ -498,7 +498,7 @@ print("x4 = ", x4.varValue)
 print("Maximale waarde van de doelfunctie f3:", f3.objective.value())
 
 
-# In[16]:
+# In[35]:
 
 
 # Creëer een LP probleem
@@ -539,7 +539,7 @@ print("Maximale waarde van de doelfunctie f3:", y1.objective.value())
 
 # **op basis van impact waardes van materialenlijst**
 
-# In[18]:
+# In[36]:
 
 
 data = {
@@ -579,7 +579,7 @@ onderhoud = onderhoud.sort_values(by='impact onderhoud', ascending=False)
 onderhoud = onderhoud.reset_index(drop=True)
 
 
-# In[10]:
+# In[37]:
 
 
 with tab2: 
@@ -630,7 +630,7 @@ with tab2:
     )
 
 
-# In[19]:
+# In[38]:
 
 
 # Creëer een LP probleem
@@ -683,7 +683,7 @@ kwaliteit = pl.lpSum(variabelen[i] * impact_kwaliteit[i] for i in range(25))
 impact_onderhoud = [0.042, 0, 0.25, 0, 0.214, 0, 0.086, 0, 0, 0, 0.308, 0.4, 0, 0, 0, 0, 0.091, 0.083, 0.667, 0, 0, 1, 0, 0, 0]
 onderhoud = pl.lpSum(variabelen[i] * impact_onderhoud[i] for i in range(25))
 
-prob += 0.3 * duurzaamheid - 0.1 * prijs + 0.2 * woonbeleving + 0.1 * kwaliteit + 0.3 * onderhoud
+prob += dz * duurzaamheid - k * prijs + wb * woonbeleving + 0.1 * kwaliteit + 0.3 * onderhoud
 # prob += 2 * keuken + 3 * sanitair + 4 * buitenwanden + 6 * binnenwanden + 5 * elektra
 
 # Voeg beperkingen toe (voorbeeldbeperkingen)
