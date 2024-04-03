@@ -221,7 +221,7 @@ impact_onderhoud = [0.042, 0, 0.25, 0, 0.214, 0, 0.086, 0, 0, 0, 0.308, 0.4, 0, 
 onderhoud = pl.lpSum(variabelen[i] * impact_onderhoud[i] for i in range(25))
 print(prijs) 
 
-prob += 1 * duurzaamheid - 1 * prijs + 1 * woonbeleving + 1 * kwaliteit + 1 * onderhoud
+prob += weging_duurzaamheid * duurzaamheid - weging_kosten * prijs + weging_woonbeleving * woonbeleving + weging_kwaliteit * kwaliteit + weging_onderhoud * onderhoud
 # prob += 2 * keuken + 3 * sanitair + 4 * buitenwanden + 6 * binnenwanden + 5 * elektra
 
 # Voeg beperkingen toe (voorbeeldbeperkingen)
@@ -455,11 +455,7 @@ with tab3:
 
 with tab3:
     col1, col2 = st.columns(2)
-    with col1:
-        st.markdown("**optimalisatie**")
-        for index, row in df.iterrows():
-            st.markdown(f"- {row['Productgroep']}: {row['Waarde']}%")
-        
+
     with col2:
         st.markdown("**aanpassing**")
         variabelen = [buitenwanden, binnenwanden, vloeren, trappen_hellingen, daken, hoofddraagconstructie, buitenkozijnen, binnenkozijnen, luiken_vensters, 
@@ -492,6 +488,13 @@ with tab3:
         impact_onderhoud = [0.042, 0, 0.25, 0, 0.214, 0, 0.086, 0, 0, 0, 0.308, 0.4, 0, 0, 0, 0, 0.091, 0.083, 0.667, 0, 0, 1, 0, 0, 0]
         onderhoud = sum([variabelen[i] * impact_onderhoud[i] for i in range(25)])
         st.markdown(f"score onderhoud: {onderhoud}")  
+
+    with col1:
+        st.markdown("**optimalisatie**")
+        for index, row in df.iterrows():
+            st.markdown(f"- {row['Productgroep']}: {row['Waarde']}%")
+        for index, row in df.interrows():
+            st.markdown(f"score duurzaamheid: {sum([row['Waarde'] * impact_duurzaamheid[i] for i in range(25)])
 
 
 # In[ ]:
