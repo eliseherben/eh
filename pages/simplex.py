@@ -18,109 +18,6 @@ from menu import menu_with_redirect
 menu_with_redirect()
 
 
-# In[23]:
-
-
-# Creëer een LP probleem
-prob = pl.LpProblem("Eigen Haard", pl.LpMaximize)
-
-# Definieer de variabelen
-buitenkozijnen = pl.LpVariable("buitenkozijnen", lowBound=0)
-lift = pl.LpVariable("lift", lowBound=0)
-binnenkozijnen = pl.LpVariable("binnenkozijnen", lowBound=0)
-binnenwandafwerkingen = pl.LpVariable("binnenwandafwerkingen", lowBound=0)
-vloerafwerkingen = pl.LpVariable("vloerafwerkingen", lowBound=0)
-plafonds = pl.LpVariable("plafonds", lowBound=0)
-sanitair = pl.LpVariable("sanitair", lowBound=0)
-keuken = pl.LpVariable("keuken", lowBound=0)
-buitenwanden = pl.LpVariable("buitenwanden", lowBound=0)
-vloeren = pl.LpVariable("vloeren", lowBound=0)
-daken = pl.LpVariable("daken", lowBound=0)
-hoofddraagconstructie = pl.LpVariable("hoofddraagconstructie", lowBound=0)
-na_isolatie = pl.LpVariable("na_isolatie", lowBound=0)
-riolering_hwa = pl.LpVariable("riolering_hwa", lowBound=0)
-terreininrichting = pl.LpVariable("terreininrichting", lowBound=0)
-verwarming_koeling = pl.LpVariable("verwarming_koeling", lowBound=0)
-luchtbehandeling = pl.LpVariable("luchtbehandeling", lowBound=0)
-gebouwvoorzieningen = pl.LpVariable("gebouwvoorzieningen", lowBound=0)
-binnenwanden = pl.LpVariable("binnenwanden", lowBound=0)
-trappen_hellingen = pl.LpVariable("trappen_hellingen", lowBound=0)
-luiken_vensters = pl.LpVariable("luiken_vensters", lowBound=0)
-balustrades_leuningen = pl.LpVariable("balustrades_leuningen", lowBound=0)
-water_installaties = pl.LpVariable("water_installaties", lowBound=0)
-elektrische_installaties = pl.LpVariable("elektrische_installaties", lowBound=0)
-beveiliging = pl.LpVariable("beveiliging", lowBound=0)
-
-keuken = pl.LpVariable("keuken", lowBound=0)
-sanitair = pl.LpVariable("sanitair", lowBound=0)
-buitenwanden = pl.LpVariable("buitenwanden", lowBound=0)
-binnenwanden = pl.LpVariable("binnenwanden", lowBound=0)
-elektra = pl.LpVariable("elektra", lowBound=0)
-
-variabelen = [keuken, sanitair, buitenwanden, binnenwanden, elektra]
-
-#Impact themas op productgroepen
-impact_prijs = [2, 5, 6, 4, 8]
-# prijs_keuken = 2
-# prijs_sanitair = 5
-# prijs_buitenwanden = 6
-# prijs_binnenwanden = 4
-# prijs_elektra = 8
-
-impact_woonbeleving = [5, 4, 6, 2, 4]
-# woonbeleving_keuken = 5
-# woonbeleving_sanitair = 4
-# woonbeleving_buitenwanden = 6
-# woonbeleving_binnenwanden = 2
-# woonbeleving_elektra = 4
-
-impact_duurzaamheid = [7, 3, 6, 8, 5]
-# duurzaamheid_keuken = 7
-# duurzaamheid_sanitair = 5
-# duurzaamheid_buitenwanden = 7
-# duurzaamheid_binnenwanden = 3
-# duurzaamheid_elektra = 4
-
-budget = 23
-
-# Definieer de doelfunctie
-prijs = pl.lpSum(variabelen[i] * impact_prijs[i] for i in range(5))
-woonbeleving = pl.lpSum(variabelen[i] * impact_woonbeleving[i] for i in range(5))
-duurzaamheid = pl.lpSum(variabelen[i] * impact_duurzaamheid[i] for i in range(5))
-
-#wegingen doelfuncties
-weging_prijs = 0.1
-weging_woonbeleving = 0.05
-weging_duurzaamheid = 0.2
-
-prob += -weging_prijs * prijs + weging_woonbeleving * woonbeleving + weging_duurzaamheid * duurzaamheid
-# prob += 2 * keuken + 3 * sanitair + 4 * buitenwanden + 6 * binnenwanden + 5 * elektra
-
-# Voeg beperkingen toe (voorbeeldbeperkingen)
-prob += keuken + sanitair + buitenwanden + binnenwanden + elektra == 100
-prob += keuken >= 3
-prob += sanitair >= 16
-prob += buitenwanden >= 12
-prob += binnenwanden >= 15
-prob += elektra >= 1
-
-# Los het probleem op
-status = prob.solve()
-
-# Toon de resultaten
-print("Optimale oplossing:")
-
-print(pl.LpStatus[status])
-print("keuken = ", keuken.varValue)
-print("sanitair =", sanitair.varValue)
-print("buitenwanden =", buitenwanden.varValue)
-print("binnenwanden =", binnenwanden.varValue)
-print("elektra =", elektra.varValue)
-
-print("Maximale waarde van de doelfunctie:", prob.objective.value())
-print(prob.objective.value()/0.35)
-
-
 # als de impact cijfers integers zijn dan kunnen de weighted dingen niet integers zijn, om te voorkomen dat er 0 uit komt bij een van de opties
 # 
 
@@ -130,6 +27,8 @@ print(prob.objective.value()/0.35)
 st.title("Eigen Haard")
 tab1, tab2, tab3 = st.tabs(["Input", "Optimalisatie", "Aanpassingen"])
 
+
+# **input tab**
 
 # In[25]:
 
@@ -175,374 +74,7 @@ with tab1:
 
 
 
-# In[26]:
-
-
-with tab3:
-    st.markdown("Hieronder kunnen de verschillende aandelen van productgroepen aangepast worden, om daarvan de invloed te zien op de verschillende thema's")
-
-    def max_sliders(waardes):
-        max_waarde = 100 - sum(waardes)
-        return max_waarde
-
-    waardes = [0, 0, 0, 0, 0, 0, 0]
-    keukens_max = max_sliders(waardes)
-    keukens = st.slider('Het aandeel van de productgroep Keukens', 0, keukens_max, 0)
-    
-    sanitair_max = max_sliders([keukens, 0, 0, 0, 0, 0, 0])
-    sanitair = st.slider('Het aandeel van de productgroep Sanitair', 0, sanitair_max, 0)
-    
-    isolatie_max = max_sliders([keukens, sanitair, 0, 0, 0, 0, 0])
-    isolatie = st.slider('Het aandeel van de productgroep Na-isolatie', 0, isolatie_max, 0)
-    
-    trappen_max = max_sliders([keukens, sanitair, isolatie, 0, 0, 0, 0])
-    trappen = st.slider('Het aandeel van de productgroep Trappen', 0, trappen_max, 0)
-    
-    vloeren_max = max_sliders([keukens, sanitair, isolatie, trappen, 0, 0, 0])
-    vloeren = st.slider('Het aandeel van de productgroep Vloeren', 0, vloeren_max, 0)
-    
-    buitenwanden_max = max_sliders([keukens, sanitair, isolatie, trappen, vloeren, 0, 0])
-    buitenwanden = st.slider('Het aandeel van de productgroep Buitenwanden', 0, buitenwanden_max, 0)
-    
-    vloerafwerking_max = max_sliders([keukens, sanitair, isolatie, trappen, vloeren, buitenwanden, 0])
-    vloerafwerking = st.slider('Het aandeel van de productgroep Vloerafwerking', 0, vloerafwerking_max, 0)
-
-
-# test op basis van literatuur
-
-# In[27]:
-
-
-# Creëer een LP probleem
-z1 = pl.LpProblem("Maximize", pl.LpMaximize)
-
-# Definieer de variabelen
-x0 = pl.LpVariable("x0", lowBound=0)
-x1 = pl.LpVariable("x1", lowBound=0)
-x2 = pl.LpVariable("x2", lowBound=0)
-
-z1 += 9*x0 + 4*x1 + 5*x2
-
-# Voeg beperkingen toe (voorbeeldbeperkingen)
-z1 += 4*x0 + 2*x1 + 3*x2 <= 5
-z1 += 5*x0 + 3*x1 + 2*x2 <= 9
-z1 += 3*x0 + 2*x1 + 7*x2 <= 7
-
-# Los het probleem op
-status = z1.solve()
-
-# Toon de resultaten
-print("Optimale oplossing:")
-
-print(pl.LpStatus[status])
-print("x0 = ", x0.varValue)
-print("x1 =", x1.varValue)
-print("x2 =", x2.varValue)
-
-print("Maximale waarde van de doelfunctie:", z1.objective.value())
-
-
-# In[28]:
-
-
-# Creëer een LP probleem
-z2 = pl.LpProblem("Maximize", pl.LpMaximize)
-
-# Definieer de variabelen
-x0 = pl.LpVariable("x0", lowBound=0)
-x1 = pl.LpVariable("x1", lowBound=0)
-x2 = pl.LpVariable("x2", lowBound=0)
-
-z2 += 3*x0 + x1 + 5*x2
-
-# Voeg beperkingen toe (voorbeeldbeperkingen)
-z2 += 4*x0 + 2*x1 + 3*x2 <= 5
-z2 += 5*x0 + 3*x1 + 2*x2 <= 9
-z2 += 3*x0 + 2*x1 + 7*x2 <= 7
-
-# Los het probleem op
-status = z2.solve()
-
-# Toon de resultaten
-print("Optimale oplossing:")
-
-print(pl.LpStatus[status])
-print("x0 = ", x0.varValue)
-print("x1 =", x1.varValue)
-print("x2 =", x2.varValue)
-
-print("Maximale waarde van de doelfunctie:", z2.objective.value())
-
-
-# In[29]:
-
-
-# Creëer een LP probleem
-z3 = pl.LpProblem("Maximize", pl.LpMaximize)
-
-# Definieer de variabelen
-x0 = pl.LpVariable("x0", lowBound=0)
-x1 = pl.LpVariable("x1", lowBound=0)
-x2 = pl.LpVariable("x2", lowBound=0)
-
-z3 += x0 + 2*x1 + 3*x2
-
-# Voeg beperkingen toe (voorbeeldbeperkingen)
-z3 += 4*x0 + 2*x1 + 3*x2 <= 5
-z3 += 5*x0 + 3*x1 + 2*x2 <= 9
-z3 += 3*x0 + 2*x1 + 7*x2 <= 7
-
-# Los het probleem op
-status = z3.solve()
-
-# Toon de resultaten
-print("Optimale oplossing:")
-
-print(pl.LpStatus[status])
-print("x0 = ", x0.varValue)
-print("x1 =", x1.varValue)
-print("x2 =", x2.varValue)
-
-print("Maximale waarde van de doelfunctie:", z3.objective.value())
-
-
-# In[30]:
-
-
-# Creëer een LP probleem
-lda = pl.LpProblem("Minimize", pl.LpMinimize)
-
-# Definieer de variabelen
-x0 = pl.LpVariable("x0", lowBound=0)
-x1 = pl.LpVariable("x1", lowBound=0)
-x2 = pl.LpVariable("x2", lowBound=0)
-y = pl.LpVariable("y", lowBound=0)
-
-lda += y
-
-# Voeg beperkingen toe (voorbeeldbeperkingen)
-lda += 9*x0 + 4*x1 + 5*x2 + 1.75*y >= 11.25
-lda += 3*x0 + x1 + 5*x2 + 1.92*y >= 5.67
-lda += x0 + 2*x1 + 3*x2 + 3.75*y >= 5
-lda += 4*x0 + 2*x1 + 3*x2 <= 5
-lda += 5*x0 + 3*x1 + 2*x2 <= 9
-lda += 3*x0 + 2*x1 + 7*x2 <= 7
-
-# Los het probleem op
-status = lda.solve()
-
-# Toon de resultaten
-print("Optimale oplossing:")
-
-print(pl.LpStatus[status])
-print("x0 = ", x0.varValue)
-print("x1 =", x1.varValue)
-print("x2 =", x2.varValue)
-
-print("Maximale waarde van de doelfunctie:", lda.objective.value())
-
-
-# In[31]:
-
-
-# Creëer een LP probleem
-z = pl.LpProblem("Maximize", pl.LpMaximize)
-
-# Definieer de variabelen
-x0 = pl.LpVariable("x0", lowBound=0)
-x1 = pl.LpVariable("x1", lowBound=0)
-x2 = pl.LpVariable("x2", lowBound=0)
-
-z += 1.53*x0 + 0.93*x1 + 1.93*x2
-
-# Voeg beperkingen toe (voorbeeldbeperkingen)
-z += 4*x0 + 2*x1 + 3*x2 <= 5
-z += 5*x0 + 3*x1 + 2*x2 <= 9
-z += 3*x0 + 2*x1 + 7*x2 <= 7
-
-# Los het probleem op
-status = z.solve()
-
-# Toon de resultaten
-print("Optimale oplossing:")
-
-print(pl.LpStatus[status])
-print("x0 = ", x0.varValue)
-print("x1 =", x1.varValue)
-print("x2 =", x2.varValue)
-
-print("Maximale waarde van de doelfunctie:", z.objective.value())
-
-
-# literatuur met voorbeeld
-# 
-# f1 = 5*x1 + 3*x2 + 7*x3 + 4*x5
-# 
-# f2 = 3*x1 + 6*x2 + 2*x3 + x5
-# 
-# f3 = 8*x1 + 5*x2 + 4*x3 + 8*x5
-# 
-# x1 + x2 + x3 + x4 + x5 = 100
-# 
-# x1 >= 10
-# 
-# x2 >= 5
-# 
-# x3 >= 1
-# 
-# x4 >= 1 
-# 
-# x5 >= 1
-# 
-
-# In[32]:
-
-
-# Creëer een LP probleem
-f1 = pl.LpProblem("Minimize", pl.LpMinimize)
-
-# Definieer de variabelen
-x1 = pl.LpVariable("x1", lowBound=0)
-x2 = pl.LpVariable("x2", lowBound=0)
-x3 = pl.LpVariable("x3", lowBound=0)
-x4 = pl.LpVariable("x4", lowBound=0)
-
-f1 += 5*x1 + 3*x2 + 7*x3 + 4*x4
-
-# Voeg beperkingen toe (voorbeeldbeperkingen)
-f1 += x1 + x2 + x3 + x4 == 100
-f1 += x1 >= 10
-f1 += x2 >= 5
-f1 += x3 >= 1
-f1 += x4 >= 1 
-
-# Los het probleem op
-status = f1.solve()
-
-# Toon de resultaten
-print("Optimale oplossing:")
-
-print(pl.LpStatus[status])
-print("x1 =", x1.varValue)
-print("x2 =", x2.varValue)
-print("x3 = ", x3.varValue)
-print("x4 = ", x4.varValue)
-
-print("Maximale waarde van de doelfunctie f1:", f1.objective.value())
-
-
-# In[33]:
-
-
-# Creëer een LP probleem
-f2 = pl.LpProblem("Maximize", pl.LpMaximize)
-
-# Definieer de variabelen
-x1 = pl.LpVariable("x1", lowBound=0)
-x2 = pl.LpVariable("x2", lowBound=0)
-x3 = pl.LpVariable("x3", lowBound=0)
-x4 = pl.LpVariable("x4", lowBound=0)
-
-f2 += 3*x1 + 6*x2 + 2*x3 + x4
-
-# Voeg beperkingen toe (voorbeeldbeperkingen)
-f2 += x1 + x2 + x3 + x4 == 100
-f2 += x1 >= 10
-f2 += x2 >= 5
-f2 += x3 >= 1
-f2 += x4 >= 1 
-
-# Los het probleem op
-status = f2.solve()
-
-# Toon de resultaten
-print("Optimale oplossing:")
-
-print(pl.LpStatus[status])
-print("x1 =", x1.varValue)
-print("x2 =", x2.varValue)
-print("x3 = ", x3.varValue)
-print("x4 = ", x4.varValue)
-
-print("Maximale waarde van de doelfunctie f2:", f2.objective.value())
-
-
-# In[34]:
-
-
-# Creëer een LP probleem
-f3 = pl.LpProblem("Maximize", pl.LpMaximize)
-
-# Definieer de variabelen
-x1 = pl.LpVariable("x1", lowBound=0)
-x2 = pl.LpVariable("x2", lowBound=0)
-x3 = pl.LpVariable("x3", lowBound=0)
-x4 = pl.LpVariable("x4", lowBound=0)
-
-f3 += 8*x1 + 5*x2 + 4*x3 + 8*x4
-
-# Voeg beperkingen toe (voorbeeldbeperkingen)
-f3 += x1 + x2 + x3 + x4 == 100
-f3 += x1 >= 10
-f3 += x2 >= 5
-f3 += x3 >= 1
-f3 += x4 >= 1 
-
-# Los het probleem op
-status = f3.solve()
-
-# Toon de resultaten
-print("Optimale oplossing:")
-
-print(pl.LpStatus[status])
-print("x1 =", x1.varValue)
-print("x2 =", x2.varValue)
-print("x3 = ", x3.varValue)
-print("x4 = ", x4.varValue)
-
-print("Maximale waarde van de doelfunctie f3:", f3.objective.value())
-
-
-# In[35]:
-
-
-# Creëer een LP probleem
-y1 = pl.LpProblem("Minimize", pl.LpMinimize)
-
-# Definieer de variabelen
-x1 = pl.LpVariable("x1", lowBound=0, cat='Continuous')
-x2 = pl.LpVariable("x2", lowBound=0, cat='Continuous')
-x3 = pl.LpVariable("x3", lowBound=0, cat='Continuous')
-x4 = pl.LpVariable("x4", lowBound=0, cat='Continuous')
-y = pl.LpVariable("y", lowBound=0, cat='Continuous')
-
-y1 += y
-
-# Voeg beperkingen toe (voorbeeldbeperkingen)
-y1 += 5*x1 + 3*x2 + 7*x3 + 4*x4 + 83*y <= 325
-y1 += 3*x1 + 6*x2 + 2*x3 + x4 + 415*y >= 561
-y1 += 8*x1 + 5*x2 + 4*x3 + 8*x4 + 249*y >= 781
-y1 += x1 >= 10
-y1 += x2 >= 5
-y1 += x3 >= 1
-y1 += x4 >= 1 
-
-# Los het probleem op
-status = y1.solve()
-
-# Toon de resultaten
-print("Optimale oplossing:")
-
-print(pl.LpStatus[status])
-print("x1 =", x1.varValue)
-print("x2 =", x2.varValue)
-print("x3 = ", x3.varValue)
-print("x4 = ", x4.varValue)
-
-print("Maximale waarde van de doelfunctie f3:", y1.objective.value())
-
-
-# **op basis van impact waardes van materialenlijst**
+# **optimalisatie op basis van impact waardes van materialenlijst**
 
 # In[36]:
 
@@ -635,7 +167,7 @@ with tab2:
     )
 
 
-# In[40]:
+# In[43]:
 
 
 # Creëer een LP probleem
@@ -687,8 +219,9 @@ kwaliteit = pl.lpSum(variabelen[i] * impact_kwaliteit[i] for i in range(25))
 
 impact_onderhoud = [0.042, 0, 0.25, 0, 0.214, 0, 0.086, 0, 0, 0, 0.308, 0.4, 0, 0, 0, 0, 0.091, 0.083, 0.667, 0, 0, 1, 0, 0, 0]
 onderhoud = pl.lpSum(variabelen[i] * impact_onderhoud[i] for i in range(25))
-print(onderhoud) 
-prob += weging_duurzaam * duurzaamheid - weging_kosten * prijs + weging_woonbeleving * woonbeleving + weging_kwaliteit * kwaliteit + weging_onderhoud * onderhoud
+print(prijs) 
+
+prob += 1 * duurzaamheid - 1 * prijs + 1 * woonbeleving + 1 * kwaliteit + 1 * onderhoud
 # prob += 2 * keuken + 3 * sanitair + 4 * buitenwanden + 6 * binnenwanden + 5 * elektra
 
 # Voeg beperkingen toe (voorbeeldbeperkingen)
@@ -784,10 +317,162 @@ with tab2:
     st.plotly_chart(fig1)
 
 
+# **aanpassingen**
+
+# In[4]:
+
+
+with tab3:
+    st.markdown("Hieronder kunnen de verschillende aandelen van productgroepen aangepast worden, om daarvan de invloed te zien op de verschillende thema's")
+
+    def max_sliders(waardes):
+        max_waarde = 100 - sum(waardes)
+        return max_waarde
+
+    waardes = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+
+    buitenwanden_max = max_sliders(waardes)
+    buitenwanden = st.slider('Het aandeel van de productgroep Buitenwanden', 0, buitenwanden_max, 0)
+    
+    binnenwanden_max = max_sliders([buitenwanden, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+    binnenwanden = st.slider('Het aandeel van de productgroep Binnenwanden', 0, binnenwanden_max, 0)
+
+    vloeren_max = max_sliders([buitenwanden, binnenwanden, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+    vloeren = st.slider('Het aandeel van de productgroep Vloeren', 0, vloeren_max, 0)
+
+    trappen_max = max_sliders([buitenwanden, binnenwanden, vloeren, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+    trappen = st.slider('Het aandeel van de productgroep Trappen', 0, trappen_max, 0)
+
+    daken_max = max_sliders([buitenwanden, binnenwanden, vloeren, trappen, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+    daken = st.slider('Het aandeel van de productgroep Daken', 0, daken_max, 0)
+
+    hoofddraagconstructie_max = max_sliders([buitenwanden, binnenwanden, vloeren, trappen, daken, 
+                                             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+    hoofddraagconstructie = st.slider('Het aandeel van de productgroep Hoofddraagconstructie', 0, hoofddraagconstructie_max, 0)
+
+    buitenkozijnen_max = max_sliders([buitenwanden, binnenwanden, vloeren, trappen, daken, hoofddraagconstructie, 
+                                      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+    buitenkozijnen = st.slider('Het aandeel van de productgroep Buitenkozijnen', 0, buitenkozijnen_max, 0)
+
+    binnenkozijnen_max = max_sliders([buitenwanden, binnenwanden, vloeren, trappen, daken, hoofddraagconstructie, buitenkozijnen, 
+                                      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+    binnenkozijnen = st.slider('Het aandeel van de productgroep Binnenkozijnen', 0, binnenkozijnen_max, 0)
+
+    luiken_max =  max_sliders([buitenwanden, binnenwanden, vloeren, trappen, daken, hoofddraagconstructie, buitenkozijnen, binnenkozijnen, 
+                               0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+    luiken = st.slider('Het aandeel van de productgroep Luiken', 0, luiken_max, 0)
+    
+    balustrades_max = max_sliders([buitenwanden, binnenwanden, vloeren, trappen, daken, hoofddraagconstructie, buitenkozijnen, binnenkozijnen, 
+                                   luiken, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+    balustrades = st.slider('Het aandeel van de productgroep Balustrades', 0, balustrades_max, 0)
+    
+    binnenwandafwerkingen_max = max_sliders([buitenwanden, binnenwanden, vloeren, trappen, daken, hoofddraagconstructie, buitenkozijnen, 
+                                             binnenkozijnen, luiken, balustrades, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+    binnenwandafwerkingen = st.slider('Het aandeel van de productgroep Binnenwandafwerkingen', 0, binnenwandafwerkingen_max, 0)
+    
+    vloerafwerkingen_max = max_sliders([buitenwanden, binnenwanden, vloeren, trappen, daken, hoofddraagconstructie, buitenkozijnen, 
+                                        binnenkozijnen, luiken, balustrades, binnenwandafwerkingen, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+    vloerafwerkingen = st.slider('Het aandeel van de productgroep Vloerafwerkingen', 0, vloerafwerkingen_max, 0)
+    
+    plafonds_max = max_sliders([buitenwanden, binnenwanden, vloeren, trappen, daken, hoofddraagconstructie, buitenkozijnen, 
+                                        binnenkozijnen, luiken, balustrades, binnenwandafwerkingen, vloerafwerkingen, 
+                                        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+    plafonds = st.slider('Het aandeel van de productgroep Plafonds', 0, plafonds_max, 0)
+    
+    na_isolatie_max =  max_sliders([buitenwanden, binnenwanden, vloeren, trappen, daken, hoofddraagconstructie, buitenkozijnen, 
+                                        binnenkozijnen, luiken, balustrades, binnenwandafwerkingen, vloerafwerkingen, plafonds, 
+                                        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+    na_isolatie = st.slider('Het aandeel van de productgroep Na-isolatie', 0, na_isolatie_max, 0)
+    
+    riolering_hwa_max = max_sliders([buitenwanden, binnenwanden, vloeren, trappen, daken, hoofddraagconstructie, buitenkozijnen, 
+                                        binnenkozijnen, luiken, balustrades, binnenwandafwerkingen, vloerafwerkingen, plafonds, na_isolatie, 
+                                         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+    riolering_hwa = st.slider('Het aandeel van de productgroep Riolering en HWA', 0, riolering_hwa_max, 0)
+    
+    water_installaties_max = max_sliders([buitenwanden, binnenwanden, vloeren, trappen, daken, hoofddraagconstructie, buitenkozijnen, 
+                                        binnenkozijnen, luiken, balustrades, binnenwandafwerkingen, vloerafwerkingen, plafonds, na_isolatie, 
+                                         riolering_hwa, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+    water_installaties = st.slider('Het aandeel van de productgroep Warm- en koud water installaties', 0, water_installaties_max, 0)
+    
+    verwarming_koeling_max = max_sliders([buitenwanden, binnenwanden, vloeren, trappen, daken, hoofddraagconstructie, buitenkozijnen, 
+                                        binnenkozijnen, luiken, balustrades, binnenwandafwerkingen, vloerafwerkingen, plafonds, na_isolatie, 
+                                         riolering_hwa, water_installaties, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+    verwarming_koeling = st.slider('Het aandeel van de productgroep Verwarming en koeling', 0, verwarming_koeling_max, 0)
+
+    luchtbehandeling_max = max_sliders([buitenwanden, binnenwanden, vloeren, trappen, daken, hoofddraagconstructie, buitenkozijnen, 
+                                        binnenkozijnen, luiken, balustrades, binnenwandafwerkingen, vloerafwerkingen, plafonds, na_isolatie, 
+                                         riolering_hwa, water_installaties, verwarming_koeling, 0, 0, 0, 0, 0, 0, 0, 0])
+    luchtbehandeling = st.slider('Het aandeel van de productgroep Luchtbehandeling', 0, luchtbehandeling_max, 0)
+    
+    elektrische_installaties_max = max_sliders([buitenwanden, binnenwanden, vloeren, trappen, daken, hoofddraagconstructie, buitenkozijnen, 
+                                        binnenkozijnen, luiken, balustrades, binnenwandafwerkingen, vloerafwerkingen, plafonds, na_isolatie, 
+                                         riolering_hwa, water_installaties, verwarming_koeling, luchtbehandeling, 0, 0, 0, 0, 0, 0, 0])
+    elektrische_installaties = st.slider('Het aandeel van de productgroep Elektrische installaties', 0, elektrische_installaties_max, 0)
+    
+    gebouwvoorzieningen_max = max_sliders([buitenwanden, binnenwanden, vloeren, trappen, daken, hoofddraagconstructie, buitenkozijnen, 
+                                        binnenkozijnen, luiken, balustrades, binnenwandafwerkingen, vloerafwerkingen, plafonds, na_isolatie, 
+                                         riolering_hwa, water_installaties, verwarming_koeling, luchtbehandeling, elektrische_installaties, 
+                                           0, 0, 0, 0, 0, 0])
+    gebouwvoorzieningen = st.slider('Het aandeel van de productgroep Gebouwvoorzieningen', 0, gebouwvoorzieningen_max, 0)
+    
+    beveiliging_max = max_sliders([buitenwanden, binnenwanden, vloeren, trappen, daken, hoofddraagconstructie, buitenkozijnen, 
+                                        binnenkozijnen, luiken, balustrades, binnenwandafwerkingen, vloerafwerkingen, plafonds, na_isolatie, 
+                                         riolering_hwa, water_installaties, verwarming_koeling, luchtbehandeling, elektrische_installaties, 
+                                           gebouwvoorzieningen, 0, 0, 0, 0, 0])
+    beveiliging = st.slider('Het aandeel van de productgroep Beveiliging', 0, beveiliging_max, 0)
+    
+    lift_max = max_sliders([buitenwanden, binnenwanden, vloeren, trappen, daken, hoofddraagconstructie, buitenkozijnen, 
+                                        binnenkozijnen, luiken, balustrades, binnenwandafwerkingen, vloerafwerkingen, plafonds, na_isolatie, 
+                                         riolering_hwa, water_installaties, verwarming_koeling, luchtbehandeling, elektrische_installaties, 
+                                           gebouwvoorzieningen, beveiliging, 0, 0, 0, 0])
+    lift = st.slider('Het aandeel van de productgroep Lift', 0, lift_max, 0)
+    
+    keuken_max = max_sliders([buitenwanden, binnenwanden, vloeren, trappen, daken, hoofddraagconstructie, buitenkozijnen, 
+                                        binnenkozijnen, luiken, balustrades, binnenwandafwerkingen, vloerafwerkingen, plafonds, na_isolatie, 
+                                         riolering_hwa, water_installaties, verwarming_koeling, luchtbehandeling, elektrische_installaties, 
+                                           gebouwvoorzieningen, beveiliging, lift, 0, 0, 0])
+    keuken = st.slider('Het aandeel van de productgroep Keuken', 0, keuken_max, 0)
+    
+    sanitair_max = max_sliders([buitenwanden, binnenwanden, vloeren, trappen, daken, hoofddraagconstructie, buitenkozijnen, 
+                                        binnenkozijnen, luiken, balustrades, binnenwandafwerkingen, vloerafwerkingen, plafonds, na_isolatie, 
+                                         riolering_hwa, water_installaties, verwarming_koeling, luchtbehandeling, elektrische_installaties, 
+                                           gebouwvoorzieningen, beveiliging, lift, keuken, 0, 0])
+    sanitair = st.slider('Het aandeel van de productgroep Sanitair', 0, sanitair_max, 0)
+    
+    terreininrichting_max = max_sliders([buitenwanden, binnenwanden, vloeren, trappen, daken, hoofddraagconstructie, buitenkozijnen, 
+                                        binnenkozijnen, luiken, balustrades, binnenwandafwerkingen, vloerafwerkingen, plafonds, na_isolatie, 
+                                         riolering_hwa, water_installaties, verwarming_koeling, luchtbehandeling, elektrische_installaties, 
+                                           gebouwvoorzieningen, beveiliging, lift, keuken, sanitair, 0])
+    terreininrichting = st.slider('Het aandeel van de productgroep Terreininrichting', 0, terreininrichting_max, 0)
+
+
 # In[ ]:
 
 
+variabelen = [buitenwanden, binnenwanden, vloeren, trappen_hellingen, daken, hoofddraagconstructie, buitenkozijnen, binnenkozijnen, luiken_vensters, 
+              balustrades_leuningen, binnenwandafwerkingen, vloerafwerkingen, plafonds, na_isolatie, riolering_hwa, water_installaties, 
+              verwarming_koeling, luchtbehandeling, elektrische_installaties, gebouwvoorzieningen, beveiliging, lift, keuken, sanitair, terreininrichting]
 
+#Impact themas op productgroepen
+impact_duurzaamheid = [0.5, 0.6, 0, 0, 0.786, 0, 0.257, 0.188, 0.2, 0, 0.154, 0.15, 0, 1, 0.158, 0, 0.091, 0, 0.667, 0, 0, 0, 0.2, 0.182, 0]
+duurzaamheid = pl.lpSum(variabelen[i] * impact_duurzaamheid[i] for i in range(25))
+streamlit.markdown(duurzaam)
+
+impact_prijs = [0.042, 0.1, -0.25, 0.111, 0.143, 0, 0.086, 0.063, 0, 0, 0.231, 0, 0, 0, 0.158, 0, 0, 0.083, 0.5, 0.182, 0, 0, -0.2, 0.182, 0.111]
+prijs = pl.lpSum(variabelen[i] * impact_prijs[i] for i in range(25))
+streamlit.markdown(prijs)
+
+impact_woonbeleving = [0, 0, 0.25, 0.111, 0, 0, 0.029, 0.188, 0, 0, 0.385, 0.35, 0.25, 0, 0.053, 0.111, 0.091, 0.167, 0, 0.364, 0, 0, 0.2, 0, 0]
+woonbeleving = pl.lpSum(variabelen[i] * impact_woonbeleving[i] for i in range(25))
+streamlit.markdown(woonbeleving)
+
+impact_kwaliteit = [0.167, 0, 0, 0.111, 0.071, 0, 0.2, 0.125, 0, 0, 0.077, 0.6, 0.25, 0, 0.053, 0.222, 0.091, 0.083, 0.667, 0.545, 0, 1, 0.2, 0, 0]
+kwaliteit = pl.lpSum(variabelen[i] * impact_kwaliteit[i] for i in range(25))
+streamlit.markdown(kwaliteit)
+
+impact_onderhoud = [0.042, 0, 0.25, 0, 0.214, 0, 0.086, 0, 0, 0, 0.308, 0.4, 0, 0, 0, 0, 0.091, 0.083, 0.667, 0, 0, 1, 0, 0, 0]
+onderhoud = pl.lpSum(variabelen[i] * impact_onderhoud[i] for i in range(25))
+streamlit.markdown(onderhoud)
 
 
 # In[ ]:
