@@ -458,7 +458,7 @@ with tab3:
     with col1:
         st.markdown("**optimalisatie**")
         for index, row in df.iterrows():
-            st.markdown(f"- {row['Productgroep']}: {row['Waarde']}% van het totale project")
+            st.markdown(f"- {row['Productgroep']}: {row['Waarde']}%")
         
     with col2:
         st.markdown("**aanpassing**")
@@ -470,7 +470,7 @@ with tab3:
                         'na_isolatie', 'riolering_hwa', 'water_installaties', 'verwarming_koeling', 'luchtbehandeling', 
                         'elektrische_installaties', 'gebouwvoorzieningen', 'beveiliging', 'lift', 'keuken', 'sanitair', 'terreininrichting']
         for i in range(25):
-            st.markdown(f"- {productgroep[i]}: {variabelen[i]}% van het totale project")
+            st.markdown(f"- {productgroep[i]}: {variabelen[i]}%")
         
         #Impact themas op productgroepen
         impact_duurzaamheid = [0.5, 0.6, 0, 0, 0.786, 0, 0.257, 0.188, 0.2, 0, 0.154, 0.15, 0, 1, 0.158, 0, 0.091, 0, 0.667, 0, 0, 0, 0.2, 0.182, 0]
