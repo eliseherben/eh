@@ -450,7 +450,7 @@ with tab3:
          st.error("Er is een fout opgetreden: De totale aandeel van productgroepen kan samen maar 100% zijn.")
 
 
-# In[ ]:
+# In[5]:
 
 
 with tab3:
@@ -495,7 +495,15 @@ with tab3:
             st.markdown(f"- {row['Productgroep']}: {row['Waarde']}%")
         for index, row in df.iterrows():
             duurzaam2 = sum([row['Waarde'] * impact_duurzaamheid[i] for i in range(25)])
+            prijs2 = sum([row['Waarde'] * impact_prijs[i] for i in range(25)])
+            woonbeleving2 = sum([row['Waarde'] * impact_woonbeleving[i] for i in range(25)])
+            kwaliteit2 = sum([row['Waarde'] * impact_kwaliteit[i] for i in range(25)])
+            onderhoud2 = sum([row['Waarde'] * impact_onderhoud[i] for i in range(25)])
         st.markdown(f"score duurzaamheid: {duurzaam2}")
+        st.markdown(f"score duurzaamheid: {prijs2}")
+        st.markdown(f"score duurzaamheid: {woonbeleving2}")
+        st.markdown(f"score duurzaamheid: {kwaliteit2}")
+        st.markdown(f"score duurzaamheid: {onderhoud2}")
 
 
 # In[ ]:
