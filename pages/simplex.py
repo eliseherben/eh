@@ -323,135 +323,131 @@ with tab2:
 
 
 with tab3:
-    st.markdown("Hieronder kunnen de verschillende aandelen van productgroepen aangepast worden, om daarvan de invloed te zien op de verschillende thema's")
-
-    def max_sliders(waardes):
-        max_waarde = 100 - sum(waardes)
-        return max_waarde
-
     try:
-        # Jouw Streamlit code die mogelijk fouten kan veroorzaken
-        st.title("Mijn Streamlit Applicatie")
-        st.write(1 / 0)  # Dit veroorzaakt een ZeroDivisionError
-    except ZeroDivisionError:
-        # Aangepaste foutmelding voor ZeroDivisionError
-        st.error("Er is een fout opgetreden: Deel door nul is niet toegestaan.")
+        st.markdown("Hieronder kunnen de verschillende aandelen van productgroepen aangepast worden, om daarvan de invloed te zien op de verschillende thema's")
     
-    waardes = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-
-    buitenwanden_max = max_sliders(waardes)
-    buitenwanden = st.slider('Het aandeel van de productgroep Buitenwanden', 0, buitenwanden_max, 0)
+        def max_sliders(waardes):
+            max_waarde = 100 - sum(waardes)
+            return max_waarde
+        
+        waardes = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     
-    binnenwanden_max = max_sliders([buitenwanden, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
-    binnenwanden = st.slider('Het aandeel van de productgroep Binnenwanden', 0, binnenwanden_max, 0)
-
-    vloeren_max = max_sliders([buitenwanden, binnenwanden, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
-    vloeren = st.slider('Het aandeel van de productgroep Vloeren', 0, vloeren_max, 0)
-
-    trappen_hellingen_max = max_sliders([buitenwanden, binnenwanden, vloeren, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
-    trappen_hellingen = st.slider('Het aandeel van de productgroep Trappen en hellingen', 0, trappen_hellingen_max, 0)
-
-    daken_max = max_sliders([buitenwanden, binnenwanden, vloeren, trappen_hellingen, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
-    daken = st.slider('Het aandeel van de productgroep Daken', 0, daken_max, 0)
-
-    hoofddraagconstructie_max = max_sliders([buitenwanden, binnenwanden, vloeren, trappen_hellingen, daken, 
-                                             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
-    hoofddraagconstructie = st.slider('Het aandeel van de productgroep Hoofddraagconstructie', 0, hoofddraagconstructie_max, 0)
-
-    buitenkozijnen_max = max_sliders([buitenwanden, binnenwanden, vloeren, trappen_hellingen, daken, hoofddraagconstructie, 
-                                      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
-    buitenkozijnen = st.slider('Het aandeel van de productgroep Buitenkozijnen', 0, buitenkozijnen_max, 0)
-
-    binnenkozijnen_max = max_sliders([buitenwanden, binnenwanden, vloeren, trappen_hellingen, daken, hoofddraagconstructie, buitenkozijnen, 
-                                      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
-    binnenkozijnen = st.slider('Het aandeel van de productgroep Binnenkozijnen', 0, binnenkozijnen_max, 0)
-
-    luiken_vensters_max =  max_sliders([buitenwanden, binnenwanden, vloeren, trappen_hellingen, daken, hoofddraagconstructie, buitenkozijnen, binnenkozijnen, 
-                               0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
-    luiken_vensters = st.slider('Het aandeel van de productgroep Luiken en vensters', 0, luiken_vensters_max, 0)
+        buitenwanden_max = max_sliders(waardes)
+        buitenwanden = st.slider('Het aandeel van de productgroep Buitenwanden', 0, buitenwanden_max, 0)
+        
+        binnenwanden_max = max_sliders([buitenwanden, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+        binnenwanden = st.slider('Het aandeel van de productgroep Binnenwanden', 0, binnenwanden_max, 0)
     
-    balustrades_leuningen_max = max_sliders([buitenwanden, binnenwanden, vloeren, trappen_hellingen, daken, hoofddraagconstructie, buitenkozijnen, binnenkozijnen, 
-                                   luiken_vensters, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
-    balustrades_leuningen = st.slider('Het aandeel van de productgroep Balustrades', 0, balustrades_leuningen_max, 0)
+        vloeren_max = max_sliders([buitenwanden, binnenwanden, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+        vloeren = st.slider('Het aandeel van de productgroep Vloeren', 0, vloeren_max, 0)
     
-    binnenwandafwerkingen_max = max_sliders([buitenwanden, binnenwanden, vloeren, trappen_hellingen, daken, hoofddraagconstructie, buitenkozijnen, 
-                                             binnenkozijnen, luiken_vensters, balustrades_leuningen, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
-    binnenwandafwerkingen = st.slider('Het aandeel van de productgroep Binnenwandafwerkingen', 0, binnenwandafwerkingen_max, 0)
+        trappen_hellingen_max = max_sliders([buitenwanden, binnenwanden, vloeren, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+        trappen_hellingen = st.slider('Het aandeel van de productgroep Trappen en hellingen', 0, trappen_hellingen_max, 0)
     
-    vloerafwerkingen_max = max_sliders([buitenwanden, binnenwanden, vloeren, trappen_hellingen, daken, hoofddraagconstructie, buitenkozijnen, 
-                                        binnenkozijnen, luiken_vensters, balustrades_leuningen, binnenwandafwerkingen, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
-    vloerafwerkingen = st.slider('Het aandeel van de productgroep Vloerafwerkingen', 0, vloerafwerkingen_max, 0)
+        daken_max = max_sliders([buitenwanden, binnenwanden, vloeren, trappen_hellingen, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+        daken = st.slider('Het aandeel van de productgroep Daken', 0, daken_max, 0)
     
-    plafonds_max = max_sliders([buitenwanden, binnenwanden, vloeren, trappen_hellingen, daken, hoofddraagconstructie, buitenkozijnen, 
-                                        binnenkozijnen, luiken_vensters, balustrades_leuningen, binnenwandafwerkingen, vloerafwerkingen, 
-                                        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
-    plafonds = st.slider('Het aandeel van de productgroep Plafonds', 0, plafonds_max, 0)
+        hoofddraagconstructie_max = max_sliders([buitenwanden, binnenwanden, vloeren, trappen_hellingen, daken, 
+                                                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+        hoofddraagconstructie = st.slider('Het aandeel van de productgroep Hoofddraagconstructie', 0, hoofddraagconstructie_max, 0)
     
-    na_isolatie_max =  max_sliders([buitenwanden, binnenwanden, vloeren, trappen_hellingen, daken, hoofddraagconstructie, buitenkozijnen, 
-                                        binnenkozijnen, luiken_vensters, balustrades_leuningen, binnenwandafwerkingen, vloerafwerkingen, plafonds, 
-                                        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
-    na_isolatie = st.slider('Het aandeel van de productgroep Na-isolatie', 0, na_isolatie_max, 0)
+        buitenkozijnen_max = max_sliders([buitenwanden, binnenwanden, vloeren, trappen_hellingen, daken, hoofddraagconstructie, 
+                                          0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+        buitenkozijnen = st.slider('Het aandeel van de productgroep Buitenkozijnen', 0, buitenkozijnen_max, 0)
     
-    riolering_hwa_max = max_sliders([buitenwanden, binnenwanden, vloeren, trappen_hellingen, daken, hoofddraagconstructie, buitenkozijnen, 
-                                        binnenkozijnen, luiken_vensters, balustrades_leuningen, binnenwandafwerkingen, vloerafwerkingen, plafonds, na_isolatie, 
-                                         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
-    riolering_hwa = st.slider('Het aandeel van de productgroep Riolering en HWA', 0, riolering_hwa_max, 0)
+        binnenkozijnen_max = max_sliders([buitenwanden, binnenwanden, vloeren, trappen_hellingen, daken, hoofddraagconstructie, buitenkozijnen, 
+                                          0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+        binnenkozijnen = st.slider('Het aandeel van de productgroep Binnenkozijnen', 0, binnenkozijnen_max, 0)
     
-    water_installaties_max = max_sliders([buitenwanden, binnenwanden, vloeren, trappen_hellingen, daken, hoofddraagconstructie, buitenkozijnen, 
-                                        binnenkozijnen, luiken_vensters, balustrades_leuningen, binnenwandafwerkingen, vloerafwerkingen, plafonds, na_isolatie, 
-                                         riolering_hwa, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
-    water_installaties = st.slider('Het aandeel van de productgroep Warm- en koud water installaties', 0, water_installaties_max, 0)
+        luiken_vensters_max =  max_sliders([buitenwanden, binnenwanden, vloeren, trappen_hellingen, daken, hoofddraagconstructie, buitenkozijnen, binnenkozijnen, 
+                                   0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+        luiken_vensters = st.slider('Het aandeel van de productgroep Luiken en vensters', 0, luiken_vensters_max, 0)
+        
+        balustrades_leuningen_max = max_sliders([buitenwanden, binnenwanden, vloeren, trappen_hellingen, daken, hoofddraagconstructie, buitenkozijnen, binnenkozijnen, 
+                                       luiken_vensters, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+        balustrades_leuningen = st.slider('Het aandeel van de productgroep Balustrades', 0, balustrades_leuningen_max, 0)
+        
+        binnenwandafwerkingen_max = max_sliders([buitenwanden, binnenwanden, vloeren, trappen_hellingen, daken, hoofddraagconstructie, buitenkozijnen, 
+                                                 binnenkozijnen, luiken_vensters, balustrades_leuningen, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+        binnenwandafwerkingen = st.slider('Het aandeel van de productgroep Binnenwandafwerkingen', 0, binnenwandafwerkingen_max, 0)
+        
+        vloerafwerkingen_max = max_sliders([buitenwanden, binnenwanden, vloeren, trappen_hellingen, daken, hoofddraagconstructie, buitenkozijnen, 
+                                            binnenkozijnen, luiken_vensters, balustrades_leuningen, binnenwandafwerkingen, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+        vloerafwerkingen = st.slider('Het aandeel van de productgroep Vloerafwerkingen', 0, vloerafwerkingen_max, 0)
+        
+        plafonds_max = max_sliders([buitenwanden, binnenwanden, vloeren, trappen_hellingen, daken, hoofddraagconstructie, buitenkozijnen, 
+                                            binnenkozijnen, luiken_vensters, balustrades_leuningen, binnenwandafwerkingen, vloerafwerkingen, 
+                                            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+        plafonds = st.slider('Het aandeel van de productgroep Plafonds', 0, plafonds_max, 0)
+        
+        na_isolatie_max =  max_sliders([buitenwanden, binnenwanden, vloeren, trappen_hellingen, daken, hoofddraagconstructie, buitenkozijnen, 
+                                            binnenkozijnen, luiken_vensters, balustrades_leuningen, binnenwandafwerkingen, vloerafwerkingen, plafonds, 
+                                            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+        na_isolatie = st.slider('Het aandeel van de productgroep Na-isolatie', 0, na_isolatie_max, 0)
+        
+        riolering_hwa_max = max_sliders([buitenwanden, binnenwanden, vloeren, trappen_hellingen, daken, hoofddraagconstructie, buitenkozijnen, 
+                                            binnenkozijnen, luiken_vensters, balustrades_leuningen, binnenwandafwerkingen, vloerafwerkingen, plafonds, na_isolatie, 
+                                             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+        riolering_hwa = st.slider('Het aandeel van de productgroep Riolering en HWA', 0, riolering_hwa_max, 0)
+        
+        water_installaties_max = max_sliders([buitenwanden, binnenwanden, vloeren, trappen_hellingen, daken, hoofddraagconstructie, buitenkozijnen, 
+                                            binnenkozijnen, luiken_vensters, balustrades_leuningen, binnenwandafwerkingen, vloerafwerkingen, plafonds, na_isolatie, 
+                                             riolering_hwa, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+        water_installaties = st.slider('Het aandeel van de productgroep Warm- en koud water installaties', 0, water_installaties_max, 0)
+        
+        verwarming_koeling_max = max_sliders([buitenwanden, binnenwanden, vloeren, trappen_hellingen, daken, hoofddraagconstructie, buitenkozijnen, 
+                                            binnenkozijnen, luiken_vensters, balustrades_leuningen, binnenwandafwerkingen, vloerafwerkingen, plafonds, na_isolatie, 
+                                             riolering_hwa, water_installaties, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+        verwarming_koeling = st.slider('Het aandeel van de productgroep Verwarming en koeling', 0, verwarming_koeling_max, 0)
     
-    verwarming_koeling_max = max_sliders([buitenwanden, binnenwanden, vloeren, trappen_hellingen, daken, hoofddraagconstructie, buitenkozijnen, 
-                                        binnenkozijnen, luiken_vensters, balustrades_leuningen, binnenwandafwerkingen, vloerafwerkingen, plafonds, na_isolatie, 
-                                         riolering_hwa, water_installaties, 0, 0, 0, 0, 0, 0, 0, 0, 0])
-    verwarming_koeling = st.slider('Het aandeel van de productgroep Verwarming en koeling', 0, verwarming_koeling_max, 0)
-
-    luchtbehandeling_max = max_sliders([buitenwanden, binnenwanden, vloeren, trappen_hellingen, daken, hoofddraagconstructie, buitenkozijnen, 
-                                        binnenkozijnen, luiken_vensters, balustrades_leuningen, binnenwandafwerkingen, vloerafwerkingen, plafonds, na_isolatie, 
-                                         riolering_hwa, water_installaties, verwarming_koeling, 0, 0, 0, 0, 0, 0, 0, 0])
-    luchtbehandeling = st.slider('Het aandeel van de productgroep Luchtbehandeling', 0, luchtbehandeling_max, 0)
+        luchtbehandeling_max = max_sliders([buitenwanden, binnenwanden, vloeren, trappen_hellingen, daken, hoofddraagconstructie, buitenkozijnen, 
+                                            binnenkozijnen, luiken_vensters, balustrades_leuningen, binnenwandafwerkingen, vloerafwerkingen, plafonds, na_isolatie, 
+                                             riolering_hwa, water_installaties, verwarming_koeling, 0, 0, 0, 0, 0, 0, 0, 0])
+        luchtbehandeling = st.slider('Het aandeel van de productgroep Luchtbehandeling', 0, luchtbehandeling_max, 0)
+        
+        elektrische_installaties_max = max_sliders([buitenwanden, binnenwanden, vloeren, trappen_hellingen, daken, hoofddraagconstructie, buitenkozijnen, 
+                                            binnenkozijnen, luiken_vensters, balustrades_leuningen, binnenwandafwerkingen, vloerafwerkingen, plafonds, na_isolatie, 
+                                             riolering_hwa, water_installaties, verwarming_koeling, luchtbehandeling, 0, 0, 0, 0, 0, 0, 0])
+        elektrische_installaties = st.slider('Het aandeel van de productgroep Elektrische installaties', 0, elektrische_installaties_max, 0)
+        
+        gebouwvoorzieningen_max = max_sliders([buitenwanden, binnenwanden, vloeren, trappen_hellingen, daken, hoofddraagconstructie, buitenkozijnen, 
+                                            binnenkozijnen, luiken_vensters, balustrades_leuningen, binnenwandafwerkingen, vloerafwerkingen, plafonds, na_isolatie, 
+                                             riolering_hwa, water_installaties, verwarming_koeling, luchtbehandeling, elektrische_installaties, 
+                                               0, 0, 0, 0, 0, 0])
+        gebouwvoorzieningen = st.slider('Het aandeel van de productgroep Gebouwvoorzieningen', 0, gebouwvoorzieningen_max, 0)
+        
+        beveiliging_max = max_sliders([buitenwanden, binnenwanden, vloeren, trappen_hellingen, daken, hoofddraagconstructie, buitenkozijnen, 
+                                            binnenkozijnen, luiken_vensters, balustrades_leuningen, binnenwandafwerkingen, vloerafwerkingen, plafonds, na_isolatie, 
+                                             riolering_hwa, water_installaties, verwarming_koeling, luchtbehandeling, elektrische_installaties, 
+                                               gebouwvoorzieningen, 0, 0, 0, 0, 0])
+        beveiliging = st.slider('Het aandeel van de productgroep Beveiliging', 0, beveiliging_max, 0)
+        
+        lift_max = max_sliders([buitenwanden, binnenwanden, vloeren, trappen_hellingen, daken, hoofddraagconstructie, buitenkozijnen, 
+                                            binnenkozijnen, luiken_vensters, balustrades_leuningen, binnenwandafwerkingen, vloerafwerkingen, plafonds, na_isolatie, 
+                                             riolering_hwa, water_installaties, verwarming_koeling, luchtbehandeling, elektrische_installaties, 
+                                               gebouwvoorzieningen, beveiliging, 0, 0, 0, 0])
+        lift = st.slider('Het aandeel van de productgroep Lift', 0, lift_max, 0)
+        
+        keuken_max = max_sliders([buitenwanden, binnenwanden, vloeren, trappen_hellingen, daken, hoofddraagconstructie, buitenkozijnen, 
+                                            binnenkozijnen, luiken_vensters, balustrades_leuningen, binnenwandafwerkingen, vloerafwerkingen, plafonds, na_isolatie, 
+                                             riolering_hwa, water_installaties, verwarming_koeling, luchtbehandeling, elektrische_installaties, 
+                                               gebouwvoorzieningen, beveiliging, lift, 0, 0, 0])
+        keuken = st.slider('Het aandeel van de productgroep Keuken', 0, keuken_max, 0)
+        
+        sanitair_max = max_sliders([buitenwanden, binnenwanden, vloeren, trappen_hellingen, daken, hoofddraagconstructie, buitenkozijnen, 
+                                            binnenkozijnen, luiken_vensters, balustrades_leuningen, binnenwandafwerkingen, vloerafwerkingen, plafonds, na_isolatie, 
+                                             riolering_hwa, water_installaties, verwarming_koeling, luchtbehandeling, elektrische_installaties, 
+                                               gebouwvoorzieningen, beveiliging, lift, keuken, 0, 0])
+        sanitair = st.slider('Het aandeel van de productgroep Sanitair', 0, sanitair_max, 0)
+        
+        terreininrichting_max = max_sliders([buitenwanden, binnenwanden, vloeren, trappen_hellingen, daken, hoofddraagconstructie, buitenkozijnen, 
+                                            binnenkozijnen, luiken_vensters, balustrades_leuningen, binnenwandafwerkingen, vloerafwerkingen, plafonds, na_isolatie, 
+                                             riolering_hwa, water_installaties, verwarming_koeling, luchtbehandeling, elektrische_installaties, 
+                                               gebouwvoorzieningen, beveiliging, lift, keuken, sanitair, 0])
+        terreininrichting = st.slider('Het aandeel van de productgroep Terreininrichting', 0, terreininrichting_max, 0)
     
-    elektrische_installaties_max = max_sliders([buitenwanden, binnenwanden, vloeren, trappen_hellingen, daken, hoofddraagconstructie, buitenkozijnen, 
-                                        binnenkozijnen, luiken_vensters, balustrades_leuningen, binnenwandafwerkingen, vloerafwerkingen, plafonds, na_isolatie, 
-                                         riolering_hwa, water_installaties, verwarming_koeling, luchtbehandeling, 0, 0, 0, 0, 0, 0, 0])
-    elektrische_installaties = st.slider('Het aandeel van de productgroep Elektrische installaties', 0, elektrische_installaties_max, 0)
-    
-    gebouwvoorzieningen_max = max_sliders([buitenwanden, binnenwanden, vloeren, trappen_hellingen, daken, hoofddraagconstructie, buitenkozijnen, 
-                                        binnenkozijnen, luiken_vensters, balustrades_leuningen, binnenwandafwerkingen, vloerafwerkingen, plafonds, na_isolatie, 
-                                         riolering_hwa, water_installaties, verwarming_koeling, luchtbehandeling, elektrische_installaties, 
-                                           0, 0, 0, 0, 0, 0])
-    gebouwvoorzieningen = st.slider('Het aandeel van de productgroep Gebouwvoorzieningen', 0, gebouwvoorzieningen_max, 0)
-    
-    beveiliging_max = max_sliders([buitenwanden, binnenwanden, vloeren, trappen_hellingen, daken, hoofddraagconstructie, buitenkozijnen, 
-                                        binnenkozijnen, luiken_vensters, balustrades_leuningen, binnenwandafwerkingen, vloerafwerkingen, plafonds, na_isolatie, 
-                                         riolering_hwa, water_installaties, verwarming_koeling, luchtbehandeling, elektrische_installaties, 
-                                           gebouwvoorzieningen, 0, 0, 0, 0, 0])
-    beveiliging = st.slider('Het aandeel van de productgroep Beveiliging', 0, beveiliging_max, 0)
-    
-    lift_max = max_sliders([buitenwanden, binnenwanden, vloeren, trappen_hellingen, daken, hoofddraagconstructie, buitenkozijnen, 
-                                        binnenkozijnen, luiken_vensters, balustrades_leuningen, binnenwandafwerkingen, vloerafwerkingen, plafonds, na_isolatie, 
-                                         riolering_hwa, water_installaties, verwarming_koeling, luchtbehandeling, elektrische_installaties, 
-                                           gebouwvoorzieningen, beveiliging, 0, 0, 0, 0])
-    lift = st.slider('Het aandeel van de productgroep Lift', 0, lift_max, 0)
-    
-    keuken_max = max_sliders([buitenwanden, binnenwanden, vloeren, trappen_hellingen, daken, hoofddraagconstructie, buitenkozijnen, 
-                                        binnenkozijnen, luiken_vensters, balustrades_leuningen, binnenwandafwerkingen, vloerafwerkingen, plafonds, na_isolatie, 
-                                         riolering_hwa, water_installaties, verwarming_koeling, luchtbehandeling, elektrische_installaties, 
-                                           gebouwvoorzieningen, beveiliging, lift, 0, 0, 0])
-    keuken = st.slider('Het aandeel van de productgroep Keuken', 0, keuken_max, 0)
-    
-    sanitair_max = max_sliders([buitenwanden, binnenwanden, vloeren, trappen_hellingen, daken, hoofddraagconstructie, buitenkozijnen, 
-                                        binnenkozijnen, luiken_vensters, balustrades_leuningen, binnenwandafwerkingen, vloerafwerkingen, plafonds, na_isolatie, 
-                                         riolering_hwa, water_installaties, verwarming_koeling, luchtbehandeling, elektrische_installaties, 
-                                           gebouwvoorzieningen, beveiliging, lift, keuken, 0, 0])
-    sanitair = st.slider('Het aandeel van de productgroep Sanitair', 0, sanitair_max, 0)
-    
-    terreininrichting_max = max_sliders([buitenwanden, binnenwanden, vloeren, trappen_hellingen, daken, hoofddraagconstructie, buitenkozijnen, 
-                                        binnenkozijnen, luiken_vensters, balustrades_leuningen, binnenwandafwerkingen, vloerafwerkingen, plafonds, na_isolatie, 
-                                         riolering_hwa, water_installaties, verwarming_koeling, luchtbehandeling, elektrische_installaties, 
-                                           gebouwvoorzieningen, beveiliging, lift, keuken, sanitair, 0])
-    terreininrichting = st.slider('Het aandeel van de productgroep Terreininrichting', 0, terreininrichting_max, 0)
+    except RangeError:
+         st.error("Er is een fout opgetreden: De totale aandeel van productgroepen kan samen maar 100% zijn.")
 
 
 # In[ ]:
