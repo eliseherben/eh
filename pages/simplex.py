@@ -329,6 +329,14 @@ with tab3:
         max_waarde = 100 - sum(waardes)
         return max_waarde
 
+    try:
+        # Jouw Streamlit code die mogelijk fouten kan veroorzaken
+        st.title("Mijn Streamlit Applicatie")
+        st.write(1 / 0)  # Dit veroorzaakt een ZeroDivisionError
+    except ZeroDivisionError:
+        # Aangepaste foutmelding voor ZeroDivisionError
+        st.error("Er is een fout opgetreden: Deel door nul is niet toegestaan.")
+    
     waardes = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
     buitenwanden_max = max_sliders(waardes)
@@ -449,31 +457,37 @@ with tab3:
 # In[ ]:
 
 
-variabelen = [buitenwanden, binnenwanden, vloeren, trappen_hellingen, daken, hoofddraagconstructie, buitenkozijnen, binnenkozijnen, luiken_vensters, 
-              balustrades_leuningen, binnenwandafwerkingen, vloerafwerkingen, plafonds, na_isolatie, riolering_hwa, water_installaties, 
-              verwarming_koeling, luchtbehandeling, elektrische_installaties, gebouwvoorzieningen, beveiliging, lift, keuken, sanitair, terreininrichting]
-st.markdown(variabelen)
-
-#Impact themas op productgroepen
-impact_duurzaamheid = [0.5, 0.6, 0, 0, 0.786, 0, 0.257, 0.188, 0.2, 0, 0.154, 0.15, 0, 1, 0.158, 0, 0.091, 0, 0.667, 0, 0, 0, 0.2, 0.182, 0]
-duurzaamheid = sum([variabelen[i] * impact_duurzaamheid[i] for i in range(25)])
-st.markdown(duurzaamheid)
-
-impact_prijs = [0.042, 0.1, -0.25, 0.111, 0.143, 0, 0.086, 0.063, 0, 0, 0.231, 0, 0, 0, 0.158, 0, 0, 0.083, 0.5, 0.182, 0, 0, -0.2, 0.182, 0.111]
-# prijs = variabelen[i] * impact_prijs[i] for i in range(25)
-# st.markdown(prijs)
-
-impact_woonbeleving = [0, 0, 0.25, 0.111, 0, 0, 0.029, 0.188, 0, 0, 0.385, 0.35, 0.25, 0, 0.053, 0.111, 0.091, 0.167, 0, 0.364, 0, 0, 0.2, 0, 0]
-# woonbeleving = variabelen[i] * impact_woonbeleving[i] for i in range(25)
-# st.markdown(woonbeleving)
-
-impact_kwaliteit = [0.167, 0, 0, 0.111, 0.071, 0, 0.2, 0.125, 0, 0, 0.077, 0.6, 0.25, 0, 0.053, 0.222, 0.091, 0.083, 0.667, 0.545, 0, 1, 0.2, 0, 0]
-# kwaliteit = variabelen[i] * impact_kwaliteit[i] for i in range(25)
-# st.markdown(kwaliteit)
-
-impact_onderhoud = [0.042, 0, 0.25, 0, 0.214, 0, 0.086, 0, 0, 0, 0.308, 0.4, 0, 0, 0, 0, 0.091, 0.083, 0.667, 0, 0, 1, 0, 0, 0]
-# onderhoud = variabelen[i] * impact_onderhoud[i] for i in range(25)
-# st.markdown(onderhoud)
+with tab3:
+    col1, col2 = st.columns(2)
+    with col1:
+        for index, row in df.iterrows():
+            st.markdown(f"- De productgroep {row['Productgroep']} is {row['Waarde']}% van het totale project")
+        
+    with col2:
+        variabelen = [buitenwanden, binnenwanden, vloeren, trappen_hellingen, daken, hoofddraagconstructie, buitenkozijnen, binnenkozijnen, luiken_vensters, 
+                      balustrades_leuningen, binnenwandafwerkingen, vloerafwerkingen, plafonds, na_isolatie, riolering_hwa, water_installaties, 
+                      verwarming_koeling, luchtbehandeling, elektrische_installaties, gebouwvoorzieningen, beveiliging, lift, keuken, sanitair, terreininrichting]
+        
+        #Impact themas op productgroepen
+        impact_duurzaamheid = [0.5, 0.6, 0, 0, 0.786, 0, 0.257, 0.188, 0.2, 0, 0.154, 0.15, 0, 1, 0.158, 0, 0.091, 0, 0.667, 0, 0, 0, 0.2, 0.182, 0]
+        duurzaamheid = sum([variabelen[i] * impact_duurzaamheid[i] for i in range(25)])
+        st.markdown(f"score duurzaamheid: {duurzaamheid}")
+        
+        impact_prijs = [0.042, 0.1, -0.25, 0.111, 0.143, 0, 0.086, 0.063, 0, 0, 0.231, 0, 0, 0, 0.158, 0, 0, 0.083, 0.5, 0.182, 0, 0, -0.2, 0.182, 0.111]
+        prijs = variabelen[i] * impact_prijs[i] for i in range(25)
+        st.markdown(f"score prijs: {prijs}")  
+    
+        impact_woonbeleving = [0, 0, 0.25, 0.111, 0, 0, 0.029, 0.188, 0, 0, 0.385, 0.35, 0.25, 0, 0.053, 0.111, 0.091, 0.167, 0, 0.364, 0, 0, 0.2, 0, 0]
+        woonbeleving = sum([variabelen[i] * impact_woonbeleving[i] for i in range(25)])
+        st.markdown(f"score woonbeleving: {woonbeleving}")  
+        
+        impact_kwaliteit = [0.167, 0, 0, 0.111, 0.071, 0, 0.2, 0.125, 0, 0, 0.077, 0.6, 0.25, 0, 0.053, 0.222, 0.091, 0.083, 0.667, 0.545, 0, 1, 0.2, 0, 0]
+        kwaliteit = sum([variabelen[i] * impact_kwaliteit[i] for i in range(25)])
+        st.markdown(f"score kwaliteit: {kwaliteit}")  
+        
+        impact_onderhoud = [0.042, 0, 0.25, 0, 0.214, 0, 0.086, 0, 0, 0, 0.308, 0.4, 0, 0, 0, 0, 0.091, 0.083, 0.667, 0, 0, 1, 0, 0, 0]
+        onderhoud = sum([variabelen[i] * impact_onderhoud[i] for i in range(25)])
+        st.markdown(f"score onderhoud: {onderhoud}")  
 
 
 # In[ ]:
