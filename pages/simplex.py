@@ -494,7 +494,7 @@ with tab3:
         for index, row in df.iterrows():
             st.markdown(f"- {row['Productgroep']}: {row['Waarde']}%")
         for index, row in df.interrows():
-            st.markdown(f"score duurzaamheid: {sum([row['Waarde'] * impact_duurzaamheid[i] for i in range(25)])")
+            st.markdown(f"score duurzaamheid: {sum([row['Waarde'] * impact_duurzaamheid[i] for i in range(25)])}")
 
 
 # In[ ]:
