@@ -474,7 +474,7 @@ with tab3:
         st.markdown(f"score duurzaamheid: {duurzaamheid}")
         
         impact_prijs = [0.042, 0.1, -0.25, 0.111, 0.143, 0, 0.086, 0.063, 0, 0, 0.231, 0, 0, 0, 0.158, 0, 0, 0.083, 0.5, 0.182, 0, 0, -0.2, 0.182, 0.111]
-        prijs = variabelen[i] * impact_prijs[i] for i in range(25)
+        prijs = sum([variabelen[i] * impact_prijs[i] for i in range(25)])
         st.markdown(f"score prijs: {prijs}")  
     
         impact_woonbeleving = [0, 0, 0.25, 0.111, 0, 0, 0.029, 0.188, 0, 0, 0.385, 0.35, 0.25, 0, 0.053, 0.111, 0.091, 0.167, 0, 0.364, 0, 0, 0.2, 0, 0]
