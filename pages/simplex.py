@@ -221,7 +221,7 @@ impact_onderhoud = [0.042, 0, 0.25, 0, 0.214, 0, 0.086, 0, 0, 0, 0.308, 0.4, 0, 
 onderhoud = pl.lpSum(variabelen[i] * impact_onderhoud[i] for i in range(25))
 print(prijs) 
 
-prob += weging_duurzaamheid * duurzaamheid - weging_kosten * prijs + weging_woonbeleving * woonbeleving + weging_kwaliteit * kwaliteit + weging_onderhoud * onderhoud
+prob += weging_duurzaam * duurzaamheid - weging_kosten * prijs + weging_woonbeleving * woonbeleving + weging_kwaliteit * kwaliteit + weging_onderhoud * onderhoud
 # prob += 2 * keuken + 3 * sanitair + 4 * buitenwanden + 6 * binnenwanden + 5 * elektra
 
 # Voeg beperkingen toe (voorbeeldbeperkingen)
