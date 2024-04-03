@@ -493,7 +493,7 @@ with tab3:
         st.markdown("**optimalisatie**")
         for index, row in df.iterrows():
             st.markdown(f"- {row['Productgroep']}: {row['Waarde']}%")
-        for index, row in df.interrows():
+        for index, row in df.iterrows():
             st.markdown(f"score duurzaamheid: {sum([row['Waarde'] * impact_duurzaamheid[i] for i in range(25)])}")
 
 
