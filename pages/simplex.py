@@ -358,118 +358,118 @@ with tab3:
     waardes = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
     buitenwanden_max = max_sliders(waardes)
-    buitenwanden = st.number_input('Het aandeel van de productgroep Buitenwanden', 0, 0, buitenwanden_max)
+    buitenwanden = st.number_input('Het aandeel van de productgroep Buitenwanden', value = 0, min_value = 0, max_value = buitenwanden_max)
     
     binnenwanden_max = max_sliders([buitenwanden, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
-    binnenwanden = st.number_input('Het aandeel van de productgroep Binnenwanden', 0, 0, binnenwanden_max)
+    binnenwanden = st.number_input('Het aandeel van de productgroep Binnenwanden', value = 0, min_value = 0, max_value = binnenwanden_max)
 
     vloeren_max = max_sliders([buitenwanden, binnenwanden, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
-    vloeren = st.number_input('Het aandeel van de productgroep Vloeren', 0, vloeren_max, 0)
+    vloeren = st.number_input('Het aandeel van de productgroep Vloeren', value = 0, min_value = 0, max_value = vloeren_max)
 
     trappen_hellingen_max = max_sliders([buitenwanden, binnenwanden, vloeren, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
-    trappen_hellingen = st.number_input('Het aandeel van de productgroep Trappen en hellingen', 0, 0, trappen_hellingen_max)
+    trappen_hellingen = st.number_input('Het aandeel van de productgroep Trappen en hellingen', value = 0, min_value = 0, max_value = trappen_hellingen_max)
 
     daken_max = max_sliders([buitenwanden, binnenwanden, vloeren, trappen_hellingen, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
-    daken = st.number_input('Het aandeel van de productgroep Daken', 0, 0, daken_max)
+    daken = st.number_input('Het aandeel van de productgroep Daken', value = 0, min_value = 0, max_value = daken_max)
 
     hoofddraagconstructie_max = max_sliders([buitenwanden, binnenwanden, vloeren, trappen_hellingen, daken, 
                                              0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
-    hoofddraagconstructie = st.number_input('Het aandeel van de productgroep Hoofddraagconstructie', 0, 0, hoofddraagconstructie_max)
+    hoofddraagconstructie = st.number_input('Het aandeel van de productgroep Hoofddraagconstructie', value = 0, min_value = 0, max_value = hoofddraagconstructie_max)
 
     buitenkozijnen_max = max_sliders([buitenwanden, binnenwanden, vloeren, trappen_hellingen, daken, hoofddraagconstructie, 
                                       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
-    buitenkozijnen = st.number_input('Het aandeel van de productgroep Buitenkozijnen', 0, 0, buitenkozijnen_max)
+    buitenkozijnen = st.number_input('Het aandeel van de productgroep Buitenkozijnen', value = 0, min_value = 0, max_value = buitenkozijnen_max)
 
     binnenkozijnen_max = max_sliders([buitenwanden, binnenwanden, vloeren, trappen_hellingen, daken, hoofddraagconstructie, buitenkozijnen, 
                                       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
-    binnenkozijnen = st.number_input('Het aandeel van de productgroep Binnenkozijnen', 0, 0, binnenkozijnen_max)
+    binnenkozijnen = st.number_input('Het aandeel van de productgroep Binnenkozijnen', value = 0, min_value = 0, max_value = binnenkozijnen_max)
 
     luiken_vensters_max =  max_sliders([buitenwanden, binnenwanden, vloeren, trappen_hellingen, daken, hoofddraagconstructie, buitenkozijnen, binnenkozijnen, 
                                0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
-    luiken_vensters = st.number_input('Het aandeel van de productgroep Luiken en vensters', 0, 0, luiken_vensters_max)
+    luiken_vensters = st.number_input('Het aandeel van de productgroep Luiken en vensters', value = 0, min_value = 0, max_value = luiken_vensters_max)
     
     balustrades_leuningen_max = max_sliders([buitenwanden, binnenwanden, vloeren, trappen_hellingen, daken, hoofddraagconstructie, buitenkozijnen, binnenkozijnen, 
                                    luiken_vensters, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
-    balustrades_leuningen = st.number_input('Het aandeel van de productgroep Balustrades', 0, 0, balustrades_leuningen_max)
+    balustrades_leuningen = st.number_input('Het aandeel van de productgroep Balustrades', value = 0, min_value = 0, max_value = balustrades_leuningen_max)
     
     binnenwandafwerkingen_max = max_sliders([buitenwanden, binnenwanden, vloeren, trappen_hellingen, daken, hoofddraagconstructie, buitenkozijnen, 
                                              binnenkozijnen, luiken_vensters, balustrades_leuningen, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
-    binnenwandafwerkingen = st.number_input('Het aandeel van de productgroep Binnenwandafwerkingen', 0, 0, binnenwandafwerkingen_max)
+    binnenwandafwerkingen = st.number_input('Het aandeel van de productgroep Binnenwandafwerkingen', value = 0, min_value = 0, max_value = binnenwandafwerkingen_max)
     
     vloerafwerkingen_max = max_sliders([buitenwanden, binnenwanden, vloeren, trappen_hellingen, daken, hoofddraagconstructie, buitenkozijnen, 
                                         binnenkozijnen, luiken_vensters, balustrades_leuningen, binnenwandafwerkingen, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
-    vloerafwerkingen = st.number_input('Het aandeel van de productgroep Vloerafwerkingen', 0, 0, vloerafwerkingen_max)
+    vloerafwerkingen = st.number_input('Het aandeel van de productgroep Vloerafwerkingen', value = 0, min_value = 0, max_value = vloerafwerkingen_max)
     
     plafonds_max = max_sliders([buitenwanden, binnenwanden, vloeren, trappen_hellingen, daken, hoofddraagconstructie, buitenkozijnen, 
                                         binnenkozijnen, luiken_vensters, balustrades_leuningen, binnenwandafwerkingen, vloerafwerkingen, 
                                         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
-    plafonds = st.number_input('Het aandeel van de productgroep Plafonds', 0, 0, plafonds_max)
+    plafonds = st.number_input('Het aandeel van de productgroep Plafonds', value = 0, min_value = 0, max_value = plafonds_max)
     
     na_isolatie_max =  max_sliders([buitenwanden, binnenwanden, vloeren, trappen_hellingen, daken, hoofddraagconstructie, buitenkozijnen, 
                                         binnenkozijnen, luiken_vensters, balustrades_leuningen, binnenwandafwerkingen, vloerafwerkingen, plafonds, 
                                         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
-    na_isolatie = st.number_input('Het aandeel van de productgroep Na-isolatie', 0, 0, na_isolatie_max)
+    na_isolatie = st.number_input('Het aandeel van de productgroep Na-isolatie', value = 0, min_value = 0, max_value = na_isolatie_max)
     
     riolering_hwa_max = max_sliders([buitenwanden, binnenwanden, vloeren, trappen_hellingen, daken, hoofddraagconstructie, buitenkozijnen, 
                                         binnenkozijnen, luiken_vensters, balustrades_leuningen, binnenwandafwerkingen, vloerafwerkingen, plafonds, na_isolatie, 
                                          0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
-    riolering_hwa = st.number_input('Het aandeel van de productgroep Riolering en HWA', 0, 0, riolering_hwa_max)
+    riolering_hwa = st.number_input('Het aandeel van de productgroep Riolering en HWA', value = 0, min_value = 0, max_value = riolering_hwa_max)
     
     water_installaties_max = max_sliders([buitenwanden, binnenwanden, vloeren, trappen_hellingen, daken, hoofddraagconstructie, buitenkozijnen, 
                                         binnenkozijnen, luiken_vensters, balustrades_leuningen, binnenwandafwerkingen, vloerafwerkingen, plafonds, na_isolatie, 
                                          riolering_hwa, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
-    water_installaties = st.number_input('Het aandeel van de productgroep Warm- en koud water installaties', 0, 0, water_installaties_max)
+    water_installaties = st.number_input('Het aandeel van de productgroep Warm- en koud water installaties', value = 0, min_value = 0, max_value = water_installaties_max)
     
     verwarming_koeling_max = max_sliders([buitenwanden, binnenwanden, vloeren, trappen_hellingen, daken, hoofddraagconstructie, buitenkozijnen, 
                                         binnenkozijnen, luiken_vensters, balustrades_leuningen, binnenwandafwerkingen, vloerafwerkingen, plafonds, na_isolatie, 
                                          riolering_hwa, water_installaties, 0, 0, 0, 0, 0, 0, 0, 0, 0])
-    verwarming_koeling = st.number_input('Het aandeel van de productgroep Verwarming en koeling', 0, 0, verwarming_koeling_max)
+    verwarming_koeling = st.number_input('Het aandeel van de productgroep Verwarming en koeling', value = 0, min_value = 0, max_value = verwarming_koeling_max)
 
     luchtbehandeling_max = max_sliders([buitenwanden, binnenwanden, vloeren, trappen_hellingen, daken, hoofddraagconstructie, buitenkozijnen, 
                                         binnenkozijnen, luiken_vensters, balustrades_leuningen, binnenwandafwerkingen, vloerafwerkingen, plafonds, na_isolatie, 
                                          riolering_hwa, water_installaties, verwarming_koeling, 0, 0, 0, 0, 0, 0, 0, 0])
-    luchtbehandeling = st.number_input('Het aandeel van de productgroep Luchtbehandeling', 0, 0, luchtbehandeling_max)
+    luchtbehandeling = st.number_input('Het aandeel van de productgroep Luchtbehandeling', value = 0, min_value = 0, max_value = luchtbehandeling_max)
     
     elektrische_installaties_max = max_sliders([buitenwanden, binnenwanden, vloeren, trappen_hellingen, daken, hoofddraagconstructie, buitenkozijnen, 
                                         binnenkozijnen, luiken_vensters, balustrades_leuningen, binnenwandafwerkingen, vloerafwerkingen, plafonds, na_isolatie, 
                                          riolering_hwa, water_installaties, verwarming_koeling, luchtbehandeling, 0, 0, 0, 0, 0, 0, 0])
-    elektrische_installaties = st.number_input('Het aandeel van de productgroep Elektrische installaties', 0, 0, elektrische_installaties_max)
+    elektrische_installaties = st.number_input('Het aandeel van de productgroep Elektrische installaties', value = 0, min_value = 0, max_value = elektrische_installaties_max)
     
     gebouwvoorzieningen_max = max_sliders([buitenwanden, binnenwanden, vloeren, trappen_hellingen, daken, hoofddraagconstructie, buitenkozijnen, 
                                         binnenkozijnen, luiken_vensters, balustrades_leuningen, binnenwandafwerkingen, vloerafwerkingen, plafonds, na_isolatie, 
                                          riolering_hwa, water_installaties, verwarming_koeling, luchtbehandeling, elektrische_installaties, 
                                            0, 0, 0, 0, 0, 0])
-    gebouwvoorzieningen = st.number_input('Het aandeel van de productgroep Gebouwvoorzieningen', 0, 0, gebouwvoorzieningen_max)
+    gebouwvoorzieningen = st.number_input('Het aandeel van de productgroep Gebouwvoorzieningen', value = 0, min_value = 0, max_value = gebouwvoorzieningen_max)
     
     beveiliging_max = max_sliders([buitenwanden, binnenwanden, vloeren, trappen_hellingen, daken, hoofddraagconstructie, buitenkozijnen, 
                                         binnenkozijnen, luiken_vensters, balustrades_leuningen, binnenwandafwerkingen, vloerafwerkingen, plafonds, na_isolatie, 
                                          riolering_hwa, water_installaties, verwarming_koeling, luchtbehandeling, elektrische_installaties, 
                                            gebouwvoorzieningen, 0, 0, 0, 0, 0])
-    beveiliging = st.number_input('Het aandeel van de productgroep Beveiliging', 0, 0, beveiliging_max)
+    beveiliging = st.number_input('Het aandeel van de productgroep Beveiliging', value = 0, min_value = 0, max_value = beveiliging_max)
     
     lift_max = max_sliders([buitenwanden, binnenwanden, vloeren, trappen_hellingen, daken, hoofddraagconstructie, buitenkozijnen, 
                                         binnenkozijnen, luiken_vensters, balustrades_leuningen, binnenwandafwerkingen, vloerafwerkingen, plafonds, na_isolatie, 
                                          riolering_hwa, water_installaties, verwarming_koeling, luchtbehandeling, elektrische_installaties, 
                                            gebouwvoorzieningen, beveiliging, 0, 0, 0, 0])
-    lift = st.number_input('Het aandeel van de productgroep Lift', 0, 0, lift_max)
+    lift = st.number_input('Het aandeel van de productgroep Lift', value = 0, min_value = 0, max_value = lift_max)
     
     keuken_max = max_sliders([buitenwanden, binnenwanden, vloeren, trappen_hellingen, daken, hoofddraagconstructie, buitenkozijnen, 
                                         binnenkozijnen, luiken_vensters, balustrades_leuningen, binnenwandafwerkingen, vloerafwerkingen, plafonds, na_isolatie, 
                                          riolering_hwa, water_installaties, verwarming_koeling, luchtbehandeling, elektrische_installaties, 
                                            gebouwvoorzieningen, beveiliging, lift, 0, 0, 0])
-    keuken = st.number_input('Het aandeel van de productgroep Keuken', 0, 0, keuken_max)
+    keuken = st.number_input('Het aandeel van de productgroep Keuken', value = 0, min_value = 0, max_value = keuken_max)
     
     sanitair_max = max_sliders([buitenwanden, binnenwanden, vloeren, trappen_hellingen, daken, hoofddraagconstructie, buitenkozijnen, 
                                         binnenkozijnen, luiken_vensters, balustrades_leuningen, binnenwandafwerkingen, vloerafwerkingen, plafonds, na_isolatie, 
                                          riolering_hwa, water_installaties, verwarming_koeling, luchtbehandeling, elektrische_installaties, 
                                            gebouwvoorzieningen, beveiliging, lift, keuken, 0, 0])
-    sanitair = st.number_input('Het aandeel van de productgroep Sanitair', 0, 0, sanitair_max)
+    sanitair = st.number_input('Het aandeel van de productgroep Sanitair', value = 0, min_value = 0, max_value = sanitair_max)
     
     terreininrichting_max = max_sliders([buitenwanden, binnenwanden, vloeren, trappen_hellingen, daken, hoofddraagconstructie, buitenkozijnen, 
                                         binnenkozijnen, luiken_vensters, balustrades_leuningen, binnenwandafwerkingen, vloerafwerkingen, plafonds, na_isolatie, 
                                          riolering_hwa, water_installaties, verwarming_koeling, luchtbehandeling, elektrische_installaties, 
                                            gebouwvoorzieningen, beveiliging, lift, keuken, sanitair, 0])
-    terreininrichting = st.number_input('Het aandeel van de productgroep Terreininrichting', 0, 0, terreininrichting_max)
+    terreininrichting = st.number_input('Het aandeel van de productgroep Terreininrichting', value = 0, min_value = 0, max_value = terreininrichting_max)
     
     if (buitenwanden + binnenwanden + vloeren + trappen_hellingen + daken + hoofddraagconstructie + buitenkozijnen + binnenkozijnen + 
         luiken_vensters + balustrades_leuningen + binnenwandafwerkingen + vloerafwerkingen + plafonds + na_isolatie + riolering_hwa + 
