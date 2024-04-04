@@ -227,31 +227,31 @@ prob += weging_duurzaam * duurzaamheid - weging_kosten * prijs + weging_woonbele
 # Voeg beperkingen toe (voorbeeldbeperkingen)
 prob += buitenkozijnen + lift + binnenkozijnen + binnenwandafwerkingen + vloerafwerkingen + plafonds + sanitair + keuken + buitenwanden + vloeren + daken + hoofddraagconstructie + na_isolatie + riolering_hwa + terreininrichting + verwarming_koeling + luchtbehandeling + gebouwvoorzieningen + binnenwanden + trappen_hellingen + luiken_vensters + balustrades_leuningen+ water_installaties + elektrische_installaties + beveiliging == 100
 
-prob += 9.8 >= buitenkozijnen >= 6.8
-prob += lift >= 0.4
-prob += binnenkozijnen >= 3.4
-prob += binnenwandafwerkingen >= 2.6
-prob += vloerafwerkingen >= 3.8
-prob += plafonds >= 1.1
-prob += sanitair >= 2.3
-prob += keuken >= 0.4
-prob += buitenwanden >= 6.0 
-prob += vloeren >= 1.5
-prob += daken >= 2.3
-prob += hoofddraagconstructie >= 0.8
-prob += na_isolatie >= 0.8
-prob += riolering_hwa >= 3.4 
-prob += terreininrichting >= 2.6
-prob += verwarming_koeling >= 3.0
-prob += luchtbehandeling >= 1.9
-prob += gebouwvoorzieningen >= 1.5
-prob += binnenwanden >= 3.0
-prob += trappen_hellingen >= 2.3
-prob += luiken_vensters >= 1.9
-prob += balustrades_leuningen >= 0.4
-prob += water_installaties  >= 2.3
-prob += elektrische_installaties >= 0.4
-prob += beveiliging >= 1.1
+prob += 12.8 >= buitenkozijnen >= 6.8
+prob += 0.4 >= lift >= 0.4
+prob += 6.4 >= binnenkozijnen >= 3.4
+prob += 4.5 >= binnenwandafwerkingen >= 2.6
+prob += 7.5 >= vloerafwerkingen >= 3.8
+prob += 1.5 >= plafonds >= 1.1
+prob += 3.4 >= sanitair >= 2.3
+prob += 1.9 >= keuken >= 0.4
+prob += 9.8 >= buitenwanden >= 6.0 
+prob += 1.5 >= vloeren >= 1.5
+prob += 5.3 >= daken >= 2.3
+prob += 0.8 >= hoofddraagconstructie >= 0.8
+prob += 2.3 >= na_isolatie >= 0.8
+prob += 7.1 >= riolering_hwa >= 3.4 
+prob += 3.0 >= terreininrichting >= 2.6
+prob += 4.5 >= verwarming_koeling >= 3.0
+prob += 4.5 >= luchtbehandeling >= 1.9
+prob += 4.1 >= gebouwvoorzieningen >= 1.5
+prob += 3.8 >= binnenwanden >= 3.0
+prob += 3.4 >= trappen_hellingen >= 2.3
+prob += 1.9 >= luiken_vensters >= 1.9
+prob += 0.4 >= balustrades_leuningen >= 0.4
+prob += 3.4 >= water_installaties  >= 2.3
+prob += 2.3 >= elektrische_installaties >= 0.4
+prob += 1.9 >= beveiliging >= 1.1
 
 # Los het probleem op
 status = prob.solve()
