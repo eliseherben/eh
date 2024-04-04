@@ -479,6 +479,10 @@ with tab3:
                                            gebouwvoorzieningen, beveiliging, lift, keuken, sanitair, 0.0])
     terreininrichting = st.number_input('Het aandeel van de productgroep Terreininrichting', value = 0.0, min_value = 0.0, max_value = 3.0)
     
+    st.markdown(sum(buitenwanden + binnenwanden + vloeren + trappen_hellingen + daken + hoofddraagconstructie + buitenkozijnen + binnenkozijnen + 
+        luiken_vensters + balustrades_leuningen + binnenwandafwerkingen + vloerafwerkingen + plafonds + na_isolatie + riolering_hwa + 
+        water_installaties + verwarming_koeling + luchtbehandeling + elektrische_installaties + gebouwvoorzieningen + beveiliging + 
+        lift + keuken + sanitair + terreininrichting)
     if (buitenwanden + binnenwanden + vloeren + trappen_hellingen + daken + hoofddraagconstructie + buitenkozijnen + binnenkozijnen + 
         luiken_vensters + balustrades_leuningen + binnenwandafwerkingen + vloerafwerkingen + plafonds + na_isolatie + riolering_hwa + 
         water_installaties + verwarming_koeling + luchtbehandeling + elektrische_installaties + gebouwvoorzieningen + beveiliging + 
