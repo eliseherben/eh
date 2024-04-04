@@ -482,7 +482,7 @@ with tab3:
     st.markdown(sum(buitenwanden + binnenwanden + vloeren + trappen_hellingen + daken + hoofddraagconstructie + buitenkozijnen + binnenkozijnen + 
         luiken_vensters + balustrades_leuningen + binnenwandafwerkingen + vloerafwerkingen + plafonds + na_isolatie + riolering_hwa + 
         water_installaties + verwarming_koeling + luchtbehandeling + elektrische_installaties + gebouwvoorzieningen + beveiliging + 
-        lift + keuken + sanitair + terreininrichting)
+        lift + keuken + sanitair + terreininrichting))
     if (buitenwanden + binnenwanden + vloeren + trappen_hellingen + daken + hoofddraagconstructie + buitenkozijnen + binnenkozijnen + 
         luiken_vensters + balustrades_leuningen + binnenwandafwerkingen + vloerafwerkingen + plafonds + na_isolatie + riolering_hwa + 
         water_installaties + verwarming_koeling + luchtbehandeling + elektrische_installaties + gebouwvoorzieningen + beveiliging + 
