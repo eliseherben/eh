@@ -227,31 +227,31 @@ prob += weging_duurzaam * duurzaamheid - weging_kosten * prijs + weging_woonbele
 # Voeg beperkingen toe (voorbeeldbeperkingen)
 prob += buitenkozijnen + lift + binnenkozijnen + binnenwandafwerkingen + vloerafwerkingen + plafonds + sanitair + keuken + buitenwanden + vloeren + daken + hoofddraagconstructie + na_isolatie + riolering_hwa + terreininrichting + verwarming_koeling + luchtbehandeling + gebouwvoorzieningen + binnenwanden + trappen_hellingen + luiken_vensters + balustrades_leuningen+ water_installaties + elektrische_installaties + beveiliging == 100
 
-prob += 12.8 >= buitenkozijnen >= 6.8
-prob += 0.4 >= lift >= 0.4
-prob += 6.4 >= binnenkozijnen >= 3.4
-prob += 4.5 >= binnenwandafwerkingen >= 2.6
-prob += 7.5 >= vloerafwerkingen >= 3.8
-prob += 1.5 >= plafonds >= 1.1
-prob += 3.4 >= sanitair >= 2.3
-prob += 1.9 >= keuken >= 0.4
-prob += 9.8 >= buitenwanden >= 6.0 
-prob += 1.5 >= vloeren >= 1.5
-prob += 5.3 >= daken >= 2.3
-prob += 0.8 >= hoofddraagconstructie >= 0.8
-prob += 2.3 >= na_isolatie >= 0.8
-prob += 7.1 >= riolering_hwa >= 3.4 
-prob += 3.0 >= terreininrichting >= 2.6
-prob += 4.5 >= verwarming_koeling >= 3.0
-prob += 4.5 >= luchtbehandeling >= 1.9
-prob += 4.1 >= gebouwvoorzieningen >= 1.5
-prob += 3.8 >= binnenwanden >= 3.0
-prob += 3.4 >= trappen_hellingen >= 2.3
-prob += 1.9 >= luiken_vensters >= 1.9
-prob += 0.4 >= balustrades_leuningen >= 0.4
-prob += 3.4 >= water_installaties  >= 2.3
-prob += 2.3 >= elektrische_installaties >= 0.4
-prob += 1.9 >= beveiliging >= 1.1
+prob += buitenkozijnen >= 6.8
+prob += lift >= 0.4
+prob += binnenkozijnen >= 3.4
+prob += binnenwandafwerkingen >= 2.6
+prob += vloerafwerkingen >= 3.8
+prob += plafonds >= 1.1
+prob += sanitair >= 2.3
+prob += keuken >= 0.4
+prob += buitenwanden >= 6.0 
+prob += vloeren >= 1.5
+prob += daken >= 2.3
+prob += hoofddraagconstructie >= 0.8
+prob += na_isolatie >= 0.8
+prob += riolering_hwa >= 3.4 
+prob += terreininrichting >= 2.6
+prob += verwarming_koeling >= 3.0
+prob += luchtbehandeling >= 1.9
+prob += gebouwvoorzieningen >= 1.5
+prob += binnenwanden >= 3.0
+prob += trappen_hellingen >= 2.3
+prob += luiken_vensters >= 1.9
+prob += balustrades_leuningen >= 0.4
+prob += water_installaties  >= 2.3
+prob += elektrische_installaties >= 0.4
+prob += beveiliging >= 1.1
 
 prob += buitenkozijnen <= 12.8
 prob += lift <= 0.4
@@ -479,15 +479,6 @@ with tab3:
                                            gebouwvoorzieningen, beveiliging, lift, keuken, sanitair, 0.0])
     terreininrichting = st.number_input('Het aandeel van de productgroep Terreininrichting', value = 0.0, min_value = 0.0, max_value = terreininrichting_max+0.05, step = 0.1)
     
-    st.markdown(buitenwanden + binnenwanden + vloeren + trappen_hellingen + daken + hoofddraagconstructie + buitenkozijnen + binnenkozijnen + 
-        luiken_vensters + balustrades_leuningen + binnenwandafwerkingen + vloerafwerkingen + plafonds + na_isolatie + riolering_hwa + 
-        water_installaties + verwarming_koeling + luchtbehandeling + elektrische_installaties + gebouwvoorzieningen + beveiliging + 
-        lift + keuken + sanitair + terreininrichting)
-    if (buitenwanden + binnenwanden + vloeren + trappen_hellingen + daken + hoofddraagconstructie + buitenkozijnen + binnenkozijnen + 
-        luiken_vensters + balustrades_leuningen + binnenwandafwerkingen + vloerafwerkingen + plafonds + na_isolatie + riolering_hwa + 
-        water_installaties + verwarming_koeling + luchtbehandeling + elektrische_installaties + gebouwvoorzieningen + beveiliging + 
-        lift + keuken + sanitair + terreininrichting) > 100.15:
-        st.error("Error: File size is too large.")
 
 
 # In[5]:
@@ -533,12 +524,11 @@ with tab3:
         st.markdown("**optimalisatie**")
         for index, row in df.iterrows():
             st.markdown(f"- {row['Productgroep']}: {row['Waarde']}%")
-        for index, row in df.iterrows():
-            duurzaam2 = sum([row['Waarde'] * impact_duurzaamheid[i] for i in range(25)])
-            prijs2 = sum([row['Waarde'] * impact_prijs[i] for i in range(25)])
-            woonbeleving2 = sum([row['Waarde'] * impact_woonbeleving[i] for i in range(25)])
-            kwaliteit2 = sum([row['Waarde'] * impact_kwaliteit[i] for i in range(25)])
-            onderhoud2 = sum([row['Waarde'] * impact_onderhoud[i] for i in range(25)])
+        duurzaam2 = sum([df['Waarde'][i] * impact_duurzaamheid[i] for i in range(25)])
+        prijs2 = sum([df['Waarde'][i] * impact_prijs[i] for i in range(25)])
+        woonbeleving2 = sum([df['Waarde'][i] * impact_woonbeleving[i] for i in range(25)])
+        kwaliteit2 = sum([df['Waarde'][i] * impact_kwaliteit[i] for i in range(25)])
+        onderhoud2 = sum([df['Waarde'][i] * impact_onderhoud[i] for i in range(25)])
         st.markdown(f"score duurzaamheid: {duurzaam2}")
         st.markdown(f"score prijs: {prijs2}")
         st.markdown(f"score woonbeleving: {woonbeleving2}")
@@ -546,16 +536,17 @@ with tab3:
         st.markdown(f"score onderhoud: {onderhoud2}")
 
 
-# In[ ]:
+# In[2]:
 
 
+test1 = [0.5, 0.6, 0, 0, 0.786, 0, 0.257, 0.188, 0.2, 0, 0.154, 0.15, 0, 1, 0.158, 0, 0.091, 0, 0.667, 0, 0, 0, 0.2, 0.182, 0]
+test2 = [9.8, 3.8, 1.5, 3.4, 5.3, 0.8, 12.8, 6.4, 1.9, 0.4, 4.5, 7.5, 1.5, 2.3, 7.1, 3.4, 4.5, 4.5, 2.3, 5.7, 1.9, 0.4, 1.9, 3.4, 3.0]
 
 
-
-# In[ ]:
-
+# In[3]:
 
 
+sum([test1[i] * test2[i] for i in range(25)])
 
 
 # In[ ]:
