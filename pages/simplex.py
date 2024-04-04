@@ -531,7 +531,7 @@ with tab3:
         onderhoud2 = sum([df['Waarde'][i] * impact_onderhoud[i] for i in range(25)])
         st.markdown(f"score duurzaamheid: {duurzaam2/sum(impact_duurzaam)}")
         st.markdown(f"score prijs: {prijs2/sum(impact_prijs)}")
-        st.markdown(f"score woonbeleving: {woonbeleving2/sum(impact_woonbeleving}")
+        st.markdown(f"score woonbeleving: {woonbeleving2/sum(impact_woonbeleving)}")
         st.markdown(f"score kwaliteit: {kwaliteit2/sum(impact_kwaliteit)}")
         st.markdown(f"score onderhoud: {onderhoud2/sum(impact_onderhoud)}")
 
