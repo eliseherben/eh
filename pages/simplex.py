@@ -464,7 +464,7 @@ with tab3:
     keuken_max = max_sliders([buitenwanden, binnenwanden, vloeren, trappen_hellingen, daken, hoofddraagconstructie, buitenkozijnen, 
                                 binnenkozijnen, luiken_vensters, balustrades_leuningen, binnenwandafwerkingen, vloerafwerkingen, plafonds, na_isolatie, 
                                 riolering_hwa, water_installaties, verwarming_koeling, luchtbehandeling, elektrische_installaties, 
-                                gebouwvoorzieningen, beveiliging, lift, 0.0, 0.0, 0.0)
+                                gebouwvoorzieningen, beveiliging, lift, 0.0, 0.0, 0.0])
     keuken = st.number_input('Het aandeel van de productgroep Keuken', value = 0, min_value = 0, max_value = keuken_max)
     
     sanitair_max = max_sliders([buitenwanden, binnenwanden, vloeren, trappen_hellingen, daken, hoofddraagconstructie, buitenkozijnen, 
