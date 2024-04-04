@@ -227,7 +227,7 @@ prob += weging_duurzaam * duurzaamheid - weging_kosten * prijs + weging_woonbele
 # Voeg beperkingen toe (voorbeeldbeperkingen)
 prob += buitenkozijnen + lift + binnenkozijnen + binnenwandafwerkingen + vloerafwerkingen + plafonds + sanitair + keuken + buitenwanden + vloeren + daken + hoofddraagconstructie + na_isolatie + riolering_hwa + terreininrichting + verwarming_koeling + luchtbehandeling + gebouwvoorzieningen + binnenwanden + trappen_hellingen + luiken_vensters + balustrades_leuningen+ water_installaties + elektrische_installaties + beveiliging == 100
 
-prob += buitenkozijnen >= 6.8
+prob += 9.8 >= buitenkozijnen >= 6.8
 prob += lift >= 0.4
 prob += binnenkozijnen >= 3.4
 prob += binnenwandafwerkingen >= 2.6
