@@ -355,13 +355,13 @@ with tab3:
         max_waarde = 100 - sum(waardes)
         return max_waarde
     
-    waardes = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    waardes = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
 
     buitenwanden_max = max_sliders(waardes)
-    buitenwanden = st.number_input('Het aandeel van de productgroep Buitenwanden', value = 0, min_value = 0, max_value = buitenwanden_max)
+    buitenwanden = st.number_input('Het aandeel van de productgroep Buitenwanden', value = 0.0, min_value = 0.0, max_value = buitenwanden_max)
     
-    binnenwanden_max = max_sliders([buitenwanden, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
-    binnenwanden = st.number_input('Het aandeel van de productgroep Binnenwanden', value = 0, min_value = 0, max_value = binnenwanden_max)
+    binnenwanden_max = max_sliders([buitenwanden, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
+    binnenwanden = st.number_input('Het aandeel van de productgroep Binnenwanden', value = 0.0, min_value = 0.0, max_value = binnenwanden_max)
 
     vloeren_max = max_sliders([buitenwanden, binnenwanden, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
     vloeren = st.number_input('Het aandeel van de productgroep Vloeren', value = 0, min_value = 0, max_value = vloeren_max)
