@@ -253,6 +253,32 @@ prob += 3.4 >= water_installaties  >= 2.3
 prob += 2.3 >= elektrische_installaties >= 0.4
 prob += 1.9 >= beveiliging >= 1.1
 
+prob += buitenkozijnen <= 12.8
+prob += lift <= 0.4
+prob += binnenkozijnen <= 6.4
+prob += binnenwandafwerkingen <= 4.5
+prob += vloerafwerkingen <= 7.5
+prob += plafonds <= 1.5
+prob += sanitair <= 3.4
+prob += keuken <= 1.9
+prob += buitenwanden <= 9.8 
+prob += vloeren <= 1.5
+prob += daken <= 5.3
+prob += hoofddraagconstructie <= 0.8
+prob += na_isolatie <= 2.3
+prob += riolering_hwa <= 7.1 
+prob += terreininrichting <= 3.0
+prob += verwarming_koeling <= 4.5
+prob += luchtbehandeling <= 4.5
+prob += gebouwvoorzieningen <= 4.1
+prob += binnenwanden <= 3.8
+prob += trappen_hellingen <= 3.4
+prob += luiken_vensters <= 1.9
+prob += balustrades_leuningen <= 0.4
+prob += water_installaties  <= 3.4
+prob += elektrische_installaties <= 2.3
+prob += beveiliging <= 1.9
+
 # Los het probleem op
 status = prob.solve()
 
