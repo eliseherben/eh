@@ -49,6 +49,12 @@ with tab1:
     index = None,
     placeholder = "Selecteer de fase van het project"
     )
+
+    st.markdown("**Projectbestand**")
+    uploaded_file = st.file_uploader("Choose a file")
+    if uploaded_file is not None:
+        dataframe = pd.read_csv(uploaded_file)
+        st.write(dataframe)
     
     st.markdown("**Budget**")
     st.number_input("Vul het budget in voor het huidige project", value=None, placeholder="Typ een bedrag")
